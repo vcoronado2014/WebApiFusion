@@ -1,0 +1,12 @@
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\VCFramework.NegocioMySql.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\VCFramework.NegocioMySql.pdb
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\Newtonsoft.Json.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\VCFramework.Entidad.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\VCFramework.EntidadFuncional.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\VCFramework.Negocio.Factory.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\VCFramework.EntidadFuncional.pdb
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\VCFramework.Entidad.pdb
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\bin\Release\Newtonsoft.Json.xml
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.pdb

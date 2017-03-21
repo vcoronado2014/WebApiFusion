@@ -1,0 +1,5 @@
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
