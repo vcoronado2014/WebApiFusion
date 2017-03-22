@@ -207,7 +207,7 @@ namespace WebApi.Asambleas.Controllers
                 if (id != "0")
                 {
                     //es modificado
-                    List<VCFramework.Entidad.ListaTricel> triceles = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(int.Parse(id));
+                    List<VCFramework.Entidad.ListaTricel> triceles = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorId(int.Parse(id));
                     if (triceles.Count == 1)
                     {
                         tricel = triceles[0];

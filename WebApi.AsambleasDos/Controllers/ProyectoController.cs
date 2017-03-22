@@ -72,6 +72,7 @@ namespace WebApi.AsambleasDos.Controllers
                         us.OtroUno = DateTime.Parse(tri.FechaInicio.ToShortDateString(), culture).ToShortDateString().Replace("/", "-");
                         us.OtroDos = DateTime.Parse(tri.FechaTermino.ToShortDateString(), culture).ToShortDateString().Replace("/", "-");
                         us.OtroTres = tri.FechaCreacion.ToShortDateString();
+                        us.OtroCuatro = tri.Costo.ToString();
 
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
 
