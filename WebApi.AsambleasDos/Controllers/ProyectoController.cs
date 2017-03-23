@@ -75,6 +75,8 @@ namespace WebApi.AsambleasDos.Controllers
                         us.OtroCuatro = tri.Costo.ToString();
 
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
+                        us.Rol = tri.Beneficios;
+                        us.OtroSeis = tri.Descripcion; 
 
                         us.Url = "CrearModificarProyecto.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarProyecto.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
@@ -119,6 +121,8 @@ namespace WebApi.AsambleasDos.Controllers
             string fechaTermino = data.FechaTermino;
             string usuId = data.IdUsuario;
             string costo = data.Costo;
+            string beneficios = data.Beneficios;
+            string descripcion = data.Descripcion;
 
 
 
@@ -144,6 +148,8 @@ namespace WebApi.AsambleasDos.Controllers
                         tricel.Nombre = nombre;
                         tricel.Objetivo = objetivo;
                         tricel.Costo = int.Parse(costo);
+                        tricel.Beneficios = beneficios;
+                        tricel.Descripcion = descripcion;
                         VCFramework.NegocioMySQL.Proyectos.Modificar(tricel);
                         
                     }
@@ -164,6 +170,8 @@ namespace WebApi.AsambleasDos.Controllers
                     tricel.FueAprobado = 1;
                     tricel.NotificaPopup = 1;
                     tricel.FechaCreacion = DateTime.Now;
+                    tricel.Beneficios = beneficios;
+                    tricel.Descripcion = descripcion;
                     tricel.Id = VCFramework.NegocioMySQL.Proyectos.Insertar(tricel);
                 }
 
