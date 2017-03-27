@@ -146,6 +146,17 @@ namespace WebApi.Asambleas.Controllers
 
                     VCFramework.NegocioMySQL.ListaTricel.Eliminar(inst);
 
+                    List<VCFramework.Entidad.UsuarioLista> usuariosLista = VCFramework.NegocioMySQL.UsuarioLista.Obtener(int.Parse(id));
+                    if (usuariosLista != null && usuariosLista.Count > 0)
+                    {
+                        foreach(VCFramework.Entidad.UsuarioLista usl in usuariosLista)
+                        {
+                            VCFramework.NegocioMySQL.UsuarioLista.Eliminar(usl);
+                        }
+                    }
+
+
+
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(inst);
                     httpResponse.Content = new StringContent(JSON);
@@ -228,9 +239,297 @@ namespace WebApi.Asambleas.Controllers
                         tricel.Descripcion = descripcion;
                         tricel.Beneficios = beneficios;
                         VCFramework.NegocioMySQL.ListaTricel.Modificar(tricel);
-                        
+
                     }
                     ///agrgar los cambios para que pueda soportar la inserciòn de los usuarios listas
+                    ///
+                    #region listas de usuario
+                    //verificamos si existen listas de usuario
+                    List<VCFramework.Entidad.UsuarioLista> usuariosLista = VCFramework.NegocioMySQL.UsuarioLista.Obtener(int.Parse(id));
+                    if (usuariosLista != null && usuariosLista.Count > 0)
+                    {
+                        //presidente
+                        VCFramework.Entidad.UsuarioLista uslPresidente = usuariosLista.Find(p => p.Rol == "Presidente");
+                        if (uslPresidente != null && uslPresidente.Id > 0 && data.UsuIdPresidente != null)
+                        {
+                            uslPresidente.UsuId = int.Parse(usuIdPresidente);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslPresidente);
+                        }
+                        else
+                        {
+                            if (data.UsuIdPresidente != null) { 
+                            uslPresidente = new VCFramework.Entidad.UsuarioLista();
+                            uslPresidente.Eliminado = 0;
+                            uslPresidente.LtrId = int.Parse(id);
+                            uslPresidente.Rol = "Presidente";
+                            uslPresidente.UsuId = int.Parse(usuIdPresidente);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslPresidente);
+                            }
+                        }
+                        //vicepresidente
+                        VCFramework.Entidad.UsuarioLista uslVicePresidente = usuariosLista.Find(p => p.Rol == "VicePresidente");
+                        if (uslVicePresidente != null && uslVicePresidente.Id > 0 && data.UsuIdVice != null)
+                        {
+                            uslVicePresidente.UsuId = int.Parse(usuIdVicePresidente);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslVicePresidente);
+                        }
+                        else
+                        {
+                            if (data.UsuIdVice != null)
+                            {
+                                uslVicePresidente = new VCFramework.Entidad.UsuarioLista();
+                                uslVicePresidente.Eliminado = 0;
+                                uslVicePresidente.LtrId = int.Parse(id);
+                                uslVicePresidente.Rol = "VicePresidente";
+                                uslVicePresidente.UsuId = int.Parse(usuIdVicePresidente);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslVicePresidente);
+                            }
+                        }
+                        //secretario
+                        VCFramework.Entidad.UsuarioLista uslSecretario = usuariosLista.Find(p => p.Rol == "Secretario");
+                        if (uslSecretario != null && uslSecretario.Id > 0 && data.UsuIdSecretario != null)
+                        {
+                            uslSecretario.UsuId = int.Parse(usuIdSecretario);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslSecretario);
+                        }
+                        else
+                        {
+                            if (data.UsuIdSecretario != null)
+                            {
+                                uslSecretario = new VCFramework.Entidad.UsuarioLista();
+                                uslSecretario.Eliminado = 0;
+                                uslSecretario.LtrId = int.Parse(id);
+                                uslSecretario.Rol = "Secretario";
+                                uslSecretario.UsuId = int.Parse(usuIdSecretario);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslSecretario);
+                            }
+                        }
+                        //tesorero
+                        VCFramework.Entidad.UsuarioLista uslTesorero = usuariosLista.Find(p => p.Rol == "Tesorero");
+                        if (uslTesorero != null && uslTesorero.Id > 0 && data.UsuIdTesorero != null)
+                        {
+                            uslTesorero.UsuId = int.Parse(usuIdTesorero);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslTesorero);
+                        }
+                        else
+                        {
+                            if (data.UsuIdTesorero != null)
+                            {
+                                uslTesorero = new VCFramework.Entidad.UsuarioLista();
+                                uslTesorero.Eliminado = 0;
+                                uslTesorero.LtrId = int.Parse(id);
+                                uslTesorero.Rol = "Tesorero";
+                                uslTesorero.UsuId = int.Parse(usuIdTesorero);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslTesorero);
+                            }
+                        }
+                        //OtroUno
+                        VCFramework.Entidad.UsuarioLista uslOtroUno = usuariosLista.Find(p => p.Rol == "OtroUno");
+                        if (uslOtroUno != null && uslOtroUno.Id > 0 && data.UsuIdOtroUno != null)
+                        {
+                            uslOtroUno.UsuId = int.Parse(usuIdOtroUno);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslOtroUno);
+                        }
+                        else
+                        {
+                            if (data.UsuIdOtroUno != null)
+                            {
+                                uslOtroUno = new VCFramework.Entidad.UsuarioLista();
+                                uslOtroUno.Eliminado = 0;
+                                uslOtroUno.LtrId = int.Parse(id);
+                                uslOtroUno.Rol = "OtroUno";
+                                uslOtroUno.UsuId = int.Parse(usuIdOtroUno);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroUno);
+                            }
+                        }
+                        //OtroDos
+                        VCFramework.Entidad.UsuarioLista uslOtroDos = usuariosLista.Find(p => p.Rol == "OtroDos");
+                        if (uslOtroDos != null && uslOtroDos.Id > 0 && data.UsuIdOtroDos != null)
+                        {
+                            uslOtroDos.UsuId = int.Parse(usuIdOtroDos);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslOtroDos);
+                        }
+                        else
+                        {
+                            if (data.UsuIdOtroDos != null)
+                            {
+                                uslOtroDos = new VCFramework.Entidad.UsuarioLista();
+                                uslOtroDos.Eliminado = 0;
+                                uslOtroDos.LtrId = int.Parse(id);
+                                uslOtroDos.Rol = "OtroDos";
+                                uslOtroDos.UsuId = int.Parse(usuIdOtroDos);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroDos);
+                            }
+                        }
+                        //OtroTres
+                        VCFramework.Entidad.UsuarioLista uslOtroTres = usuariosLista.Find(p => p.Rol == "OtroTres");
+                        if (uslOtroTres != null && uslOtroTres.Id > 0 && data.UsuIdOtroTres != null)
+                        {
+                            uslOtroTres.UsuId = int.Parse(usuIdOtroTres);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslOtroTres);
+                        }
+                        else
+                        {
+                            if (data.UsuIdOtroTres != null)
+                            {
+                                uslOtroTres = new VCFramework.Entidad.UsuarioLista();
+                                uslOtroTres.Eliminado = 0;
+                                uslOtroTres.LtrId = int.Parse(id);
+                                uslOtroTres.Rol = "OtroTres";
+                                uslOtroTres.UsuId = int.Parse(usuIdOtroTres);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroTres);
+                            }
+                        }
+                        //OtroCuatro
+                        VCFramework.Entidad.UsuarioLista uslOtroCuatro = usuariosLista.Find(p => p.Rol == "OtroCuatro");
+                        if (uslOtroCuatro != null && uslOtroCuatro.Id > 0 && data.UsuIdOtroCuatro != null)
+                        {
+                            uslOtroCuatro.UsuId = int.Parse(usuIdOtroCuatro);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslOtroCuatro);
+                        }
+                        else
+                        {
+                            if (data.UsuIdOtroCuatro != null)
+                            {
+                                uslOtroCuatro = new VCFramework.Entidad.UsuarioLista();
+                                uslOtroCuatro.Eliminado = 0;
+                                uslOtroCuatro.LtrId = int.Parse(id);
+                                uslOtroCuatro.Rol = "OtroCuatro";
+                                uslOtroCuatro.UsuId = int.Parse(usuIdOtroCuatro);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroCuatro);
+                            }
+                        }
+                        //OtroCinco
+                        VCFramework.Entidad.UsuarioLista uslOtroCinco = usuariosLista.Find(p => p.Rol == "OtroCinco");
+                        if (uslOtroCinco != null && uslOtroCinco.Id > 0 && data.UsuIdOtroCinco != null)
+                        {
+                            uslOtroCinco.UsuId = int.Parse(usuIdOtroCinco);
+                            VCFramework.NegocioMySQL.UsuarioLista.Modificar(uslOtroCinco);
+                        }
+                        else
+                        {
+                            if (data.UsuIdOtroCinco != null)
+                            {
+                                uslOtroCinco = new VCFramework.Entidad.UsuarioLista();
+                                uslOtroCinco.Eliminado = 0;
+                                uslOtroCinco.LtrId = int.Parse(id);
+                                uslOtroCinco.Rol = "OtroCinco";
+                                uslOtroCinco.UsuId = int.Parse(usuIdOtroCinco);
+                                VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroCinco);
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        #region listas de usuario
+                        //verificamos si existen listas de usuario
+                        //presidente
+                        if (data.UsuIdPresidente != null)
+                        {
+                            VCFramework.Entidad.UsuarioLista uslPresidente = new VCFramework.Entidad.UsuarioLista();
+
+                            uslPresidente.Eliminado = 0;
+                            uslPresidente.LtrId = int.Parse(id);
+                            uslPresidente.Rol = "Presidente";
+                            uslPresidente.UsuId = int.Parse(usuIdPresidente);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslPresidente);
+                        }
+                        if (data.UsuIdVicePresidente != null)
+                        {
+                            //vicepresidente
+                            VCFramework.Entidad.UsuarioLista uslVicePresidente = new VCFramework.Entidad.UsuarioLista();
+
+                            uslVicePresidente.Eliminado = 0;
+                            uslVicePresidente.LtrId = int.Parse(id);
+                            uslVicePresidente.Rol = "VicePresidente";
+                            uslVicePresidente.UsuId = int.Parse(usuIdVicePresidente);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslVicePresidente);
+                        }
+                        if (data.UsuIdSecretario != null)
+                        {
+                            //secretario
+                            VCFramework.Entidad.UsuarioLista uslSecretario = new VCFramework.Entidad.UsuarioLista();
+
+                            uslSecretario.Eliminado = 0;
+                            uslSecretario.LtrId = int.Parse(id);
+                            uslSecretario.Rol = "Secretario";
+                            uslSecretario.UsuId = int.Parse(usuIdSecretario);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslSecretario);
+                        }
+                        if (data.UsuIdTesorero != null)
+                        {
+                            //tesorero
+                            VCFramework.Entidad.UsuarioLista uslTesorero = new VCFramework.Entidad.UsuarioLista();
+
+                            uslTesorero.Eliminado = 0;
+                            uslTesorero.LtrId = int.Parse(id);
+                            uslTesorero.Rol = "Tesorero";
+                            uslTesorero.UsuId = int.Parse(usuIdTesorero);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslTesorero);
+                        }
+                        if (data.UsuIdOtroUno != null)
+                        {
+                            //OtroUno
+                            VCFramework.Entidad.UsuarioLista uslOtroUno = new VCFramework.Entidad.UsuarioLista();
+
+                            uslOtroUno.Eliminado = 0;
+                            uslOtroUno.LtrId = int.Parse(id);
+                            uslOtroUno.Rol = "OtroUno";
+                            uslOtroUno.UsuId = int.Parse(usuIdOtroUno);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroUno);
+                        }
+                        if (data.UsuIdOtroDos != null)
+                        {
+                            //OtroDos
+                            VCFramework.Entidad.UsuarioLista uslOtroDos = new VCFramework.Entidad.UsuarioLista();
+
+                            uslOtroDos.Eliminado = 0;
+                            uslOtroDos.LtrId = int.Parse(id);
+                            uslOtroDos.Rol = "OtroDos";
+                            uslOtroDos.UsuId = int.Parse(usuIdOtroDos);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroDos);
+                        }
+                        if (data.UsuIdOtroTres != null)
+                        {
+                            //OtroTres
+                            VCFramework.Entidad.UsuarioLista uslOtroTres = new VCFramework.Entidad.UsuarioLista();
+
+                            uslOtroTres.Eliminado = 0;
+                            uslOtroTres.LtrId = int.Parse(id);
+                            uslOtroTres.Rol = "OtroTres";
+                            uslOtroTres.UsuId = int.Parse(usuIdOtroTres);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroTres);
+                        }
+                        if (data.UsuIdOtroCuatro != null)
+                        {
+                            //OtroCuatro
+                            VCFramework.Entidad.UsuarioLista uslOtroCuatro = new VCFramework.Entidad.UsuarioLista();
+
+                            uslOtroCuatro.Eliminado = 0;
+                            uslOtroCuatro.LtrId = int.Parse(id);
+                            uslOtroCuatro.Rol = "OtroCuatro";
+                            uslOtroCuatro.UsuId = int.Parse(usuIdOtroCuatro);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroCuatro);
+                        }
+                        if (data.UsuIdOtroCinco != null)
+                        {
+                            //OtroCinco
+                            VCFramework.Entidad.UsuarioLista uslOtroCinco = new VCFramework.Entidad.UsuarioLista();
+
+                            uslOtroCinco.Eliminado = 0;
+                            uslOtroCinco.LtrId = int.Parse(id);
+                            uslOtroCinco.Rol = "OtroCinco";
+                            uslOtroCinco.UsuId = int.Parse(usuIdOtroCinco);
+                            VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroCinco);
+
+                        }
+
+
+                        #endregion
+                    }
+
+                    #endregion
                 }
                 else
                 {
@@ -247,6 +546,115 @@ namespace WebApi.Asambleas.Controllers
                     tricel.TriId = int.Parse(triId);
                     tricel.UsuId = int.Parse(usuId);
                     tricel.Id = VCFramework.NegocioMySQL.ListaTricel.Insertar(tricel);
+                    id = tricel.Id.ToString();
+
+                    ///agrgar los cambios para que pueda soportar la inserciòn de los usuarios listas
+                    ///
+                    #region listas de usuario
+                    //verificamos si existen listas de usuario
+                    //presidente
+                    if (data.UsuIdPresidente != null)
+                    {
+                        VCFramework.Entidad.UsuarioLista uslPresidente = new VCFramework.Entidad.UsuarioLista();
+
+                        uslPresidente.Eliminado = 0;
+                        uslPresidente.LtrId = int.Parse(id);
+                        uslPresidente.Rol = "Presidente";
+                        uslPresidente.UsuId = int.Parse(usuIdPresidente);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslPresidente);
+                    }
+                    if (data.UsuIdVicePresidente != null)
+                    {
+                        //vicepresidente
+                        VCFramework.Entidad.UsuarioLista uslVicePresidente = new VCFramework.Entidad.UsuarioLista();
+
+                        uslVicePresidente.Eliminado = 0;
+                        uslVicePresidente.LtrId = int.Parse(id);
+                        uslVicePresidente.Rol = "VicePresidente";
+                        uslVicePresidente.UsuId = int.Parse(usuIdVicePresidente);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslVicePresidente);
+                    }
+                    if (data.UsuIdSecretario != null)
+                    {
+                        //secretario
+                        VCFramework.Entidad.UsuarioLista uslSecretario = new VCFramework.Entidad.UsuarioLista();
+
+                        uslSecretario.Eliminado = 0;
+                        uslSecretario.LtrId = int.Parse(id);
+                        uslSecretario.Rol = "Secretario";
+                        uslSecretario.UsuId = int.Parse(usuIdSecretario);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslSecretario);
+                    }
+                    if (data.UsuIdTesorero != null)
+                    {
+                        //tesorero
+                        VCFramework.Entidad.UsuarioLista uslTesorero = new VCFramework.Entidad.UsuarioLista();
+
+                        uslTesorero.Eliminado = 0;
+                        uslTesorero.LtrId = int.Parse(id);
+                        uslTesorero.Rol = "Tesorero";
+                        uslTesorero.UsuId = int.Parse(usuIdTesorero);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslTesorero);
+                    }
+                    if (data.UsuIdOtroUno != null)
+                    {
+                        //OtroUno
+                        VCFramework.Entidad.UsuarioLista uslOtroUno = new VCFramework.Entidad.UsuarioLista();
+
+                        uslOtroUno.Eliminado = 0;
+                        uslOtroUno.LtrId = int.Parse(id);
+                        uslOtroUno.Rol = "OtroUno";
+                        uslOtroUno.UsuId = int.Parse(usuIdOtroUno);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroUno);
+                    }
+                    if (data.UsuIdOtroDos != null)
+                    {
+                        //OtroDos
+                        VCFramework.Entidad.UsuarioLista uslOtroDos = new VCFramework.Entidad.UsuarioLista();
+
+                        uslOtroDos.Eliminado = 0;
+                        uslOtroDos.LtrId = int.Parse(id);
+                        uslOtroDos.Rol = "OtroDos";
+                        uslOtroDos.UsuId = int.Parse(usuIdOtroDos);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroDos);
+                    }
+                    if (data.UsuIdOtroTres != null)
+                    {
+                        //OtroTres
+                        VCFramework.Entidad.UsuarioLista uslOtroTres = new VCFramework.Entidad.UsuarioLista();
+
+                        uslOtroTres.Eliminado = 0;
+                        uslOtroTres.LtrId = int.Parse(id);
+                        uslOtroTres.Rol = "OtroTres";
+                        uslOtroTres.UsuId = int.Parse(usuIdOtroTres);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroTres);
+                    }
+                    if (data.UsuIdOtroCuatro != null)
+                    {
+                        //OtroCuatro
+                        VCFramework.Entidad.UsuarioLista uslOtroCuatro = new VCFramework.Entidad.UsuarioLista();
+
+                        uslOtroCuatro.Eliminado = 0;
+                        uslOtroCuatro.LtrId = int.Parse(id);
+                        uslOtroCuatro.Rol = "OtroCuatro";
+                        uslOtroCuatro.UsuId = int.Parse(usuIdOtroCuatro);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroCuatro);
+                    }
+                    if (data.UsuIdOtroCinco != null)
+                    {
+                        //OtroCinco
+                        VCFramework.Entidad.UsuarioLista uslOtroCinco = new VCFramework.Entidad.UsuarioLista();
+
+                        uslOtroCinco.Eliminado = 0;
+                        uslOtroCinco.LtrId = int.Parse(id);
+                        uslOtroCinco.Rol = "OtroCinco";
+                        uslOtroCinco.UsuId = int.Parse(usuIdOtroCinco);
+                        VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslOtroCinco);
+
+                    }
+
+
+                    #endregion
                 }
 
 

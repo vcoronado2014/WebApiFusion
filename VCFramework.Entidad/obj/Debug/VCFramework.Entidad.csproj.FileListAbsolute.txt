@@ -7,3 +7,8 @@ C:\WEB_API_NUEVA\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.
 C:\WEB_API_NUEVA\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
 C:\WEB_API_NUEVA\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 C:\WEB_API_NUEVA\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
