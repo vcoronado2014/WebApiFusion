@@ -81,5 +81,11 @@ namespace VCFramework.NegocioMySQL
 
             return retorno;
         }
+        public static int Insertar(VCFramework.Entidad.Votaciones entidad)
+        {
+            VCFramework.Negocio.Factory.Factory fac = new Factory();
+            return fac.Insertar<Entidad.Votaciones>(entidad, setCnsWebLun);
+        }
+
     }
 }

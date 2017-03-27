@@ -64,6 +64,39 @@ namespace WebApi.Asambleas.Controllers
 
 
                 }
+                if (nombreGrafico == "PROYECTOS")
+                {
+
+                    //EN ESTE GRAFICO EL INSTID ES EL PROYECTO ID
+                    List<VCFramework.Entidad.Votaciones> graficos = VCFramework.NegocioMySQL.Votaciones.ObtenerVotaciones(instIdBuscar);
+                    if (graficos != null && graficos.Count > 0)
+                    {
+                        int totalIngresos = graficos.FindAll(p => p.Valor == 1).Count;
+                        int totalEgresos = graficos.FindAll(p => p.Valor == 0).Count;
+                        VCFramework.Entidad.Grafico grIngreso = new Grafico();
+                        VCFramework.Entidad.Grafico grEgreso = new Grafico();
+                        grIngreso.value = totalIngresos;
+                        grIngreso.label = "Sí";
+                        retorno.Add(grIngreso);
+                        grEgreso.value = totalEgresos;
+                        grEgreso.label = "No";
+                        retorno.Add(grEgreso);
+                    }
+                    else
+                    {
+                        VCFramework.Entidad.Grafico grSi = new Grafico();
+                        VCFramework.Entidad.Grafico grNo = new Grafico();
+                        grSi.value = 0;
+                        grSi.label = "Sí";
+                        retorno.Add(grSi);
+                        grNo.value = 0;
+                        grNo.label = "No";
+                        retorno.Add(grNo);
+                    }
+
+
+
+                }
                 httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                 String JSON = JsonConvert.SerializeObject(retorno);
                 httpResponse.Content = new StringContent(JSON);

@@ -67,10 +67,12 @@
     <Compile Include="Proyectos.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="ResponsableTricel.cs" />
+    <Compile Include="ResponsableTricelEnvoltorio.cs" />
     <Compile Include="RlAccFunUsu.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="Tricel.cs" />
     <Compile Include="UsuarioLista.cs" />
+    <Compile Include="UsuarioListaTricel.cs" />
     <Compile Include="VinculosInstitucion.cs" />
     <Compile Include="Votaciones.cs" />
     <Compile Include="VotTricel.cs" />

@@ -42,6 +42,9 @@ namespace VCFramework.EntidadFuncional
 
         public String OtroCinco { get; set; }
         public String OtroSeis { get; set; }
+        public String OtroSiete { get; set; }
+        public String OtroOcho { get; set; }
+        public String OtroNueve { get; set; }
 
         public String UrlDocumento { get; set; }
     }

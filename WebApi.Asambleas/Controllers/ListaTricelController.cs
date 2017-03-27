@@ -187,6 +187,16 @@ namespace WebApi.Asambleas.Controllers
             string triId = data.TriId;
             string rolId = data.RolId;
 
+            string usuIdPresidente = data.UsuIdPresidente;
+            string usuIdVicePresidente = data.UsuIdVice;
+            string usuIdTesorero = data.UsuIdTesorero;
+            string usuIdSecretario = data.UsuIdSecretario;
+            string usuIdOtroUno = data.UsuIdOtroUno;
+            string usuIdOtroDos = data.UsuIdOtroDos;
+            string usuIdOtroTres = data.UsuIdOtroTres;
+            string usuIdOtroCuatro = data.UsuIdOtroCuatro;
+            string usuIdOtroCinco = data.UsuIdOtroCinco;
+
 
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
@@ -220,6 +230,7 @@ namespace WebApi.Asambleas.Controllers
                         VCFramework.NegocioMySQL.ListaTricel.Modificar(tricel);
                         
                     }
+                    ///agrgar los cambios para que pueda soportar la inserciòn de los usuarios listas
                 }
                 else
                 {

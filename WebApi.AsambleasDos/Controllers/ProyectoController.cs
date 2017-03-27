@@ -28,6 +28,7 @@ namespace WebApi.AsambleasDos.Controllers
             string Input = JsonConvert.SerializeObject(DynamicClass);
 
             dynamic data = JObject.Parse(Input);
+            string usuId = "0";
 
             string buscarNombreUsuario = "";
             if (data.BuscarId != null)
@@ -38,7 +39,8 @@ namespace WebApi.AsambleasDos.Controllers
             //validaciones antes de ejecutar la llamada.
             if (data.InstId == 0)
                 throw new ArgumentNullException("InstId");
-
+            if (data.UsuId != null)
+                usuId = data.UsuId;
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             try
@@ -76,10 +78,48 @@ namespace WebApi.AsambleasDos.Controllers
 
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
                         us.Rol = tri.Beneficios;
-                        us.OtroSeis = tri.Descripcion; 
+                        us.OtroSeis = tri.Descripcion;
+                        DateTime fechaActual = DateTime.Parse(DateTime.Now.ToShortDateString(), culture);
+
+                        if (fechaActual <= tri.FechaTermino)
+                            us.OtroSiete = "1";
+                        else
+                            us.OtroSiete = "0";
+
+                        us.OtroOcho = us.OtroUno + " - " + us.OtroDos;
 
                         us.Url = "CrearModificarProyecto.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarProyecto.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
+
+
+                        //verificamos si ya votó
+                        StringBuilder sb = new StringBuilder();
+                        if (usuId != "0")
+                        {
+                            List<VCFramework.Entidad.Votaciones> listaVotaciones =  VCFramework.NegocioMySQL.Votaciones.ObtenerVotaciones(tri.Id, int.Parse(usuId));
+                            if (listaVotaciones != null && listaVotaciones.Count == 1)
+                            {
+                                if (us.OtroSiete == "1")
+                                    us.OtroSiete = "0";
+
+                                VCFramework.Entidad.Votaciones voto = listaVotaciones[0];
+                                sb.AppendFormat("Usted ya votó por este Proyecto el día {0}", voto.FechaVotacion.ToShortDateString() + " " + voto.FechaVotacion.ToShortTimeString());
+                                if (voto.Valor == 1)
+                                {
+                                    sb.Append(", y se manifestó de acuerdo con el Proyecto.");
+                                }
+                                else
+                                {
+                                    sb.Append(", y manifestó NO estar de acuerdo con el Proyecto.");
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            sb.Append("Usted aún no ha votado este Proyecto.");
+                        }
+                        us.OtroNueve = sb.ToString();
 
 
                         votaciones.proposals.Add(us);

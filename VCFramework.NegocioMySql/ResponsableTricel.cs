@@ -53,5 +53,10 @@ namespace VCFramework.NegocioMySQL
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
             return fac.Insertar<Entidad.ResponsableTricel>(obj, setCnsWebLun);
         }
+        public static int Modificar(Entidad.ResponsableTricel obj)
+        {
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            return fac.Update<Entidad.ResponsableTricel>(obj, setCnsWebLun);
+        }
     }
 }

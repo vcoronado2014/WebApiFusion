@@ -63,6 +63,12 @@ namespace WebApi.AsambleasDos.Controllers
                         us.OtroCuatro = listas.Count.ToString();
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
                         //us.UrlDocumento = insti.UrlDocumento;
+                        List<VCFramework.Entidad.ResponsableTricel> responsables = VCFramework.NegocioMySQL.ResponsableTricel.ObtenerResponsables(tri.Id);
+                        if (responsables != null && responsables.Count > 0)
+                            us.OtroOcho = responsables[0].UsuId.ToString();
+                        else
+                            us.OtroOcho = "0";
+
 
                         us.Url = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
@@ -145,6 +151,11 @@ namespace WebApi.AsambleasDos.Controllers
                         us.OtroCuatro = listas.Count.ToString();
                         //us.UrlDocumento = insti.UrlDocumento;
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
+                        List<VCFramework.Entidad.ResponsableTricel> responsables = VCFramework.NegocioMySQL.ResponsableTricel.ObtenerResponsables(tri.Id);
+                        if (responsables != null && responsables.Count > 0)
+                            us.OtroOcho = responsables[0].UsuId.ToString();
+                        else
+                            us.OtroOcho = "0";
 
                         us.Url = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
@@ -188,6 +199,7 @@ namespace WebApi.AsambleasDos.Controllers
             string fechaInicio = data.FechaInicio;
             string fechaTermino = data.FechaTermino;
             string usuId = data.IdUsuario;
+            string usuIdResponsable = data.UsuIdResponsable;
 
 
 
@@ -225,6 +237,23 @@ namespace WebApi.AsambleasDos.Controllers
 
                             }
                         }
+                        List<VCFramework.Entidad.ResponsableTricel> responsable = VCFramework.NegocioMySQL.ResponsableTricel.ObtenerResponsables(tricel.Id);
+                        if (responsable != null && responsable.Count == 1)
+                        {
+                            VCFramework.Entidad.ResponsableTricel resp = responsable[0];
+                            resp.UsuId = int.Parse(usuIdResponsable);
+                            //modificar
+                            VCFramework.NegocioMySQL.ResponsableTricel.Modificar(resp);
+
+                        }
+                        else
+                        {
+                            VCFramework.Entidad.ResponsableTricel resp = new VCFramework.Entidad.ResponsableTricel();
+                            resp.Eliminado = 0;
+                            resp.TriId = tricel.Id;
+                            resp.UsuId = int.Parse(usuIdResponsable);
+                            VCFramework.NegocioMySQL.ResponsableTricel.Insertar(resp);
+                        }
                     }
                 }
                 else
@@ -240,6 +269,12 @@ namespace WebApi.AsambleasDos.Controllers
                     tricel.UsuIdCreador = int.Parse(usuId);
                     tricel.FechaCreacion = DateTime.Now;
                     tricel.Id = VCFramework.NegocioMySQL.Tricel.Insertar(tricel);
+
+                    VCFramework.Entidad.ResponsableTricel resp = new VCFramework.Entidad.ResponsableTricel();
+                    resp.Eliminado = 0;
+                    resp.TriId = tricel.Id;
+                    resp.UsuId = int.Parse(usuIdResponsable);
+                    VCFramework.NegocioMySQL.ResponsableTricel.Insertar(resp);
                 }
 
 

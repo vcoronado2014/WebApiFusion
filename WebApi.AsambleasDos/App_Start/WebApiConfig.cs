@@ -57,6 +57,38 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  VotarProyecto
+            config.Routes.MapHttpRoute(
+                name: "VotarProyecto",
+                routeTemplate: "api/VotarProyecto",
+                defaults: new
+                {
+                    controller = "VotarProyecto"
+                }
+            );
+            #endregion
+
+            #region  ResponsableTricel
+            config.Routes.MapHttpRoute(
+                name: "ResponsableTricel",
+                routeTemplate: "api/ResponsableTricel",
+                defaults: new
+                {
+                    controller = "ResponsableTricel"
+                }
+            );
+            #endregion
+
+            #region  UsuarioLista
+            config.Routes.MapHttpRoute(
+                name: "UsuarioLista",
+                routeTemplate: "api/UsuarioLista",
+                defaults: new
+                {
+                    controller = "UsuarioLista"
+                }
+            );
+            #endregion
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
