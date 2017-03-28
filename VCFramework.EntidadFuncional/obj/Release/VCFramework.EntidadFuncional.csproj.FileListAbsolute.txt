@@ -5,3 +5,10 @@ D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.EntidadFuncional\bin\Release\VC
 D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
 D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.dll
 D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.EntidadFuncional.dll
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.EntidadFuncional.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.Entidad.dll
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.Entidad.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.dll
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.pdb

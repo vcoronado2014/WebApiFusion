@@ -9,6 +9,7 @@ namespace VCFramework.NegocioMySQL
     public class ListaTricel
     {
         public static System.Configuration.ConnectionStringSettings setCnsWebLun = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["BDColegioSql"];
+        public static System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-CL");
         public static List<VCFramework.Entidad.ListaTricel> ObtenerListaPorNombreInstId(string nombre, int instId)
         {
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
@@ -240,7 +241,7 @@ namespace VCFramework.NegocioMySQL
                         {
                             foreach (Entidad.ListaTricel lt in listitaTricel)
                             {
-                                if (lt.FechaInicio <= DateTime.Now.AddHours(-23) && lt.FechaTermino >= DateTime.Now.AddDays(1))
+                                if (DateTime.Parse(lt.FechaInicio, culture) <= DateTime.Now.AddHours(-23) && DateTime.Parse(lt.FechaTermino, culture) >= DateTime.Now.AddDays(1))
                                 {
                                     VCFramework.EntidadFuniconal.ListaTricelFuncional listaTricelAgregar = new EntidadFuniconal.ListaTricelFuncional();
                                     //si tiene lista asociada entonces se debe mostrar los iconos editar y eliminar

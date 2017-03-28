@@ -9,6 +9,7 @@ namespace VCFramework.NegocioMySQL
     public class Tricel
     {
         public static System.Configuration.ConnectionStringSettings setCnsWebLun = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["BDColegioSql"];
+        public static System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-CL");
         public static List<VCFramework.Entidad.Tricel> ObtenerTricelPorInstId(int instId)
         {
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
@@ -25,7 +26,7 @@ namespace VCFramework.NegocioMySQL
                 lista2 = lista.Cast<VCFramework.Entidad.Tricel>().ToList();
             }
             if (lista2 != null)
-                lista2 = lista2.FindAll(p => p.Eliminado == 0 && p.FechaInicio >= DateTime.Now.AddDays(-1));
+                lista2 = lista2.FindAll(p => p.Eliminado == 0 && DateTime.Parse(p.FechaInicio, culture) >= DateTime.Now.AddDays(-1));
             return lista2;
         }
         public static List<VCFramework.Entidad.Tricel> ObtenerTricelPorInstIdTodos(int instId)

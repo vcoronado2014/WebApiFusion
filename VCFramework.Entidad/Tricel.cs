@@ -12,8 +12,8 @@ namespace VCFramework.Entidad
         public int InstId { get; set; }
         public string Nombre { get; set; }
         public string Objetivo { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaTermino { get; set; }
+        public string FechaInicio { get; set; }
+        public string FechaTermino { get; set; }
         public int EsVigente { get; set; }
         public int Eliminado { get; set; }
     }

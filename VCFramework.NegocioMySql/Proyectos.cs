@@ -9,6 +9,7 @@ namespace VCFramework.NegocioMySQL
     public class Proyectos
     {
         public static System.Configuration.ConnectionStringSettings setCnsWebLun = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["BDColegioSql"];
+        public static System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-CL");
         public static List<VCFramework.Entidad.Proyectos> ObtenerProyectosPorInstIdN(int instId)
         {
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
@@ -30,6 +31,7 @@ namespace VCFramework.NegocioMySQL
         }
         public static List<VCFramework.Entidad.Proyectos> ObtenerProyectosPorInstId(int instId)
         {
+            
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
             FiltroGenerico filtro = new FiltroGenerico();
             filtro.Campo = "INST_ID";
@@ -48,7 +50,7 @@ namespace VCFramework.NegocioMySQL
             }
             if (lista2 != null)
                 //lista2 = lista2.FindAll(p => (p.Eliminado == 0) && (p.FechaInicio >= fechaSistemaInicio &&   fechaSistemaTermino <= p.FechaTermino));
-                lista2 = lista2.FindAll(p => (p.Eliminado == 0) && (p.FechaInicio <= fechaSistemaInicio && fechaSistemaTermino <= p.FechaTermino));
+                lista2 = lista2.FindAll(p => (p.Eliminado == 0) && (DateTime.Parse(p.FechaInicio, culture) <= DateTime.Parse(fechaSistemaInicio.ToShortDateString(), culture) && DateTime.Parse(fechaSistemaTermino.ToShortDateString(), culture) <= DateTime.Parse(p.FechaTermino, culture)));
 
             return lista2;
         }
@@ -80,8 +82,9 @@ namespace VCFramework.NegocioMySQL
 
                 lista2 = lista.Cast<VCFramework.Entidad.Proyectos>().ToList();
             }
+            //lista2 = lista2.FindAll(p => (p.Eliminado == 0) && (DateTime.Parse(p.FechaInicio, culture) <= DateTime.Parse(fechaSistemaInicio.ToShortDateString(), culture) && DateTime.Parse(fechaSistemaTermino.ToShortDateString(), culture) <= DateTime.Parse(p.FechaTermino, culture)));
             if (lista2 != null)
-                lista2 = lista2.FindAll(p => (p.Eliminado == 0) && (p.FechaInicio >= fechaSistemaInicio && fechaSistemaTermino <= p.FechaTermino));
+                lista2 = lista2.FindAll(p => (p.Eliminado == 0) && (DateTime.Parse(p.FechaInicio, culture) >= DateTime.Parse(fechaSistemaInicio.ToShortDateString(), culture) && DateTime.Parse(fechaSistemaTermino.ToShortDateString(), culture) <= DateTime.Parse(p.FechaTermino, culture)));
             return lista2;
         }
 
@@ -109,8 +112,8 @@ namespace VCFramework.NegocioMySQL
                         pro.Id = li.Id;
                         pro.Nombre = "Tricel " + li.Tricel.Nombre;
                     }
-                    pro.FechaInicio = li.FechaInicio;
-                    pro.FechaTermino = li.FechaTermino;
+                    pro.FechaInicio = DateTime.Parse(li.FechaInicio, culture).ToShortDateString();
+                    pro.FechaTermino = DateTime.Parse(li.FechaTermino, culture).ToShortDateString();
                     pro.InstId = instId;
                     pro.Nombre = pro.Nombre + " Lista: " + li.Nombre;
                     pro.Objetivo = li.Objetivo;

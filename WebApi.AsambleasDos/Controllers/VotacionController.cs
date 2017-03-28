@@ -55,8 +55,8 @@ namespace WebApi.AsambleasDos.Controllers
                         us.NombreCompleto = tri.Objetivo;
                         us.NombreUsuario = tri.Nombre;
 
-                        us.OtroUno = DateTime.Parse(tri.FechaInicio.ToShortDateString(), culture).ToShortDateString().Replace("/", "-");
-                        us.OtroDos = DateTime.Parse(tri.FechaTermino.ToShortDateString(), culture).ToShortDateString().Replace("/", "-");
+                        us.OtroUno = DateTime.Parse(tri.FechaInicio, culture).ToShortDateString();
+                        us.OtroDos = DateTime.Parse(tri.FechaTermino, culture).ToShortDateString();
                         us.OtroTres = tri.FechaCreacion.ToShortDateString();
                         //cantidad de listas asociadas al tricel
                         List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(tri.Id);
@@ -143,8 +143,8 @@ namespace WebApi.AsambleasDos.Controllers
                         us.NombreCompleto = tri.Objetivo;
                         us.NombreUsuario = tri.Nombre;
 
-                        us.OtroUno = DateTime.Parse(tri.FechaInicio.ToShortDateString(), culture).ToShortDateString().Replace("/", "-");
-                        us.OtroDos = DateTime.Parse(tri.FechaTermino.ToShortDateString(), culture).ToShortDateString().Replace("/", "-");
+                        us.OtroUno = DateTime.Parse(tri.FechaInicio, culture).ToShortDateString();
+                        us.OtroDos = DateTime.Parse(tri.FechaTermino, culture).ToShortDateString();
                         us.OtroTres = tri.FechaCreacion.ToShortDateString();
                         //cantidad de listas asociadas al tricel
                         List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(tri.Id);
@@ -220,8 +220,8 @@ namespace WebApi.AsambleasDos.Controllers
                     if (triceles.Count == 1)
                     {
                         tricel = triceles[0];
-                        tricel.FechaInicio = DateTime.Parse(fechaInicio, culture);
-                        tricel.FechaTermino = DateTime.Parse(fechaTermino, culture);
+                        tricel.FechaInicio = DateTime.Parse(fechaInicio, culture).ToShortDateString();
+                        tricel.FechaTermino = DateTime.Parse(fechaTermino, culture).ToShortDateString();
                         tricel.Nombre = nombre;
                         tricel.Objetivo = objetivo;
                         VCFramework.NegocioMySQL.Tricel.Modificar(tricel);
@@ -261,8 +261,8 @@ namespace WebApi.AsambleasDos.Controllers
                     //es nuevo
                     tricel.Eliminado = 0;
                     tricel.EsVigente = 1;
-                    tricel.FechaInicio = DateTime.Parse(fechaInicio, culture);
-                    tricel.FechaTermino = DateTime.Parse(fechaTermino, culture);
+                    tricel.FechaInicio = DateTime.Parse(fechaInicio, culture).ToShortDateString();
+                    tricel.FechaTermino = DateTime.Parse(fechaTermino, culture).ToShortDateString();
                     tricel.Nombre = nombre;
                     tricel.Objetivo = objetivo;
                     tricel.InstId = int.Parse(instId);

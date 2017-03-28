@@ -2,3 +2,8 @@ D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\bin\Release\VCFramework
 D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
 D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
 D:\WEB_API_SAMBLEAS\WebApi.Asambleas\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.dll
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
+D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb

@@ -66,8 +66,8 @@ namespace WebApi.Asambleas.Controllers
                         us.Id = tri.Id;
                         us.NombreCompleto = tri.Objetivo;
                         us.NombreUsuario = tri.Nombre;
-                        us.OtroUno = tri.FechaInicio.ToShortDateString();
-                        us.OtroDos = tri.FechaTermino.ToShortDateString();
+                        us.OtroUno = tri.FechaInicio;
+                        us.OtroDos = tri.FechaTermino;
                         us.OtroTres = tri.Descripcion;
                         us.OtroCuatro = tri.Beneficios;
                         //buscamos la informaciòn del tricel

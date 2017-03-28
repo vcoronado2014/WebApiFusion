@@ -17,7 +17,7 @@ namespace VCFramework.Entidad
         public string Objetivo { get; set; }
         public string Descripcion { get; set; }
         public string Beneficios {get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaTermino { get; set; }
+        public string FechaInicio { get; set; }
+        public string FechaTermino { get; set; }
     }
 }
