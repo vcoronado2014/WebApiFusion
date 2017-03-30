@@ -70,21 +70,19 @@ namespace WebApi.AsambleasDos.Controllers
                         us.Id = tri.Id;
                         us.NombreCompleto = tri.Objetivo;
                         us.NombreUsuario = tri.Nombre;
+                        //3/28/2017
+                        us.OtroUno = tri.FechaInicio;
+                        us.OtroDos = tri.FechaTermino;
 
-                        us.OtroUno = DateTime.Parse(tri.FechaInicio, culture).ToShortDateString();
-                        us.OtroDos = DateTime.Parse(tri.FechaTermino, culture).ToShortDateString();
+
                         us.OtroTres = tri.FechaCreacion.ToShortDateString();
                         us.OtroCuatro = tri.Costo.ToString();
 
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
                         us.Rol = tri.Beneficios;
                         us.OtroSeis = tri.Descripcion;
-                        DateTime fechaActual = DateTime.Parse(DateTime.Now.ToShortDateString(), culture);
-
-                        if (fechaActual <= DateTime.Parse(tri.FechaTermino, culture))
-                            us.OtroSiete = "1";
-                        else
-                            us.OtroSiete = "0";
+                        int puedeVotar = VCFramework.NegocioMySQL.Proyectos.PuedeVotar(tri.Id);
+                        us.OtroSiete = puedeVotar.ToString();
 
                         us.OtroOcho = us.OtroUno + " - " + us.OtroDos;
 
@@ -183,8 +181,10 @@ namespace WebApi.AsambleasDos.Controllers
                     if (triceles.Count == 1)
                     {
                         tricel = triceles[0];
-                        tricel.FechaInicio = DateTime.Parse(fechaInicio, culture).ToShortDateString();
-                        tricel.FechaTermino = DateTime.Parse(fechaTermino, culture).ToShortDateString();
+                        //tricel.FechaInicio = DateTime.Parse(fechaInicio, culture).ToShortDateString();
+                        //tricel.FechaTermino = DateTime.Parse(fechaTermino, culture).ToShortDateString();
+                        tricel.FechaInicio = fechaInicio;
+                        tricel.FechaTermino = fechaTermino;
                         tricel.Nombre = nombre;
                         tricel.Objetivo = objetivo;
                         tricel.Costo = int.Parse(costo);
@@ -199,8 +199,10 @@ namespace WebApi.AsambleasDos.Controllers
                     //es nuevo
                     tricel.Eliminado = 0;
                     tricel.EsVigente = 1;
-                    tricel.FechaInicio = DateTime.Parse(fechaInicio, culture).ToShortDateString();
-                    tricel.FechaTermino = DateTime.Parse(fechaTermino, culture).ToShortDateString();
+                    //tricel.FechaInicio = DateTime.Parse(fechaInicio, culture).ToShortDateString();
+                    //tricel.FechaTermino = DateTime.Parse(fechaTermino, culture).ToShortDateString();
+                    tricel.FechaInicio = fechaInicio;
+                    tricel.FechaTermino = fechaTermino;
                     tricel.Nombre = nombre;
                     tricel.Objetivo = objetivo;
                     tricel.InstId = int.Parse(instId);

@@ -22,7 +22,7 @@ namespace WebApi.Asambleas.Controllers
         [System.Web.Http.AcceptVerbs("POST")]
         public HttpResponseMessage Post(dynamic DynamicClass)
         {
-
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-CL");
             string Input = JsonConvert.SerializeObject(DynamicClass);
 
             dynamic data = JObject.Parse(Input);
@@ -66,8 +66,10 @@ namespace WebApi.Asambleas.Controllers
                         us.Id = tri.Id;
                         us.NombreCompleto = tri.Objetivo;
                         us.NombreUsuario = tri.Nombre;
+
                         us.OtroUno = tri.FechaInicio;
                         us.OtroDos = tri.FechaTermino;
+
                         us.OtroTres = tri.Descripcion;
                         us.OtroCuatro = tri.Beneficios;
                         //buscamos la informaciòn del tricel

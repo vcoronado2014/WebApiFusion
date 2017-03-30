@@ -76,10 +76,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2017 12:42:38</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/28/2017 16:33:44</publishTime>
+      <publishTime>03/30/2017 17:22:36</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/28/2017 16:33:44</publishTime>
+      <publishTime>03/30/2017 17:22:36</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/27/2017 12:42:38</publishTime>
@@ -220,10 +220,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2017 12:42:38</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.dll">
-      <publishTime>03/28/2017 16:31:32</publishTime>
+      <publishTime>03/30/2017 17:21:32</publishTime>
     </File>
     <File Include="bin/WebApi.AsambleasDos.dll">
-      <publishTime>03/28/2017 16:33:24</publishTime>
+      <publishTime>03/30/2017 17:22:25</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>03/27/2017 12:42:41</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2017 12:42:38</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/28/2017 16:33:30</publishTime>
+      <publishTime>03/30/2017 17:22:28</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>03/27/2017 12:42:34</publishTime>
@@ -313,7 +313,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2017 12:42:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/28/2017 16:33:28</publishTime>
+      <publishTime>03/30/2017 10:49:10</publishTime>
     </File>
   </ItemGroup>
 </Project>

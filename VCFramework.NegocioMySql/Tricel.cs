@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using VCFramework.Negocio.Factory;
@@ -10,6 +12,45 @@ namespace VCFramework.NegocioMySQL
     {
         public static System.Configuration.ConnectionStringSettings setCnsWebLun = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["BDColegioSql"];
         public static System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-CL");
+
+        public static int PuedeVotar(int triId)
+        {
+            int retorno = 0;
+            string conexionStr = setCnsWebLun.ConnectionString;
+            SqlConnection conn = new SqlConnection(conexionStr);
+            SqlCommand cmd = null;
+            cmd = new SqlCommand();
+            cmd.Connection = new SqlConnection(conexionStr);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PUEDE_VOTAR_TRICEL";
+
+            cmd.Parameters.AddWithValue("@ID_TRICEL", triId);
+            cmd.Connection.Open();
+
+            try
+            {
+                SqlDataReader rdr = cmd.ExecuteReader();
+                int CANTIDAD = rdr.GetOrdinal("CANTIDAD");
+                try
+                {
+                    while (rdr.Read())
+                    {
+                        retorno = rdr.IsDBNull(CANTIDAD) ? 0 : rdr.GetInt32(CANTIDAD);
+                    }
+                }
+                finally
+                {
+                    rdr.Close();
+                }
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+
+            return retorno;
+        }
         public static List<VCFramework.Entidad.Tricel> ObtenerTricelPorInstId(int instId)
         {
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();

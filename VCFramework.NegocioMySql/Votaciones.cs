@@ -52,9 +52,9 @@ namespace VCFramework.NegocioMySQL
 
             List<object> lista = fac.Leer<VCFramework.Entidad.Votaciones>(filtro, setCnsWebLun);
             List<VCFramework.Entidad.Votaciones> lista2 = new List<VCFramework.Entidad.Votaciones>();
+
             if (lista != null)
             {
-
                 lista2 = lista.Cast<VCFramework.Entidad.Votaciones>().ToList();
             }
             if (lista2 != null)

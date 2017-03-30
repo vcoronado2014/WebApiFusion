@@ -618,6 +618,42 @@ namespace VCFramework.NegocioMySQL
 
             return retorno;
         }
+        public static string RetornaFechaFormateadaServidor(string fechaServidor)
+        {
+            string retorno = "";
+            //lo primero es descomponer la fecha
+            string[] fechas = fechaServidor.Split('/');
+            if (fechas != null && fechas.Length == 3)
+            {
+                string dia = "";
+                if (fechas[1].Length == 1)
+                {
+                    dia = "0" + fechas[1].ToString();
+                }
+                else
+                {
+                    dia = fechas[1].ToString();
+                }
+                string mes = "";
+                if (fechas[0].Length == 1)
+                {
+                    mes = "0" + fechas[0].ToString();
+                }
+                else
+                {
+                    dia = fechas[0].ToString();
+                }
+                string anno = fechas[2].ToString();
+
+                retorno = dia + "-" + mes + "-" + anno;
+            }
+            else
+                retorno = DateTime.Now.ToShortDateString();
+
+
+            return retorno;
+        }
+
         public static string ConstruyeFecha(DateTime fecha)
         {
             string retorno = "";
