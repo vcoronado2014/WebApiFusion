@@ -36,8 +36,12 @@ namespace WebApi.Asambleas.Controllers
             {
                 string instId = data.InstId;
                 int instIdBuscar = int.Parse(instId);
+                string tipo = data.Tipo;
 
                 List<VCFramework.Entidad.Calendario> eventos = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(instIdBuscar);
+                //HAY QUE TRAER TAMBIEN LOS PROYECTOS QUE FUERON CREADOS
+                List<VCFramework.Entidad.Proyectos> proyectos = VCFramework.NegocioMySQL.Proyectos.ObtenerProyectosPorInstIdN(instIdBuscar);
+
                 List<WebApi.Asambleas.Controllers.evento> lista = new List<WebApi.Asambleas.Controllers.evento>();
                 if (eventos != null && eventos.Count > 0)
                 {
@@ -61,27 +65,91 @@ namespace WebApi.Asambleas.Controllers
                         entidad.horaTer = cal.FechaTermino.Hour.ToString();
                         entidad.minutosTer = cal.FechaTermino.Minute.ToString();
 
-                        entidad.id = cal.Id;
-                        entidad.clientId = cal.Id;
-                        //entidad.startDate = "Sun Mar 20 2017 12:00:00 GMT-0400 (Hora est. Sudamérica Pacífico)";
-                        //entidad.endDate = "Sun Mar 20 2017 13:00:00 GMT-0400 (Hora est. Sudamérica Pacífico)";
-                        //entidad.endDate = new DateTime(cal.FechaTermino.Year, cal.FechaTermino.Month, cal.FechaTermino.Day, cal.FechaTermino.Hour, cal.FechaTermino.Minute, cal.FechaTermino.Second, cal.FechaTermino.Millisecond);
-                        //entidad.startDate = new DateTime(cal.FechaInicio.Year, cal.FechaInicio.Month, cal.FechaInicio.Day, cal.FechaInicio.Hour, cal.FechaInicio.Minute, cal.FechaInicio.Second, cal.FechaInicio.Millisecond);
-                        //entidad.start = cal.FechaInicio.ToShortDateString() + " " + cal.FechaInicio.ToShortTimeString();
-                        //entidad.end = cal.FechaTermino.ToShortDateString() + " " + cal.FechaTermino.ToShortTimeString();
+                        entidad.id = cal.Id + 100;
+                        entidad.clientId = cal.Id + 100;
                         lista.Add(entidad);
                     }
 
+                }
+                if (proyectos != null && proyectos.Count > 0)
+                {
+                    if (tipo == "1")
+                    {
+                        foreach (VCFramework.Entidad.Proyectos proy in proyectos)
+                        {
+                            WebApi.Asambleas.Controllers.evento entidad = new WebApi.Asambleas.Controllers.evento();
+                            entidad.allDay = false;
+                            entidad.content = proy.Nombre;
 
-                    httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
+                            string[] fechasIni = proy.FechaInicio.Split('-');
+
+                            entidad.annoIni = int.Parse(fechasIni[2]).ToString();
+                            entidad.mesIni = int.Parse(fechasIni[1]).ToString();
+                            entidad.diaIni = int.Parse(fechasIni[0]).ToString();
+                            entidad.horaIni = "23";
+                            entidad.minutosIni = "59";
+
+                            string[] fechasTer = proy.FechaTermino.Split('-');
+                            entidad.annoTer = int.Parse(fechasTer[2]).ToString();
+                            entidad.mesTer = int.Parse(fechasTer[1]).ToString();
+                            entidad.diaTer = int.Parse(fechasTer[0]).ToString();
+                            entidad.horaTer = "23";
+                            entidad.minutosTer = "59";
+
+                            entidad.id = proy.Id + 200;
+                            entidad.clientId = proy.Id + 200;
+                            lista.Add(entidad);
+                        }
+                    }
+                    else
+                    {
+                        foreach (VCFramework.Entidad.Proyectos proy in proyectos)
+                        {
+                            //por cada fecha un evento
+                            DateTime fechaInicio = Convert.ToDateTime(proy.FechaInicio);
+                            DateTime fechaTermino = Convert.ToDateTime(proy.FechaTermino);
+                            TimeSpan ts = fechaTermino - fechaInicio;
+                            DateTime fechitaInicio = DateTime.MinValue;
+                            int differenceInDays = ts.Days;
+                            for (int i=0; i<differenceInDays; i++)
+                            {
+                                if (i==0)
+                                    fechitaInicio = Convert.ToDateTime(fechaInicio.ToShortDateString() + " 08:00");
+                                else
+                                    fechitaInicio = Convert.ToDateTime(fechitaInicio.ToShortDateString() + " 08:00");
+
+                                DateTime fechitaTermino = fechitaInicio.AddHours(10);
+                                WebApi.Asambleas.Controllers.evento entidad = new WebApi.Asambleas.Controllers.evento();
+                                entidad.allDay = true;
+                                entidad.content = proy.Nombre;
+
+                                entidad.annoIni = fechitaInicio.Year.ToString();
+                                entidad.mesIni = (fechitaInicio.Month - 1).ToString();
+                                entidad.diaIni = fechitaInicio.Day.ToString();
+                                entidad.horaIni = fechitaInicio.Hour.ToString();
+                                entidad.minutosIni = fechitaInicio.Minute.ToString();
+
+                                entidad.annoTer = fechitaTermino.Year.ToString();
+                                entidad.mesTer = (fechitaTermino.Month - 1).ToString();
+                                entidad.diaTer = fechitaTermino.Day.ToString();
+                                entidad.horaTer = fechitaTermino.Hour.ToString();
+                                entidad.minutosTer = fechitaTermino.Minute.ToString();
+
+                                entidad.id = i + 300;
+                                entidad.clientId = i + 300;
+                                fechitaInicio = fechitaInicio.AddDays(1);
+                                lista.Add(entidad);
+                            }
+                        }
+                    }
+                }
+
+
+                httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(lista);
                     httpResponse.Content = new StringContent(JSON);
                     httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
-                }
-                else
-                {
-                    httpResponse = new HttpResponseMessage(HttpStatusCode.NoContent);
-                }
+
             }
             catch (Exception ex)
             {
