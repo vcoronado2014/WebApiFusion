@@ -1,0 +1,10 @@
+<root>
+  <error>
+    <Fecha>2017-04-01 21:12</Fecha>
+    <Detalle>contacto@cpas.cl, turk182@gmail.com, vcoronado.alarcon@gmail.com -- &lt;html&gt;
+      correo, Teléfono Contacto 78457777, correo electónico vcoronado@saydex.cl:&lt;br /&gt;&lt;br /&gt;
+      Desea contactarse mediante el formulario de contacto, donde ha ingresado el siguiente motivo: paospaospaospaos&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de CPAS ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>1</Id>
+  </error>
+</root>

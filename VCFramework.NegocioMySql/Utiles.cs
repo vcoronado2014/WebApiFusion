@@ -233,7 +233,7 @@ namespace VCFramework.NegocioMySQL
             {
                 sms.To.Add(COPIA_ADMIN_2());
             }
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -260,7 +260,7 @@ namespace VCFramework.NegocioMySQL
         public static System.Net.Mail.MailMessage ConstruyeMensajeCrearProyecto(string nombreInstitucion, string nombreProyecto, List<string> correos, bool esNuevo)
         {
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
-            sms.Subject = "Creación de Proyecto en CPAS";
+            sms.Subject = "Creación de Proyecto en asambleas.cl";
             string habilitaCopiaAdmin1 = Utiles.HABILITA_COPIA_ADMIN1();
             if (habilitaCopiaAdmin1 == "1")
             {
@@ -281,7 +281,7 @@ namespace VCFramework.NegocioMySQL
             }
 
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -297,9 +297,9 @@ namespace VCFramework.NegocioMySQL
                 else
                 {
                     sb.AppendFormat("Se ha creado el Proyecto <strong>{0}</strong>, para el Establecimiento {1}:<br />", nombreProyecto, nombreInstitucion);
-                    sb.Append("Estimado Usuario CPAS, ha sido creado un Proyecto para su establecimiento, ingrese a www.cpas.cl para poder verlo.");
+                    sb.Append("Estimado Usuario, ha sido creado un Proyecto para su establecimiento, ingrese a www.asambleas.cl para poder verlo.");
                     sb.Append("<br />");
-                    sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de CPAS ****** <br />");
+                    sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de asambleas.cl ****** <br />");
                 }
             }
             else
@@ -313,12 +313,79 @@ namespace VCFramework.NegocioMySQL
                 else
                 {
                     sb.AppendFormat("Ha sido modificado el Proyecto <strong>{0}</strong>, para el Establecimiento {1}:<br />", nombreProyecto, nombreInstitucion);
-                    sb.Append("Estimado Usuario CPAS, ha sido Modificado un Proyecto para su establecimiento, ingrese a www.cpas.cl para poder verlo.");
+                    sb.Append("Estimado Usuario, ha sido Modificado un Proyecto para su establecimiento, ingrese a www.asambleas.cl para poder verlo.");
                     sb.Append("<br />");
-                    sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de CPAS ****** <br />");
+                    sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** <br />");
                 }
             }
             
+            sb.Append("</html>");
+            sms.Body = sb.ToString();
+            return sms;
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeCrearTricel(string nombreInstitucion, string nombreProyecto, List<string> correos, bool esNuevo)
+        {
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+            sms.Subject = "Creación de Tricel en asambleas.cl";
+            string habilitaCopiaAdmin1 = Utiles.HABILITA_COPIA_ADMIN1();
+            if (habilitaCopiaAdmin1 == "1")
+            {
+                sms.To.Add(COPIA_ADMIN_1());
+            }
+            string habilitaCopiaAdmin2 = Utiles.HABILITA_COPIA_ADMIN1();
+            if (habilitaCopiaAdmin2 == "1")
+            {
+                sms.To.Add(COPIA_ADMIN_2());
+            }
+            //recorremos la lista de usuarios de la institución
+            if (correos != null && correos.Count > 0)
+            {
+                foreach (string s in correos)
+                {
+                    sms.To.Add(s);
+                }
+            }
+
+
+            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+            sms.IsBodyHtml = true;
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<html>");
+            if (esNuevo)
+            {
+                string htmlMensaje = ObtenerMensajeXML("Tricel", true);
+                if (htmlMensaje != null)
+                {
+                    htmlMensaje = htmlMensaje.Replace("{NombreItem}", nombreProyecto).Replace("{NombreInstitucion}", nombreInstitucion).Replace("{Url}", ObtenerUrl());
+                    sb.Append(htmlMensaje);
+                }
+                else
+                {
+                    sb.AppendFormat("Se ha creado el Proyecto <strong>{0}</strong>, para el Establecimiento {1}:<br />", nombreProyecto, nombreInstitucion);
+                    sb.Append("Estimado Usuario, ha sido creado un Tricel para su establecimiento, ingrese a www.asambleas.cl para poder verlo.");
+                    sb.Append("<br />");
+                    sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de asambleas.cl ****** <br />");
+                }
+            }
+            else
+            {
+                string htmlMensaje = ObtenerMensajeXML("Tricel", false);
+                if (htmlMensaje != null)
+                {
+                    htmlMensaje = htmlMensaje.Replace("{NombreItem}", nombreProyecto).Replace("{NombreInstitucion}", nombreInstitucion).Replace("{Url}", ObtenerUrl());
+                    sb.Append(htmlMensaje);
+                }
+                else
+                {
+                    sb.AppendFormat("Ha sido modificado el Tricel <strong>{0}</strong>, para el Establecimiento {1}:<br />", nombreProyecto, nombreInstitucion);
+                    sb.Append("Estimado Usuario, ha sido Modificado un Tricel para su establecimiento, ingrese a www.asambleas.cl para poder verlo.");
+                    sb.Append("<br />");
+                    sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** <br />");
+                }
+            }
+
             sb.Append("</html>");
             sms.Body = sb.ToString();
             return sms;

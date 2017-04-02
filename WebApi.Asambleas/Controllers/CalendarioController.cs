@@ -21,6 +21,7 @@ namespace WebApi.Asambleas.Controllers
         [System.Web.Http.AcceptVerbs("POST")]
         public HttpResponseMessage Post(dynamic DynamicClass)
         {
+            Random rnd = new Random();
 
             string Input = JsonConvert.SerializeObject(DynamicClass);
 
@@ -65,8 +66,8 @@ namespace WebApi.Asambleas.Controllers
                         entidad.horaTer = cal.FechaTermino.Hour.ToString();
                         entidad.minutosTer = cal.FechaTermino.Minute.ToString();
 
-                        entidad.id = cal.Id + 100;
-                        entidad.clientId = cal.Id + 100;
+                        entidad.id = rnd.Next(1, 300);
+                        entidad.clientId = entidad.id;
                         lista.Add(entidad);
                     }
 
@@ -96,8 +97,8 @@ namespace WebApi.Asambleas.Controllers
                             entidad.horaTer = "23";
                             entidad.minutosTer = "59";
 
-                            entidad.id = proy.Id + 200;
-                            entidad.clientId = proy.Id + 200;
+                            entidad.id = rnd.Next(301, 3000);
+                            entidad.clientId = entidad.id;
                             lista.Add(entidad);
                         }
                     }
@@ -135,8 +136,8 @@ namespace WebApi.Asambleas.Controllers
                                 entidad.horaTer = fechitaTermino.Hour.ToString();
                                 entidad.minutosTer = fechitaTermino.Minute.ToString();
 
-                                entidad.id = i + 300;
-                                entidad.clientId = i + 300;
+                                entidad.id = rnd.Next(301, 3000);
+                                entidad.clientId = entidad.id;
                                 fechitaInicio = fechitaInicio.AddDays(1);
                                 lista.Add(entidad);
                             }

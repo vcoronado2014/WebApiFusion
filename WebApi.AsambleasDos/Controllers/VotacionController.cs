@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Text;
 using System.Web;
+using System.Net.Mail;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -257,6 +258,34 @@ namespace WebApi.AsambleasDos.Controllers
                             resp.UsuId = int.Parse(usuIdResponsable);
                             VCFramework.NegocioMySQL.ResponsableTricel.Insertar(resp);
                         }
+
+                        if (tricel.Id >= 0)
+                        {
+                            if (VCFramework.NegocioMySQL.Utiles.ENVIA_PROYECTOS(int.Parse(instId)) == "1")
+                            {
+
+                                List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                                List<string> listaCorreos = new List<string>();
+                                if (correos != null && correos.Count > 0)
+                                {
+                                    foreach (UsuariosCorreos us in correos)
+                                    {
+                                        if (!listaCorreos.Exists(p => p == us.Correo))
+                                            listaCorreos.Add(us.Correo);
+                                    }
+                                }
+                                if (listaCorreos != null && listaCorreos.Count > 0)
+                                {
+                                    VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                                    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearTricel(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                                    //cr.Enviar(mnsj);
+                                    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                                }
+
+                            }
+                        }
                     }
                 }
                 else
@@ -277,7 +306,35 @@ namespace WebApi.AsambleasDos.Controllers
                     resp.Eliminado = 0;
                     resp.TriId = tricel.Id;
                     resp.UsuId = int.Parse(usuIdResponsable);
-                    VCFramework.NegocioMySQL.ResponsableTricel.Insertar(resp);
+                    int respuesta = VCFramework.NegocioMySQL.ResponsableTricel.Insertar(resp);
+                    //envio del correo
+                    if (respuesta >=0)
+                    {
+                        if (VCFramework.NegocioMySQL.Utiles.ENVIA_PROYECTOS(int.Parse(instId)) == "1")
+                        {
+
+                                List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                                List<string> listaCorreos = new List<string>();
+                                if (correos != null && correos.Count > 0)
+                                {
+                                    foreach (UsuariosCorreos us in correos)
+                                    {
+                                    if (!listaCorreos.Exists(p=>p == us.Correo))
+                                        listaCorreos.Add(us.Correo);
+                                    }
+                                }
+                                if (listaCorreos != null && listaCorreos.Count > 0)
+                                {
+                                    VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                                    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+                               
+                                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearTricel(institucion.Nombre, tricel.Nombre, listaCorreos, true);
+                                    //cr.Enviar(mnsj);
+                                    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                                }
+                            
+                        }
+                    }
                 }
 
 

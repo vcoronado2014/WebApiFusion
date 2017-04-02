@@ -90,6 +90,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  Contacto
+            config.Routes.MapHttpRoute(
+                name: "Contacto",
+                routeTemplate: "api/Contacto",
+                defaults: new
+                {
+                    controller = "Contacto"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

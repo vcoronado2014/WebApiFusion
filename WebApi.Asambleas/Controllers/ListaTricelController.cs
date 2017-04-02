@@ -437,7 +437,7 @@ namespace WebApi.Asambleas.Controllers
                             uslPresidente.UsuId = int.Parse(usuIdPresidente);
                             VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslPresidente);
                         }
-                        if (data.UsuIdVicePresidente != null)
+                        if (data.UsuIdVice != null)
                         {
                             //vicepresidente
                             VCFramework.Entidad.UsuarioLista uslVicePresidente = new VCFramework.Entidad.UsuarioLista();
@@ -565,7 +565,7 @@ namespace WebApi.Asambleas.Controllers
                         uslPresidente.UsuId = int.Parse(usuIdPresidente);
                         VCFramework.NegocioMySQL.UsuarioLista.Insertar(uslPresidente);
                     }
-                    if (data.UsuIdVicePresidente != null)
+                    if (data.UsuIdVice != null)
                     {
                         //vicepresidente
                         VCFramework.Entidad.UsuarioLista uslVicePresidente = new VCFramework.Entidad.UsuarioLista();

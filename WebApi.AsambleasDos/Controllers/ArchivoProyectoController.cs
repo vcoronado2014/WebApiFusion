@@ -135,7 +135,8 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.RutaArchivo = httpPostedFile.FileName;
                     entidad.Nuevo = true;
                     entidad.Url = "";
-                    VCFramework.NegocioMySQL.ArchivosProyecto.Insertar(entidad);
+                    int respuesta = VCFramework.NegocioMySQL.ArchivosProyecto.Insertar(entidad);
+
                     #endregion
 
                     var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/RepositorioProyecto"), httpPostedFile.FileName);
