@@ -148,11 +148,35 @@ namespace WebApi.AsambleasDos.Controllers
 
                         us.OtroUno = tri.FechaInicio;
                         us.OtroDos = tri.FechaTermino;
+                        us.OtroTres = tri.FechaCreacion.ToShortDateString();
 
                         us.OtroTres = tri.FechaCreacion.ToShortDateString();
                         //cantidad de listas asociadas al tricel
                         List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(tri.Id);
                         us.OtroCuatro = listas.Count.ToString();
+                        if (listas.Count > 0)
+                        {
+                            if (data.UsuId != null)
+                            {
+                                string usuId = data.UsuId;
+                                List<VCFramework.Entidad.VotTricel> votosTricel = VCFramework.NegocioMySQL.VotTricel.ObtenerVotacionPorUsuario(int.Parse(usuId), tri.Id);
+                                if (votosTricel != null && votosTricel.Count > 0)
+                                {
+                                    us.OtroSiete = "0";
+                                }
+                                else
+                                {
+                                    us.OtroSiete = "1";
+                                }
+                            }
+                            else
+                            {
+                                us.OtroSiete = "1";
+                            }
+                        }
+                        else
+                            us.OtroSiete = "0";
+
                         //us.UrlDocumento = insti.UrlDocumento;
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
                         List<VCFramework.Entidad.ResponsableTricel> responsables = VCFramework.NegocioMySQL.ResponsableTricel.ObtenerResponsables(tri.Id);

@@ -870,6 +870,11 @@ namespace VCFramework.NegocioMySQL
                     el.AppendChild(_doc.CreateElement("Detalle")).InnerText = mensaje;
                     el.AppendChild(_doc.CreateElement("Id")).InnerText = indice.ToString();
                     _doc.Save(rutaFinal);
+                    VCFramework.Entidad.LogsSistema log = new Entidad.LogsSistema();
+                    log.FechaRegistro = DateTime.Now;
+                    log.Mensaje = mensaje;
+                    log.TipoMensaje = 1; //corresponde a texto no a error
+                    VCFramework.NegocioMySql.LogsSistema.Insertar(log);
                 }
 
             }
@@ -1004,6 +1009,11 @@ namespace VCFramework.NegocioMySQL
                     el.AppendChild(_doc.CreateElement("Detalle")).InnerText = mensaje.Message;
                     el.AppendChild(_doc.CreateElement("Id")).InnerText = indice.ToString();
                     _doc.Save(rutaFinal);
+                    VCFramework.Entidad.LogsSistema log = new Entidad.LogsSistema();
+                    log.FechaRegistro = DateTime.Now;
+                    log.Mensaje = mensaje.InnerException.Message;
+                    log.TipoMensaje = 2; //corresponde a error
+                    VCFramework.NegocioMySql.LogsSistema.Insertar(log);
                 }
 
             }

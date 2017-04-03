@@ -68,6 +68,7 @@
     <Compile Include="Institucion.cs" />
     <Compile Include="ListaTricel.cs" />
     <Compile Include="LoginUsuario.cs" />
+    <Compile Include="LogsSistema.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincia.cs" />

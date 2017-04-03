@@ -56,6 +56,7 @@ namespace WebApi.AsambleasDos.Controllers
                     votacion.InstId = int.Parse(instId);
                     votacion.ProId = int.Parse(proId);
                     votacion.UsuIdVotador = int.Parse(usuId);
+                    votacion.Valor = int.Parse(valor);
                     VCFramework.NegocioMySQL.Votaciones.Insertar(votacion);
 
                 }

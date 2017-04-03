@@ -101,6 +101,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  Logs
+            config.Routes.MapHttpRoute(
+                name: "Logs",
+                routeTemplate: "api/Logs",
+                defaults: new
+                {
+                    controller = "Logs"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

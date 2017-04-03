@@ -217,6 +217,7 @@
     <Compile Include="Controllers\ArchivoProyectoController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogsController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\ResponsableTricelController.cs" />
     <Compile Include="Controllers\TricelController.cs" />
