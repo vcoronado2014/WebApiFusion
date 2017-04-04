@@ -225,6 +225,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VotacionController.cs" />
     <Compile Include="Controllers\VotarProyectoController.cs" />
+    <Compile Include="Controllers\VotarTricelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

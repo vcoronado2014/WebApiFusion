@@ -117,6 +117,31 @@ namespace VCFramework.NegocioMySQL
                 lista2 = lista2.FindAll(p => p.Eliminado == 0);
             return lista2;
         }
+        public static List<VCFramework.Entidad.VotTricel> ObtenerVotacionesPorTricelId(int triId)
+        {
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "TRI_ID";
+            filtro.Valor = triId.ToString();
+            filtro.TipoDato = TipoDatoGeneral.Entero;
+
+            List<object> lista = fac.Leer<VCFramework.Entidad.VotTricel>(filtro, setCnsWebLun);
+            List<VCFramework.Entidad.VotTricel> lista2 = new List<VCFramework.Entidad.VotTricel>();
+            if (lista != null)
+            {
+
+                lista2 = lista.Cast<VCFramework.Entidad.VotTricel>().ToList();
+            }
+            if (lista2 != null)
+                lista2 = lista2.FindAll(p => p.Eliminado == 0);
+            return lista2;
+        }
+
+        public static int Insertar(VCFramework.Entidad.VotTricel entidad)
+        {
+            Factory fac = new Factory();
+            return fac.Insertar<VCFramework.Entidad.VotTricel>(entidad, setCnsWebLun);
+        }
         public static string SumarVotaciones(int[] arrLIstas)
         {
             StringBuilder retorno = new StringBuilder();

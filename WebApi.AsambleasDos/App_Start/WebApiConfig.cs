@@ -112,6 +112,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  VotarTricel
+            config.Routes.MapHttpRoute(
+                name: "VotarTricel",
+                routeTemplate: "api/VotarTricel",
+                defaults: new
+                {
+                    controller = "VotarTricel"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

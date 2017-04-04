@@ -135,7 +135,7 @@ namespace WebApi.AsambleasDos.Controllers
                     else
                         triceles = triceles.FindAll(p => p.Nombre == buscarNombreUsuario);
                 }
-
+                StringBuilder sbTextoVoto = new StringBuilder();
 
                 if (triceles != null && triceles.Count > 0)
                 {
@@ -154,6 +154,7 @@ namespace WebApi.AsambleasDos.Controllers
                         //cantidad de listas asociadas al tricel
                         List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(tri.Id);
                         us.OtroCuatro = listas.Count.ToString();
+
                         if (listas.Count > 0)
                         {
                             if (data.UsuId != null)
@@ -163,20 +164,25 @@ namespace WebApi.AsambleasDos.Controllers
                                 if (votosTricel != null && votosTricel.Count > 0)
                                 {
                                     us.OtroSiete = "0";
+                                    sbTextoVoto.AppendFormat("Usted ya realizó su voto el día {0}.", votosTricel[0].FechaVotacion.ToShortDateString());
                                 }
                                 else
                                 {
+                                    sbTextoVoto.Append("Usted aún no ha votado");
                                     us.OtroSiete = "1";
                                 }
                             }
                             else
                             {
+                                sbTextoVoto.Append("Usted aún no ha votado");
                                 us.OtroSiete = "1";
                             }
                         }
                         else
-                            us.OtroSiete = "0";
-
+                        {
+                            sbTextoVoto.Append("Usted aún no ha votado");
+                            us.OtroSiete = "1";
+                        }
                         //us.UrlDocumento = insti.UrlDocumento;
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
                         List<VCFramework.Entidad.ResponsableTricel> responsables = VCFramework.NegocioMySQL.ResponsableTricel.ObtenerResponsables(tri.Id);
@@ -184,6 +190,8 @@ namespace WebApi.AsambleasDos.Controllers
                             us.OtroOcho = responsables[0].UsuId.ToString();
                         else
                             us.OtroOcho = "0";
+
+                        us.OtroNueve = sbTextoVoto.ToString();
 
                         us.Url = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=1";

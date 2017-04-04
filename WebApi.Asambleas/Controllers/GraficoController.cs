@@ -97,6 +97,23 @@ namespace WebApi.Asambleas.Controllers
 
 
                 }
+                if (nombreGrafico == "TRICEL")
+                {
+                    List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(int.Parse(instId));
+                    //ahora que tenemos las listas vamos a buscar los votos para cada una de ellas
+                    if (listas != null && listas.Count > 0)
+                    {
+                        foreach (VCFramework.Entidad.ListaTricel ltr in listas)
+                        {
+                            VCFramework.Entidad.Grafico garf = new Grafico();
+                            List<VCFramework.Entidad.VotTricel> votos = VCFramework.NegocioMySQL.VotTricel.ObtenerVotacionTricelPorListalId(ltr.Id);
+                            garf.label = ltr.Nombre;
+                            garf.value = votos.Count;
+                            retorno.Add(garf);
+                        }
+                    }
+                    
+                }
                 httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                 String JSON = JsonConvert.SerializeObject(retorno);
                 httpResponse.Content = new StringContent(JSON);
