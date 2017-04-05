@@ -39,6 +39,7 @@ namespace WebApi.AsambleasDos.Controllers
             string ltrId = data.LtrId;
             
             string usuId = data.UsuId;
+            string triId = data.TriId;
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             int idNuevo = 0;
@@ -57,6 +58,7 @@ namespace WebApi.AsambleasDos.Controllers
                     votacion.InstId = int.Parse(instId);
                     votacion.LtrId = int.Parse(ltrId);
                     votacion.UsuIdVotador = int.Parse(usuId);
+                    votacion.TriId = int.Parse(triId);
                     
                     VCFramework.NegocioMySQL.VotTricel.Insertar(votacion);
 
