@@ -123,6 +123,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region     Asistente
+            config.Routes.MapHttpRoute(
+                name: "Asistente",
+                routeTemplate: "api/Asistente",
+                defaults: new
+                {
+                    controller = "Asistente"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
