@@ -111,6 +111,8 @@ namespace VCFramework.NegocioMySQL
 
             return fac.Insertar<VCFramework.Entidad.AutentificacionUsuario>(aus, setCnsWebLun);
         }
+
+
         public static UsuarioFuncional ObtenerUsuarioFuncional(int idUsuario)
         {
             UsuarioFuncional retorno = new UsuarioFuncional();
@@ -163,10 +165,38 @@ namespace VCFramework.NegocioMySQL
                     env.NombreCompleto = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
                     env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
                     env.Rol = us.Rol.Nombre;
+                    //nombre institucion
+                    env.OtroUno = us.Institucion.Nombre;
                     env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
                     env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";
                     lista.Add(env);
                     
+                }
+            }
+
+            return lista;
+        }
+
+        public static List<UsuarioEnvoltorio> ListarUsuariosEnvoltorio()
+        {
+            List<UsuarioEnvoltorio> lista = new List<UsuarioEnvoltorio>();
+
+            List<UsuarioFuncional> usuarios = ListarUsuariosFuncional();
+            if (usuarios != null && usuarios.Count > 0)
+            {
+                foreach (UsuarioFuncional us in usuarios)
+                {
+                    UsuarioEnvoltorio env = new UsuarioEnvoltorio();
+                    env.Id = us.AutentificacionUsuario.Id;
+                    env.NombreCompleto = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
+                    env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
+                    env.Rol = us.Rol.Nombre;
+                    //nombre institucion
+                    env.OtroUno = us.Institucion.Nombre;
+                    env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
+                    env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";
+                    lista.Add(env);
+
                 }
             }
 
@@ -178,6 +208,43 @@ namespace VCFramework.NegocioMySQL
             List<UsuarioFuncional> retorno = new List<UsuarioFuncional>();
 
             List<VCFramework.Entidad.AutentificacionUsuario> usuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosPorInstId(instId);
+            if (usuarios != null && usuarios.Count > 0)
+            {
+                foreach (VCFramework.Entidad.AutentificacionUsuario usu in usuarios)
+                {
+                    UsuarioFuncional uf = new UsuarioFuncional();
+                    uf.AutentificacionUsuario = new Entidad.AutentificacionUsuario();
+                    uf.AutentificacionUsuario = usu;
+
+                    uf.Institucion = new Entidad.Institucion();
+                    uf.Institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(usu.InstId);
+
+                    uf.Rol = new Entidad.Rol();
+                    uf.Rol = VCFramework.NegocioMySQL.Rol.ListarRoles().Find(p => p.Id == usu.RolId);
+
+                    uf.Persona = new Entidad.Persona();
+                    uf.Persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(usu.Id);
+
+                    uf.Region = new Entidad.Region();
+                    if (uf.Persona != null)
+                        uf.Region = VCFramework.NegocioMySQL.Region.ObtenerRegionPorId(uf.Persona.RegId);
+
+                    uf.Comuna = new Entidad.Comuna();
+                    if (uf.Persona != null)
+                        uf.Comuna = VCFramework.NegocioMySQL.Comuna.ObtenerComunaPorId(uf.Persona.ComId);
+
+                    retorno.Add(uf);
+                }
+            }
+
+            return retorno;
+        }
+
+        public static List<UsuarioFuncional> ListarUsuariosFuncional()
+        {
+            List<UsuarioFuncional> retorno = new List<UsuarioFuncional>();
+
+            List<VCFramework.Entidad.AutentificacionUsuario> usuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuarios();
             if (usuarios != null && usuarios.Count > 0)
             {
                 foreach (VCFramework.Entidad.AutentificacionUsuario usu in usuarios)

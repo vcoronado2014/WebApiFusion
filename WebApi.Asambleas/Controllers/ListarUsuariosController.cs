@@ -25,7 +25,7 @@ namespace WebApi.Asambleas.Controllers
         [AgendaExceptionFilter]
         [System.Web.Http.AcceptVerbs("GET")]
         [HttpGet]
-        public HttpResponseMessage Get([FromUri]string instId)
+        public HttpResponseMessage Get([FromUri]string instId, [FromUri]string rolId)
         {
             //string iddd = Request..Content.Headers.GetValues("instId").ToString();
             //string Input = JsonConvert.SerializeObject(DynamicClass);
@@ -36,14 +36,27 @@ namespace WebApi.Asambleas.Controllers
             if (instId == "")
                 throw new ArgumentNullException("InstitucionId");
 
+            //si trae un rol de superadministrador debería listar todos los usuarios
+
+
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             try
             {
+                List<VCFramework.EntidadFuncional.UsuarioEnvoltorio> usuarios = new List<VCFramework.EntidadFuncional.UsuarioEnvoltorio>();
                 //string instId = data.InstId;
                 int idInstitucion = int.Parse(instId);
+                //evaluamos el rol
+                int idRolParam = 0;
+                if (rolId != null)
+                {
+                    idRolParam = int.Parse(rolId);
+                }
+                if (idRolParam == 1)
+                    usuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosEnvoltorio();
+                else
+                    usuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosEnvoltorio(idInstitucion);
 
-                List<VCFramework.EntidadFuncional.UsuarioEnvoltorio> usuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosEnvoltorio(idInstitucion);
                 VCFramework.EntidadFuncional.proposalss proposals = new VCFramework.EntidadFuncional.proposalss();
 
                 if (usuarios != null && usuarios.Count > 0)
