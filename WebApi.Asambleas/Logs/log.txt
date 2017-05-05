@@ -4,4 +4,22 @@
     <Detalle>Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)</Detalle>
     <Id>1</Id>
   </error>
+  <error>
+    <Fecha>2017-04-26 16:12</Fecha>
+    <Detalle>Valor de tiempo de espera caducado. El periodo de tiempo de espera se agotó al intentar consumir la confirmación del protocolo de enlace previo al inicio de sesión. El motivo podría ser que se produjo un error en el protocolo de enlace o que el servidor no pudo responder a tiempo.  El tiempo invertido al intentar conectarse a este servidor fue: [Previo al inicio de sesión] inicialización=22087; protocolo de enlace=1482; </Detalle>
+    <Id>2</Id>
+  </error>
+  <error>
+    <Fecha>2017-05-03 11:42</Fecha>
+    <Detalle>turk182@gmail.com, vcoronado.alarcon@gmail.com, vgarcia@saydex.cl, vgarcia@saydex.com, danny_salazaro@hotmail.com, turck182@gmail.com, danny_salaro@hotmail.com -- &lt;html&gt;
+      Se ha agregado una rendición  &lt;strong&gt;$de ingreso &lt;/strong&gt;, para el Establecimiento Colegio de Prueba:&lt;br /&gt;
+      Estimado Usuario, ha sido agrgada una rendición para su establecimiento, ingrese a localhost para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>3</Id>
+  </error>
+  <error>
+    <Fecha>2017-05-03 11:44</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>4</Id>
+  </error>
 </root>

@@ -134,6 +134,28 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region     Articulo
+            config.Routes.MapHttpRoute(
+                name: "Articulo",
+                routeTemplate: "api/Articulo",
+                defaults: new
+                {
+                    controller = "Articulo"
+                }
+            );
+            #endregion
+
+            #region     Vinculo
+            config.Routes.MapHttpRoute(
+                name: "Vinculo",
+                routeTemplate: "api/Vinculo",
+                defaults: new
+                {
+                    controller = "Vinculo"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
