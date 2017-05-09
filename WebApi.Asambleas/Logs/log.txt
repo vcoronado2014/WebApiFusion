@@ -22,4 +22,9 @@
     <Detalle>Error al enviar correo.</Detalle>
     <Id>4</Id>
   </error>
+  <error>
+    <Fecha>2017-05-09 12:51</Fecha>
+    <Detalle>Valor de tiempo de espera caducado. El periodo de tiempo de espera se agotó al intentar consumir la confirmación del protocolo de enlace previo al inicio de sesión. El motivo podría ser que se produjo un error en el protocolo de enlace o que el servidor no pudo responder a tiempo.  El tiempo invertido al intentar conectarse a este servidor fue: [Previo al inicio de sesión] inicialización=37295; protocolo de enlace=417; </Detalle>
+    <Id>5</Id>
+  </error>
 </root>

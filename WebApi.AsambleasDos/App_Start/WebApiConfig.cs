@@ -156,6 +156,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region     FileExcel
+            config.Routes.MapHttpRoute(
+                name: "FileExcel",
+                routeTemplate: "api/FileExcel",
+                defaults: new
+                {
+                    controller = "FileExcel"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
