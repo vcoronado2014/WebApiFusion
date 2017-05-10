@@ -78,6 +78,20 @@ namespace VCFramework.NegocioMySQL
 
             return retorno;
         }
+
+        public static VCFramework.Entidad.AutentificacionUsuario ObtenerUsuario(string userName)
+        {
+            VCFramework.Entidad.AutentificacionUsuario retorno = new Entidad.AutentificacionUsuario();
+
+            List<VCFramework.Entidad.AutentificacionUsuario> lista = ListarUsuarios();
+
+            if (lista != null && lista.Count > 0)
+            {
+                retorno = lista.Find(p => p.NombreUsuario == userName && p.Eliminado == 0 && p.EsVigente == 1);
+            }
+
+            return retorno;
+        }
         public static VCFramework.Entidad.AutentificacionUsuario ObtenerUsuario(int id)
         {
             VCFramework.Entidad.AutentificacionUsuario retorno = new Entidad.AutentificacionUsuario();

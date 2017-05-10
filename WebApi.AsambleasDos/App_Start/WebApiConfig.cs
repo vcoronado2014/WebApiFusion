@@ -167,6 +167,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region     CargaMasiva
+            config.Routes.MapHttpRoute(
+                name: "CargaMasiva",
+                routeTemplate: "api/CargaMasiva",
+                defaults: new
+                {
+                    controller = "CargaMasiva"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

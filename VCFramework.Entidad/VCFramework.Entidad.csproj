@@ -45,6 +45,7 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="AutentificacionUsuario.cs" />
     <Compile Include="Calendario.cs" />
+    <Compile Include="CargaMasiva.cs" />
     <Compile Include="Comuna.cs" />
     <Compile Include="ConfiguracionInstitucion.cs" />
     <Compile Include="Curso.cs" />

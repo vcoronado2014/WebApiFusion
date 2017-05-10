@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Xml;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace VCFramework.NegocioMySQL
 {
@@ -27,6 +28,26 @@ namespace VCFramework.NegocioMySQL
             byte[] encryted = System.Text.Encoding.Unicode.GetBytes(_cadenaAencriptar);
             result = Convert.ToBase64String(encryted);
             return result;
+        }
+        public static bool ValidaEmail(string email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// Esta función desencripta la cadena que le envíamos en el parámentro de entrada.
@@ -717,6 +738,48 @@ namespace VCFramework.NegocioMySQL
             else
                 retorno = DateTime.Now.ToShortDateString();
 
+
+            return retorno;
+        }
+
+        public static string RetornaFechaEntera()
+        {
+            DateTime fechaServidor = DateTime.Now;
+            string retorno = "";
+            string anno = fechaServidor.Year.ToString();
+            string mes = "";
+            string dia = "";
+            if (fechaServidor.Month < 10)
+                mes = "0" + fechaServidor.Month.ToString();
+            else
+                mes = fechaServidor.Month.ToString();
+
+            if (fechaServidor.Day < 10)
+                dia = "0" + fechaServidor.Day.ToString();
+            else
+                dia = fechaServidor.Day.ToString();
+
+            retorno = anno + mes + dia;
+            
+            return retorno;
+        }
+        public static string RetornaHoraEntera()
+        {
+            DateTime fechaServidor = DateTime.Now;
+            string retorno = "";
+            string hora = "";
+            string minutos = "";
+            if (fechaServidor.Hour < 10)
+                hora = "0" + fechaServidor.Hour.ToString();
+            else
+                hora = fechaServidor.Hour.ToString();
+
+            if (fechaServidor.Minute < 10)
+                minutos = "0" + fechaServidor.Minute.ToString();
+            else
+                minutos = fechaServidor.Minute.ToString();
+
+            retorno = hora+minutos;
 
             return retorno;
         }
