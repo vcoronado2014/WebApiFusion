@@ -12,7 +12,7 @@ namespace VCFramework.NegocioMySQL
         public static System.Configuration.ConnectionStringSettings setCnsWebLun = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["BDColegioSql"];
         static ObjectCache cache = MemoryCache.Default;
         private static List<VCFramework.Entidad.Institucion> fileContents = cache["fileContentsInst"] as List<VCFramework.Entidad.Institucion>;
-        private static DateTimeOffset tiempoCache = Cache.Fuerte();
+        private static DateTimeOffset tiempoCache = Cache.Minimo();
         private static string nombreArchivo = "cacheInstitucion.txt";
 
         public static List<VCFramework.Entidad.Institucion> ListarInstituciones()
