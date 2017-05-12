@@ -224,6 +224,7 @@
     <Compile Include="Controllers\LogsController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\ResponsableTricelController.cs" />
+    <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Controllers\TricelController.cs" />
     <Compile Include="Controllers\UsuarioListaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

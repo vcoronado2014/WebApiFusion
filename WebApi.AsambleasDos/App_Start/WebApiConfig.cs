@@ -178,6 +178,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region     Slide
+            config.Routes.MapHttpRoute(
+                name: "Slide",
+                routeTemplate: "api/Slide",
+                defaults: new
+                {
+                    controller = "Slide"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

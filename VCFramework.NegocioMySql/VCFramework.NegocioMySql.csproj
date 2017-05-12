@@ -78,6 +78,7 @@
     <Compile Include="RlAccFunUsu.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="ServidorCorreo.cs" />
+    <Compile Include="Slide.cs" />
     <Compile Include="Tricel.cs" />
     <Compile Include="UsuarioLista.cs" />
     <Compile Include="Utiles.cs" />
