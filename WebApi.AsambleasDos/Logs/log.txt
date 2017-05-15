@@ -33,4 +33,36 @@
     <Detalle>Error al enviar correo.</Detalle>
     <Id>5</Id>
   </error>
+  <error>
+    <Fecha>2017-05-13 22:06</Fecha>
+    <Detalle>turk182@gmail.com, vcoronado.alarcon@gmail.com, vgarcia@saydex.cl, vgarcia@saydex.com, danny_salazaro@hotmail.com, turck182@gmail.com, danny_salaro@hotmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Se ha creado el Proyecto &lt;strong&gt;Prueba de proyecto&lt;/strong&gt;, para el Establecimiento Colegio de Prueba:&lt;br /&gt;
+      Estimado Usuario, ha sido creado un Proyecto para su establecimiento, ingrese a localhost para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>6</Id>
+  </error>
+  <error>
+    <Fecha>2017-05-13 22:25</Fecha>
+    <Detalle>vgarcia@saydex.cl, vgarcia@saydex.com, danny_salazaro@hotmail.com, turck182@gmail.com, danny_salaro@hotmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Se ha creado el Proyecto &lt;strong&gt;otro proyecto&lt;/strong&gt;, para el Establecimiento Colegio de Prueba:&lt;br /&gt;
+      Estimado Usuario, ha sido creado un Proyecto para su establecimiento, ingrese a localhost para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>7</Id>
+  </error>
+  <error>
+    <Fecha>2017-05-13 23:12</Fecha>
+    <Detalle>vgarcia@saydex.cl, vgarcia@saydex.com, danny_salazaro@hotmail.com, turck182@gmail.com, danny_salaro@hotmail.com, vcoronado@saydex.cl, vcoronado@rayensalud.com -- &lt;html&gt;
+      Se ha creado el Tricel &lt;strong&gt;prueba de tricel&lt;/strong&gt;, para el Establecimiento Colegio de Prueba:&lt;br /&gt;
+      Estimado Usuario, ha sido creado un Tricel para su establecimiento, ingrese a localhost para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>8</Id>
+  </error>
+  <error>
+    <Fecha>2017-05-13 23:33</Fecha>
+    <Detalle>vgarcia@saydex.cl, vgarcia@saydex.com, danny_salazaro@hotmail.com, turck182@gmail.com, danny_salaro@hotmail.com, vcoronado@saydex.cl, vcoronado@rayensalud.com -- &lt;html&gt;
+      Ha sido modificado el Tricel &lt;strong&gt;prueba de tricel&lt;/strong&gt;, para el Establecimiento Colegio de Prueba:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Tricel para su establecimiento, ingrese a localhost para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>9</Id>
+  </error>
 </root>

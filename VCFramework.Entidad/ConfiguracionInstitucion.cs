@@ -13,5 +13,6 @@ namespace VCFramework.Entidad
         public int EnviaRendiciones { get; set; }
         public int EnviaCorreoEventos { get; set; }
         public int Eliminado { get; set; }
+        public int MuestraSlide { get; set; }
     }
 }

@@ -218,6 +218,7 @@
     <Compile Include="Controllers\ArticuloController.cs" />
     <Compile Include="Controllers\AsistenteController.cs" />
     <Compile Include="Controllers\CargaMasivaController.cs" />
+    <Compile Include="Controllers\ConfiguracionNodoController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\FileExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

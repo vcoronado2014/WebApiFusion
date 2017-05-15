@@ -189,6 +189,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region     ConfiguracionNodo
+            config.Routes.MapHttpRoute(
+                name: "ConfiguracionNodo",
+                routeTemplate: "api/ConfiguracionNodo",
+                defaults: new
+                {
+                    controller = "ConfiguracionNodo"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

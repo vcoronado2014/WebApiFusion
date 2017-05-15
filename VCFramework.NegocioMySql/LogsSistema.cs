@@ -18,8 +18,12 @@ namespace VCFramework.NegocioMySql
         public static List<VCFramework.Entidad.LogsSistema> Listar()
         {
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "TIPO_MENSAJE";
+            filtro.TipoDato = TipoDatoGeneral.Entero;
+            filtro.Valor = "1";
 
-            List<object> lista = fac.Leer<VCFramework.Entidad.LogsSistema>(setCnsWebLun);
+            List<object> lista = fac.Leer<VCFramework.Entidad.LogsSistema>(filtro, setCnsWebLun);
             List<VCFramework.Entidad.LogsSistema> lista2 = new List<VCFramework.Entidad.LogsSistema>();
             if (lista != null)
             {
