@@ -168,10 +168,15 @@ namespace WebApi.Asambleas.Controllers
                         us.UrlEliminar = "CrearModificarIngresoEgreso.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
                         string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/Repositorio/";
                         if (us.UrlDocumento != null && us.UrlDocumento != "" && us.UrlDocumento != "#")
+                        {
                             us.Rol = urlll + us.UrlDocumento;
+                            us.MostrarItem1 = true;
+                        }
                         else
+                        {
                             us.Rol = "#";
-
+                            us.MostrarItem1 = false;
+                        }
 
                         rendiciones.proposals.Add(us);
                     }

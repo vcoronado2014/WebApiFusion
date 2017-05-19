@@ -15,6 +15,26 @@ namespace VCFramework.NegocioMySQL
         public const string JSON_DOCTYPE = "application/json";
         public const string XML_DOCTYPE = "application/xml";
 
+        public static int EntregaEntero(string valorDosDigitos)
+        {
+            int retorno = 0;
+
+            if (valorDosDigitos.Length == 2)
+            {
+                string valorUno = valorDosDigitos.Substring(0, 1);
+                string valorDos = valorDosDigitos.Substring(1, 1);
+                if (valorUno == "0")
+                {
+                    retorno = int.Parse(valorDos);
+                }
+                else
+                {
+                    retorno = int.Parse(valorDosDigitos);
+                }
+            }
+
+            return retorno;
+        }
         public static bool IsNumeric(object Expression)
         {
             double retNum;

@@ -107,8 +107,23 @@ namespace WebApi.Asambleas.Controllers
                         foreach (VCFramework.Entidad.Proyectos proy in proyectos)
                         {
                             //por cada fecha un evento
-                            DateTime fechaInicio = Convert.ToDateTime(proy.FechaInicio);
-                            DateTime fechaTermino = Convert.ToDateTime(proy.FechaTermino);
+                            //acá manda error en la conversión
+                            //con un formato por ejemplo 23-06-2017, 
+                            //DateTime fechaInicio = new DateTime()
+                            string[] fechaArrInicio = proy.FechaInicio.Split('-');
+                            int diaInicioInt = VCFramework.NegocioMySQL.Utiles.EntregaEntero(fechaArrInicio[0]);
+                            int mesInicioInt = VCFramework.NegocioMySQL.Utiles.EntregaEntero(fechaArrInicio[1]);
+                            int annoInicioInt = int.Parse(fechaArrInicio[2]);
+                            DateTime fechaInicio = new DateTime(annoInicioInt, mesInicioInt, diaInicioInt);
+                            //DateTime fechaInicio = Convert.ToDateTime(proy.FechaInicio);
+
+                            string[] fechaArrTermino = proy.FechaTermino.Split('-');
+                            int diaTerminoInt = VCFramework.NegocioMySQL.Utiles.EntregaEntero(fechaArrTermino[0]);
+                            int mesTerminoInt = VCFramework.NegocioMySQL.Utiles.EntregaEntero(fechaArrTermino[1]);
+                            int annoTerminoInt = int.Parse(fechaArrTermino[2]);
+                            DateTime fechaTermino = new DateTime(annoTerminoInt, mesTerminoInt, diaTerminoInt);
+
+                            //DateTime fechaTermino = Convert.ToDateTime(proy.FechaTermino);
                             TimeSpan ts = fechaTermino - fechaInicio;
                             DateTime fechitaInicio = DateTime.MinValue;
                             int differenceInDays = ts.Days;
