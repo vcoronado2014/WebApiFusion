@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Text;
 using System.Web;
+using System.Globalization;
 
 namespace WebApi.Asambleas.Controllers
 {
@@ -162,7 +163,18 @@ namespace WebApi.Asambleas.Controllers
                         us.NombreUsuario = insti.FechaMovimiento.ToShortDateString();
                         us.OtroUno = insti.TipoMovimientoString;
                         us.OtroDos = insti.NumeroComprobante;
+                        //us.OtroTres = insti.Monto.ToString();
+                        System.Globalization.CultureInfo cultura = System.Globalization.CultureInfo.GetCultureInfo("es-CL");
+                        NumberFormatInfo nfi = new CultureInfo("es-CL", false).NumberFormat;
+                        nfi.CurrencyDecimalDigits = 0;
+
+                        //cultura.NumberFormat.CurrencyDecimalDigits = 0;
+                        decimal result = insti.Monto / 1m;
+                        string moneda = result.ToString("c", nfi);
+
                         us.OtroTres = insti.Monto.ToString();
+                        us.OtroCuatro = moneda;
+
                         us.UrlDocumento = insti.UrlDocumento;
                         us.Url = "CrearModificarIngresoEgreso.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarIngresoEgreso.html?id=" + us.Id.ToString() + "&ELIMINAR=1";

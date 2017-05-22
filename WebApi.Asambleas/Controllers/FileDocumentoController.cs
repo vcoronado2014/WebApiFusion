@@ -163,6 +163,10 @@ namespace WebApi.Asambleas.Controllers
                         entidadS.NombreCompleto = doc.NombreArchivo;
                         entidadS.NombreUsuario = doc.FechaSubida;
                         entidadS.OtroUno = doc.Tamano.ToString()+ " Kb";
+
+                        string extension = Path.GetExtension(doc.NombreArchivo);
+                        entidadS.OtroTres = extension;
+
                         //HttpContext.Current.Server.MapPath("~/Repositorio")
                         string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/Repositorio/";
                         if (doc.NombreArchivo != null && doc.NombreArchivo != "")
@@ -170,7 +174,11 @@ namespace WebApi.Asambleas.Controllers
                         else
                             entidadS.Url = "#";
 
-                        
+                        //vista previa del archivo
+                        string urlVista = "http://docs.google.com/viewer?url=" + entidadS.Url + " &embedded=true";
+                        entidadS.OtroDos = urlVista;
+
+
                         entidadS.UrlEliminar = "EliminarDocumento.html?id=" + entidadS.Id.ToString() + "&tipo=documentousuario";
 
                         documentosE.proposals.Add(entidadS);

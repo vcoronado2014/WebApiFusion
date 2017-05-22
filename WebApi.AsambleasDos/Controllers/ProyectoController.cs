@@ -15,6 +15,7 @@ using System.IO;
 using System.Text;
 using System.Web;
 using System.Net.Mail;
+using System.Globalization;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -77,7 +78,18 @@ namespace WebApi.AsambleasDos.Controllers
 
 
                         us.OtroTres = tri.FechaCreacion.ToShortDateString();
+                        System.Globalization.CultureInfo cultura = System.Globalization.CultureInfo.GetCultureInfo("es-CL");
+                        NumberFormatInfo nfi = new CultureInfo("es-CL", false).NumberFormat;
+                        nfi.CurrencyDecimalDigits = 0;
+
+                        //cultura.NumberFormat.CurrencyDecimalDigits = 0;
+                        decimal result = tri.Costo / 1m;
+                        string moneda = result.ToString("c", nfi);
+
                         us.OtroCuatro = tri.Costo.ToString();
+                        us.OtroDiez = moneda;
+
+                        //us.OtroCuatro = tri.Costo.ToString();
 
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;
                         us.Rol = tri.Beneficios;

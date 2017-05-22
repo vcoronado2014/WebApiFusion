@@ -89,7 +89,7 @@ namespace WebApi.AsambleasDos.Controllers
                     //cambiamos nombre archivo
                     string fechaStr = VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera();
                     string horaStr = VCFramework.NegocioMySQL.Utiles.RetornaHoraEntera();
-                    string nuevoArchivo = "carga_masiva_" + usuId.ToString() + "_" + instId.ToString() + "_" + fechaStr + horaStr + "." + resultExtension;
+                    string nuevoArchivo = "c_m_" + usuId.ToString() + "_" + instId.ToString() + "_" + fechaStr + horaStr  + resultExtension;
 
 
 
@@ -241,6 +241,7 @@ namespace WebApi.AsambleasDos.Controllers
             }
             catch (Exception ex)
             {
+                
                 httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
                 throw ex;
             }

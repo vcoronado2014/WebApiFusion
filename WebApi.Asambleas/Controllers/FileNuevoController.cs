@@ -111,11 +111,18 @@ namespace WebApi.Asambleas.Controllers
                         entidadS.NombreUsuario = doc.FechaSubida;
                         entidadS.OtroUno = doc.Tamano.ToString();
 
+                        string extension = Path.GetExtension(doc.NombreArchivo);
+                        entidadS.OtroTres = extension;
+
                         string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/Repositorio/";
                         if (doc.NombreArchivo != null && doc.NombreArchivo != "")
                             entidadS.Url = urlll + doc.NombreArchivo;
                         else
                             entidadS.Url = "#";
+                        //vista previa del archivo
+                        string urlVista = "http://docs.google.com/viewer?url=" + entidadS.Url + " &embedded=true";
+                        entidadS.OtroDos = urlVista;
+
                         documentosE.proposals.Add(entidadS);
                     }
                 }

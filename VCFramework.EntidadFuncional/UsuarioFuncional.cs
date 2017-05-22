@@ -48,6 +48,7 @@ namespace VCFramework.EntidadFuncional
 
         public String UrlDocumento { get; set; }
         public bool MostrarItem1 { get; set; }
+        public String OtroDiez { get; set; }
     }
     public class NotificacionRetorno
     {

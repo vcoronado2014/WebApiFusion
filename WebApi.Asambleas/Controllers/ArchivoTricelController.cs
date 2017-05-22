@@ -54,6 +54,12 @@ namespace WebApi.Asambleas.Controllers
                         us.Url = urlll + us.NombreCompleto;
                         us.UrlEliminar = "EliminarDocumento.html?id=" + us.Id.ToString() + "&tipo=archivotricel&tricelId=" + tri.TriId.ToString();
 
+                        string extension = Path.GetExtension(us.Url);
+                        us.OtroTres = extension;
+
+                        string urlVista = "http://docs.google.com/viewer?url=" + us.Url + " &embedded=true";
+                        us.OtroDos = urlVista;
+
                         votaciones.proposals.Add(us);
                     }
                     //establecimientos.Establecimientos = instituciones;
