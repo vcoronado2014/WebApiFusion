@@ -5,6 +5,8 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Net.Mail;
 using VCFramework.Negocio.Factory;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace VCFramework.NegocioMySQL
 {
@@ -247,6 +249,56 @@ namespace VCFramework.NegocioMySQL
 
             return retorno;
         }
+
+        public static int ValidaEvento(int fechaEnteraInicio, int fechaEnteraTermino, int instId, int usuIdCreador, string nombre)
+        {
+            int retorno = 0;
+            string valor = "";
+            string conexionStr = setCnsWebLun.ConnectionString;
+            SqlConnection conn = new SqlConnection(conexionStr);
+            SqlCommand cmd = null;
+            cmd = new SqlCommand();
+            cmd.Connection = new SqlConnection(conexionStr);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "VALIDA_EVENTO";
+
+            cmd.Parameters.AddWithValue("@FECHA_ENTERA_INICIO", fechaEnteraInicio);
+            cmd.Parameters.AddWithValue("@FECHA_ENTERA_TERMINO", fechaEnteraTermino);
+            cmd.Parameters.AddWithValue("@INST_ID", instId);
+            cmd.Parameters.AddWithValue("@USU_ID_CREADOR", usuIdCreador);
+            cmd.Parameters.AddWithValue("@NOMBRE", nombre);
+            cmd.Connection.Open();
+
+            try
+            {
+                SqlDataReader rdr = cmd.ExecuteReader();
+                int NOMBRE = rdr.GetOrdinal("NOMBRE");
+                try
+                {
+                    while (rdr.Read())
+                    {
+                        valor = rdr.IsDBNull(NOMBRE) ? "" : rdr.GetString(NOMBRE);
+                        break;
+                    }
+                }
+                finally
+                {
+                    rdr.Close();
+                }
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            if (valor == "")
+                retorno = 0;
+            else
+                retorno = 1;
+
+            return retorno;
+        }
+
 
     }
 

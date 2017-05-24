@@ -18,6 +18,44 @@ namespace WebApi.Asambleas.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CalendarioController : ApiController
     {
+
+        [System.Web.Http.AcceptVerbs("GET")]
+        [HttpGet]
+        public HttpResponseMessage Get([FromUri]string instId, [FromUri]string usuIdCreador, [FromUri]string fechaInicioEntera, [FromUri]string fechaTerminoEntera, [FromUri]string nombre)
+        {
+
+            //validaciones antes de ejecutar la llamada.
+            if (usuIdCreador == "")
+                throw new ArgumentNullException("Id");
+
+
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
+            try
+            {
+                int instIdInt = int.Parse(instId);
+                int usuIdCreadorInt = int.Parse(usuIdCreador);
+                int fechaInicioEnteraInt = int.Parse(fechaInicioEntera);
+                int fechaTerminoEnteraInt = int.Parse(fechaTerminoEntera);
+                string nombreStr = nombre;
+
+                //ahora traemos los eventos
+
+                int consulta = VCFramework.NegocioMySQL.Calendario.ValidaEvento(fechaInicioEnteraInt, fechaTerminoEnteraInt, instIdInt, usuIdCreadorInt, nombreStr);
+
+
+                    httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
+                    String JSON = JsonConvert.SerializeObject(consulta);
+                    httpResponse.Content = new StringContent(JSON);
+                    httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
+            }
+            catch (Exception ex)
+            {
+                httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
+                throw ex;
+            }
+            return httpResponse;
+        }
+
         [System.Web.Http.AcceptVerbs("POST")]
         public HttpResponseMessage Post(dynamic DynamicClass)
         {
@@ -194,6 +232,7 @@ namespace WebApi.Asambleas.Controllers
             string fechaInicio = data.FechaInicio;
             string fechaTermino = data.FechaTermino;
             string esNuevo = data.EsNuevo;
+            string usuIdCreador = data.UsuIdCreador;
 
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
@@ -226,6 +265,7 @@ namespace WebApi.Asambleas.Controllers
                     calendario.Titulo = titulo;
                     calendario.Ubicacion = "";
                     calendario.Url = "";
+                    calendario.UsuIdCreador = int.Parse(usuIdCreador);
                     //insertar
                     idNuevo = VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
                     calendario.Id = idNuevo;
@@ -236,6 +276,7 @@ namespace WebApi.Asambleas.Controllers
                     calendario = calendarios.Find(p => p.FechaInicio == DateTime.Parse(fechaInicio, culture) && p.FechaTermino == DateTime.Parse(fechaTermino, culture));
                     if (calendario != null && calendario.Id > 0)
                     {
+                        calendario.UsuIdCreador = int.Parse(usuIdCreador);
                         calendario.Asunto = titulo;
                         calendario.Descripcion = titulo;
                         calendario.Detalle = titulo;

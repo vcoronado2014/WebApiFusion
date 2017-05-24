@@ -24,5 +24,7 @@ namespace VCFramework.Entidad
         public int Status { get; set; }
 
         public int Tipo { get; set; }
+        public int UsuIdCreador { get; set; }
+
     }
 }
