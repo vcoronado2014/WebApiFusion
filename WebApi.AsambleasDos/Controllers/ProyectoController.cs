@@ -206,6 +206,46 @@ namespace WebApi.AsambleasDos.Controllers
                         VCFramework.NegocioMySQL.Proyectos.Modificar(tricel);
                         if (tricel.Id >= 0)
                         {
+                            #region manejo del evento
+                            //ojo acá, hay que modificar el evento también
+                            //para este caso vamos a utilizar el tipo 2 que será Proyecto
+                            //el Status contendrá el id del elemento original
+                            //falta agregar fechas
+                            VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                            List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(tricel.InstId, 2);
+                            if (listaCalendario != null && listaCalendario.Count > 0)
+                            {
+
+                                listaCalendario = listaCalendario.FindAll(p => p.Status == tricel.Id);
+                                if (listaCalendario != null && listaCalendario.Count > 0)
+                                {
+                                    calendario = listaCalendario[0];
+                                }
+                            }
+                            //seteamos los valores
+                            calendario.Titulo = tricel.Nombre;
+                            calendario.Detalle = tricel.Nombre;
+                            calendario.Asunto = tricel.Nombre;
+                            calendario.Url = "";
+                            calendario.Ubicacion = "CPAS";
+                            calendario.InstId = tricel.InstId;
+                            calendario.Etiqueta = 1;
+                            calendario.Descripcion = tricel.Nombre;
+                            calendario.Status = tricel.Id;
+                            calendario.Tipo = 2;
+                            calendario.UsuIdCreador = tricel.UsuIdCreador;
+                            if (calendario.Id > 0)
+                            {
+                                //MODIFICAR
+                                VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                            }
+                            else
+                            {
+                                VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
+                            }
+
+                            #endregion
+
                             if (VCFramework.NegocioMySQL.Utiles.ENVIA_PROYECTOS(int.Parse(instId)) == "1")
                             {
 
@@ -257,6 +297,46 @@ namespace WebApi.AsambleasDos.Controllers
                     int respuesta = tricel.Id = VCFramework.NegocioMySQL.Proyectos.Insertar(tricel);
                     if (respuesta >= 0)
                     {
+
+                        #region manejo del evento
+                        //ojo acá, hay que modificar el evento también
+                        //para este caso vamos a utilizar el tipo 2 que será Proyecto
+                        //el Status contendrá el id del elemento original
+                        VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                        List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(tricel.InstId, 2);
+                        if (listaCalendario != null && listaCalendario.Count > 0)
+                        {
+
+                            listaCalendario = listaCalendario.FindAll(p => p.Status == tricel.Id);
+                            if (listaCalendario != null && listaCalendario.Count > 0)
+                            {
+                                calendario = listaCalendario[0];
+                            }
+                        }
+                        //seteamos los valores
+                        calendario.Titulo = tricel.Nombre;
+                        calendario.Detalle = tricel.Nombre;
+                        calendario.Asunto = tricel.Nombre;
+                        calendario.Url = "";
+                        calendario.Ubicacion = "CPAS";
+                        calendario.InstId = tricel.InstId;
+                        calendario.Etiqueta = 1;
+                        calendario.Descripcion = tricel.Nombre;
+                        calendario.Status = tricel.Id;
+                        calendario.Tipo = 2;
+                        calendario.UsuIdCreador = tricel.UsuIdCreador;
+                        if (calendario.Id > 0)
+                        {
+                            //MODIFICAR
+                            VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                        }
+                        else
+                        {
+                            VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
+                        }
+
+                        #endregion
+
                         if (VCFramework.NegocioMySQL.Utiles.ENVIA_PROYECTOS(int.Parse(instId)) == "1")
                         {
 

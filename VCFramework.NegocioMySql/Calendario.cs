@@ -51,6 +51,34 @@ namespace VCFramework.NegocioMySQL
                 lista2 = lista2.FindAll(p => p.Eliminado == 0);
             return lista2;
         }
+        public static List<VCFramework.Entidad.Calendario> ObtenerCalendarioPorInstidTipo(int instId, int tipo)
+        {
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "INST_ID";
+            filtro.Valor = instId.ToString();
+            filtro.TipoDato = TipoDatoGeneral.Entero;
+
+            FiltroGenerico filtro2 = new FiltroGenerico();
+            filtro2.Campo = "TIPO";
+            filtro2.Valor = tipo.ToString();
+            filtro2.TipoDato = TipoDatoGeneral.Entero;
+
+            List<FiltroGenerico> filtros = new List<FiltroGenerico>();
+            filtros.Add(filtro);
+            filtros.Add(filtro2);
+
+            List<object> lista = fac.Leer<VCFramework.Entidad.Calendario>(filtros, setCnsWebLun);
+            List<VCFramework.Entidad.Calendario> lista2 = new List<VCFramework.Entidad.Calendario>();
+            if (lista != null)
+            {
+
+                lista2 = lista.Cast<VCFramework.Entidad.Calendario>().ToList();
+            }
+            if (lista2 != null)
+                lista2 = lista2.FindAll(p => p.Eliminado == 0);
+            return lista2;
+        }
         public static void EliminarEvento(int AppointmentId, int Status, int Id, int Tipo)
         {
             if (Tipo == 0)
