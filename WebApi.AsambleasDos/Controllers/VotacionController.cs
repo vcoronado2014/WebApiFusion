@@ -293,6 +293,64 @@ namespace WebApi.AsambleasDos.Controllers
 
                         if (tricel.Id >= 0)
                         {
+                            #region manejo del evento
+                            //ojo acá, hay que modificar el evento también
+                            //para este caso vamos a utilizar el tipo 2 que será tricel
+                            //el Status contendrá el id del elemento original
+                            //falta agregar fechas
+                            //24-03-2017
+                            string[] fechaIniArr = tricel.FechaInicio.Split('-');
+                            DateTime fechaIni = new DateTime(
+                                int.Parse(fechaIniArr[2]),
+                                int.Parse(fechaIniArr[1]),
+                                int.Parse(fechaIniArr[0]),
+                                0, 0, 0
+                                );
+                            string[] fechaTerArr = tricel.FechaTermino.Split('-');
+                            DateTime fechaTer = new DateTime(
+                                int.Parse(fechaTerArr[2]),
+                                int.Parse(fechaTerArr[1]),
+                                int.Parse(fechaTerArr[0]),
+                                23, 59, 0
+                                );
+
+                            VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                            List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(tricel.InstId, 3);
+                            if (listaCalendario != null && listaCalendario.Count > 0)
+                            {
+
+                                listaCalendario = listaCalendario.FindAll(p => p.Status == tricel.Id);
+                                if (listaCalendario != null && listaCalendario.Count > 0)
+                                {
+                                    calendario = listaCalendario[0];
+                                }
+                            }
+                            //seteamos los valores
+                            calendario.Titulo = tricel.Nombre;
+                            calendario.Detalle = tricel.Nombre;
+                            calendario.Asunto = tricel.Nombre;
+                            calendario.Url = "";
+                            calendario.Ubicacion = "CPAS";
+                            calendario.InstId = tricel.InstId;
+                            calendario.Etiqueta = 1;
+                            calendario.Descripcion = tricel.Nombre;
+                            calendario.Status = tricel.Id;
+                            calendario.Tipo = 3;
+                            calendario.FechaInicio = fechaIni;
+                            calendario.FechaTermino = fechaTer;
+                            calendario.UsuIdCreador = tricel.UsuIdCreador;
+                            if (calendario.Id > 0)
+                            {
+                                //MODIFICAR
+                                VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                            }
+                            else
+                            {
+                                VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
+                            }
+
+                            #endregion
+
                             if (VCFramework.NegocioMySQL.Utiles.ENVIA_PROYECTOS(int.Parse(instId)) == "1")
                             {
 
@@ -342,6 +400,64 @@ namespace WebApi.AsambleasDos.Controllers
                     //envio del correo
                     if (respuesta >=0)
                     {
+                        #region manejo del evento
+                        //ojo acá, hay que modificar el evento también
+                        //para este caso vamos a utilizar el tipo 3 que será tricel
+                        //el Status contendrá el id del elemento original
+                        //falta agregar fechas
+                        //24-03-2017
+                        string[] fechaIniArr = tricel.FechaInicio.Split('-');
+                        DateTime fechaIni = new DateTime(
+                            int.Parse(fechaIniArr[2]),
+                            int.Parse(fechaIniArr[1]),
+                            int.Parse(fechaIniArr[0]),
+                            0, 0, 0
+                            );
+                        string[] fechaTerArr = tricel.FechaTermino.Split('-');
+                        DateTime fechaTer = new DateTime(
+                            int.Parse(fechaTerArr[2]),
+                            int.Parse(fechaTerArr[1]),
+                            int.Parse(fechaTerArr[0]),
+                            23, 59, 0
+                            );
+
+                        VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                        List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(tricel.InstId, 3);
+                        if (listaCalendario != null && listaCalendario.Count > 0)
+                        {
+
+                            listaCalendario = listaCalendario.FindAll(p => p.Status == tricel.Id);
+                            if (listaCalendario != null && listaCalendario.Count > 0)
+                            {
+                                calendario = listaCalendario[0];
+                            }
+                        }
+                        //seteamos los valores
+                        calendario.Titulo = tricel.Nombre;
+                        calendario.Detalle = tricel.Nombre;
+                        calendario.Asunto = tricel.Nombre;
+                        calendario.Url = "";
+                        calendario.Ubicacion = "CPAS";
+                        calendario.InstId = tricel.InstId;
+                        calendario.Etiqueta = 1;
+                        calendario.Descripcion = tricel.Nombre;
+                        calendario.Status = respuesta;
+                        calendario.Tipo = 3;
+                        calendario.FechaInicio = fechaIni;
+                        calendario.FechaTermino = fechaTer;
+                        calendario.UsuIdCreador = tricel.UsuIdCreador;
+                        if (calendario.Id > 0)
+                        {
+                            //MODIFICAR
+                            VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                        }
+                        else
+                        {
+                            VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
+                        }
+
+                        #endregion
+
                         if (VCFramework.NegocioMySQL.Utiles.ENVIA_PROYECTOS(int.Parse(instId)) == "1")
                         {
 
@@ -432,6 +548,24 @@ namespace WebApi.AsambleasDos.Controllers
                         }
                     }
 
+                    #region calendario
+                    VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                    List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(inst.InstId, 2);
+                    if (listaCalendario != null && listaCalendario.Count > 0)
+                    {
+
+                        listaCalendario = listaCalendario.FindAll(p => p.Status == idBuscar);
+                        if (listaCalendario != null && listaCalendario.Count > 0)
+                        {
+                            calendario = listaCalendario[0];
+                        }
+                    }
+                    if (calendario.Id > 0)
+                    {
+                        calendario.Eliminado = 1;
+                        VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                    }
+                    #endregion
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(inst);

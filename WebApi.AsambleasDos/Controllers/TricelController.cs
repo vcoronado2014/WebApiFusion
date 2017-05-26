@@ -162,6 +162,64 @@ namespace WebApi.AsambleasDos.Controllers
 
                             }
                         }
+
+                        #region manejo del evento
+                        //ojo acá, hay que modificar el evento también
+                        //para este caso vamos a utilizar el tipo 3 que será tricel
+                        //el Status contendrá el id del elemento original
+                        //falta agregar fechas
+                        //24-03-2017
+                        string[] fechaIniArr = tricel.FechaInicio.Split('-');
+                        DateTime fechaIni = new DateTime(
+                            int.Parse(fechaIniArr[2]),
+                            int.Parse(fechaIniArr[1]),
+                            int.Parse(fechaIniArr[0]),
+                            0, 0, 0
+                            );
+                        string[] fechaTerArr = tricel.FechaTermino.Split('-');
+                        DateTime fechaTer = new DateTime(
+                            int.Parse(fechaTerArr[2]),
+                            int.Parse(fechaTerArr[1]),
+                            int.Parse(fechaTerArr[0]),
+                            23, 59, 0
+                            );
+
+                        VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                        List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(tricel.InstId, 3);
+                        if (listaCalendario != null && listaCalendario.Count > 0)
+                        {
+
+                            listaCalendario = listaCalendario.FindAll(p => p.Status == tricel.Id);
+                            if (listaCalendario != null && listaCalendario.Count > 0)
+                            {
+                                calendario = listaCalendario[0];
+                            }
+                        }
+                        //seteamos los valores
+                        calendario.Titulo = tricel.Nombre;
+                        calendario.Detalle = tricel.Nombre;
+                        calendario.Asunto = tricel.Nombre;
+                        calendario.Url = "";
+                        calendario.Ubicacion = "CPAS";
+                        calendario.InstId = tricel.InstId;
+                        calendario.Etiqueta = 1;
+                        calendario.Descripcion = tricel.Nombre;
+                        calendario.Status = tricel.Id;
+                        calendario.Tipo = 3;
+                        calendario.FechaInicio = fechaIni;
+                        calendario.FechaTermino = fechaTer;
+                        calendario.UsuIdCreador = tricel.UsuIdCreador;
+                        if (calendario.Id > 0)
+                        {
+                            //MODIFICAR
+                            VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                        }
+                        else
+                        {
+                            VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
+                        }
+
+                        #endregion
                     }
                 }
                 else
@@ -177,6 +235,60 @@ namespace WebApi.AsambleasDos.Controllers
                     tricel.UsuIdCreador = int.Parse(usuId);
                     tricel.FechaCreacion = DateTime.Now;
                     tricel.Id = VCFramework.NegocioMySQL.Tricel.Insertar(tricel);
+                    #region manejo del evento
+                    //ojo acá, hay que modificar el evento también
+                    //para este caso vamos a utilizar el tipo 3 que será Tricel
+                    //el Status contendrá el id del elemento original
+                    VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                    List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(tricel.InstId, 3);
+                    if (listaCalendario != null && listaCalendario.Count > 0)
+                    {
+
+                        listaCalendario = listaCalendario.FindAll(p => p.Status == tricel.Id);
+                        if (listaCalendario != null && listaCalendario.Count > 0)
+                        {
+                            calendario = listaCalendario[0];
+                        }
+                    }
+                    string[] fechaIniArr = tricel.FechaInicio.Split('-');
+                    DateTime fechaIni = new DateTime(
+                        int.Parse(fechaIniArr[2]),
+                        int.Parse(fechaIniArr[1]),
+                        int.Parse(fechaIniArr[0]),
+                        0, 0, 0
+                        );
+                    string[] fechaTerArr = tricel.FechaTermino.Split('-');
+                    DateTime fechaTer = new DateTime(
+                        int.Parse(fechaTerArr[2]),
+                        int.Parse(fechaTerArr[1]),
+                        int.Parse(fechaTerArr[0]),
+                        23, 59, 0
+                        );
+                    //seteamos los valores
+                    calendario.Titulo = tricel.Nombre;
+                    calendario.Detalle = tricel.Nombre;
+                    calendario.Asunto = tricel.Nombre;
+                    calendario.Url = "";
+                    calendario.Ubicacion = "CPAS";
+                    calendario.InstId = tricel.InstId;
+                    calendario.Etiqueta = 1;
+                    calendario.Descripcion = tricel.Nombre;
+                    calendario.Status = tricel.Id;
+                    calendario.Tipo = 3;
+                    calendario.FechaInicio = fechaIni;
+                    calendario.FechaTermino = fechaTer;
+                    calendario.UsuIdCreador = tricel.UsuIdCreador;
+                    if (calendario.Id > 0)
+                    {
+                        //MODIFICAR
+                        VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                    }
+                    else
+                    {
+                        VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
+                    }
+
+                    #endregion
                 }
 
 
@@ -242,6 +354,24 @@ namespace WebApi.AsambleasDos.Controllers
                         }
                     }
 
+                    #region calendario
+                    VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                    List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(inst.InstId, 3);
+                    if (listaCalendario != null && listaCalendario.Count > 0)
+                    {
+
+                        listaCalendario = listaCalendario.FindAll(p => p.Status == inst.Id);
+                        if (listaCalendario != null && listaCalendario.Count > 0)
+                        {
+                            calendario = listaCalendario[0];
+                        }
+                    }
+                    if (calendario.Id > 0)
+                    {
+                        calendario.Eliminado = 1;
+                        VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                    }
+                    #endregion
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(inst);

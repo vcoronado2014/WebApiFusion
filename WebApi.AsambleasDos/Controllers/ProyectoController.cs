@@ -211,6 +211,22 @@ namespace WebApi.AsambleasDos.Controllers
                             //para este caso vamos a utilizar el tipo 2 que será Proyecto
                             //el Status contendrá el id del elemento original
                             //falta agregar fechas
+                            //24-03-2017
+                            string[] fechaIniArr = tricel.FechaInicio.Split('-');
+                            DateTime fechaIni = new DateTime(
+                                int.Parse(fechaIniArr[2]),
+                                int.Parse(fechaIniArr[1]),
+                                int.Parse(fechaIniArr[0]),
+                                0,0,0
+                                );
+                            string[] fechaTerArr = tricel.FechaTermino.Split('-');
+                            DateTime fechaTer = new DateTime(
+                                int.Parse(fechaTerArr[2]),
+                                int.Parse(fechaTerArr[1]),
+                                int.Parse(fechaTerArr[0]),
+                                23, 59, 0
+                                );
+
                             VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
                             List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(tricel.InstId, 2);
                             if (listaCalendario != null && listaCalendario.Count > 0)
@@ -233,6 +249,8 @@ namespace WebApi.AsambleasDos.Controllers
                             calendario.Descripcion = tricel.Nombre;
                             calendario.Status = tricel.Id;
                             calendario.Tipo = 2;
+                            calendario.FechaInicio = fechaIni;
+                            calendario.FechaTermino = fechaTer;
                             calendario.UsuIdCreador = tricel.UsuIdCreador;
                             if (calendario.Id > 0)
                             {
@@ -313,6 +331,20 @@ namespace WebApi.AsambleasDos.Controllers
                                 calendario = listaCalendario[0];
                             }
                         }
+                        string[] fechaIniArr = tricel.FechaInicio.Split('-');
+                        DateTime fechaIni = new DateTime(
+                            int.Parse(fechaIniArr[2]),
+                            int.Parse(fechaIniArr[1]),
+                            int.Parse(fechaIniArr[0]),
+                            0, 0, 0
+                            );
+                        string[] fechaTerArr = tricel.FechaTermino.Split('-');
+                        DateTime fechaTer = new DateTime(
+                            int.Parse(fechaTerArr[2]),
+                            int.Parse(fechaTerArr[1]),
+                            int.Parse(fechaTerArr[0]),
+                            23, 59, 0
+                            );
                         //seteamos los valores
                         calendario.Titulo = tricel.Nombre;
                         calendario.Detalle = tricel.Nombre;
@@ -324,6 +356,8 @@ namespace WebApi.AsambleasDos.Controllers
                         calendario.Descripcion = tricel.Nombre;
                         calendario.Status = tricel.Id;
                         calendario.Tipo = 2;
+                        calendario.FechaInicio = fechaIni;
+                        calendario.FechaTermino = fechaTer;
                         calendario.UsuIdCreador = tricel.UsuIdCreador;
                         if (calendario.Id > 0)
                         {
@@ -417,6 +451,25 @@ namespace WebApi.AsambleasDos.Controllers
                             VCFramework.NegocioMySQL.ArchivosProyecto.Eliminar(arc);
                         }
                     }
+
+                    #region calendario
+                    VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                    List<VCFramework.Entidad.Calendario> listaCalendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(inst.InstId, 2);
+                    if (listaCalendario != null && listaCalendario.Count > 0)
+                    {
+
+                        listaCalendario = listaCalendario.FindAll(p => p.Status == inst.Id);
+                        if (listaCalendario != null && listaCalendario.Count > 0)
+                        {
+                            calendario = listaCalendario[0];
+                        }
+                    }
+                    if (calendario.Id > 0)
+                    {
+                        calendario.Eliminado = 1;
+                        VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                    }
+                    #endregion
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(inst);

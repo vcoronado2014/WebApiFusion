@@ -278,10 +278,12 @@ namespace VCFramework.NegocioMySQL
             return retorno;
         }
 
-        public static int ValidaEvento(int fechaEnteraInicio, int fechaEnteraTermino, int instId, int usuIdCreador, string nombre)
+        public static EntidadValida ValidaEvento(int fechaEnteraInicio, int fechaEnteraTermino, int instId, int usuIdCreador, string nombre)
         {
-            int retorno = 0;
+            EntidadValida retorno = new EntidadValida();
+
             string valor = "";
+            int tipo = 0;
             string conexionStr = setCnsWebLun.ConnectionString;
             SqlConnection conn = new SqlConnection(conexionStr);
             SqlCommand cmd = null;
@@ -301,11 +303,15 @@ namespace VCFramework.NegocioMySQL
             {
                 SqlDataReader rdr = cmd.ExecuteReader();
                 int NOMBRE = rdr.GetOrdinal("NOMBRE");
+                int TIPO = rdr.GetOrdinal("TIPO");
                 try
                 {
                     while (rdr.Read())
                     {
                         valor = rdr.IsDBNull(NOMBRE) ? "" : rdr.GetString(NOMBRE);
+                        tipo = rdr.IsDBNull(TIPO) ? 0 : rdr.GetInt32(TIPO);
+                        retorno.Valor = valor;
+                        retorno.Tipo = tipo;
                         break;
                     }
                 }
@@ -319,17 +325,16 @@ namespace VCFramework.NegocioMySQL
                 cmd.Connection.Close();
             }
 
-            if (valor == "")
-                retorno = 0;
-            else
-                retorno = 1;
-
             return retorno;
         }
 
 
     }
-
+    public class EntidadValida
+    {
+        public string Valor { get; set; }
+        public int Tipo { get; set; }
+    }
 
     public class events
     {
