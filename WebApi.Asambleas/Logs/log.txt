@@ -48,4 +48,9 @@
       ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
     <Id>8</Id>
   </error>
+  <error>
+    <Fecha>2017-05-29 16:09</Fecha>
+    <Detalle>Se ha establecido la conexión con el servidor correctamente, pero se ha producido un error durante el inicio de sesión previo del protocolo de enlace. (provider: SSL Provider, error: 0 - Tiempo de espera de la operación de espera agotado.)</Detalle>
+    <Id>9</Id>
+  </error>
 </root>
