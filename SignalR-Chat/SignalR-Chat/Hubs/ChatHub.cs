@@ -46,10 +46,30 @@ namespace SignalR_Chat.Hubs
             Clients.Group(sender.GrupoId).broadcastMessage(sender.Username, message);
             //Clients.All.broadcastMessage(sender.Username, message);
         }
-        public void SendUrl(string message, string url)
+        public void SendUrl(string message, string url, string rol)
         {
             var sender = ConnectedUsers.First(u => u.ID.Equals(Context.ConnectionId));
-            Clients.Group(sender.GrupoId).broadcastMessageUrl(sender.Username, message, url);
+            if (rol != "9")
+                Clients.Group(sender.GrupoId).broadcastMessageUrl(sender.Username, message, url);
+            else
+                Clients.Group(sender.GrupoId).broadcastMessage(sender.Username, message);
+            //Clients.All.broadcastMessage(sender.Username, message);
+        }
+        public void SendMensaje(string message, string url, string tipo, string rol, string result)
+        {
+            //debemos evaluar el tipo de mensaje para saber si enviarlo o no
+            //por el momento esta vamos a considerar solo el rol
+            //si el rol es apoderado no se mostrará la url
+            //tipo 1 crear modificar Institucion
+            //tipo 2 eliminar institucion
+            //tipo 3 crear modificar rendicion
+            //tipo  eliminar rendicion
+
+            var sender = ConnectedUsers.First(u => u.ID.Equals(Context.ConnectionId));
+            if (rol != "9")
+                Clients.Group(sender.GrupoId).broadcastMessageUrl(sender.Username, message, url);
+            else
+                Clients.Group(sender.GrupoId).broadcastMessage(sender.Username, message);
             //Clients.All.broadcastMessage(sender.Username, message);
         }
 

@@ -75,7 +75,6 @@ D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin
 D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Newtonsoft.Json.xml
 D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Net.Http.Formatting.xml
 D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Http.xml
-D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.csprojResolveAssemblyReference.cache
 D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.dll
 D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.pdb
 C:\WEB_API_NUEVA\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\csc.exe
