@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $.connection.hub.url = 'http://signalr.cpas.cl/signalr';
+    //$.connection.hub.url = 'http://signalr.cpas.cl/signalr';
     var chat = $.connection.chatHub;
     var username;
     do {

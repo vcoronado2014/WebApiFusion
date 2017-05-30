@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $.connection.hub.url = 'http://signalr.cpas.cl/signalr/hubs';
+    //$.connection.hub.url = 'http://signalr.cpas.cl/signalr/hubs';
     var chat = $.connection.chatHub;
     var username;
     do {
@@ -21,7 +21,7 @@
     //$.connection.hub.start().done(function () {
     //    chat.server.connect(username);
     //});
-    $.connection.hub.start({ transport: 'longPolling', xdomain: true }).done(function () {
+    $.connection.hub.start().done(function () {
         chat.server.connect(username);
     });
 

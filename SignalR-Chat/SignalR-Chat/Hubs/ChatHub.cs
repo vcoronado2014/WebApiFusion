@@ -11,17 +11,30 @@ namespace SignalR_Chat.Hubs
     public class ChatHub : Hub
     {
         public static List<Client> ConnectedUsers { get; set; } = new List<Client>();
+        public static List<string> Grupos { get; set; } = new List<string>();
+
         public void Connect(string username)
         {
+            string[] param = username.Split('_');
+            string grupo = param[1];
+            string user = param[0];
+
+ 
+            Groups.Add(Context.ConnectionId, grupo);
+
+
             Client c = new Client()
             {
-                Username = username,
-                ID = Context.ConnectionId
+                Username = user,
+                ID = Context.ConnectionId,
+                GrupoId = grupo
             };
             if (!ConnectedUsers.Exists(p=>p.ID == c.ID))
             {
                 ConnectedUsers.Add(c);
+                
                 Clients.All.updateUsers(ConnectedUsers.Count(), ConnectedUsers.Select(u => u.Username));
+                //Clients.Group(grupo).up
             }
             
         }
@@ -30,7 +43,14 @@ namespace SignalR_Chat.Hubs
         public void Send(string message)
         {
             var sender = ConnectedUsers.First(u => u.ID.Equals(Context.ConnectionId));
-            Clients.All.broadcastMessage(sender.Username, message);
+            Clients.Group(sender.GrupoId).broadcastMessage(sender.Username, message);
+            //Clients.All.broadcastMessage(sender.Username, message);
+        }
+        public void SendUrl(string message, string url)
+        {
+            var sender = ConnectedUsers.First(u => u.ID.Equals(Context.ConnectionId));
+            Clients.Group(sender.GrupoId).broadcastMessageUrl(sender.Username, message, url);
+            //Clients.All.broadcastMessage(sender.Username, message);
         }
 
 
@@ -49,6 +69,8 @@ namespace SignalR_Chat.Hubs
         public string Username { get; set; }
 
         public string ID { get; set; }
+
+        public string GrupoId { get; set; }
     }
 
 }
