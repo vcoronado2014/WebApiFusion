@@ -1,5 +1,4 @@
 ﻿$(function () {
-    //$.connection.hub.url = 'http://signalr.cpas.cl/signalr';
     var chat = $.connection.chatHub;
     var username;
     do {
@@ -15,6 +14,10 @@
     }
 
     chat.client.broadcastMessage = function (username, message) {
+        $('#messagesArea').append('<li><strong>' + username + '</strong>: ' + message);
+    }
+
+    chat.client.broadcastMessageUrl = function (username, message, url) {
         $('#messagesArea').append('<li><strong>' + username + '</strong>: ' + message);
     }
 

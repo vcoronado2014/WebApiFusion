@@ -6,11 +6,24 @@
     } while (username == null || username == "");
 
     chat.client.updateUsers = function (userCount, userList) {
-        $('#onlineUsersCount').text('Online users: ' + userCount);
+        $('#onlineUsersCount').text('Usuarios en línea: ' + userCount);
         $('#userList').empty();
         userList.forEach(function (username) {
             $('#userList').append('<li>' + username + '</li>');
         });
+    }
+
+    chat.client.updateGrupos = function (usuariosCount, gruposCount, gruposList, messagesCount, messagesArr) {
+        //alert(gruposCount);
+        $('#totalUsuariosConectados').text(usuariosCount);
+        $('#totalGruposCreados').text(gruposCount);
+        $('#totalMensajesProcesados').text(messagesCount);
+
+        //$('#onlineUsersCount').text('Online users: ' + userCount);
+        //$('#userList').empty();
+        //userList.forEach(function (username) {
+            //$('#userList').append('<li>' + username + '</li>');
+        //});
     }
 
     chat.client.broadcastMessage = function (username, message) {

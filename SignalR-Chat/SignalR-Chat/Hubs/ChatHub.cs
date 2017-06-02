@@ -13,6 +13,8 @@ namespace SignalR_Chat.Hubs
         public static List<Client> ConnectedUsers { get; set; } = new List<Client>();
         public static List<string> Grupos { get; set; } = new List<string>();
 
+        public static List<string> Mensajes { get; set; } = new List<string>();
+
         public void Connect(string username)
         {
             string[] param = username.Split('_');
@@ -21,6 +23,7 @@ namespace SignalR_Chat.Hubs
 
  
             Groups.Add(Context.ConnectionId, grupo);
+            Grupos.Add(grupo);
 
 
             Client c = new Client()
@@ -32,9 +35,13 @@ namespace SignalR_Chat.Hubs
             if (!ConnectedUsers.Exists(p=>p.ID == c.ID))
             {
                 ConnectedUsers.Add(c);
-                
+                //grupos
+
+
+                Clients.All.updateGrupos(ConnectedUsers.Count(), Grupos.Distinct().ToList().Count(), Grupos.Distinct().ToList(), Mensajes.Count(), Mensajes.ToArray());
                 Clients.All.updateUsers(ConnectedUsers.Count(), ConnectedUsers.Select(u => u.Username));
                 //Clients.Group(grupo).up
+
             }
             
         }
@@ -44,6 +51,7 @@ namespace SignalR_Chat.Hubs
         {
             var sender = ConnectedUsers.First(u => u.ID.Equals(Context.ConnectionId));
             Clients.Group(sender.GrupoId).broadcastMessage(sender.Username, message);
+            Mensajes.Add(message);
             //Clients.All.broadcastMessage(sender.Username, message);
         }
         public void SendUrl(string message, string url, string rol)
@@ -54,6 +62,7 @@ namespace SignalR_Chat.Hubs
             else
                 Clients.Group(sender.GrupoId).broadcastMessage(sender.Username, message);
             //Clients.All.broadcastMessage(sender.Username, message);
+            Mensajes.Add(message);
         }
         public void SendMensaje(string message, string url, string tipo, string rol, string result)
         {
@@ -70,6 +79,7 @@ namespace SignalR_Chat.Hubs
                 Clients.Group(sender.GrupoId).broadcastMessageUrl(sender.Username, message, url);
             else
                 Clients.Group(sender.GrupoId).broadcastMessage(sender.Username, message);
+            Mensajes.Add(message);
             //Clients.All.broadcastMessage(sender.Username, message);
         }
 
