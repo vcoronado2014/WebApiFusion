@@ -190,6 +190,38 @@ namespace VCFramework.NegocioMySQL
 
             return lista;
         }
+        public static List<UsuarioEnvoltorio> ListarUsuariosEnvoltorioPorRol(int instId, int rolId)
+        {
+            List<UsuarioEnvoltorio> lista = new List<UsuarioEnvoltorio>();
+            List<UsuarioFuncional> usuarios = new List<UsuarioFuncional>();
+            //para el administrador
+            if (rolId == 1)
+                usuarios = ListarUsuariosFuncional();
+            else
+                usuarios = ListarUsuariosFuncional(instId);
+
+            if (usuarios != null && usuarios.Count > 0)
+            {
+                foreach (UsuarioFuncional us in usuarios)
+                {
+                    UsuarioEnvoltorio env = new UsuarioEnvoltorio();
+                    env.Id = us.AutentificacionUsuario.Id;
+                    env.NombreCompleto = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
+                    env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
+                    env.Rol = us.Rol.Nombre;
+                    //nombre institucion
+                    env.OtroUno = us.Institucion.Nombre;
+                    env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
+                    env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";
+                    lista.Add(env);
+
+                }
+            }
+            if (usuarios != null && usuarios.Count > 0)
+                usuarios = usuarios.OrderBy(p => p.Institucion.Id).ToList();
+
+            return lista;
+        }
 
         public static List<UsuarioEnvoltorio> ListarUsuariosEnvoltorio()
         {

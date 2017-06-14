@@ -200,6 +200,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region     Inicio
+            config.Routes.MapHttpRoute(
+                name: "Inicio",
+                routeTemplate: "api/Inicio",
+                defaults: new
+                {
+                    controller = "Inicio"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

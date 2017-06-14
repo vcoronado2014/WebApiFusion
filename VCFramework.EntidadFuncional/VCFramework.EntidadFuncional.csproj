@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IngresoEgresoFuncional.cs" />
+    <Compile Include="Inicio.cs" />
     <Compile Include="ListaTricelFuncional.cs" />
     <Compile Include="MenuGeneralFuncional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

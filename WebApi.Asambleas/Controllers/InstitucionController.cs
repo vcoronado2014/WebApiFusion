@@ -155,6 +155,8 @@ namespace WebApi.Asambleas.Controllers
                         us.NombreCompleto = insti.Nombre;
                         us.Url = insti.Url;
                         us.UrlEliminar = insti.UrlEliminar;
+                        us.OtroUno = insti.Telefono;
+                        us.OtroDos = insti.CorreoElectronico;
                         establecimientos.proposals.Add(us);
                     }
                     //establecimientos.Establecimientos = instituciones;

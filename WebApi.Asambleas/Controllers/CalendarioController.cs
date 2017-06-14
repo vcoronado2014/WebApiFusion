@@ -79,7 +79,7 @@ namespace WebApi.Asambleas.Controllers
 
                 List<VCFramework.Entidad.Calendario> eventos = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(instIdBuscar);
                 //HAY QUE TRAER TAMBIEN LOS PROYECTOS QUE FUERON CREADOS
-                List<VCFramework.Entidad.Proyectos> proyectos = VCFramework.NegocioMySQL.Proyectos.ObtenerProyectosPorInstIdN(instIdBuscar);
+                //List<VCFramework.Entidad.Proyectos> proyectos = VCFramework.NegocioMySQL.Proyectos.ObtenerProyectosPorInstIdN(instIdBuscar);
 
                 List<WebApi.Asambleas.Controllers.evento> lista = new List<WebApi.Asambleas.Controllers.evento>();
                 if (eventos != null && eventos.Count > 0)
