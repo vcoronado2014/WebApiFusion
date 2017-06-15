@@ -74,6 +74,7 @@
     <Compile Include="Provincia.cs" />
     <Compile Include="Proyectos.cs" />
     <Compile Include="Region.cs" />
+    <Compile Include="Reportes.cs" />
     <Compile Include="ResponsableTricel.cs" />
     <Compile Include="RlAccFunUsu.cs" />
     <Compile Include="Rol.cs" />
