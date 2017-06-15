@@ -204,6 +204,7 @@ namespace WebApi.Asambleas.Controllers
                 string telefono = data.Telefono;
                 string correo = data.CorreoElectronico;
                 string direccion = data.Direccion;
+                string esCpas = data.EsCpas;
 
                 if (aus == null)
                     aus = new VCFramework.Entidad.Institucion();
@@ -222,6 +223,7 @@ namespace WebApi.Asambleas.Controllers
                     aus.Telefono = telefono;
                     aus.CorreoElectronico = correo;
                     aus.Direccion = direccion;
+                    aus.EsCpas = int.Parse(esCpas);
                     if (aus.Id == 0)
                         nuevoId = VCFramework.NegocioMySQL.Institucion.Insertar(aus);
                     else

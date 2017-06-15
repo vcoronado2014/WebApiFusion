@@ -92,7 +92,7 @@ namespace WebApi.AsambleasDos.Controllers
             string direccion = data.Direccion;
             string password = data.Password;
             string nombreInstitucion = data.NombreInstitucion;
-
+            string esCpas = data.EsCpas;
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             int idNuevo = 0;
 
@@ -110,6 +110,7 @@ namespace WebApi.AsambleasDos.Controllers
                 institucion.Nombre = nombreInstitucion;
                 institucion.RegId = int.Parse(idRegion);
                 institucion.Telefono = telefono;
+                institucion.EsCpas = int.Parse(esCpas);
                 //guardamos la institucion
                 int idInstitucion = VCFramework.NegocioMySQL.Institucion.Insertar(institucion);
                 if (idInstitucion > 0)
