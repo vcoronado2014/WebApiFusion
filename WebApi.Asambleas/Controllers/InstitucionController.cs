@@ -157,6 +157,7 @@ namespace WebApi.Asambleas.Controllers
                         us.UrlEliminar = insti.UrlEliminar;
                         us.OtroUno = insti.Telefono;
                         us.OtroDos = insti.CorreoElectronico;
+                        us.OtroTres = insti.EsCpas.ToString();
                         establecimientos.proposals.Add(us);
                     }
                     //establecimientos.Establecimientos = instituciones;
