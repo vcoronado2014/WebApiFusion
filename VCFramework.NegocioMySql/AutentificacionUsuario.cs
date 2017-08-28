@@ -20,7 +20,7 @@ namespace VCFramework.NegocioMySQL
             {
                 lista2 = lista.Cast<VCFramework.Entidad.AutentificacionUsuario>().ToList();
             }
-            return lista2.FindAll(p=>p.EsVigente == 1);
+            return lista2.FindAll(p => p.EsVigente == 1);
         }
 
         public static List<VCFramework.Entidad.AutentificacionUsuario> ListarUsuariosPorInstId(int instId)
@@ -100,7 +100,20 @@ namespace VCFramework.NegocioMySQL
 
             if (lista != null && lista.Count > 0)
             {
-                retorno = lista.Find(p => p.Id == id  && p.Eliminado == 0 && p.EsVigente == 1);
+                retorno = lista.Find(p => p.Id == id && p.Eliminado == 0 && p.EsVigente == 1);
+            }
+
+            return retorno;
+        }
+        public static VCFramework.Entidad.AutentificacionUsuario ObtenerUsuarioCompleto(int id)
+        {
+            VCFramework.Entidad.AutentificacionUsuario retorno = new Entidad.AutentificacionUsuario();
+
+            List<VCFramework.Entidad.AutentificacionUsuario> lista = ListarUsuarios();
+
+            if (lista != null && lista.Count > 0)
+            {
+                retorno = lista.Find(p => p.Id == id);
             }
 
             return retorno;
@@ -181,6 +194,7 @@ namespace VCFramework.NegocioMySQL
                     env.Rol = us.Rol.Nombre;
                     //nombre institucion
                     env.OtroUno = us.Institucion.Nombre;
+                    env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
                     env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
                     env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";
                     lista.Add(env);
@@ -211,6 +225,7 @@ namespace VCFramework.NegocioMySQL
                     env.Rol = us.Rol.Nombre;
                     //nombre institucion
                     env.OtroUno = us.Institucion.Nombre;
+                    env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
                     env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
                     env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";
                     lista.Add(env);
@@ -237,6 +252,7 @@ namespace VCFramework.NegocioMySQL
                     env.NombreCompleto = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
                     env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
                     env.Rol = us.Rol.Nombre;
+                    env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
                     //nombre institucion
                     env.OtroUno = us.Institucion.Nombre;
                     env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;

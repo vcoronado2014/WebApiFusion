@@ -215,17 +215,34 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgendaExceptionFilter.cs" />
     <Compile Include="Controllers\ArchivoProyectoController.cs" />
+    <Compile Include="Controllers\ArchivoTricelController.cs" />
     <Compile Include="Controllers\ArticuloController.cs" />
     <Compile Include="Controllers\AsistenteController.cs" />
+    <Compile Include="Controllers\CalendarioController.cs" />
     <Compile Include="Controllers\CargaMasivaController.cs" />
     <Compile Include="Controllers\ConfiguracionNodoController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\FileDocumentoController.cs" />
     <Compile Include="Controllers\FileExcelController.cs" />
+    <Compile Include="Controllers\FileNuevoController.cs" />
+    <Compile Include="Controllers\GraficoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\InstitucionController.cs" />
+    <Compile Include="Controllers\ListarUsuariosController.cs" />
+    <Compile Include="Controllers\ListaTricelController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogsController.cs" />
+    <Compile Include="Controllers\ObtenerComunasController.cs" />
+    <Compile Include="Controllers\ObtenerRegionesController.cs" />
+    <Compile Include="Controllers\ObtenerRolesController.cs" />
+    <Compile Include="Controllers\ObtenerUsuarioController.cs" />
+    <Compile Include="Controllers\ObtenerUsuariosController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\RendicionController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Controllers\ResponsableTricelController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
@@ -309,6 +326,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Excel\" />
     <Folder Include="RepositorioProyecto\" />
+    <Folder Include="RepositorioTricel\" />
+    <Folder Include="Repositorio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
