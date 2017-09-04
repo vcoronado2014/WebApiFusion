@@ -78,6 +78,7 @@
     <Compile Include="ResponsableTricel.cs" />
     <Compile Include="RlAccFunUsu.cs" />
     <Compile Include="Rol.cs" />
+    <Compile Include="RolInstitucion.cs" />
     <Compile Include="ServidorCorreo.cs" />
     <Compile Include="Slide.cs" />
     <Compile Include="Tricel.cs" />

@@ -148,6 +148,8 @@ namespace VCFramework.NegocioMySQL
             retorno.AutentificacionUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(idUsuario);
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
                 retorno.Rol = NegocioMySQL.Rol.ObtenerRolDelUsuario(retorno.AutentificacionUsuario.RolId);
+            if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
+                retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(retorno.AutentificacionUsuario.RolId, retorno.AutentificacionUsuario.InstId);
             if (retorno.AutentificacionUsuario.InstId > 0)
                 retorno.Institucion = NegocioMySQL.Institucion.ObtenerInstitucionPorId(retorno.AutentificacionUsuario.InstId);
             if (retorno.AutentificacionUsuario.Id > 0)
@@ -167,6 +169,8 @@ namespace VCFramework.NegocioMySQL
             retorno.AutentificacionUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(userName, password);
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
                 retorno.Rol = NegocioMySQL.Rol.ObtenerRolDelUsuario(retorno.AutentificacionUsuario.RolId);
+            if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
+                retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(retorno.AutentificacionUsuario.RolId, retorno.AutentificacionUsuario.InstId);
             if (retorno.AutentificacionUsuario.InstId > 0)
                 retorno.Institucion = NegocioMySQL.Institucion.ObtenerInstitucionPorId(retorno.AutentificacionUsuario.InstId);
             if (retorno.AutentificacionUsuario.Id > 0)
@@ -320,6 +324,9 @@ namespace VCFramework.NegocioMySQL
 
                     uf.Rol = new Entidad.Rol();
                     uf.Rol = VCFramework.NegocioMySQL.Rol.ListarRoles().Find(p => p.Id == usu.RolId);
+
+                    uf.RolInstitucion = new Entidad.RolInstitucion();
+                    uf.RolInstitucion = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(usu.RolId, usu.InstId);
 
                     uf.Persona = new Entidad.Persona();
                     uf.Persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(usu.Id);

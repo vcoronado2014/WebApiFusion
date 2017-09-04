@@ -76,10 +76,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 09:01:12</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>08/28/2017 18:20:20</publishTime>
+      <publishTime>09/04/2017 15:26:49</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>08/28/2017 18:20:20</publishTime>
+      <publishTime>09/04/2017 15:26:49</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/14/2017 09:01:12</publishTime>
@@ -211,19 +211,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 09:01:13</publishTime>
     </File>
     <File Include="bin/VCFramework.Entidad.dll">
-      <publishTime>08/28/2017 09:06:45</publishTime>
+      <publishTime>08/30/2017 16:42:55</publishTime>
     </File>
     <File Include="bin/VCFramework.EntidadFuncional.dll">
-      <publishTime>08/28/2017 09:06:45</publishTime>
+      <publishTime>08/30/2017 16:42:55</publishTime>
     </File>
     <File Include="bin/VCFramework.Negocio.Factory.dll">
       <publishTime>06/14/2017 09:01:12</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.dll">
-      <publishTime>08/28/2017 18:19:59</publishTime>
+      <publishTime>08/30/2017 16:42:57</publishTime>
     </File>
     <File Include="bin/WebApi.AsambleasDos.dll">
-      <publishTime>08/28/2017 18:20:06</publishTime>
+      <publishTime>08/30/2017 16:43:11</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>06/14/2017 09:01:14</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 09:01:12</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/28/2017 18:20:09</publishTime>
+      <publishTime>09/04/2017 15:26:41</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>06/14/2017 09:01:10</publishTime>
@@ -313,7 +313,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 09:01:10</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/28/2017 09:06:52</publishTime>
+      <publishTime>09/04/2017 15:26:40</publishTime>
     </File>
   </ItemGroup>
 </Project>
