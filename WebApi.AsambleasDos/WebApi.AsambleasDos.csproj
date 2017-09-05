@@ -241,6 +241,7 @@
     <Compile Include="Controllers\ObtenerRolesController.cs" />
     <Compile Include="Controllers\ObtenerUsuarioController.cs" />
     <Compile Include="Controllers\ObtenerUsuariosController.cs" />
+    <Compile Include="Controllers\PermisoRolController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\RendicionController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />

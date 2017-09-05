@@ -19,6 +19,7 @@ namespace VCFramework.EntidadFuncional
 
         public VCFramework.Entidad.Comuna Comuna { get; set; }
         public VCFramework.Entidad.RolInstitucion RolInstitucion { get; set; }
+        public VCFramework.Entidad.PermisoRol PermisoRol { get; set; }
 
     }
     public class UsuarioEnvoltorio

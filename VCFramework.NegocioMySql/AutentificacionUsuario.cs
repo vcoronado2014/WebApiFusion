@@ -149,7 +149,19 @@ namespace VCFramework.NegocioMySQL
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
                 retorno.Rol = NegocioMySQL.Rol.ObtenerRolDelUsuario(retorno.AutentificacionUsuario.RolId);
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
+            {
+                //si no tiene rol institucion se asocia
                 retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(retorno.AutentificacionUsuario.RolId, retorno.AutentificacionUsuario.InstId);
+                if (retorno.RolInstitucion.Id == 0)
+                {
+                    retorno.RolInstitucion.Descripcion = retorno.Rol.Descripcion;
+                    retorno.RolInstitucion.Id = retorno.Rol.Id;
+                    retorno.RolInstitucion.IdOriginal = retorno.Rol.Id;
+                    retorno.RolInstitucion.InstId = retorno.AutentificacionUsuario.InstId;
+                    retorno.RolInstitucion.Nombre = retorno.Rol.Nombre;
+                }
+
+            }
             if (retorno.AutentificacionUsuario.InstId > 0)
                 retorno.Institucion = NegocioMySQL.Institucion.ObtenerInstitucionPorId(retorno.AutentificacionUsuario.InstId);
             if (retorno.AutentificacionUsuario.Id > 0)
@@ -158,6 +170,8 @@ namespace VCFramework.NegocioMySQL
                 retorno.Region = NegocioMySQL.Region.ObtenerRegionPorId(retorno.Persona.RegId);
             if (retorno.Persona != null)
                 retorno.Comuna = NegocioMySQL.Comuna.ObtenerComunaPorId(retorno.Persona.ComId);
+            if (retorno.RolInstitucion != null && retorno.RolInstitucion.Id > 0)
+                retorno.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(retorno.RolInstitucion.Id);
 
             return retorno;
         }
@@ -170,7 +184,20 @@ namespace VCFramework.NegocioMySQL
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
                 retorno.Rol = NegocioMySQL.Rol.ObtenerRolDelUsuario(retorno.AutentificacionUsuario.RolId);
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
+            {
+                //si no tiene rol institucion se asocia
                 retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(retorno.AutentificacionUsuario.RolId, retorno.AutentificacionUsuario.InstId);
+                if (retorno.RolInstitucion.Id == 0)
+                {
+                    retorno.RolInstitucion.Descripcion = retorno.Rol.Descripcion;
+                    retorno.RolInstitucion.Id = retorno.Rol.Id;
+                    retorno.RolInstitucion.IdOriginal = retorno.Rol.Id;
+                    retorno.RolInstitucion.InstId = retorno.AutentificacionUsuario.InstId;
+                    retorno.RolInstitucion.Nombre = retorno.Rol.Nombre;
+                }
+
+            }
+                
             if (retorno.AutentificacionUsuario.InstId > 0)
                 retorno.Institucion = NegocioMySQL.Institucion.ObtenerInstitucionPorId(retorno.AutentificacionUsuario.InstId);
             if (retorno.AutentificacionUsuario.Id > 0)
@@ -179,6 +206,8 @@ namespace VCFramework.NegocioMySQL
                 retorno.Region = NegocioMySQL.Region.ObtenerRegionPorId(retorno.Persona.RegId);
             if (retorno.Persona != null)
                 retorno.Comuna = NegocioMySQL.Comuna.ObtenerComunaPorId(retorno.Persona.ComId);
+            if (retorno.RolInstitucion != null && retorno.RolInstitucion.Id > 0)
+                retorno.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(retorno.RolInstitucion.Id);
 
             return retorno;
         }

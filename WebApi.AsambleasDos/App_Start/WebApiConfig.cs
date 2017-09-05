@@ -388,6 +388,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  PermisoRol
+            config.Routes.MapHttpRoute(
+                name: "PermisoRol",
+                routeTemplate: "api/PermisoRol",
+                defaults: new
+                {
+                    controller = "PermisoRol"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
