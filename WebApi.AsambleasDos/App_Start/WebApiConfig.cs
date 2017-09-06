@@ -399,6 +399,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  RolInstitucion
+            config.Routes.MapHttpRoute(
+                name: "RolInstitucion",
+                routeTemplate: "api/RolInstitucion",
+                defaults: new
+                {
+                    controller = "RolInstitucion"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

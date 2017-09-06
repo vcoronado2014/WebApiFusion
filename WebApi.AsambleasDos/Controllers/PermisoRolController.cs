@@ -129,6 +129,134 @@ namespace WebApi.AsambleasDos.Controllers
         [System.Web.Http.AcceptVerbs("PUT")]
         public HttpResponseMessage Put(dynamic DynamicClass)
         {
+            /*
+            CreaCalendario
+:
+true
+CreaDocumento
+:
+true
+CreaIntitucion
+:
+true
+CreaMuro
+:
+true
+CreaProyecto
+:
+true
+CreaRendicion
+:
+false
+CreaRol
+:
+true
+CreaTricel
+:
+true
+CreaUsuario
+:
+true
+Descripcion
+:
+"Super"
+EliminaCalendario
+:
+true
+EliminaDocumento
+:
+true
+EliminaInstitucion
+:
+true
+EliminaMuro
+:
+true
+EliminaProyecto
+:
+true
+EliminaRendicion
+:
+false
+EliminaRol
+:
+true
+EliminaTricel
+:
+true
+EliminaUsuario
+:
+true
+Id
+:
+"1"
+InstId
+:
+3
+ModificaCalendario
+:
+true
+ModificaInstitucion
+:
+true
+ModificaMuro
+:
+true
+ModificaProyecto
+:
+true
+ModificaRendicion
+:
+false
+ModificaRol
+:
+true
+ModificaTricel
+:
+true
+ModificaUsuario
+:
+true
+Nombre
+:
+"Super Administrador"
+PermisoId
+:
+1
+PuedeVotarProyecto
+:
+true
+PuedeVotarTricel
+:
+true
+VerCalendario
+:
+true
+VerDocumento
+:
+true
+VerInstitucion
+:
+true
+VerMuro
+:
+true
+VerProyecto
+:
+true
+VerRendicion
+:
+true
+VerRol
+:
+true
+VerTricel
+:
+true
+VerUsuario
+:
+true 
+            */
 
             string Input = JsonConvert.SerializeObject(DynamicClass);
 
@@ -137,6 +265,9 @@ namespace WebApi.AsambleasDos.Controllers
             string id = data.Id;
             string instId = data.InstId;
             string rolId = data.RoldId;
+            string nombre = data.Nombre;
+            string descripcion = data.Descripcion;
+            string permisoId = data.PermisoId;
             string creaUsuario = data.CreaUsuario;
             string modificaUsuario = data.ModificaUsuario;
             string eliminaUsuario = data.EliminaUsuario;
@@ -181,49 +312,65 @@ namespace WebApi.AsambleasDos.Controllers
 
             try
             {
+                VCFramework.Entidad.RolInstitucion rolGuardar = new RolInstitucion();
+                rolGuardar.Descripcion = descripcion;
+                rolGuardar.Id = int.Parse(rolId);
+                rolGuardar.IdOriginal = 0;
+                rolGuardar.InstId = int.Parse(instId);
+                rolGuardar.Nombre = nombre;
+                if (rolGuardar.Id > 0)
+                {
+                    VCFramework.NegocioMySql.RolInstitucion.Modificar(rolGuardar);
+                }
+                else
+                {
+                    VCFramework.NegocioMySql.RolInstitucion.Insertar(rolGuardar);
+                }
+
                 VCFramework.Entidad.PermisoRol permiso = new PermisoRol();
                 //entonces vemos si modifica o crea
                 
-                permiso.Id = int.Parse(id);
+                permiso.Id = int.Parse(permisoId);
                 permiso.InstId = int.Parse(instId);
-                permiso.CreaCalendario = int.Parse(creaCalendario);
-                permiso.CreaDocumento = int.Parse(creaDocumento);
-                permiso.CreaInstitucion = int.Parse(creaInstitucion);
-                permiso.CreaMuro = int.Parse(creaMuro);
-                permiso.CreaProyecto = int.Parse(creaProyecto);
-                permiso.CreaRendicion = int.Parse(creaRendicion);
-                permiso.CreaRol = int.Parse(creaRol);
-                permiso.CreaTricel = int.Parse(creaTricel);
-                permiso.CreaUsuario = int.Parse(creaUsuario);
-                permiso.EliminaCalendario = int.Parse(eliminaCalendario);
-                permiso.EliminaDocumento = int.Parse(eliminaDocumento);
-                permiso.EliminaInstitucion = int.Parse(eliminaInstitucion);
-                permiso.EliminaMuro = int.Parse(eliminaMuro);
-                permiso.EliminaProyecto = int.Parse(eliminaProyecto);
-                permiso.EliminaRendicion = int.Parse(eliminaRendicion);
-                permiso.EliminaRol = int.Parse(eliminaRol);
-                permiso.EliminaTricel = int.Parse(eliminaTricel);
-                permiso.EliminaUsuario = int.Parse(eliminaUsuario);
-                permiso.ModificaCalendario = int.Parse(modificaCalendario);
-                permiso.ModificaInstitucion = int.Parse(modificaInstitucion);
-                permiso.ModificaMuro = int.Parse(modificaMuro);
-                permiso.ModificaProyecto = int.Parse(modificaProyecto);
-                permiso.ModificaRendicion = int.Parse(modificaRendicion);
-                permiso.ModificaRol = int.Parse(modificaRol);
-                permiso.ModificaTricel = int.Parse(modificaTricel);
-                permiso.ModificaUsuario = int.Parse(modificaUsuario);
-                permiso.PuedeVotarProyecto = int.Parse(puedeVotarProyecto);
-                permiso.PuedeVotarTricel = int.Parse(puedeVotarTricel);
+                permiso.CreaCalendario = Convert.ToBoolean(creaCalendario) ? 1 : 0;
+                //int.Parse(creaCalendario);
+                permiso.CreaDocumento = Convert.ToBoolean(creaDocumento) ? 1 : 0;
+                permiso.CreaInstitucion = Convert.ToBoolean(creaInstitucion) ? 1 : 0;
+                permiso.CreaMuro = Convert.ToBoolean(creaMuro) ? 1 : 0;
+                permiso.CreaProyecto = Convert.ToBoolean(creaProyecto) ? 1 : 0;
+                permiso.CreaRendicion = Convert.ToBoolean(creaRendicion) ? 1 : 0;
+                permiso.CreaRol = Convert.ToBoolean(creaRol) ? 1 : 0;
+                permiso.CreaTricel = Convert.ToBoolean(creaTricel) ? 1 : 0;
+                permiso.CreaUsuario = Convert.ToBoolean(creaUsuario) ? 1 : 0;
+                permiso.EliminaCalendario = Convert.ToBoolean(eliminaCalendario) ? 1 : 0;
+                permiso.EliminaDocumento = Convert.ToBoolean(eliminaDocumento) ? 1 : 0;
+                permiso.EliminaInstitucion = Convert.ToBoolean(eliminaInstitucion) ? 1 : 0;
+                permiso.EliminaMuro = Convert.ToBoolean(eliminaMuro) ? 1 : 0;
+                permiso.EliminaProyecto = Convert.ToBoolean(eliminaProyecto) ? 1 : 0;
+                permiso.EliminaRendicion = Convert.ToBoolean(eliminaRendicion) ? 1 : 0;
+                permiso.EliminaRol = Convert.ToBoolean(eliminaRol) ? 1 : 0;
+                permiso.EliminaTricel = Convert.ToBoolean(eliminaTricel) ? 1 : 0;
+                permiso.EliminaUsuario = Convert.ToBoolean(eliminaUsuario) ? 1 : 0;
+                permiso.ModificaCalendario = Convert.ToBoolean(modificaCalendario) ? 1 : 0;
+                permiso.ModificaInstitucion = Convert.ToBoolean(modificaInstitucion) ? 1 : 0;
+                permiso.ModificaMuro = Convert.ToBoolean(modificaMuro) ? 1 : 0;
+                permiso.ModificaProyecto = Convert.ToBoolean(modificaProyecto) ? 1 : 0;
+                permiso.ModificaRendicion = Convert.ToBoolean(modificaRendicion) ? 1 : 0;
+                permiso.ModificaRol = Convert.ToBoolean(modificaRol) ? 1 : 0;
+                permiso.ModificaTricel = Convert.ToBoolean(modificaTricel) ? 1 : 0;
+                permiso.ModificaUsuario = Convert.ToBoolean(modificaUsuario) ? 1 : 0;
+                permiso.PuedeVotarProyecto = Convert.ToBoolean(puedeVotarProyecto) ? 1 : 0;
+                permiso.PuedeVotarTricel = Convert.ToBoolean(puedeVotarTricel) ? 1 : 0;
                 permiso.RolId = int.Parse(rolId);
-                permiso.VerCalendario = int.Parse(verCalendario);
-                permiso.VerDocumento = int.Parse(verDocumento);
-                permiso.VerInstitucion = int.Parse(verInstitucion);
-                permiso.VerMuro = int.Parse(verMuro);
-                permiso.VerProyecto = int.Parse(verProyecto);
-                permiso.VerRendicion = int.Parse(verRendicion);
-                permiso.VerRol = int.Parse(verRol);
-                permiso.VerTricel = int.Parse(verTricel);
-                permiso.VerUsuario = int.Parse(verUsuario);
+                permiso.VerCalendario = Convert.ToBoolean(verCalendario) ? 1 : 0;
+                permiso.VerDocumento = Convert.ToBoolean(verDocumento) ? 1 : 0;
+                permiso.VerInstitucion = Convert.ToBoolean(verInstitucion) ? 1 : 0;
+                permiso.VerMuro = Convert.ToBoolean(verMuro) ? 1 : 0;
+                permiso.VerProyecto = Convert.ToBoolean(verProyecto) ? 1 : 0;
+                permiso.VerRendicion = Convert.ToBoolean(verRendicion) ? 1 : 0;
+                permiso.VerRol = Convert.ToBoolean(verRol) ? 1 : 0;
+                permiso.VerTricel = Convert.ToBoolean(verTricel) ? 1 : 0;
+                permiso.VerUsuario = Convert.ToBoolean(verUsuario) ? 1 : 0;
 
 
 

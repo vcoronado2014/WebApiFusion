@@ -33,7 +33,7 @@ namespace WebApi.AsambleasDos.Controllers
             if (data.InstId == 0)
                 throw new ArgumentNullException("InstId");
 
-            List<VCFramework.Entidad.RolInstitucion> lista = new List<RolInstitucion>();
+            List<VCFramework.Entidad.RolInstitucion> lista = new List<VCFramework.Entidad.RolInstitucion>();
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             String JSON = "";
@@ -56,7 +56,7 @@ namespace WebApi.AsambleasDos.Controllers
                         else
                         {
                             //si no existe se agrega directamente
-                            VCFramework.Entidad.RolInstitucion entidad = new RolInstitucion();
+                            VCFramework.Entidad.RolInstitucion entidad = new VCFramework.Entidad.RolInstitucion();
                             entidad.Descripcion = rolcito.Descripcion;
                             entidad.Eliminado = rolcito.Eliminado;
                             entidad.Id = rolcito.Id;
@@ -94,7 +94,7 @@ namespace WebApi.AsambleasDos.Controllers
         [HttpGet]
         public HttpResponseMessage Get([FromUri]string id, [FromUri]string instId, [FromUri]string idOriginal)
         {
-            VCFramework.Entidad.RolInstitucion retoorno = new RolInstitucion();
+            VCFramework.Entidad.RolInstitucion retoorno = new VCFramework.Entidad.RolInstitucion();
             if (instId == "")
                 throw new ArgumentNullException("InstitucionId");
 
@@ -182,7 +182,7 @@ namespace WebApi.AsambleasDos.Controllers
             string instIdElemento = data.InstId;
             string idOriginalElemento = data.IdOriginal;
 
-            VCFramework.Entidad.RolInstitucion retoorno = new RolInstitucion();
+            VCFramework.Entidad.RolInstitucion retoorno = new VCFramework.Entidad.RolInstitucion();
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
