@@ -264,7 +264,7 @@ true
 
             string id = data.Id;
             string instId = data.InstId;
-            string rolId = data.RoldId;
+            string rolId = data.Id;
             string nombre = data.Nombre;
             string descripcion = data.Descripcion;
             string permisoId = data.PermisoId;
@@ -307,6 +307,7 @@ true
             string puedeVotarTricel = data.PuedeVotarTricel;
 
             int idNuevo = 0;
+            int idNuevoRol = 0;
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
@@ -321,10 +322,12 @@ true
                 if (rolGuardar.Id > 0)
                 {
                     VCFramework.NegocioMySql.RolInstitucion.Modificar(rolGuardar);
+                    idNuevoRol = rolGuardar.Id;
                 }
                 else
                 {
-                    VCFramework.NegocioMySql.RolInstitucion.Insertar(rolGuardar);
+                    idNuevoRol = VCFramework.NegocioMySql.RolInstitucion.Insertar(rolGuardar);
+                    rolGuardar.Id = idNuevoRol;
                 }
 
                 VCFramework.Entidad.PermisoRol permiso = new PermisoRol();
@@ -361,7 +364,7 @@ true
                 permiso.ModificaUsuario = Convert.ToBoolean(modificaUsuario) ? 1 : 0;
                 permiso.PuedeVotarProyecto = Convert.ToBoolean(puedeVotarProyecto) ? 1 : 0;
                 permiso.PuedeVotarTricel = Convert.ToBoolean(puedeVotarTricel) ? 1 : 0;
-                permiso.RolId = int.Parse(rolId);
+                permiso.RolId = idNuevoRol;
                 permiso.VerCalendario = Convert.ToBoolean(verCalendario) ? 1 : 0;
                 permiso.VerDocumento = Convert.ToBoolean(verDocumento) ? 1 : 0;
                 permiso.VerInstitucion = Convert.ToBoolean(verInstitucion) ? 1 : 0;
@@ -374,7 +377,7 @@ true
 
 
 
-                if (int.Parse(id) > 0)
+                if (int.Parse(permisoId) > 0)
                 {
                     VCFramework.NegocioMySql.PermisoRol.Modificar(permiso);
                 }
@@ -408,24 +411,45 @@ true
             dynamic data = JObject.Parse(Input);
 
             string idElemento = data.Id;
+            string instId = data.InstId;
+            //el id corresponde al rol
             if (idElemento == null)
                 throw new ArgumentNullException("Id");
-
+            if (instId == null)
+                throw new ArgumentNullException("InstId");
+            VCFramework.Entidad.RolInstitucion rol = new RolInstitucion();
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
+            bool puedeBorrar = false;
 
             try
             {
-                VCFramework.Entidad.PermisoRol permiso = VCFramework.NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(int.Parse(idElemento));
-                if (permiso != null && permiso.Id > 0)
+                //ahora buscamos los usuarios que puedan tener ese rol
+                List<VCFramework.EntidadFuncional.UsuarioFuncional> usuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosFuncional(int.Parse(instId));
+                if (usuarios != null && usuarios.Count > 0)
                 {
-                    VCFramework.NegocioMySql.PermisoRol.Eliminar(permiso);
+                    if (usuarios.Exists(p => p.RolInstitucion.Id == int.Parse(idElemento)))
+                        puedeBorrar = false;
+
+                    rol.Descripcion = "No se puede eliminar este elemento";
+
+                }
+                if (puedeBorrar)
+                {
+                    rol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(int.Parse(idElemento));
+                    if (rol != null && rol.Id > 0)
+                    {
+                        List<VCFramework.Entidad.PermisoRol> permiso = VCFramework.NegocioMySql.PermisoRol.ObtenerPermisoRolPorRolId(rol.Id, int.Parse(instId));
+                        if (permiso != null && permiso[0].Id > 0)
+                        {
+                            VCFramework.NegocioMySql.PermisoRol.Eliminar(permiso[0]);
+                        }
+                    }
                 }
 
-
                 httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
-                String JSON = JsonConvert.SerializeObject(permiso);
+                String JSON = JsonConvert.SerializeObject(rol);
                 httpResponse.Content = new StringContent(JSON);
                 httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
 

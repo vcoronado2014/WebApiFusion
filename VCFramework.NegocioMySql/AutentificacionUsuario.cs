@@ -224,7 +224,7 @@ namespace VCFramework.NegocioMySQL
                     env.Id = us.AutentificacionUsuario.Id;
                     env.NombreCompleto = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
                     env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
-                    env.Rol = us.Rol.Nombre;
+                    env.Rol = us.RolInstitucion.Nombre;
                     //nombre institucion
                     env.OtroUno = us.Institucion.Nombre;
                     env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
@@ -255,7 +255,7 @@ namespace VCFramework.NegocioMySQL
                     env.Id = us.AutentificacionUsuario.Id;
                     env.NombreCompleto = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
                     env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
-                    env.Rol = us.Rol.Nombre;
+                    env.Rol = us.RolInstitucion.Nombre;
                     //nombre institucion
                     env.OtroUno = us.Institucion.Nombre;
                     env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
@@ -284,7 +284,7 @@ namespace VCFramework.NegocioMySQL
                     env.Id = us.AutentificacionUsuario.Id;
                     env.NombreCompleto = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
                     env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
-                    env.Rol = us.Rol.Nombre;
+                    env.Rol = us.RolInstitucion.Nombre;
                     env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
                     //nombre institucion
                     env.OtroUno = us.Institucion.Nombre;
@@ -317,6 +317,24 @@ namespace VCFramework.NegocioMySQL
                     uf.Rol = new Entidad.Rol();
                     uf.Rol = VCFramework.NegocioMySQL.Rol.ListarRoles().Find(p => p.Id == usu.RolId);
 
+                    if (uf.AutentificacionUsuario != null && uf.AutentificacionUsuario.Id > 0)
+                    {
+                        //si no tiene rol institucion se asocia
+                        uf.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(uf.AutentificacionUsuario.RolId, uf.AutentificacionUsuario.InstId);
+                        if (uf.RolInstitucion.Id == 0)
+                        {
+                            uf.RolInstitucion.Descripcion = uf.Rol.Descripcion;
+                            uf.RolInstitucion.Id = uf.Rol.Id;
+                            uf.RolInstitucion.IdOriginal = uf.Rol.Id;
+                            uf.RolInstitucion.InstId = uf.AutentificacionUsuario.InstId;
+                            uf.RolInstitucion.Nombre = uf.Rol.Nombre;
+                        }
+
+                    }
+
+                    uf.RolInstitucion = new Entidad.RolInstitucion();
+                    uf.RolInstitucion = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(usu.RolId);
+
                     uf.Persona = new Entidad.Persona();
                     uf.Persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(usu.Id);
 
@@ -327,6 +345,9 @@ namespace VCFramework.NegocioMySQL
                     uf.Comuna = new Entidad.Comuna();
                     if (uf.Persona != null)
                         uf.Comuna = VCFramework.NegocioMySQL.Comuna.ObtenerComunaPorId(uf.Persona.ComId);
+
+                    if (uf.RolInstitucion != null && uf.RolInstitucion.Id > 0)
+                        uf.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(uf.RolInstitucion.Id);
 
                     retorno.Add(uf);
                 }
@@ -354,8 +375,23 @@ namespace VCFramework.NegocioMySQL
                     uf.Rol = new Entidad.Rol();
                     uf.Rol = VCFramework.NegocioMySQL.Rol.ListarRoles().Find(p => p.Id == usu.RolId);
 
+                    if (uf.AutentificacionUsuario != null && uf.AutentificacionUsuario.Id > 0)
+                    {
+                        //si no tiene rol institucion se asocia
+                        uf.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(uf.AutentificacionUsuario.RolId, uf.AutentificacionUsuario.InstId);
+                        if (uf.RolInstitucion.Id == 0)
+                        {
+                            uf.RolInstitucion.Descripcion = uf.Rol.Descripcion;
+                            uf.RolInstitucion.Id = uf.Rol.Id;
+                            uf.RolInstitucion.IdOriginal = uf.Rol.Id;
+                            uf.RolInstitucion.InstId = uf.AutentificacionUsuario.InstId;
+                            uf.RolInstitucion.Nombre = uf.Rol.Nombre;
+                        }
+
+                    }
+
                     uf.RolInstitucion = new Entidad.RolInstitucion();
-                    uf.RolInstitucion = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(usu.RolId, usu.InstId);
+                    uf.RolInstitucion = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(usu.RolId);
 
                     uf.Persona = new Entidad.Persona();
                     uf.Persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(usu.Id);
@@ -367,6 +403,9 @@ namespace VCFramework.NegocioMySQL
                     uf.Comuna = new Entidad.Comuna();
                     if (uf.Persona != null)
                         uf.Comuna = VCFramework.NegocioMySQL.Comuna.ObtenerComunaPorId(uf.Persona.ComId);
+
+                    if (uf.RolInstitucion != null && uf.RolInstitucion.Id > 0)
+                        uf.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(uf.RolInstitucion.Id);
 
                     retorno.Add(uf);
                 }
