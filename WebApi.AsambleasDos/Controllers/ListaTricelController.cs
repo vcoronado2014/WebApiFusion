@@ -54,7 +54,7 @@ namespace WebApi.AsambleasDos.Controllers
                     if (VCFramework.NegocioMySQL.Utiles.IsNumeric(buscarNombreUsuario))
                         triceles = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorId(int.Parse(buscarNombreUsuario));
                     else
-                        triceles = triceles.FindAll(p => p.Nombre == buscarNombreUsuario);
+                        triceles = triceles.FindAll(p => p.Nombre.ToUpper().Replace(" ", "") == buscarNombreUsuario.ToUpper().Replace(" ", ""));
                 }
 
 

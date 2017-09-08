@@ -151,7 +151,7 @@ namespace VCFramework.NegocioMySQL
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
             {
                 //si no tiene rol institucion se asocia
-                retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(retorno.AutentificacionUsuario.RolId, retorno.AutentificacionUsuario.InstId);
+                retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorId(retorno.AutentificacionUsuario.RolId);
                 if (retorno.RolInstitucion.Id == 0)
                 {
                     retorno.RolInstitucion.Descripcion = retorno.Rol.Descripcion;
@@ -159,6 +159,13 @@ namespace VCFramework.NegocioMySQL
                     retorno.RolInstitucion.IdOriginal = retorno.Rol.Id;
                     retorno.RolInstitucion.InstId = retorno.AutentificacionUsuario.InstId;
                     retorno.RolInstitucion.Nombre = retorno.Rol.Nombre;
+                }
+                else
+                {
+                    retorno.Rol = new Entidad.Rol();
+                    retorno.Rol.Id = retorno.RolInstitucion.Id;
+                    retorno.Rol.Descripcion = retorno.RolInstitucion.Descripcion;
+                    retorno.Rol.Nombre = retorno.RolInstitucion.Nombre;
                 }
 
             }
@@ -186,7 +193,7 @@ namespace VCFramework.NegocioMySQL
             if (retorno.AutentificacionUsuario != null && retorno.AutentificacionUsuario.Id > 0)
             {
                 //si no tiene rol institucion se asocia
-                retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(retorno.AutentificacionUsuario.RolId, retorno.AutentificacionUsuario.InstId);
+                retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorId(retorno.AutentificacionUsuario.RolId);
                 if (retorno.RolInstitucion.Id == 0)
                 {
                     retorno.RolInstitucion.Descripcion = retorno.Rol.Descripcion;
@@ -194,6 +201,13 @@ namespace VCFramework.NegocioMySQL
                     retorno.RolInstitucion.IdOriginal = retorno.Rol.Id;
                     retorno.RolInstitucion.InstId = retorno.AutentificacionUsuario.InstId;
                     retorno.RolInstitucion.Nombre = retorno.Rol.Nombre;
+                }
+                else
+                {
+                    retorno.Rol = new Entidad.Rol();
+                    retorno.Rol.Id = retorno.RolInstitucion.Id;
+                    retorno.Rol.Descripcion = retorno.RolInstitucion.Descripcion;
+                    retorno.Rol.Nombre = retorno.RolInstitucion.Nombre;
                 }
 
             }

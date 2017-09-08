@@ -151,7 +151,7 @@ namespace WebApi.AsambleasDos.Controllers
                     if (VCFramework.NegocioMySQL.Utiles.IsNumeric(buscarNombreUsuario))
                         instituciones = instituciones.FindAll(p => p.Id == int.Parse(buscarNombreUsuario));
                     else
-                        instituciones = instituciones.FindAll(p => p.Detalle == buscarNombreUsuario);
+                        instituciones = instituciones.FindAll(p => p.Detalle.ToUpper().Replace(" ", "") == buscarNombreUsuario.ToUpper().Replace(" ", ""));
                 }
                 if (instituciones != null && instituciones.Count > 0)
                 {

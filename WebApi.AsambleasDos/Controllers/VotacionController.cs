@@ -133,7 +133,7 @@ namespace WebApi.AsambleasDos.Controllers
                     if (VCFramework.NegocioMySQL.Utiles.IsNumeric(buscarNombreUsuario))
                         triceles = triceles.FindAll(p => p.Id == int.Parse(buscarNombreUsuario));
                     else
-                        triceles = triceles.FindAll(p => p.Nombre == buscarNombreUsuario);
+                        triceles = triceles.FindAll(p => p.Nombre.ToUpper().Replace(" ", "") == buscarNombreUsuario.ToUpper().Replace(" ", ""));
                 }
                 StringBuilder sbTextoVoto = new StringBuilder();
 

@@ -144,7 +144,7 @@ namespace WebApi.AsambleasDos.Controllers
                 List<VCFramework.Entidad.Institucion> instituciones = VCFramework.NegocioMySQL.Institucion.ListarInstitucionesSinCache();
 
                 if (buscarNombreUsuario != "")
-                    instituciones = instituciones.FindAll(p => p.Nombre == buscarNombreUsuario);
+                    instituciones = instituciones.FindAll(p => p.Nombre.ToUpper().Replace(" ", "") == buscarNombreUsuario.ToUpper().Replace(" ", ""));
 
                 if (instituciones != null && instituciones.Count > 0)
                 {
