@@ -44,10 +44,12 @@
     <Compile Include="Inicio.cs" />
     <Compile Include="ListaTricelFuncional.cs" />
     <Compile Include="MenuGeneralFuncional.cs" />
+    <Compile Include="MuroFuncional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectosFuncional.cs" />
     <Compile Include="ReporteActasRendiciones.cs" />
     <Compile Include="ReportesFuncional.cs" />
+    <Compile Include="RespuestaMuroFuncional.cs" />
     <Compile Include="TricelFuncional.cs" />
     <Compile Include="UsuarioFuncional.cs" />
   </ItemGroup>

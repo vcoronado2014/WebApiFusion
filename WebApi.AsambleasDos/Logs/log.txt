@@ -65,4 +65,18 @@
       ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
     <Id>9</Id>
   </error>
+  <error>
+    <Fecha>2017-09-08 23:35</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com -- &lt;html&gt;
+      Estimado Usuario vcoronado:&lt;br /&gt;
+      Su password fué cambiada con exito: 123456&lt;br /&gt;
+      Ingrese a localhost/Ingreso.aspx &lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>10</Id>
+  </error>
+  <error>
+    <Fecha>2017-09-08 23:36</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>11</Id>
+  </error>
 </root>

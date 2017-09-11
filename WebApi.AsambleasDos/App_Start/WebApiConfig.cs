@@ -410,6 +410,39 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  RecuperarClave
+            config.Routes.MapHttpRoute(
+                name: "RecuperarClave",
+                routeTemplate: "api/RecuperarClave",
+                defaults: new
+                {
+                    controller = "RecuperarClave"
+                }
+            );
+            #endregion
+
+            #region  Muro
+            config.Routes.MapHttpRoute(
+                name: "Muro",
+                routeTemplate: "api/Muro",
+                defaults: new
+                {
+                    controller = "Muro"
+                }
+            );
+            #endregion
+
+            #region  RespuestaMuro
+            config.Routes.MapHttpRoute(
+                name: "RespuestaMuro",
+                routeTemplate: "api/RespuestaMuro",
+                defaults: new
+                {
+                    controller = "RespuestaMuro"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

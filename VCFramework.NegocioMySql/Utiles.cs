@@ -15,6 +15,54 @@ namespace VCFramework.NegocioMySQL
         public const string JSON_DOCTYPE = "application/json";
         public const string XML_DOCTYPE = "application/xml";
 
+        public static String DiferenciaFechas(DateTime newdt, DateTime olddt)
+        {
+            Int32 anios;
+            Int32 meses;
+            Int32 dias;
+            Int32 horas;
+            Int32 minutos;
+            Int32 segundos;
+            String str = "";
+
+            anios = (newdt.Year - olddt.Year);
+            meses = (newdt.Month - olddt.Month);
+            dias = (newdt.Day - olddt.Day);
+            horas = (newdt.Hour - olddt.Hour);
+            minutos = (newdt.Minute - olddt.Minute);
+            segundos = (newdt.Second - olddt.Second);
+
+            if (meses < 0)
+            {
+                anios -= 1;
+                meses += 12;
+            }
+            if (dias < 0)
+            {
+                meses -= 1;
+                dias += DateTime.DaysInMonth(newdt.Year, newdt.Month);
+            }
+
+            if (anios < 0)
+            {
+                return "Fecha Invalida";
+            }
+            if (anios > 0)
+                str = str + anios.ToString() + " años ";
+            if (meses > 0)
+                str = str + meses.ToString() + " meses ";
+            if (dias > 0)
+                str = str + dias.ToString() + " dias ";
+            if (horas > 0)
+                str = str + horas.ToString() + " horas ";
+            if (minutos > 0)
+                str = str + minutos.ToString() + " minutos ";
+            if (anios == 0 && meses == 0 && dias == 0 && horas == 0 && minutos == 0)
+                str = segundos.ToString() + " segundos ";
+
+
+            return "hace " + str;
+        }
         public static int EntregaEntero(string valorDosDigitos)
         {
             int retorno = 0;
@@ -567,10 +615,10 @@ namespace VCFramework.NegocioMySQL
         {
 
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
-            sms.Subject = "Recuperación Clave CPAS";
+            sms.Subject = "Recuperación Clave asambleas";
             sms.To.Add(email);
             
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "Asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -586,7 +634,7 @@ namespace VCFramework.NegocioMySQL
             {
                 sb.AppendFormat("Estimado Usuario {0}:<br />", nombre);
                 sb.AppendFormat("Su password fué recuperada con exito: {0}<br />", clave);
-                sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de CPAS ******");
+                sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ******");
             }
 
             sb.Append("</html>");
@@ -597,10 +645,10 @@ namespace VCFramework.NegocioMySQL
         {
 
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
-            sms.Subject = "Cambio Clave CPAS";
+            sms.Subject = "Cambio Clave Asambleas";
             sms.To.Add(email);
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "Asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -617,7 +665,7 @@ namespace VCFramework.NegocioMySQL
             {
                 sb.AppendFormat("Estimado Usuario {0}:<br />", nombre);
                 sb.AppendFormat("Su password fué cambiada con exito: {0}<br />", clave);
-                sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de CPAS ******");
+                sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de Asambleas ******");
             }
 
 

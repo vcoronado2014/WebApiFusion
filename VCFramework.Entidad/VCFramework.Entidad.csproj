@@ -63,6 +63,7 @@
     <Compile Include="ListaTricel.cs" />
     <Compile Include="LoginUsuario.cs" />
     <Compile Include="LogsSistema.cs" />
+    <Compile Include="Muro.cs" />
     <Compile Include="PermisoRol.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Region.cs" />
     <Compile Include="ResponsableTricel.cs" />
     <Compile Include="ResponsableTricelEnvoltorio.cs" />
+    <Compile Include="RespuestaMuro.cs" />
     <Compile Include="RlAccFunUsu.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="RolInstitucion.cs" />
