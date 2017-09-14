@@ -10,6 +10,7 @@ namespace VCFramework.EntidadFuncional
     {
         public string NombreUsuario { get; set; }
         public string NombreRol { get; set; }
+        public bool VisibleEliminar { get; set; }
         public string FechaString { get; set; }
     }
 }

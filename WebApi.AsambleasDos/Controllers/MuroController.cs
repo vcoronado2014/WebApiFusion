@@ -175,6 +175,9 @@ namespace WebApi.AsambleasDos.Controllers
                                 string fechita2 = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, resp.FechaCreacion);
                                 respF.FechaString = fechita2;
                                 muroF.VisibleEliminar = false;
+                                respF.VisibleEliminar = true;
+                                if (int.Parse(usuIdLogueado) != respF.UsuId)
+                                    respF.VisibleEliminar = false;
                                 muroF.RespuestaMuro.Add(respF);
                             }
                             if (muroF.RespuestaMuro != null && muroF.RespuestaMuro.Count > 0)

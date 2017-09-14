@@ -236,6 +236,7 @@
     <Compile Include="Controllers\ListaTricelController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogsController.cs" />
+    <Compile Include="Controllers\MailingController.cs" />
     <Compile Include="Controllers\MuroController.cs" />
     <Compile Include="Controllers\ObtenerComunasController.cs" />
     <Compile Include="Controllers\ObtenerRegionesController.cs" />

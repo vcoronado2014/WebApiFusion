@@ -63,6 +63,7 @@
     <Compile Include="ListaTricel.cs" />
     <Compile Include="LoginUsuario.cs" />
     <Compile Include="LogsSistema.cs" />
+    <Compile Include="Mailing.cs" />
     <Compile Include="Muro.cs" />
     <Compile Include="PermisoRol.cs" />
     <Compile Include="Persona.cs" />

@@ -443,6 +443,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  Mailing
+            config.Routes.MapHttpRoute(
+                name: "Mailing",
+                routeTemplate: "api/Mailing",
+                defaults: new
+                {
+                    controller = "Mailing"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
