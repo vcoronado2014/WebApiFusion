@@ -79,4 +79,17 @@
     <Detalle>Error al enviar correo.</Detalle>
     <Id>11</Id>
   </error>
+  <error>
+    <Fecha>2017-09-15 11:40</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com -- &lt;html&gt;Estimado usuario, usted ha sido creado en la PLataforma de Asambleas correctamente, para que pueda ingresar al sistema debe entrar a la página web http://www.asambleas.cl y presionar en el menu Ingresar al Sistema, acto seguido en el nombre de usuario debe ingresar vcoronadodos y en Password 55555555-5, si usted no ha solicitado este acceso comúniquese con el administrador mediante el formulario de contacto de la misma página.
+
+
+*** mensaje enviado a través de la plataforma automática de asambleas.cl ***&lt;/html&gt;</Detalle>
+    <Id>12</Id>
+  </error>
+  <error>
+    <Fecha>2017-09-15 11:53</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>13</Id>
+  </error>
 </root>

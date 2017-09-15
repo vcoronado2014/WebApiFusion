@@ -76,10 +76,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 09:01:12</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>09/13/2017 18:10:47</publishTime>
+      <publishTime>09/15/2017 11:53:26</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>09/13/2017 18:10:47</publishTime>
+      <publishTime>09/15/2017 11:53:25</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/14/2017 09:01:12</publishTime>
@@ -211,19 +211,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 09:01:13</publishTime>
     </File>
     <File Include="bin/VCFramework.Entidad.dll">
-      <publishTime>09/13/2017 18:10:24</publishTime>
+      <publishTime>09/15/2017 11:53:06</publishTime>
     </File>
     <File Include="bin/VCFramework.EntidadFuncional.dll">
-      <publishTime>09/13/2017 18:10:24</publishTime>
+      <publishTime>09/15/2017 11:53:07</publishTime>
     </File>
     <File Include="bin/VCFramework.Negocio.Factory.dll">
       <publishTime>06/14/2017 09:01:12</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.dll">
-      <publishTime>09/13/2017 18:10:25</publishTime>
+      <publishTime>09/15/2017 11:53:08</publishTime>
     </File>
     <File Include="bin/WebApi.AsambleasDos.dll">
-      <publishTime>09/13/2017 18:10:35</publishTime>
+      <publishTime>09/15/2017 11:53:16</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>06/14/2017 09:01:14</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2017 09:01:12</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/13/2017 18:10:37</publishTime>
+      <publishTime>09/15/2017 11:53:18</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>06/14/2017 09:01:10</publishTime>

@@ -144,7 +144,12 @@ namespace WebApi.AsambleasDos.Controllers
             try
             {
                 VCFramework.Entidad.Mailing permiso = new Mailing();
-                permiso.Id = int.Parse(id);
+                List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(int.Parse(instId));
+                if (mailing != null && mailing.Count == 1)
+                    permiso = mailing[0];
+                else
+                    permiso.Id = 0;
+
                 permiso.InstId = int.Parse(instId);
 
                 permiso.CreaCalendario = Convert.ToBoolean(creaCalendario) ? 1 : 0;
@@ -176,7 +181,7 @@ namespace WebApi.AsambleasDos.Controllers
                 permiso.ModificaUsuario = Convert.ToBoolean(modificaUsuario) ? 1 : 0;
                 permiso.FechaCreacion = DateTime.Now;
 
-                if (int.Parse(id) > 0)
+                if (permiso.Id > 0)
                 {
                     VCFramework.NegocioMySql.Mailing.Modificar(permiso);
                 }

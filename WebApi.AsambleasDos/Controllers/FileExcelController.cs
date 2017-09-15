@@ -43,18 +43,22 @@ namespace WebApi.AsambleasDos.Controllers
                 var httpPostedFile = HttpContext.Current.Request.Files["UploadedExcel"];
                 string usuId = HttpContext.Current.Request.Form["UsuId"];
                 string instId = HttpContext.Current.Request.Form["InstId"];
-                
-
+                //variables de los archivos
+                string resultExtension = Path.GetExtension(httpPostedFile.FileName);
+                string resultFileName = Path.ChangeExtension(httpPostedFile.FileName, resultExtension);
+                string resultFileUrl = UploadDirectory + resultFileName;
+                string fechaSubida = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+                string urlExtension = "";
 
                 if (httpPostedFile != null)
                 {
                     //guardamos el registro
                     #region tratamiento del archivo
-                    string resultExtension = Path.GetExtension(httpPostedFile.FileName);
-                    string resultFileName = Path.ChangeExtension(httpPostedFile.FileName, resultExtension);
-                    string resultFileUrl = UploadDirectory + resultFileName;
-                    string fechaSubida = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
-                    string urlExtension = "";
+                    //string resultExtension = Path.GetExtension(httpPostedFile.FileName);
+                    //string resultFileName = Path.ChangeExtension(httpPostedFile.FileName, resultExtension);
+                    //string resultFileUrl = UploadDirectory + resultFileName;
+                    //string fechaSubida = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+                    //string urlExtension = "";
                     switch (resultExtension)
                     {
                         case ".jpg":
@@ -89,7 +93,7 @@ namespace WebApi.AsambleasDos.Controllers
                     //cambiamos nombre archivo
                     string fechaStr = VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera();
                     string horaStr = VCFramework.NegocioMySQL.Utiles.RetornaHoraEntera();
-                    string nuevoArchivo = "c_m_" + usuId.ToString() + "_" + instId.ToString() + "_" + fechaStr + horaStr  + resultExtension;
+                    string nuevoArchivo = "c_m_" + usuId.ToString() + "_" + instId.ToString() + "_" + fechaStr + horaStr + resultExtension;
 
 
 
@@ -102,8 +106,12 @@ namespace WebApi.AsambleasDos.Controllers
                 //ahora procesamos el archivo
                 #region proceso del archivo
 
+                //filesavepath = Path.Combine(HttpContext.Current.Server.MapPath("~/Excel"), httpPostedFile.FileName);
+                //filesavepath = Path.Combine(HttpContext.Current.Server.MapPath("~/Excel"), nuevoArchivo);
+
                 StringBuilder sbErrores = new StringBuilder();
                 StringBuilder sbCorrecto = new StringBuilder();
+                List<string> listaCorreos = new List<string>();
 
                 string excelConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filesavepath + ";Extended Properties=Excel 12.0;Persist Security Info=False";
                 
@@ -119,15 +127,37 @@ namespace WebApi.AsambleasDos.Controllers
                     if (dReader.IsDBNull(0) == false && dReader.IsDBNull(1) == false && dReader.IsDBNull(2) == false && dReader.IsDBNull(4) == false
                         && dReader.IsDBNull(6) == false)
                     {
+                        int idRolGuardar = 0;
                         bool esCorrecto = true;
                         string rut = dReader.GetString(0);
                         string nombres = dReader.GetString(1);
                         string apPterno = dReader.GetString(2);
                         string apMaterno = dReader.IsDBNull(3) ? "" : dReader.GetString(3);
                         string nombreUsuario = dReader.GetString(4);
-                        string telefono = dReader.IsDBNull(5) ? "" : dReader.GetString(5);
-                        string correo = dReader.GetString(6);
-                        string curso = dReader.IsDBNull(7) ? "" : dReader.GetString(7);
+                       // string telefono = dReader.IsDBNull(5) ? "" : dReader.GetString(5);
+                        string correo = dReader.GetString(5);
+                        string nombreRol = dReader.IsDBNull(6) ? "" : dReader.GetString(6);
+                        //HAY QUE BUSCAR EL ROL POR NOMBRE
+                        List<VCFramework.Entidad.RolInstitucion> roles = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolesPorInstId(int.Parse(HttpContext.Current.Request.Form["InstId"]));
+                        if (roles != null && roles.Count > 0 )
+                        {
+                            if (roles.Exists(p=>p.Nombre.ToUpper().Replace(" ", "") == nombreRol.ToUpper().Replace(" ", "")))
+                            {
+                                idRolGuardar = roles.FirstOrDefault(p => p.Nombre.ToUpper().Replace(" ", "") == nombreRol.ToUpper().Replace(" ", "")).Id;
+                            }
+                            else
+                            {
+                                sbErrores.AppendFormat("No existe el rol {0} es incorrecto en la fila {1}\r\n", nombreRol, numeroFila.ToString());
+                                esCorrecto = false;
+                                filasError++;
+                            }
+                        }
+                        else
+                        {
+                            sbErrores.AppendFormat("No existe el rol {0} es incorrecto en la fila {1}\r\n", nombreRol, numeroFila.ToString());
+                            esCorrecto = false;
+                            filasError++;
+                        }
 
                         //ahora se deve validar
                         //valida rut
@@ -165,7 +195,7 @@ namespace WebApi.AsambleasDos.Controllers
                             ausGuardar.NombreUsuario = nombreUsuario;
                             ausGuardar.Password = VCFramework.NegocioMySQL.Utiles.Encriptar(rut);
                             //por defecto apoderado
-                            ausGuardar.RolId = 9;
+                            ausGuardar.RolId = idRolGuardar;
                             //listaAusProcesar.Add(ausGuardar);
                             int idAu = VCFramework.NegocioMySQL.AutentificacionUsuario.InsertarAus(ausGuardar);
                             if (idAu > 0)
@@ -183,12 +213,13 @@ namespace WebApi.AsambleasDos.Controllers
                                 persona.PaisId = 1;
                                 persona.RegId = inst.RegId;
                                 persona.Rut = rut;
-                                persona.Telefonos = telefono;
+                                persona.Telefonos = "";
                                 persona.UsuId = idAu;
                                 int perId = VCFramework.NegocioMySQL.Persona.ModificarUsuario(persona);
                                 if (perId > 0)
                                 {
                                     //todo correcto
+                                    listaCorreos.Add(correo + "," + nombreUsuario + "," + rut);
                                 }
                                 else
                                 {
@@ -227,11 +258,59 @@ namespace WebApi.AsambleasDos.Controllers
                 retorno.FilasProcesadas = filasProcesadas;
 
                 excelConnection.Close();
-                
 
+                //ahora vamos a procesar los correos electrónicos para enviarlos a todos los participantes.
+                /*
+                 *                                     VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                                    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                                    //cr.Enviar(mnsj);
+                                    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                 * 
+                 * */
 
 
                 #endregion
+                if (httpPostedFile != null)
+                {
+                    if (filasError > 0)
+                    {
+
+                        File.Delete(filesavepath);
+                    }
+                }
+
+                //procesamiento delos correos
+                if (listaCorreos != null && listaCorreos.Count > 0)
+                {
+                    foreach(string s in listaCorreos)
+                    {
+                        //separados por coma
+                        string[] arr = s.Split(',');
+                        if (arr.Length == 3)
+                        {
+                            string email = arr[0].ToString();
+                            string nombreUsu = arr[1].ToString();
+                            string rut = arr[2].ToString();
+                            StringBuilder mensaje = new StringBuilder();
+                            mensaje.Append("Estimado usuario, usted ha sido creado en la PLataforma de Asambleas correctamente, para que pueda ingresar al sistema debe ");
+                            mensaje.Append("entrar a la página web http://www.asambleas.cl y presionar en el menu Ingresar al Sistema, acto seguido en el nombre de usuario ");
+                            mensaje.AppendFormat("debe ingresar {0} y en Password {1},", nombreUsu, rut);
+                            mensaje.Append(" si usted no ha solicitado este acceso comúniquese con el administrador mediante el formulario de contacto de la misma página.");
+                            mensaje.Append("\r\n");
+                            mensaje.Append("\r\n");
+                            mensaje.Append("\r\n");
+                            mensaje.Append("*** mensaje enviado a través de la plataforma automática de asambleas.cl ***");
+                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensaje(email, mensaje.ToString());
+                            //cr.Enviar(mnsj);
+                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+
+                        }
+                    }
+                }
 
                 httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                 String JSON = JsonConvert.SerializeObject(retorno);

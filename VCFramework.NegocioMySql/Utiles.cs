@@ -346,6 +346,25 @@ namespace VCFramework.NegocioMySQL
             return sms;
         }
 
+        public static System.Net.Mail.MailMessage ConstruyeMensaje(string email, string contenido)
+        {
+
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+            sms.Subject = "Creación automática Usuario";
+            sms.To.Add(email);
+
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+            sms.IsBodyHtml = true;
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<html>");
+            sb.Append(contenido);
+
+            sb.Append("</html>");
+            sms.Body = sb.ToString();
+            return sms;
+        }
+
         public static System.Net.Mail.MailMessage ConstruyeMensajeCrearProyecto(string nombreInstitucion, string nombreProyecto, List<string> correos, bool esNuevo)
         {
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
