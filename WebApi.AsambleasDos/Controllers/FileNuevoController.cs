@@ -16,6 +16,7 @@ using System.Text;
 using System.Web;
 using System.Collections.Specialized;
 using System.Reflection;
+using System.Net.Mail;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -89,6 +90,29 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.UsuId = int.Parse(usuId);
                     entidad.Url = "";
                     VCFramework.NegocioMySQL.DocumentosUsuario.Insertar(entidad);
+
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(entidad.InstId);
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
+                    {
+                        foreach (UsuariosCorreos us in correos)
+                        {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
+                                listaCorreos.Add(us.Correo);
+                        }
+                    }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(entidad.InstId);
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeDocumento(institucion.Id, institucion.Nombre, entidad.NombreArchivo, listaCorreos, true, false, false);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
+
                     #endregion
 
                     var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), httpPostedFile.FileName);

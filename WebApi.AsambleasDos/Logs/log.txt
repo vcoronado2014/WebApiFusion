@@ -92,4 +92,35 @@
     <Detalle>Error al enviar correo.</Detalle>
     <Id>13</Id>
   </error>
+  <error>
+    <Fecha>2017-09-21 09:01</Fecha>
+    <Detalle>La cadena de entrada no tiene el formato correcto.</Detalle>
+    <Id>14</Id>
+  </error>
+  <error>
+    <Fecha>2017-09-21 17:59</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl -- &lt;html&gt;
+      Se ha subido el documento &lt;strong&gt;notas_maxi.PNG&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido subido un documento para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>15</Id>
+  </error>
+  <error>
+    <Fecha>2017-09-21 17:01</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>16</Id>
+  </error>
+  <error>
+    <Fecha>2017-09-21 17:48</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl -- &lt;html&gt;
+      Se ha agregado una rendición  &lt;strong&gt;$125000&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido agrgada una rendición para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>17</Id>
+  </error>
+  <error>
+    <Fecha>2017-09-21 17:53</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>18</Id>
+  </error>
 </root>

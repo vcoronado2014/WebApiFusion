@@ -15,6 +15,7 @@ using System.IO;
 using System.Text;
 using System.Web;
 using System.Globalization;
+using System.Net.Mail;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -97,6 +98,28 @@ namespace WebApi.AsambleasDos.Controllers
 
                    
                     VCFramework.NegocioMySQL.IngresoEgreso.Modificar(inst);
+
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(inst.InstId);
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
+                    {
+                        foreach (UsuariosCorreos us in correos)
+                        {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
+                                listaCorreos.Add(us.Correo);
+                        }
+                    }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(inst.InstId);
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, inst.Monto.ToString(), listaCorreos, false, false, true);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(inst);

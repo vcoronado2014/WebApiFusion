@@ -333,7 +333,8 @@ namespace WebApi.AsambleasDos.Controllers
                 VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
 
                 List<VCFramework.Entidad.Calendario> calendarios = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(int.Parse(instId));
-                calendario = calendarios.Find(p => p.Titulo == titulo && p.FechaInicio == Convert.ToDateTime(fechaInicio) && p.FechaTermino == Convert.ToDateTime(fechaTermino));
+                calendario = calendarios.Find(p => p.Titulo.Replace("\t", "").Replace(" ", "").ToUpper() == titulo.Replace("\t", "").Replace(" ", "").ToUpper() && VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera(p.FechaInicio) == VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(fechaInicio) 
+                    && VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera(p.FechaTermino) == VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(fechaTermino));
                 if (calendario != null && calendario.Id > 0)
                 {
                     calendario.Eliminado = 1;

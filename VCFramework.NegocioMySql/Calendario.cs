@@ -102,6 +102,28 @@ namespace VCFramework.NegocioMySQL
                     cal.Modificado = true;
                     cal.Borrado = false;
                     fac.Update<Entidad.Calendario>(cal, setCnsWebLun);
+
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(cal.InstId);
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
+                    {
+                        foreach (UsuariosCorreos us in correos)
+                        {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
+                                listaCorreos.Add(us.Correo);
+                        }
+                    }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(cal.InstId);
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, cal.Asunto, "local", cal.FechaInicio.ToShortDateString() + " - " + cal.FechaTermino.ToShortDateString(), listaCorreos, false, false, true);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
                 }
                 #endregion
             }
@@ -139,30 +161,28 @@ namespace VCFramework.NegocioMySQL
 
                     fac.Insertar<Entidad.Calendario>(calendario, setCnsWebLun);
 
-                    if (NegocioMySQL.Utiles.ENVIA_CORREO_EVENTO(InstId) == "1")
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(calendario.InstId);
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
                     {
-
-                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(InstId);
-
-                        List<string> listaCorreos = new List<string>();
-                        if (correos != null && correos.Count > 0)
+                        foreach (UsuariosCorreos us in correos)
                         {
-                            foreach (UsuariosCorreos us in correos)
-                            {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
                                 listaCorreos.Add(us.Correo);
-                            }
                         }
-                        if (listaCorreos != null && listaCorreos.Count > 0)
-                        {
-                            NegocioMySQL.ServidorCorreo cr = new NegocioMySQL.ServidorCorreo();
-                            Entidad.Institucion institucion = NegocioMySQL.Institucion.ObtenerInstitucionPorId(InstId);
-                            string fecha1 = Utiles.ConstruyeFecha(FechaInicio);
-                            string fecha2 = Utiles.ConstruyeFecha(FechaTermino);
-                            MailMessage mnsj = NegocioMySQL.Utiles.ConstruyeMensajeCrearEvento(institucion.Nombre, Asunto, fecha1 + " " + fecha2, Ubicacion, listaCorreos, true);
-                            cr.Enviar(mnsj);
-                        }
-
                     }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(calendario.InstId);
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, calendario.Asunto, "local", calendario.FechaInicio.ToShortDateString() + " - " + calendario.FechaTermino.ToShortDateString(), listaCorreos, true, false, false);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
+
                 }
                 catch(Exception ex)
                 {
@@ -200,30 +220,30 @@ namespace VCFramework.NegocioMySQL
                 calendario.Nuevo = false;
                 calendario.Modificado = true;
                 fac.Update<Entidad.Calendario>(calendario, setCnsWebLun);
-                if (NegocioMySQL.Utiles.ENVIA_CORREO_EVENTO(InstId) == "1")
+
+
+                List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(calendario.InstId);
+                List<string> listaCorreos = new List<string>();
+                if (correos != null && correos.Count > 0)
                 {
-
-                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(InstId);
-
-                    List<string> listaCorreos = new List<string>();
-                    if (correos != null && correos.Count > 0)
+                    foreach (UsuariosCorreos us in correos)
                     {
-                        foreach (UsuariosCorreos us in correos)
-                        {
+                        if (!listaCorreos.Exists(p => p == us.Correo))
                             listaCorreos.Add(us.Correo);
-                        }
                     }
-                    if (listaCorreos != null && listaCorreos.Count > 0)
-                    {
-                        NegocioMySQL.ServidorCorreo cr = new NegocioMySQL.ServidorCorreo();
-                        Entidad.Institucion institucion = NegocioMySQL.Institucion.ObtenerInstitucionPorId(InstId);
-                        string fecha1 = Utiles.ConstruyeFecha(FechaInicio);
-                        string fecha2 = Utiles.ConstruyeFecha(FechaTermino);
-                        MailMessage mnsj = NegocioMySQL.Utiles.ConstruyeMensajeCrearEvento(institucion.Nombre, Asunto, fecha1 + " " + fecha2, Ubicacion, listaCorreos, false);
-                        cr.Enviar(mnsj);
-                    }
-
                 }
+                if (listaCorreos != null && listaCorreos.Count > 0)
+                {
+                    VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(calendario.InstId);
+                    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                    //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, calendario.Asunto, "local", calendario.FechaInicio.ToShortDateString() + " - " + calendario.FechaTermino.ToShortDateString(), listaCorreos, true, false, false);
+
+                    //cr.Enviar(mnsj);
+                    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                }
+
             }
             else
                 throw new Exception("No puede Modificar un Evento del Tipo Proyecto.");

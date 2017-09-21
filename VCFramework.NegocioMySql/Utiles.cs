@@ -187,6 +187,513 @@ namespace VCFramework.NegocioMySQL
 
         public const string CNS = "BDColegioSql";
 
+        //nuevos metodos para enviar mailing
+        public static System.Net.Mail.MailMessage ConstruyeMensajeProyecto(int instId, string nombreInstitucion, string nombreProyecto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Proyecto", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", nombreProyecto).Replace("{NombreInstitucion}", nombreInstitucion);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaProyecto == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Proyecto en asambleas.cl";
+
+                }
+                else if (esModificado && mail.ModificaProyecto == 1)
+                {
+                    //puede modificar
+                    sms.Subject = "Modificación de Proyecto en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaProyecto == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Proyecto en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+            
+            return sms;
+            
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeTricel(int instId, string nombreInstitucion, string nombreTricel, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Tricel", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", nombreTricel).Replace("{NombreInstitucion}", nombreInstitucion);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaTricel == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Tricel en asambleas.cl";
+
+                }
+                else if (esModificado && mail.ModificaTricel == 1)
+                {
+                    //puede modificar
+                    sms.Subject = "Modificación de Tricel en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaTricel == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Tricel en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+
+            return sms;
+
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeDocumento(int instId, string nombreInstitucion, string nombreDocumento, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Documento", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", nombreDocumento).Replace("{NombreInstitucion}", nombreInstitucion);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaDocumento == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Documento en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaDocumento == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Documento en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+
+            return sms;
+
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeRendicion(int instId, string nombreInstitucion, string monto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Rendicion", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", monto).Replace("{NombreInstitucion}", nombreInstitucion);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaRendicion == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Rendición en asambleas.cl";
+
+                }
+                else if (esModificado && mail.ModificaRendicion == 1)
+                {
+                    //puede modificar
+                    sms.Subject = "Modificación de Rendicion en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaRendicion == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Rendicion en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+
+            return sms;
+
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeEvento(int instId, string nombreInstitucion, string nombreTricel, string ubicacion, string fechaInicioTermino, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Evento", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", nombreTricel).Replace("{NombreInstitucion}", nombreInstitucion).Replace("{Ubicacion}", ubicacion).Replace("{FechaInicioTermino}", fechaInicioTermino);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaCalendario == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Evento en asambleas.cl";
+
+                }
+                else if (esModificado && mail.ModificaCalendario == 1)
+                {
+                    //puede modificar
+                    sms.Subject = "Modificación de Evento en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaCalendario == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Evento en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+
+            return sms;
+
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeUsuario(int instId, string nombreInstitucion, string nombreUsuario, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Usuario", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", nombreUsuario).Replace("{NombreInstitucion}", nombreInstitucion);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaUsuario == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Usuario en asambleas.cl";
+
+                }
+                else if (esModificado && mail.ModificaUsuario == 1)
+                {
+                    //puede modificar
+                    sms.Subject = "Modificación de Usuario en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaUsuario == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Usuario en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+
+            return sms;
+
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeMuro(int instId, string nombreInstitucion, string novedad, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Muro", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", novedad).Replace("{NombreInstitucion}", nombreInstitucion);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaMuro == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Novedad en asambleas.cl";
+
+                }
+                else if (esModificado && mail.ModificaMuro == 1)
+                {
+                    //puede modificar
+                    sms.Subject = "Modificación de Novedad en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaMuro == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Novedad en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+
+            return sms;
+
+        }
+
+        public static System.Net.Mail.MailMessage ConstruyeMensajeRol(int instId, string nombreInstitucion, string rol, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
+
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing mail = mailing[0];
+                //variables del mail
+
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.IsBodyHtml = true;
+                if (correos != null && correos.Count > 0)
+                {
+                    foreach (string s in correos)
+                    {
+                        sms.To.Add(s);
+                    }
+                }
+                string htmlMensaje = ObtenerMensajeXML("Rol", esNuevo, esModificado, esEliminado);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<html>");
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", rol).Replace("{NombreInstitucion}", nombreInstitucion);
+                sb.Append(htmlMensaje);
+                sb.Append("</html>");
+                sms.Body = sb.ToString();
+
+                //verificamos si puede o no puede realizar la operación
+                if (esNuevo && mail.CreaRol == 1)
+                {
+                    //puede crear
+                    sms.Subject = "Creación de Rol en asambleas.cl";
+
+                }
+                else if (esModificado && mail.ModificaRol == 1)
+                {
+                    //puede modificar
+                    sms.Subject = "Modificación de Rol en asambleas.cl";
+
+                }
+                else if (esEliminado && mail.EliminaRol == 1)
+                {
+                    //puede eliminar
+                    sms.Subject = "Eliminación de Rol en asambleas.cl";
+
+                }
+                else
+                {
+                    sms = null;
+                }
+                if (htmlMensaje == null || htmlMensaje.Length == 0)
+                    sms = null;
+            }
+            else
+            {
+                sms = null;
+            }
+
+            return sms;
+
+        }
+
         public static string NombreBaseDatos()
         {
             string retorno = "'db_9dac90_cole'";
@@ -870,6 +1377,51 @@ namespace VCFramework.NegocioMySQL
 
             return retorno;
         }
+        public static int RetornaFechaEntera(DateTime fechaProcesar)
+        {
+            DateTime fechaServidor = fechaProcesar;
+            int retorno = 0;
+            string anno = fechaServidor.Year.ToString();
+            string mes = "";
+            string dia = "";
+            if (fechaServidor.Month < 10)
+                mes = "0" + fechaServidor.Month.ToString();
+            else
+                mes = fechaServidor.Month.ToString();
+
+            if (fechaServidor.Day < 10)
+                dia = "0" + fechaServidor.Day.ToString();
+            else
+                dia = fechaServidor.Day.ToString();
+
+            retorno =int.Parse(anno + mes + dia);
+
+            return retorno;
+        }
+
+        /// <summary>
+        /// Entrega Fecha entera a partir del formato 21-01-2017
+        /// </summary>
+        /// <param name="fechaProcesar">Fecha string</param>
+        /// <returns></returns>
+        public static int RetornaFechaEnteraStr(string fechaProcesar)
+        {
+            string[] fechitas = fechaProcesar.Split('-');
+            int retorno = 0;
+            try
+            {
+                if (fechitas != null && fechitas.Length > 2)
+                {
+                    string anio = fechitas[2].Split(' ')[0];
+                    retorno = int.Parse(anio + fechitas[1] + fechitas[0]);
+                }
+            }
+            catch(Exception ex)
+            {
+                VCFramework.NegocioMySQL.Utiles.Log(ex);
+            }
+            return retorno;
+        }
 
         public static string ConstruyeFecha(DateTime fecha)
         {
@@ -1051,6 +1603,63 @@ namespace VCFramework.NegocioMySQL
                 }
             }
             return sb.ToString();
+        }
+        public static string ObtenerMensajeXML(string nombre, bool esNuevo, bool esModificado, bool esEliminado)
+        {
+            string retorno = "";
+            string carpetaArchivo = @"Mensajes.xml";
+            string rutaFinal = AppDomain.CurrentDomain.BaseDirectory + carpetaArchivo;
+            XmlDocument doc = new XmlDocument();
+            doc.Load(rutaFinal);
+
+            try
+            {
+                XmlNodeList mensaje = doc.GetElementsByTagName("Mensaje");
+                XmlNodeList lista = ((XmlElement)mensaje[0]).GetElementsByTagName("item");
+                if (lista != null && lista.Count > 0)
+                {
+                    foreach (XmlElement nodo in lista)
+                    {
+                        if (nodo != null)
+                        {
+                            if (nodo.Attributes[0] != null)
+                            {
+                                if (nodo.Attributes[0].InnerText.ToString().ToUpper() == nombre.ToUpper())
+                                {
+                                    string otraBusqueda = "nuevo";
+                                    if (esNuevo)
+                                        otraBusqueda = "nuevo";
+                                    if (esModificado)
+                                        otraBusqueda = "modificado";
+                                    if (esEliminado)
+                                        otraBusqueda = "eliminado";
+
+                                    if (nodo.ChildNodes != null && nodo.ChildNodes.Count > 0)
+                                    {
+                                        foreach (XmlElement nodito in nodo.ChildNodes)
+                                        {
+                                            if (nodito.Name.ToUpper() == otraBusqueda.ToUpper())
+                                            {
+                                                retorno = nodito.InnerXml;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                NegocioMySQL.Utiles.Log(ex);
+            }
+
+            return retorno;
         }
         public static string ObtenerMensajeXML(string nombre, bool esNuevo)
         {

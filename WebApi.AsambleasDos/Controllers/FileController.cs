@@ -96,41 +96,7 @@ namespace WebApi.AsambleasDos.Controllers
                         nuevoId = VCFramework.NegocioMySQL.IngresoEgreso.Insertar(entidad);
                         if (nuevoId >= 0)
                         {
-                            if (VCFramework.NegocioMySQL.Utiles.ENVIA_RENDICIONES(int.Parse(instId)) == "1")
-                            {
-
-                                List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
-                                List<string> listaCorreos = new List<string>();
-                                if (correos != null && correos.Count > 0)
-                                {
-                                    foreach (UsuariosCorreos us in correos)
-                                    {
-                                        if (!listaCorreos.Exists(p => p == us.Correo))
-                                            listaCorreos.Add(us.Correo);
-                                    }
-                                }
-                                if (listaCorreos != null && listaCorreos.Count > 0)
-                                {
-                                    VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
-                                    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
-
-                                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearRendicion(institucion.Nombre, entidad.Detalle, listaCorreos, true);
-                                    //cr.Enviar(mnsj);
-                                    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
-                                }
-
-                            }
-                        }
-                    }
-                    else
-                    {
-                        nuevoId = aus.Id;
-                        entidad.Id = nuevoId;
-                        VCFramework.NegocioMySQL.IngresoEgreso.Modificar(entidad);
-                        if (VCFramework.NegocioMySQL.Utiles.ENVIA_RENDICIONES(int.Parse(instId)) == "1")
-                        {
-
-                            List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                            List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(entidad.InstId);
                             List<string> listaCorreos = new List<string>();
                             if (correos != null && correos.Count > 0)
                             {
@@ -142,14 +108,42 @@ namespace WebApi.AsambleasDos.Controllers
                             }
                             if (listaCorreos != null && listaCorreos.Count > 0)
                             {
-                                VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                                VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(entidad.InstId);
                                 VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
-                                MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearRendicion(institucion.Nombre, entidad.Detalle, listaCorreos, false);
+                                //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                                MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, entidad.Monto.ToString(), listaCorreos, true, false, false);
+
                                 //cr.Enviar(mnsj);
                                 var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
                             }
+                        }
+                    }
+                    else
+                    {
+                        nuevoId = aus.Id;
+                        entidad.Id = nuevoId;
+                        VCFramework.NegocioMySQL.IngresoEgreso.Modificar(entidad);
+                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(entidad.InstId);
+                        List<string> listaCorreos = new List<string>();
+                        if (correos != null && correos.Count > 0)
+                        {
+                            foreach (UsuariosCorreos us in correos)
+                            {
+                                if (!listaCorreos.Exists(p => p == us.Correo))
+                                    listaCorreos.Add(us.Correo);
+                            }
+                        }
+                        if (listaCorreos != null && listaCorreos.Count > 0)
+                        {
+                            VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(entidad.InstId);
+                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
+                            //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, entidad.Monto.ToString(), listaCorreos, false, true, false);
+
+                            //cr.Enviar(mnsj);
+                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
                         }
                     }
 

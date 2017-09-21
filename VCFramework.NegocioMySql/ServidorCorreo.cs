@@ -23,8 +23,11 @@ namespace VCFramework.NegocioMySQL
         public void Enviar(MailMessage mensaje)
         {
             try {
-                Utiles.Log(mensaje.To.ToString() + " -- " + mensaje.Body);
-                server.Send(mensaje);
+                if (mensaje != null)
+                {
+                    Utiles.Log(mensaje.To.ToString() + " -- " + mensaje.Body);
+                    server.Send(mensaje);
+                }
             }
             catch(Exception ex)
             {

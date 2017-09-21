@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System.Xml;
 using System.Net.Http.Formatting;
 using Newtonsoft.Json.Linq;
+using System.Net.Mail;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -326,11 +327,57 @@ true
                 {
                     VCFramework.NegocioMySql.RolInstitucion.Modificar(rolGuardar);
                     idNuevoRol = rolGuardar.Id;
+
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(rolGuardar.InstId);
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
+                    {
+                        foreach (UsuariosCorreos us in correos)
+                        {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
+                                listaCorreos.Add(us.Correo);
+                        }
+                    }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(rolGuardar.InstId);
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRol(institucion.Id, institucion.Nombre, rolGuardar.Nombre, listaCorreos, false, true, false);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
+
                 }
                 else
                 {
                     idNuevoRol = VCFramework.NegocioMySql.RolInstitucion.Insertar(rolGuardar);
                     rolGuardar.Id = idNuevoRol;
+
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(rolGuardar.InstId);
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
+                    {
+                        foreach (UsuariosCorreos us in correos)
+                        {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
+                                listaCorreos.Add(us.Correo);
+                        }
+                    }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(rolGuardar.InstId);
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRol(institucion.Id, institucion.Nombre, rolGuardar.Nombre, listaCorreos, true, false, false);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
+
                 }
 
                 VCFramework.Entidad.PermisoRol permiso = new PermisoRol();
