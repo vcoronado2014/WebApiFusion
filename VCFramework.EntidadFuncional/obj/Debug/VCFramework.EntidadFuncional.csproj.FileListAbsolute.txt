@@ -19,3 +19,10 @@ D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFra
 D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
 D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
 D:\Nuevo-samableas\API\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb
+C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.dll
+C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.pdb
+C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.dll
+C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.pdb
+C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
+C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
+C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb

@@ -331,20 +331,20 @@ namespace VCFramework.NegocioMySQL
                     uf.Rol = new Entidad.Rol();
                     uf.Rol = VCFramework.NegocioMySQL.Rol.ListarRoles().Find(p => p.Id == usu.RolId);
 
-                    if (uf.AutentificacionUsuario != null && uf.AutentificacionUsuario.Id > 0)
-                    {
-                        //si no tiene rol institucion se asocia
-                        uf.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(uf.AutentificacionUsuario.RolId, uf.AutentificacionUsuario.InstId);
-                        if (uf.RolInstitucion.Id == 0)
-                        {
-                            uf.RolInstitucion.Descripcion = uf.Rol.Descripcion;
-                            uf.RolInstitucion.Id = uf.Rol.Id;
-                            uf.RolInstitucion.IdOriginal = uf.Rol.Id;
-                            uf.RolInstitucion.InstId = uf.AutentificacionUsuario.InstId;
-                            uf.RolInstitucion.Nombre = uf.Rol.Nombre;
-                        }
+                    //if (uf.AutentificacionUsuario != null && uf.AutentificacionUsuario.Id > 0)
+                    //{
+                    //    //si no tiene rol institucion se asocia
+                    //    uf.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(uf.AutentificacionUsuario.RolId, uf.AutentificacionUsuario.InstId);
+                    //    if (uf.RolInstitucion.Id == 0)
+                    //    {
+                    //        uf.RolInstitucion.Descripcion = uf.Rol.Descripcion;
+                    //        uf.RolInstitucion.Id = uf.Rol.Id;
+                    //        uf.RolInstitucion.IdOriginal = uf.Rol.Id;
+                    //        uf.RolInstitucion.InstId = uf.AutentificacionUsuario.InstId;
+                    //        uf.RolInstitucion.Nombre = uf.Rol.Nombre;
+                    //    }
 
-                    }
+                    //}
 
                     uf.RolInstitucion = new Entidad.RolInstitucion();
                     uf.RolInstitucion = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(usu.RolId);
@@ -389,20 +389,20 @@ namespace VCFramework.NegocioMySQL
                     uf.Rol = new Entidad.Rol();
                     uf.Rol = VCFramework.NegocioMySQL.Rol.ListarRoles().Find(p => p.Id == usu.RolId);
 
-                    if (uf.AutentificacionUsuario != null && uf.AutentificacionUsuario.Id > 0)
-                    {
-                        //si no tiene rol institucion se asocia
-                        uf.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(uf.AutentificacionUsuario.RolId, uf.AutentificacionUsuario.InstId);
-                        if (uf.RolInstitucion.Id == 0)
-                        {
-                            uf.RolInstitucion.Descripcion = uf.Rol.Descripcion;
-                            uf.RolInstitucion.Id = uf.Rol.Id;
-                            uf.RolInstitucion.IdOriginal = uf.Rol.Id;
-                            uf.RolInstitucion.InstId = uf.AutentificacionUsuario.InstId;
-                            uf.RolInstitucion.Nombre = uf.Rol.Nombre;
-                        }
+                    //if (uf.AutentificacionUsuario != null && uf.AutentificacionUsuario.Id > 0)
+                    //{
+                    //    //si no tiene rol institucion se asocia
+                    //    uf.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorPadreId(uf.AutentificacionUsuario.RolId, uf.AutentificacionUsuario.InstId);
+                    //    if (uf.RolInstitucion.Id == 0)
+                    //    {
+                    //        uf.RolInstitucion.Descripcion = uf.Rol.Descripcion;
+                    //        uf.RolInstitucion.Id = uf.Rol.Id;
+                    //        uf.RolInstitucion.IdOriginal = uf.Rol.Id;
+                    //        uf.RolInstitucion.InstId = uf.AutentificacionUsuario.InstId;
+                    //        uf.RolInstitucion.Nombre = uf.Rol.Nombre;
+                    //    }
 
-                    }
+                    //}
 
                     uf.RolInstitucion = new Entidad.RolInstitucion();
                     uf.RolInstitucion = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(usu.RolId);
