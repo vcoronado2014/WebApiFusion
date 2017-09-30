@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System.Xml;
 using System.Net.Http.Formatting;
 using Newtonsoft.Json.Linq;
+using System.Net.Mail;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -124,6 +125,28 @@ namespace WebApi.AsambleasDos.Controllers
                     {
                         persona.Eliminado = 1;
                         VCFramework.NegocioMySQL.Persona.ModificarUsuario(persona);
+
+                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(persona.InstId);
+                        List<string> listaCorreos = new List<string>();
+                        if (correos != null && correos.Count > 0)
+                        {
+                            foreach (UsuariosCorreos us in correos)
+                            {
+                                if (!listaCorreos.Exists(p => p == us.Correo))
+                                    listaCorreos.Add(us.Correo);
+                            }
+                        }
+                        if (listaCorreos != null && listaCorreos.Count > 0)
+                        {
+                            VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(persona.InstId);
+                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                            //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, false, false, true);
+
+                            //cr.Enviar(mnsj);
+                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                        }
 
                         List<VCFramework.EntidadFuncional.UsuarioEnvoltorio> usuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosEnvoltorio(aus.InstId);
                         VCFramework.EntidadFuncional.proposalss proposals = new VCFramework.EntidadFuncional.proposalss();
@@ -253,11 +276,55 @@ namespace WebApi.AsambleasDos.Controllers
                     if (password != "")
                         aus.Password = VCFramework.NegocioMySQL.Utiles.Encriptar(password);
                     if (aus.Id == 0)
+                    {
                         nuevoId = VCFramework.NegocioMySQL.AutentificacionUsuario.InsertarAus(aus);
+                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                        List<string> listaCorreos = new List<string>();
+                        if (correos != null && correos.Count > 0)
+                        {
+                            foreach (UsuariosCorreos us in correos)
+                            {
+                                if (!listaCorreos.Exists(p => p == us.Correo))
+                                    listaCorreos.Add(us.Correo);
+                            }
+                        }
+                        if (listaCorreos != null && listaCorreos.Count > 0)
+                        {
+                            VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                            //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, true, false, false);
+
+                            //cr.Enviar(mnsj);
+                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                        }
+                    }
                     else
                     {
                         nuevoId = aus.Id;
                         VCFramework.NegocioMySQL.AutentificacionUsuario.ModificarAus(aus);
+                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                        List<string> listaCorreos = new List<string>();
+                        if (correos != null && correos.Count > 0)
+                        {
+                            foreach (UsuariosCorreos us in correos)
+                            {
+                                if (!listaCorreos.Exists(p => p == us.Correo))
+                                    listaCorreos.Add(us.Correo);
+                            }
+                        }
+                        if (listaCorreos != null && listaCorreos.Count > 0)
+                        {
+                            VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                            //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, false, true, false);
+
+                            //cr.Enviar(mnsj);
+                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                        }
                     }
                     VCFramework.Entidad.Persona persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(idUsuarioBuscar);
 
@@ -277,6 +344,7 @@ namespace WebApi.AsambleasDos.Controllers
                         persona.InstId = int.Parse(instId);
                         persona.UsuId = nuevoId;
                         VCFramework.NegocioMySQL.Persona.ModificarUsuario(persona);
+
 
                         httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                         String JSON = JsonConvert.SerializeObject(persona);

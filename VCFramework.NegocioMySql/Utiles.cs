@@ -374,7 +374,7 @@ namespace VCFramework.NegocioMySQL
 
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeRendicion(int instId, string nombreInstitucion, string monto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeRendicion(int instId, string nombreInstitucion, string tipoMovimiento, string monto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -384,6 +384,8 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
+                double montoD = Convert.ToDouble(monto);
+                string montoMostrar = montoD.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("es-CL"));
 
                 sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
                 sms.IsBodyHtml = true;
@@ -398,7 +400,7 @@ namespace VCFramework.NegocioMySQL
 
                 StringBuilder sb = new StringBuilder();
                 sb.Append("<html>");
-                htmlMensaje = htmlMensaje.Replace("{NombreItem}", monto).Replace("{NombreInstitucion}", nombreInstitucion);
+                htmlMensaje = htmlMensaje.Replace("{NombreItem}", montoMostrar).Replace("{NombreInstitucion}", nombreInstitucion).Replace("{TipoMovimiento}", tipoMovimiento);
                 sb.Append(htmlMensaje);
                 sb.Append("</html>");
                 sms.Body = sb.ToString();

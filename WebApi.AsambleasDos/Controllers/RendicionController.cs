@@ -95,8 +95,11 @@ namespace WebApi.AsambleasDos.Controllers
                 if (inst != null && inst.Id > 0)
                 {
                     inst.Eliminado = 1;
+                    string tipoMov = "Ingreso";
+                    if (inst.TipoMovimiento == 2)
+                        tipoMov = "Egreso";
 
-                   
+
                     VCFramework.NegocioMySQL.IngresoEgreso.Modificar(inst);
 
                     List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(inst.InstId);
@@ -115,7 +118,7 @@ namespace WebApi.AsambleasDos.Controllers
                         VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, inst.Monto.ToString(), listaCorreos, false, false, true);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, tipoMov, inst.Monto.ToString(), listaCorreos, false, false, true);
 
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));

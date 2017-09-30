@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 using System.Xml;
 using System.Net.Http.Formatting;
 using Newtonsoft.Json.Linq;
-
+using System.Net.Mail;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -65,10 +65,12 @@ namespace WebApi.AsambleasDos.Controllers
 
             dynamic data = JObject.Parse(Input);
 
+
             //validaciones antes de ejecutar la llamada.
             if (data.InstId == 0)
                 throw new ArgumentNullException("InstId");
 
+            List<VCFramework.Entidad.Calendario> eventos = new List<VCFramework.Entidad.Calendario>();
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             try
@@ -76,8 +78,10 @@ namespace WebApi.AsambleasDos.Controllers
                 string instId = data.InstId;
                 int instIdBuscar = int.Parse(instId);
                 string tipo = data.Tipo;
-
-                List<VCFramework.Entidad.Calendario> eventos = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(instIdBuscar);
+                if (tipo == "0")
+                    eventos = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(instIdBuscar);
+                else
+                    eventos = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstidTipo(instIdBuscar, int.Parse(tipo));
                 //HAY QUE TRAER TAMBIEN LOS PROYECTOS QUE FUERON CREADOS
                 //List<VCFramework.Entidad.Proyectos> proyectos = VCFramework.NegocioMySQL.Proyectos.ObtenerProyectosPorInstIdN(instIdBuscar);
 
@@ -103,9 +107,18 @@ namespace WebApi.AsambleasDos.Controllers
                         entidad.diaTer = cal.FechaTermino.Day.ToString();
                         entidad.horaTer = cal.FechaTermino.Hour.ToString();
                         entidad.minutosTer = cal.FechaTermino.Minute.ToString();
+                        //important = 3, success = 2, info = 1 
+                        if (cal.Etiqueta == 1)
+                            entidad.className = "info";
+                        else if (cal.Etiqueta == 2)
+                            entidad.className = "success";
+                        else if (cal.Etiqueta == 3)
+                            entidad.className = "important";
+                        else
+                            entidad.className = "";
 
                         entidad.id = rnd.Next(1, 300);
-                        entidad.clientId = entidad.id;
+                        entidad.clientId = cal.Id;
                         lista.Add(entidad);
                     }
 
@@ -239,6 +252,12 @@ namespace WebApi.AsambleasDos.Controllers
             string fechaTermino = data.FechaTermino;
             string esNuevo = data.EsNuevo;
             string usuIdCreador = data.UsuIdCreador;
+            string id = "0";
+            string etiqueta = "0";
+            if (data.Etiqueta != null)
+                etiqueta = data.Etiqueta;
+            if (data.Id != null)
+                id = data.Id;
 
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
@@ -261,7 +280,7 @@ namespace WebApi.AsambleasDos.Controllers
                     calendario.Descripcion = titulo;
                     calendario.Detalle = titulo;
                     calendario.Eliminado = 0;
-                    calendario.Etiqueta = 1;
+                    calendario.Etiqueta = int.Parse(etiqueta);
 					calendario.FechaInicio = DateTime.Parse(fechaInicio, culture);
 					calendario.FechaTermino = DateTime.Parse(fechaTermino, culture);
                     //calendario.FechaTermino = Convert.ToDateTime(fechaTermino);
@@ -275,11 +294,34 @@ namespace WebApi.AsambleasDos.Controllers
                     //insertar
                     idNuevo = VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
                     calendario.Id = idNuevo;
+
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
+                    {
+                        foreach (UsuariosCorreos us in correos)
+                        {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
+                                listaCorreos.Add(us.Correo);
+                        }
+                    }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, "No definida", calendario.FechaInicio.ToShortDateString() + " " + calendario.FechaInicio.ToShortTimeString() + " - " + calendario.FechaTermino.ToShortDateString() + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, true, false, false);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
+
                 }
                 else
                 {
-                    List<VCFramework.Entidad.Calendario> calendarios = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(int.Parse(instId));
-                    calendario = calendarios.Find(p => p.FechaInicio == DateTime.Parse(fechaInicio, culture) && p.FechaTermino == DateTime.Parse(fechaTermino, culture));
+                    List<VCFramework.Entidad.Calendario> calendarios = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorId(int.Parse(id));
+                    calendario = calendarios[0];
                     if (calendario != null && calendario.Id > 0)
                     {
                         calendario.UsuIdCreador = int.Parse(usuIdCreador);
@@ -287,7 +329,32 @@ namespace WebApi.AsambleasDos.Controllers
                         calendario.Descripcion = titulo;
                         calendario.Detalle = titulo;
                         calendario.Titulo = titulo;
+                        calendario.FechaInicio = DateTime.Parse(fechaInicio, culture);
+                        calendario.FechaTermino = DateTime.Parse(fechaTermino, culture);
+                        calendario.Etiqueta = int.Parse(etiqueta);
                         VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+
+                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                        List<string> listaCorreos = new List<string>();
+                        if (correos != null && correos.Count > 0)
+                        {
+                            foreach (UsuariosCorreos us in correos)
+                            {
+                                if (!listaCorreos.Exists(p => p == us.Correo))
+                                    listaCorreos.Add(us.Correo);
+                            }
+                        }
+                        if (listaCorreos != null && listaCorreos.Count > 0)
+                        {
+                            VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                            //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, "No definida", calendario.FechaInicio.ToShortDateString() + " " + calendario.FechaInicio.ToShortTimeString() + " - " + calendario.FechaTermino.ToShortDateString() + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, true, false);
+
+                            //cr.Enviar(mnsj);
+                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                        }
 
                     }
                 }
@@ -324,6 +391,10 @@ namespace WebApi.AsambleasDos.Controllers
             string titulo = data.Titulo;
             string fechaInicio = data.FechaInicio;
             string fechaTermino = data.FechaTermino;
+            string id = "0";
+            if (data.Id != null)
+                id = data.Id;
+
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
@@ -331,14 +402,44 @@ namespace WebApi.AsambleasDos.Controllers
             try
             {
                 VCFramework.Entidad.Calendario calendario = new VCFramework.Entidad.Calendario();
+                if (int.Parse(id) > 0)
+                {
+                    calendario = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorId(int.Parse(id))[0];
+                }
+                else
+                {
+                    List<VCFramework.Entidad.Calendario> calendarios = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(int.Parse(instId));
+                    calendario = calendarios.Find(p => p.Titulo.Replace("\t", "").Replace(" ", "").ToUpper() == titulo.Replace("\t", "").Replace(" ", "").ToUpper() && VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera(p.FechaInicio) == VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(fechaInicio)
+                        && VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera(p.FechaTermino) == VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(fechaTermino));
 
-                List<VCFramework.Entidad.Calendario> calendarios = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(int.Parse(instId));
-                calendario = calendarios.Find(p => p.Titulo.Replace("\t", "").Replace(" ", "").ToUpper() == titulo.Replace("\t", "").Replace(" ", "").ToUpper() && VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera(p.FechaInicio) == VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(fechaInicio) 
-                    && VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera(p.FechaTermino) == VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(fechaTermino));
+                }
+
                 if (calendario != null && calendario.Id > 0)
                 {
                     calendario.Eliminado = 1;
                     VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+
+                    List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
+                    List<string> listaCorreos = new List<string>();
+                    if (correos != null && correos.Count > 0)
+                    {
+                        foreach (UsuariosCorreos us in correos)
+                        {
+                            if (!listaCorreos.Exists(p => p == us.Correo))
+                                listaCorreos.Add(us.Correo);
+                        }
+                    }
+                    if (listaCorreos != null && listaCorreos.Count > 0)
+                    {
+                        VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(int.Parse(instId));
+                        VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+
+                        //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, "No definida", calendario.FechaInicio.ToShortDateString() + " " + calendario.FechaInicio.ToShortTimeString() + " - " + calendario.FechaTermino.ToShortDateString() + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, false, true);
+
+                        //cr.Enviar(mnsj);
+                        var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                    }
 
                 }
 
@@ -381,6 +482,7 @@ namespace WebApi.AsambleasDos.Controllers
 
         public int clientId { get; set; }
         public int id { get; set; }
+        public string className { get; set; }
 
     }
 

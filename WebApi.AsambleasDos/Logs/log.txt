@@ -123,4 +123,20 @@
     <Detalle>Error al enviar correo.</Detalle>
     <Id>18</Id>
   </error>
+  <error>
+    <Fecha>2017-09-29 16:08</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl -- &lt;html&gt;
+      Ha sido eliminado el evento  &lt;strong&gt;prueba evento septiembre&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido eliminado un evento para su establecimiento, este tendría lugar en No definida entre 11/09/2017 - 11/09/2017, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>19</Id>
+  </error>
+  <error>
+    <Fecha>2017-09-29 17:24</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;paospoaspoapoaspaospo&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su establecimiento, este tendrá lugar en No definida entre 28/09/2017 - 28/09/2017, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>20</Id>
+  </error>
 </root>

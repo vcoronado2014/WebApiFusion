@@ -49,6 +49,9 @@ namespace WebApi.AsambleasDos.Controllers
 
                 #region eventos
                 List<VCFramework.Entidad.Calendario> eventos = VCFramework.NegocioMySQL.Calendario.ObtenerCalendarioPorInstId(idInstitucion);
+                //ordenamos
+                if (eventos != null && eventos.Count > 0)
+                    eventos = eventos.OrderBy(p => p.FechaTermino).ToList();
 
                 List<VCFramework.EntidadFuncional.evento> listaEventos = new List<VCFramework.EntidadFuncional.evento>();
                 if (eventos != null && eventos.Count > 0)
@@ -75,7 +78,8 @@ namespace WebApi.AsambleasDos.Controllers
 
                         entidad.id = cal.Id;
                         entidad.clientId = entidad.id;
-                        listaEventos.Add(entidad);
+                        if (cal.FechaTermino >= DateTime.Now)
+                            listaEventos.Add(entidad);
                     }
 
                 }
@@ -157,8 +161,8 @@ namespace WebApi.AsambleasDos.Controllers
                         }
                         us.OtroNueve = sb.ToString();
 
-
-                        votaciones.proposals.Add(us);
+                        if(VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(tri.FechaTermino) >= int.Parse(VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera()))
+                            votaciones.proposals.Add(us);
                     }
                     //establecimientos.Establecimientos = instituciones;
                 }
@@ -199,9 +203,12 @@ namespace WebApi.AsambleasDos.Controllers
                         else
                             us.OtroOcho = "0";
 
+                        us.OtroSiete = VCFramework.NegocioMySQL.Tricel.PuedeVotar(tri.Id).ToString();
+
                         us.OtroNueve = sbTextoVoto.ToString();
 
-                        votaciones2.proposals.Add(us);
+                        if (VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(tri.FechaTermino) >= int.Parse(VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera()))
+                            votaciones2.proposals.Add(us);
                     }
                     //establecimientos.Establecimientos = instituciones;
                 }

@@ -46,3 +46,15 @@ C:\webapi\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.xml
 C:\webapi\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
 C:\webapi\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
 C:\webapi\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Negocio.Factory.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb

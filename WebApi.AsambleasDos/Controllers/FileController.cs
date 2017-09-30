@@ -90,6 +90,9 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.TipoMovimiento = int.Parse(tipoMovimiento);
                     entidad.UrlDocumento = archivoGuardar;
                     entidad.UsuId = int.Parse(idUsuario);
+                    string tipoMov = "Ingreso";
+                    if (entidad.TipoMovimiento == 2)
+                        tipoMov = "Egreso";
 
                     if (aus.Id == 0)
                     {
@@ -112,7 +115,7 @@ namespace WebApi.AsambleasDos.Controllers
                                 VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                                 //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                                MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, entidad.Monto.ToString(), listaCorreos, true, false, false);
+                                MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, tipoMov, entidad.Monto.ToString(), listaCorreos, true, false, false);
 
                                 //cr.Enviar(mnsj);
                                 var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -140,7 +143,7 @@ namespace WebApi.AsambleasDos.Controllers
                             VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                             //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, entidad.Monto.ToString(), listaCorreos, false, true, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, tipoMov, entidad.Monto.ToString(), listaCorreos, false, true, false);
 
                             //cr.Enviar(mnsj);
                             var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));

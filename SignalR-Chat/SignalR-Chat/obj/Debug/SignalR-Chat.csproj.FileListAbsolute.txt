@@ -118,3 +118,43 @@ C:\WEB_API_NUEVA\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.d
 C:\WEB_API_NUEVA\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.pdb
 C:\WEB_API_NUEVA\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.csprojResolveAssemblyReference.cache
 D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\csc.exe
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CodeAnalysis.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CSharp.Core.targets
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\System.Collections.Immutable.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\System.Reflection.Metadata.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\vbc.exe
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\VBCSCompiler.exe
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\VBCSCompiler.exe.config
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\SignalR-Chat.dll.config
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\SignalR-Chat.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\SignalR-Chat.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.Core.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Cors.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Host.SystemWeb.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Security.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Owin.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Net.Http.Formatting.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Cors.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Http.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.Core.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Cors.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Host.SystemWeb.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Security.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Net.Http.Formatting.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Http.xml
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.pdb
