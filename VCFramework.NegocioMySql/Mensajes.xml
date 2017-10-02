@@ -76,17 +76,17 @@
   <item id="Evento">
     <nuevo>
       Se ha agregado el evento  <strong>{NombreItem}</strong>, para la Institución {NombreInstitucion}:<br /><br />
-      Estimado Usuario, ha sido agregado un evento para su institución, entre {FechaInicioTermino}, ingrese a www.asambleas.cl para poder verlo.<br /><br />
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en {Ubicacion} entre {FechaInicioTermino}, ingrese a www.asambleas.cl para poder verlo.<br /><br />
       *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** <br />
     </nuevo>
     <modificado>
       Ha sido modificado el evento  <strong>{NombreItem}</strong>, para la Institución {NombreInstitucion}:<br /><br />
-      Estimado Usuario, ha sido agregado un evento para su institución, entre {FechaInicioTermino}, ingrese a www.asambleas.cl para poder verlo.<br /><br />
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en {Ubicacion} entre {FechaInicioTermino}, ingrese a www.asambleas.cl para poder verlo.<br /><br />
       *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** <br />
     </modificado>
     <eliminado>
       Ha sido eliminado el evento  <strong>{NombreItem}</strong>, para la Institución {NombreInstitucion}:<br /><br />
-      Estimado Usuario, ha sido eliminado un evento para su institución, entre {FechaInicioTermino}, ingrese a www.asambleas.cl para poder verlo.<br /><br />
+      Estimado Usuario, ha sido eliminado un evento para su institución, este tendría lugar en {Ubicacion} entre {FechaInicioTermino}, ingrese a www.asambleas.cl para poder verlo.<br /><br />
       *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** <br />
     </eliminado>
   </item>

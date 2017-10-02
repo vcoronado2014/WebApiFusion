@@ -76,10 +76,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2017 13:13:14</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>09/30/2017 11:31:59</publishTime>
+      <publishTime>10/01/2017 21:27:32</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>09/30/2017 11:31:58</publishTime>
+      <publishTime>10/01/2017 21:27:32</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/25/2017 13:13:14</publishTime>
@@ -223,7 +223,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/30/2017 11:31:29</publishTime>
     </File>
     <File Include="bin/WebApi.AsambleasDos.dll">
-      <publishTime>09/30/2017 11:31:37</publishTime>
+      <publishTime>10/01/2017 21:27:21</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/25/2017 13:13:17</publishTime>
@@ -256,7 +256,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2017 13:13:14</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/30/2017 11:31:45</publishTime>
+      <publishTime>10/01/2017 21:27:24</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>09/25/2017 13:13:09</publishTime>
