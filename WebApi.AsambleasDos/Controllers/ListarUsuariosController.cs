@@ -79,6 +79,7 @@ namespace WebApi.AsambleasDos.Controllers
             }
             catch (Exception ex)
             {
+                VCFramework.NegocioMySQL.Utiles.Log(ex);
                 httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
                 throw ex;
             }

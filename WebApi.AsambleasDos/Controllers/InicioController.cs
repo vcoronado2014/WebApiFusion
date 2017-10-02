@@ -377,6 +377,7 @@ namespace WebApi.AsambleasDos.Controllers
             }
             catch (Exception ex)
             {
+
                 httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
                 throw ex;
             }
