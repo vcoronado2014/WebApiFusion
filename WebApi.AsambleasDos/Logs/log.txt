@@ -139,4 +139,30 @@
       ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
     <Id>20</Id>
   </error>
+  <error>
+    <Fecha>2017-10-03 16:47</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado el Tricel &lt;strong&gt;AAAAAAAAA&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Tricel para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>21</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-03 16:49</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>22</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-03 17:51</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado el Proyecto &lt;strong&gt;prueba de proyecto&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Proyecto para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>23</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-03 17:53</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>24</Id>
+  </error>
 </root>
