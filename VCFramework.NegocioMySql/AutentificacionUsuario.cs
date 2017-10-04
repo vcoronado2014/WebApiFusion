@@ -240,6 +240,15 @@ namespace VCFramework.NegocioMySQL
                     env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
                     env.Rol = us.RolInstitucion.Nombre;
                     //nombre institucion
+                    //CONSTRUIMOS DIRECCION
+                    string direccion = "";
+                    if (us.Persona != null)
+                        direccion = us.Persona.DireccionCompleta;
+                    if (us.Comuna != null)
+                        direccion += " ," + us.Comuna.Nombre;
+                    env.OtroCinco = direccion;
+                    env.OtroCuatro = us.Persona.Rut;
+
                     env.OtroUno = us.Institucion.Nombre;
                     env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
                     env.OtroTres = us.AutentificacionUsuario.CorreoElectronico;
@@ -274,6 +283,15 @@ namespace VCFramework.NegocioMySQL
                         env.NombreUsuario = us.AutentificacionUsuario.NombreUsuario;
                         env.Rol = us.RolInstitucion.Nombre;
                         //nombre institucion
+                        //CONSTRUIMOS DIRECCION
+                        string direccion = "";
+                        if (us.Persona != null)
+                            direccion = us.Persona.DireccionCompleta;
+                        if (us.Comuna != null)
+                            direccion += " ," + us.Comuna.Nombre;
+                        env.OtroCinco = direccion;
+                        env.OtroCuatro = us.Persona.Rut;
+
                         env.OtroUno = us.Institucion.Nombre;
                         env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
                         env.OtroTres = us.AutentificacionUsuario.CorreoElectronico;
@@ -312,6 +330,15 @@ namespace VCFramework.NegocioMySQL
                     //nombre institucion
                     env.OtroUno = us.Institucion.Nombre;
                     env.OtroTres = us.AutentificacionUsuario.CorreoElectronico;
+                    //CONSTRUIMOS DIRECCION
+                    string direccion = "";
+                    if (us.Persona != null)
+                        direccion = us.Persona.DireccionCompleta;
+                    if (us.Comuna != null)
+                        direccion += " ," + us.Comuna.Nombre;
+                    env.OtroCinco = direccion;
+                    env.OtroCuatro = us.Persona.Rut;
+
                     env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
                     env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";
                     lista.Add(env);

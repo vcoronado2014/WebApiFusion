@@ -1400,6 +1400,41 @@ namespace VCFramework.NegocioMySQL
 
             return retorno;
         }
+        public static string RetornaFechaDocumento(string fechaProcesar)
+        {
+            //12/03/2017 10:07 p.m.
+            //5/17/2017 7:06 PM
+
+            string retorno = RetornaFechaFormateadaServidor("09/09/2017");
+            try
+            {
+                //primera separacion
+                string[] parte1 = fechaProcesar.Split(' ');
+                if (parte1.Length > 1)
+                {
+                    //segunda separación
+                    string[] parte2 = parte1[0].Split('/');
+                    if (parte2.Length == 3)
+                    {
+                        if (parte2[1].Length == 1)
+                            parte2[1] = "0" + parte2[1];
+                        if (parte2[0].Length == 1)
+                            parte2[0] = "0" + parte2[0];
+
+                        retorno = parte2[1] + "-" + parte2[0] + "-" + parte2[2];
+
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                NegocioMySQL.Utiles.Log(ex);
+            }
+
+
+            return retorno;
+        }
 
         /// <summary>
         /// Entrega Fecha entera a partir del formato 21-01-2017

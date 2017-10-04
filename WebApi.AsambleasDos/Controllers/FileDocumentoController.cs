@@ -158,7 +158,7 @@ namespace WebApi.AsambleasDos.Controllers
                         VCFramework.EntidadFuncional.UsuarioEnvoltorio entidadS = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
                         entidadS.Id = doc.Id;
                         entidadS.NombreCompleto = doc.NombreArchivo;
-                        entidadS.NombreUsuario = doc.FechaSubida;
+                        entidadS.NombreUsuario = VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(doc.FechaSubida);
                         entidadS.OtroUno = doc.Tamano.ToString()+ " Kb";
 
                         string extension = Path.GetExtension(doc.NombreArchivo);

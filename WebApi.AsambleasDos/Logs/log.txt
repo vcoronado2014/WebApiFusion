@@ -165,4 +165,42 @@
     <Detalle>Error al enviar correo.</Detalle>
     <Id>24</Id>
   </error>
+  <error>
+    <Fecha>2017-10-04 10:55</Fecha>
+    <Detalle>Índice fuera de los límites de la matriz.</Detalle>
+    <Id>25</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-04 10:55</Fecha>
+    <Detalle>Índice fuera de los límites de la matriz.</Detalle>
+    <Id>26</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-04 10:55</Fecha>
+    <Detalle>Índice fuera de los límites de la matriz.</Detalle>
+    <Id>27</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-04 10:55</Fecha>
+    <Detalle>Índice fuera de los límites de la matriz.</Detalle>
+    <Id>28</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-04 10:55</Fecha>
+    <Detalle>Índice fuera de los límites de la matriz.</Detalle>
+    <Id>29</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-04 12:30</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Usuario&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>30</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-04 12:32</Fecha>
+    <Detalle>Error al enviar correo.</Detalle>
+    <Id>31</Id>
+  </error>
 </root>

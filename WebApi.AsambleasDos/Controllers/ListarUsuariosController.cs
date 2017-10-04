@@ -61,6 +61,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                 if (usuarios != null && usuarios.Count > 0)
                 {
+                    usuarios = usuarios.OrderBy(p => p.NombreCompleto).ToList();
                     proposals.proposals = new List<VCFramework.EntidadFuncional.UsuarioEnvoltorio>();
                     proposals.proposals = usuarios;
 
