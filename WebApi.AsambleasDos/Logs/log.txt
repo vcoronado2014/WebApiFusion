@@ -203,4 +203,36 @@
     <Detalle>Error al enviar correo.</Detalle>
     <Id>31</Id>
   </error>
+  <error>
+    <Fecha>2017-10-08 16:42</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Super Administrador&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>32</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-09 09:02</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado el Proyecto &lt;strong&gt;Accesos para personas con capacidades diferentes&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Proyecto para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>33</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-09 09:14</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado el Tricel &lt;strong&gt;Prueba Tricel, valudacion controles&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Tricel para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>34</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-09 14:46</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado el Proyecto &lt;strong&gt;Accesos para personas con capacidades diferentes&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Proyecto para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>35</Id>
+  </error>
 </root>

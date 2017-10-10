@@ -33,3 +33,10 @@ C:\webapi\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.Enti
 \\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.dll
 \\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.EntidadFuncional.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.EntidadFuncional.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.Entidad.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.Entidad.pdb
+\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.dll
+\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.pdb

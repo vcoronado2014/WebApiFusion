@@ -186,7 +186,7 @@ namespace WebApi.AsambleasDos.Controllers
                         VCFramework.EntidadFuncional.UsuarioEnvoltorio us = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
                         us.Id = insti.Id;
                         us.NombreCompleto = insti.Detalle;
-                        us.NombreUsuario = insti.FechaMovimiento.ToShortDateString();
+                        us.NombreUsuario = insti.FechaMovimiento.ToShortDateString().Replace('/', '-');
                         us.OtroUno = insti.TipoMovimientoString;
                         us.OtroDos = insti.NumeroComprobante;
                         //us.OtroTres = insti.Monto.ToString();
@@ -200,6 +200,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                         us.OtroTres = insti.Monto.ToString();
                         us.OtroCuatro = moneda;
+                        us.OtroCinco = insti.TipoMovimiento.ToString();
 
                         us.UrlDocumento = insti.UrlDocumento;
                         us.Url = "CrearModificarIngresoEgreso.html?id=" + us.Id.ToString() + "&ELIMINAR=0";

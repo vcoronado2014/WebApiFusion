@@ -20,6 +20,8 @@ namespace VCFramework.EntidadFuncional
         public VCFramework.Entidad.Comuna Comuna { get; set; }
         public VCFramework.Entidad.RolInstitucion RolInstitucion { get; set; }
         public VCFramework.Entidad.PermisoRol PermisoRol { get; set; }
+        public VCFramework.Entidad.Comuna ComunaInstitucion { get; set; }
+        public VCFramework.Entidad.Region RegionInstitucion { get; set; }
 
     }
     public class UsuarioEnvoltorio
@@ -51,6 +53,10 @@ namespace VCFramework.EntidadFuncional
         public String UrlDocumento { get; set; }
         public bool MostrarItem1 { get; set; }
         public String OtroDiez { get; set; }
+        public String OtroOnce { get; set; }
+        public String OtroDoce { get; set; }
+        public string TotalUsuarios { get; set; }
+        public string QuorumMinimo { get; set; }
     }
     public class NotificacionRetorno
     {

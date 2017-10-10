@@ -16,5 +16,6 @@ namespace VCFramework.Entidad
         public string FechaTermino { get; set; }
         public int EsVigente { get; set; }
         public int Eliminado { get; set; }
+        public int QuorumMinimo { get; set; }
     }
 }

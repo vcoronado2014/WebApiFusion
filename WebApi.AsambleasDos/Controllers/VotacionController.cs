@@ -72,6 +72,8 @@ namespace WebApi.AsambleasDos.Controllers
                         else
                             us.OtroOcho = "0";
 
+                        us.OtroDiez = tri.QuorumMinimo.ToString();
+
 
                         us.Url = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
@@ -122,6 +124,7 @@ namespace WebApi.AsambleasDos.Controllers
             {
                 string instId = data.InstId;
                 int instIdBuscar = int.Parse(instId);
+                string totalUsuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosPorInstId(int.Parse(instId)).Count.ToString();
 
                 VCFramework.EntidadFuncional.proposalss votaciones = new VCFramework.EntidadFuncional.proposalss();
                 votaciones.proposals = new List<VCFramework.EntidadFuncional.UsuarioEnvoltorio>();
@@ -148,9 +151,9 @@ namespace WebApi.AsambleasDos.Controllers
 
                         us.OtroUno = tri.FechaInicio;
                         us.OtroDos = tri.FechaTermino;
-                        us.OtroTres = tri.FechaCreacion.ToShortDateString();
-
-                        us.OtroTres = tri.FechaCreacion.ToShortDateString();
+                        //us.OtroTres = tri.FechaCreacion.ToShortDateString();
+                        
+                        us.OtroTres = tri.FechaCreacion.ToShortDateString().Replace('/', '-');
                         //cantidad de listas asociadas al tricel
                         List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(tri.Id);
                         us.OtroCuatro = listas.Count.ToString();
@@ -192,6 +195,15 @@ namespace WebApi.AsambleasDos.Controllers
                             us.OtroOcho = "0";
 
                         us.OtroNueve = sbTextoVoto.ToString();
+                        us.OtroDiez = tri.QuorumMinimo.ToString();
+                        //votaciones de las listas
+                        int cantidadVotaciones = VCFramework.NegocioMySQL.VotTricel.ObtenerVotacionesPorTricelId(tri.Id).Count;
+                        //aca la cantidad de votaciones
+                        us.OtroOnce = cantidadVotaciones.ToString();
+                        //aca el quorum
+                        us.OtroDoce = tri.QuorumMinimo.ToString();
+                        //total usuarios
+                        us.TotalUsuarios = totalUsuarios;
 
                         us.Url = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarVotacion.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
@@ -236,7 +248,12 @@ namespace WebApi.AsambleasDos.Controllers
             string fechaTermino = data.FechaTermino;
             string usuId = data.IdUsuario;
             string usuIdResponsable = data.UsuIdResponsable;
+            string quorumMinimo = "0";
 
+            if (data.QuorumMinimo != null)
+            {
+                quorumMinimo = data.QuorumMinimo;
+            }
 
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
@@ -260,6 +277,7 @@ namespace WebApi.AsambleasDos.Controllers
                         tricel.FechaTermino = fechaTermino;
                         tricel.Nombre = nombre;
                         tricel.Objetivo = objetivo;
+                        tricel.QuorumMinimo = int.Parse(quorumMinimo);
                         VCFramework.NegocioMySQL.Tricel.Modificar(tricel);
                         //ahora actualizamos las listas
                         List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(tricel.Id);
@@ -391,6 +409,7 @@ namespace WebApi.AsambleasDos.Controllers
                     tricel.InstId = int.Parse(instId);
                     tricel.UsuIdCreador = int.Parse(usuId);
                     tricel.FechaCreacion = DateTime.Now;
+                    tricel.QuorumMinimo = int.Parse(quorumMinimo);
                     tricel.Id = VCFramework.NegocioMySQL.Tricel.Insertar(tricel);
 
                     VCFramework.Entidad.ResponsableTricel resp = new VCFramework.Entidad.ResponsableTricel();

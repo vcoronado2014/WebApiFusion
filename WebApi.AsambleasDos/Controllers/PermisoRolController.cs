@@ -309,6 +309,7 @@ true
             string verMailing = data.VerMailing;
             string creaMailing = data.CreaMailing;
             string verReportes = data.VerReportes;
+            string verReporteAsistencia = data.VerReporteAsistencia;
 
             int idNuevo = 0;
             int idNuevoRol = 0;
@@ -427,6 +428,7 @@ true
                 permiso.VerMailing = Convert.ToBoolean(verMailing) ? 1 : 0;
                 permiso.CreaMailing = Convert.ToBoolean(creaMailing) ? 1 : 0;
                 permiso.VerReportes = Convert.ToBoolean(verReportes) ? 1 : 0;
+                permiso.VerReporteAsistencia = Convert.ToBoolean(verReporteAsistencia) ? 1 : 0;
 
                 if (int.Parse(permisoId) > 0)
                 {

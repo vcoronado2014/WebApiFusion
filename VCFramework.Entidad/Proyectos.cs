@@ -22,6 +22,7 @@ namespace VCFramework.Entidad
         public int EsVigente { get; set; }
         public int Eliminado { get; set; }
         public int FueAprobado { get; set; }
-        
+        public int QuorumMinimo { get; set; }
+
     }
 }

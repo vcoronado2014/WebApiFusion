@@ -179,6 +179,10 @@ namespace VCFramework.NegocioMySQL
                 retorno.Comuna = NegocioMySQL.Comuna.ObtenerComunaPorId(retorno.Persona.ComId);
             if (retorno.RolInstitucion != null && retorno.RolInstitucion.Id > 0)
                 retorno.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(retorno.RolInstitucion.Id);
+            if (retorno.Institucion != null)
+                retorno.RegionInstitucion = NegocioMySQL.Region.ObtenerRegionPorId(retorno.Institucion.RegId);
+            if (retorno.Institucion != null)
+                retorno.ComunaInstitucion = NegocioMySQL.Comuna.ObtenerComunaPorId(retorno.Institucion.ComId);
 
             return retorno;
         }
@@ -222,6 +226,10 @@ namespace VCFramework.NegocioMySQL
                 retorno.Comuna = NegocioMySQL.Comuna.ObtenerComunaPorId(retorno.Persona.ComId);
             if (retorno.RolInstitucion != null && retorno.RolInstitucion.Id > 0)
                 retorno.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(retorno.RolInstitucion.Id);
+            if (retorno.Institucion != null)
+                retorno.RegionInstitucion = NegocioMySQL.Region.ObtenerRegionPorId(retorno.Institucion.RegId);
+            if (retorno.Institucion != null)
+                retorno.ComunaInstitucion = NegocioMySQL.Comuna.ObtenerComunaPorId(retorno.Institucion.ComId);
 
             return retorno;
         }
@@ -400,6 +408,15 @@ namespace VCFramework.NegocioMySQL
                         if (uf.Persona != null)
                             uf.Comuna = VCFramework.NegocioMySQL.Comuna.ObtenerComunaPorId(uf.Persona.ComId);
 
+                        uf.RegionInstitucion = new Entidad.Region();
+                        if (uf.Institucion != null)
+                            uf.RegionInstitucion = VCFramework.NegocioMySQL.Region.ObtenerRegionPorId(uf.Institucion.RegId);
+
+                        uf.ComunaInstitucion = new Entidad.Comuna();
+                        if (uf.Institucion != null)
+                            uf.ComunaInstitucion = VCFramework.NegocioMySQL.Comuna.ObtenerComunaPorId(uf.Institucion.ComId);
+
+
                         if (uf.RolInstitucion != null && uf.RolInstitucion.Id > 0)
                             uf.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(uf.RolInstitucion.Id);
 
@@ -464,6 +481,14 @@ namespace VCFramework.NegocioMySQL
                         uf.Comuna = new Entidad.Comuna();
                         if (uf.Persona != null)
                             uf.Comuna = VCFramework.NegocioMySQL.Comuna.ObtenerComunaPorId(uf.Persona.ComId);
+
+                        uf.RegionInstitucion = new Entidad.Region();
+                        if (uf.Institucion != null)
+                            uf.RegionInstitucion = VCFramework.NegocioMySQL.Region.ObtenerRegionPorId(uf.Institucion.RegId);
+
+                        uf.ComunaInstitucion = new Entidad.Comuna();
+                        if (uf.Institucion != null)
+                            uf.ComunaInstitucion = VCFramework.NegocioMySQL.Comuna.ObtenerComunaPorId(uf.Institucion.ComId);
 
                         if (uf.RolInstitucion != null && uf.RolInstitucion.Id > 0)
                             uf.PermisoRol = NegocioMySql.PermisoRol.ObtenerPermisoRolPorId(uf.RolInstitucion.Id);

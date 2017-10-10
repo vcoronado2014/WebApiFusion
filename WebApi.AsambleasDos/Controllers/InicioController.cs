@@ -44,6 +44,8 @@ namespace WebApi.AsambleasDos.Controllers
                 int idInstitucion = int.Parse(instId);
                 int idUsuario = int.Parse(usuId);
                 int idRol = int.Parse(rolId);
+                //aca calculamos el total de usuarios de la institucion
+                string totalUsuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosPorInstId(int.Parse(instId)).Count.ToString();
 
                 VCFramework.EntidadFuncional.Inicio inicio = new VCFramework.EntidadFuncional.Inicio();
 
@@ -131,12 +133,24 @@ namespace WebApi.AsambleasDos.Controllers
                         us.OtroSiete = puedeVotar.ToString();
 
                         us.OtroOcho = us.OtroUno + " - " + us.OtroDos;
+                        //votaciones de las listas
+                        int cantidadVotaciones = VCFramework.NegocioMySQL.Votaciones.ObtenerVotaciones(tri.Id).Count;
+                        //aca la cantidad de votaciones
+                        us.OtroOnce = cantidadVotaciones.ToString();
+                        //aca el quorum
+                        us.OtroDoce = tri.QuorumMinimo.ToString();
+                        //total usuarios
+                        us.TotalUsuarios = totalUsuarios;
 
                         //verificamos si ya votó
                         StringBuilder sb = new StringBuilder();
                         if (usuId != "0")
                         {
                             List<VCFramework.Entidad.Votaciones> listaVotaciones = VCFramework.NegocioMySQL.Votaciones.ObtenerVotaciones(tri.Id, int.Parse(usuId));
+                            //aca la cantidad de votaciones
+                            us.OtroOnce = listaVotaciones.Count.ToString();
+                            //aca el quorum
+                            us.OtroDoce = tri.QuorumMinimo.ToString();
                             if (listaVotaciones != null && listaVotaciones.Count == 1)
                             {
                                 if (us.OtroSiete == "1")
@@ -206,6 +220,14 @@ namespace WebApi.AsambleasDos.Controllers
                         us.OtroSiete = VCFramework.NegocioMySQL.Tricel.PuedeVotar(tri.Id).ToString();
 
                         us.OtroNueve = sbTextoVoto.ToString();
+                        //votaciones de las listas
+                        int cantidadVotaciones = VCFramework.NegocioMySQL.VotTricel.ObtenerVotacionesPorTricelId(tri.Id).Count;
+                        //aca la cantidad de votaciones
+                        us.OtroOnce = cantidadVotaciones.ToString();
+                        //aca el quorum
+                        us.OtroDoce = tri.QuorumMinimo.ToString();
+                        //total usuarios
+                        us.TotalUsuarios = totalUsuarios;
 
                         if (VCFramework.NegocioMySQL.Utiles.RetornaFechaEnteraStr(tri.FechaTermino) >= int.Parse(VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera()))
                             votaciones2.proposals.Add(us);

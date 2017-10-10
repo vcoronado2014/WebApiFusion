@@ -49,6 +49,7 @@ namespace WebApi.AsambleasDos.Controllers
             {
                 string instId = data.InstId;
                 int instIdBuscar = int.Parse(instId);
+                string totalUsuarios = VCFramework.NegocioMySQL.AutentificacionUsuario.ListarUsuariosPorInstId(int.Parse(instId)).Count.ToString();
 
                 VCFramework.EntidadFuncional.proposalss votaciones = new VCFramework.EntidadFuncional.proposalss();
                 votaciones.proposals = new List<VCFramework.EntidadFuncional.UsuarioEnvoltorio>();
@@ -102,6 +103,14 @@ namespace WebApi.AsambleasDos.Controllers
                         us.Url = "CrearModificarProyecto.html?id=" + us.Id.ToString() + "&ELIMINAR=0";
                         us.UrlEliminar = "CrearModificarProyecto.html?id=" + us.Id.ToString() + "&ELIMINAR=1";
 
+                        //votaciones de las listas
+                        int cantidadVotaciones = VCFramework.NegocioMySQL.Votaciones.ObtenerVotaciones(tri.Id).Count;
+                        //aca la cantidad de votaciones
+                        us.OtroOnce = cantidadVotaciones.ToString();
+                        //aca el quorum
+                        us.OtroDoce = tri.QuorumMinimo.ToString();
+                        //total usuarios
+                        us.TotalUsuarios = totalUsuarios;
 
                         //verificamos si ya votó
                         StringBuilder sb = new StringBuilder();
@@ -131,6 +140,7 @@ namespace WebApi.AsambleasDos.Controllers
                             sb.Append("Usted aún no ha votado este Proyecto.");
                         }
                         us.OtroNueve = sb.ToString();
+                        us.QuorumMinimo = tri.QuorumMinimo.ToString();
 
 
                         votaciones.proposals.Add(us);
@@ -174,8 +184,12 @@ namespace WebApi.AsambleasDos.Controllers
             string costo = data.Costo;
             string beneficios = data.Beneficios;
             string descripcion = data.Descripcion;
+            string quorumMinimo = "0";
 
-
+            if (data.QuorumMinimo != null)
+            {
+                quorumMinimo = data.QuorumMinimo;
+            }
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             int idNuevo = 0;
@@ -203,6 +217,7 @@ namespace WebApi.AsambleasDos.Controllers
                         tricel.Costo = int.Parse(costo);
                         tricel.Beneficios = beneficios;
                         tricel.Descripcion = descripcion;
+                        tricel.QuorumMinimo = int.Parse(quorumMinimo);
                         VCFramework.NegocioMySQL.Proyectos.Modificar(tricel);
                         if (tricel.Id >= 0)
                         {
@@ -311,6 +326,7 @@ namespace WebApi.AsambleasDos.Controllers
                     tricel.FechaCreacion = DateTime.Now;
                     tricel.Beneficios = beneficios;
                     tricel.Descripcion = descripcion;
+                    tricel.QuorumMinimo = int.Parse(quorumMinimo);
                     int respuesta = tricel.Id = VCFramework.NegocioMySQL.Proyectos.Insertar(tricel);
                     if (respuesta >= 0)
                     {

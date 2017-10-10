@@ -51,6 +51,7 @@ namespace VCFramework.Entidad
         public int VerMailing { get; set; }
         public int CreaMailing { get; set; }
         public int VerReportes { get; set; }
+        public int VerReporteAsistencia { get; set; }
 
 
     }
