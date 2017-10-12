@@ -41,6 +41,8 @@ namespace WebApi.AsambleasDos.Controllers
             string usuId = data.UsuId;
             string triId = data.TriId;
 
+            string ticket = VCFramework.NegocioMySQL.Utiles.Encriptar(instId) + VCFramework.NegocioMySQL.Utiles.Encriptar(ltrId) + VCFramework.NegocioMySQL.Utiles.Encriptar(triId) + VCFramework.NegocioMySQL.Utiles.Encriptar(usuId);
+
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             int idNuevo = 0;
 
@@ -99,6 +101,8 @@ namespace WebApi.AsambleasDos.Controllers
             string ltrId = data.LtrId;
 
             string usuId = data.UsuId;
+
+            string ticket = VCFramework.NegocioMySQL.Utiles.Encriptar(instId) + VCFramework.NegocioMySQL.Utiles.Encriptar(ltrId) + VCFramework.NegocioMySQL.Utiles.Encriptar(id) + VCFramework.NegocioMySQL.Utiles.Encriptar(usuId);
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             int idNuevo = 0;

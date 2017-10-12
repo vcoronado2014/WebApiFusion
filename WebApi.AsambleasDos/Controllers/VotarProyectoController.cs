@@ -38,6 +38,10 @@ namespace WebApi.AsambleasDos.Controllers
             string proId = data.ProId;
             string valor = data.Valor;
             string usuId = data.UsuId;
+            //aqui construiremos el tocket unico
+            //id+fechahoratoshortdatestring
+            string ticket = VCFramework.NegocioMySQL.Utiles.Encriptar(instId) + VCFramework.NegocioMySQL.Utiles.Encriptar(proId) + VCFramework.NegocioMySQL.Utiles.Encriptar(valor) + VCFramework.NegocioMySQL.Utiles.Encriptar(usuId);
+
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             int idNuevo = 0;
@@ -96,6 +100,8 @@ namespace WebApi.AsambleasDos.Controllers
             string proId = data.ProId;
             string valor = data.Valor;
             string usuId = data.UsuId;
+
+            string ticket = VCFramework.NegocioMySQL.Utiles.Encriptar(instId) + VCFramework.NegocioMySQL.Utiles.Encriptar(proId) + VCFramework.NegocioMySQL.Utiles.Encriptar(valor) + VCFramework.NegocioMySQL.Utiles.Encriptar(usuId);
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             int idNuevo = 0;

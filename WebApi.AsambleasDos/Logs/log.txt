@@ -235,4 +235,17 @@
       ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
     <Id>35</Id>
   </error>
+  <error>
+    <Fecha>2017-10-12 15:22</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado una novedad &lt;strong&gt;prueba de otro comentario modificado&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificada una novedad en su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>36</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-12 15:23</Fecha>
+    <Detalle>El buzón de correo no está disponible. La respuesta del servidor fue: From domain must match authenticated domain</Detalle>
+    <Id>37</Id>
+  </error>
 </root>
