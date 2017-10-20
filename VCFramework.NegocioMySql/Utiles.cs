@@ -199,7 +199,7 @@ namespace VCFramework.NegocioMySQL
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -263,7 +263,7 @@ namespace VCFramework.NegocioMySQL
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -327,7 +327,7 @@ namespace VCFramework.NegocioMySQL
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -387,7 +387,7 @@ namespace VCFramework.NegocioMySQL
                 double montoD = Convert.ToDouble(monto);
                 string montoMostrar = montoD.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("es-CL"));
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -451,7 +451,7 @@ namespace VCFramework.NegocioMySQL
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -515,7 +515,7 @@ namespace VCFramework.NegocioMySQL
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -579,7 +579,7 @@ namespace VCFramework.NegocioMySQL
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -643,7 +643,7 @@ namespace VCFramework.NegocioMySQL
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
 
-                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -831,7 +831,7 @@ namespace VCFramework.NegocioMySQL
             {
                 sms.To.Add(COPIA_ADMIN_2());
             }
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -898,7 +898,7 @@ namespace VCFramework.NegocioMySQL
             }
 
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -965,7 +965,7 @@ namespace VCFramework.NegocioMySQL
             }
 
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "asambleas");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -1032,7 +1032,7 @@ namespace VCFramework.NegocioMySQL
             }
 
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "CPAS");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -1097,7 +1097,7 @@ namespace VCFramework.NegocioMySQL
             }
 
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "CPAS");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -1209,7 +1209,7 @@ namespace VCFramework.NegocioMySQL
             sms.Subject = "Creación Usuario CPAS";
             sms.To.Add(email);
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "CPAS");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -1525,7 +1525,7 @@ namespace VCFramework.NegocioMySQL
             }
 
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "CPAS");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
