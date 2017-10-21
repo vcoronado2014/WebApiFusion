@@ -252,8 +252,8 @@ namespace VCFramework.NegocioMySQL
                     string direccion = "";
                     if (us.Persona != null)
                         direccion = us.Persona.DireccionCompleta;
-                    if (us.Comuna != null)
-                        direccion += " ," + us.Comuna.Nombre;
+                    //if (us.Comuna != null)
+                    //    direccion += " ," + us.Comuna.Nombre;
                     env.OtroCinco = direccion;
                     env.OtroCuatro = us.Persona.Rut;
 
@@ -295,8 +295,8 @@ namespace VCFramework.NegocioMySQL
                         string direccion = "";
                         if (us.Persona != null)
                             direccion = us.Persona.DireccionCompleta;
-                        if (us.Comuna != null)
-                            direccion += " ," + us.Comuna.Nombre;
+                        //if (us.Comuna != null)
+                        //    direccion += " ," + us.Comuna.Nombre;
                         env.OtroCinco = direccion;
                         env.OtroCuatro = us.Persona.Rut;
 
@@ -342,8 +342,8 @@ namespace VCFramework.NegocioMySQL
                     string direccion = "";
                     if (us.Persona != null)
                         direccion = us.Persona.DireccionCompleta;
-                    if (us.Comuna != null)
-                        direccion += " ," + us.Comuna.Nombre;
+                    //if (us.Comuna != null)
+                    //    direccion += " ," + us.Comuna.Nombre;
                     env.OtroCinco = direccion;
                     env.OtroCuatro = us.Persona.Rut;
 

@@ -188,7 +188,7 @@ namespace VCFramework.NegocioMySQL
         public const string CNS = "BDColegioSql";
 
         //nuevos metodos para enviar mailing
-        public static System.Net.Mail.MailMessage ConstruyeMensajeProyecto(int instId, string nombreInstitucion, string nombreProyecto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeProyecto(int instId, string nombreInstitucion, string nombreProyecto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -198,8 +198,10 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -221,19 +223,29 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaProyecto == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Proyecto en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Proyecto en CPAS.cl";
+                    else
+                        sms.Subject = "Creación de Proyecto en asambleas.cl";
 
                 }
                 else if (esModificado && mail.ModificaProyecto == 1)
                 {
                     //puede modificar
-                    sms.Subject = "Modificación de Proyecto en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Modificación de Proyecto en CPAS.cl";
+                    else
+                        sms.Subject = "Modificación de Proyecto en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaProyecto == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Proyecto en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Proyecto en CPAS.cl";
+                    else
+                        sms.Subject = "Eliminación de Proyecto en asambleas.cl";
+
 
                 }
                 else
@@ -252,7 +264,7 @@ namespace VCFramework.NegocioMySQL
             
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeTricel(int instId, string nombreInstitucion, string nombreTricel, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeTricel(int instId, string nombreInstitucion, string nombreTricel, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -262,8 +274,10 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -285,19 +299,28 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaTricel == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Tricel en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Tricel en cpas.cl";
+                    else
+                        sms.Subject = "Creación de Tricel en asambleas.cl";
 
                 }
                 else if (esModificado && mail.ModificaTricel == 1)
                 {
                     //puede modificar
-                    sms.Subject = "Modificación de Tricel en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Modificación de Tricel en cpas.cl";
+                    else
+                        sms.Subject = "Modificación de Tricel en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaTricel == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Tricel en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Tricel en cpas.cl";
+                    else
+                        sms.Subject = "Eliminación de Tricel en asambleas.cl";
 
                 }
                 else
@@ -316,7 +339,7 @@ namespace VCFramework.NegocioMySQL
 
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeDocumento(int instId, string nombreInstitucion, string nombreDocumento, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeDocumento(int instId, string nombreInstitucion, string nombreDocumento, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -326,8 +349,10 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -349,13 +374,19 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaDocumento == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Documento en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Documento en cpas.cl";
+                    else
+                        sms.Subject = "Creación de Documento en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaDocumento == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Documento en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Documento en cpas.cl";
+                    else
+                        sms.Subject = "Eliminación de Documento en asambleas.cl";
 
                 }
                 else
@@ -374,7 +405,7 @@ namespace VCFramework.NegocioMySQL
 
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeRendicion(int instId, string nombreInstitucion, string tipoMovimiento, string monto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeRendicion(int instId, string nombreInstitucion, string tipoMovimiento, string monto, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -386,8 +417,10 @@ namespace VCFramework.NegocioMySQL
                 //variables del mail
                 double montoD = Convert.ToDouble(monto);
                 string montoMostrar = montoD.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("es-CL"));
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -409,19 +442,28 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaRendicion == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Rendición en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Rendición en cpas.cl";
+                    else
+                        sms.Subject = "Creación de Rendición en asambleas.cl";
 
                 }
                 else if (esModificado && mail.ModificaRendicion == 1)
                 {
                     //puede modificar
-                    sms.Subject = "Modificación de Rendicion en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Modificación de Rendicion en cpas.cl";
+                    else
+                        sms.Subject = "Modificación de Rendicion en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaRendicion == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Rendicion en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Rendicion en cpas.cl";
+                    else
+                        sms.Subject = "Eliminación de Rendicion en asambleas.cl";
 
                 }
                 else
@@ -440,7 +482,7 @@ namespace VCFramework.NegocioMySQL
 
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeEvento(int instId, string nombreInstitucion, string nombreTricel, string ubicacion, string fechaInicioTermino, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeEvento(int instId, string nombreInstitucion, string nombreTricel, string ubicacion, string fechaInicioTermino, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -450,8 +492,10 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -473,19 +517,28 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaCalendario == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Evento en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Evento en cpas.cl";
+                    else
+                        sms.Subject = "Creación de Evento en asambleas.cl";
 
                 }
                 else if (esModificado && mail.ModificaCalendario == 1)
                 {
                     //puede modificar
-                    sms.Subject = "Modificación de Evento en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Modificación de Evento en cpas.cl";
+                    else
+                        sms.Subject = "Modificación de Evento en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaCalendario == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Evento en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Evento en cpas.cl";
+                    else
+                        sms.Subject = "Eliminación de Evento en asambleas.cl";
 
                 }
                 else
@@ -504,7 +557,7 @@ namespace VCFramework.NegocioMySQL
 
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeUsuario(int instId, string nombreInstitucion, string nombreUsuario, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeUsuario(int instId, string nombreInstitucion, string nombreUsuario, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -514,8 +567,10 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -537,19 +592,28 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaUsuario == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Usuario en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Usuario en cpas.cl";
+                    else
+                        sms.Subject = "Creación de Usuario en asambleas.cl";
 
                 }
                 else if (esModificado && mail.ModificaUsuario == 1)
                 {
                     //puede modificar
-                    sms.Subject = "Modificación de Usuario en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Modificación de Usuario en cpas.cl";
+                    else
+                        sms.Subject = "Modificación de Usuario en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaUsuario == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Usuario en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Usuario en cpas.cl";
+                    else
+                        sms.Subject = "Eliminación de Usuario en asambleas.cl";
 
                 }
                 else
@@ -568,7 +632,7 @@ namespace VCFramework.NegocioMySQL
 
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeMuro(int instId, string nombreInstitucion, string novedad, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeMuro(int instId, string nombreInstitucion, string novedad, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -578,8 +642,10 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -601,19 +667,28 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaMuro == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Novedad en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Novedad en cpas.cl";
+                    else
+                        sms.Subject = "Creación de Novedad en asambleas.cl";
 
                 }
                 else if (esModificado && mail.ModificaMuro == 1)
                 {
                     //puede modificar
-                    sms.Subject = "Modificación de Novedad en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Modificación de Novedad en cpas.cl";
+                    else
+                        sms.Subject = "Modificación de Novedad en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaMuro == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Novedad en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Novedad en cpas.cl";
+                    else
+                        sms.Subject = "Eliminación de Novedad en asambleas.cl";
 
                 }
                 else
@@ -632,7 +707,7 @@ namespace VCFramework.NegocioMySQL
 
         }
 
-        public static System.Net.Mail.MailMessage ConstruyeMensajeRol(int instId, string nombreInstitucion, string rol, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeRol(int instId, string nombreInstitucion, string rol, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {
 
             List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
@@ -642,8 +717,10 @@ namespace VCFramework.NegocioMySQL
             {
                 VCFramework.Entidad.Mailing mail = mailing[0];
                 //variables del mail
-
-                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+                if (esCpas)
+                    sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+                else
+                    sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
                 sms.IsBodyHtml = true;
                 if (correos != null && correos.Count > 0)
                 {
@@ -665,19 +742,28 @@ namespace VCFramework.NegocioMySQL
                 if (esNuevo && mail.CreaRol == 1)
                 {
                     //puede crear
-                    sms.Subject = "Creación de Rol en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Creación de Rol en cpas.cl";
+                    else
+                        sms.Subject = "Creación de Rol en asambleas.cl";
 
                 }
                 else if (esModificado && mail.ModificaRol == 1)
                 {
                     //puede modificar
-                    sms.Subject = "Modificación de Rol en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Modificación de Rol en cpas.cl";
+                    else
+                        sms.Subject = "Modificación de Rol en asambleas.cl";
 
                 }
                 else if (esEliminado && mail.EliminaRol == 1)
                 {
                     //puede eliminar
-                    sms.Subject = "Eliminación de Rol en asambleas.cl";
+                    if (esCpas)
+                        sms.Subject = "Eliminación de Rol en cpas.cl";
+                    else
+                        sms.Subject = "Eliminación de Rol en asambleas.cl";
 
                 }
                 else
@@ -815,7 +901,7 @@ namespace VCFramework.NegocioMySQL
 
             return retorno;
         }
-        public static System.Net.Mail.MailMessage ConstruyeMensajeContacto(string nombre, string telefono, string email, string motivo)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeContacto(string nombre, string telefono, string email, string motivo, bool esCpas)
         {
 
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
@@ -831,7 +917,10 @@ namespace VCFramework.NegocioMySQL
             {
                 sms.To.Add(COPIA_ADMIN_2());
             }
-            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
+            if (esCpas)
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            else
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -1139,14 +1228,19 @@ namespace VCFramework.NegocioMySQL
             sms.Body = sb.ToString();
             return sms;
         }
-        public static System.Net.Mail.MailMessage ConstruyeMensajeRecuperarClave(string nombre, string clave, string email)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeRecuperarClave(string nombre, string clave, string email, bool esCpas)
         {
 
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
-            sms.Subject = "Recuperación Clave asambleas";
+            if(esCpas)
+                sms.Subject = "Recuperación Clave cpas";
+            else
+                sms.Subject = "Recuperación Clave asambleas";
             sms.To.Add(email);
-            
-            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "Asambleas");
+            if (esCpas)
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "cpas");
+            else
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "Asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();
@@ -1169,14 +1263,20 @@ namespace VCFramework.NegocioMySQL
             sms.Body = sb.ToString();
             return sms;
         }
-        public static System.Net.Mail.MailMessage ConstruyeMensajeCambiarClave(string nombre, string clave, string email)
+        public static System.Net.Mail.MailMessage ConstruyeMensajeCambiarClave(string nombre, string clave, string email, bool esCpas)
         {
 
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
-            sms.Subject = "Cambio Clave Asambleas";
-            sms.To.Add(email);
+            if (esCpas)
+                sms.Subject = "Cambio Clave CPAS";
+            else
+                sms.Subject = "Cambio Clave Asambleas";
 
-            sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "Asambleas");
+            sms.To.Add(email);
+            if(esCpas)
+                sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
+            else
+                sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "Asambleas");
             sms.IsBodyHtml = true;
 
             StringBuilder sb = new StringBuilder();

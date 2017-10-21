@@ -105,6 +105,14 @@ namespace WebApi.AsambleasDos.Controllers
             if (data.IdUsuario == 0)
                 throw new ArgumentNullException("Id");
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
+
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
@@ -142,7 +150,7 @@ namespace WebApi.AsambleasDos.Controllers
                             VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                             //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, false, false, true);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, false, false, true, esCpas);
 
                             //cr.Enviar(mnsj);
                             var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -237,6 +245,13 @@ namespace WebApi.AsambleasDos.Controllers
                 idUsuario = "0";
             int idUsuarioBuscar = int.Parse(idUsuario);
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
 
             //validaciones antes de ejecutar la llamada.
             VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(idUsuarioBuscar);
@@ -294,7 +309,7 @@ namespace WebApi.AsambleasDos.Controllers
                             VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                             //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, true, false, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, true, false, false, esCpas);
 
                             //cr.Enviar(mnsj);
                             var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -320,7 +335,7 @@ namespace WebApi.AsambleasDos.Controllers
                             VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                             //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, false, true, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeUsuario(institucion.Id, institucion.Nombre, aus.NombreUsuario, listaCorreos, false, true, false, esCpas);
 
                             //cr.Enviar(mnsj);
                             var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));

@@ -34,6 +34,14 @@ namespace WebApi.AsambleasDos.Controllers
             if (data.NombreUsuario == "")
                 throw new ArgumentNullException("NombreUsuario");
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
+
             VCFramework.Entidad.AutentificacionUsuario entidadAus = new VCFramework.Entidad.AutentificacionUsuario();
             VCFramework.Entidad.Persona entidadPersona = new VCFramework.Entidad.Persona();
 
@@ -92,7 +100,7 @@ namespace WebApi.AsambleasDos.Controllers
                     
                     VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
-                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCambiarClave(entidadAus.NombreUsuario, entidadAus.Password, entidadAus.CorreoElectronico);
+                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRecuperarClave(entidadAus.NombreUsuario, entidadAus.Password, entidadAus.CorreoElectronico, esCpas);
                     //cr.Enviar(mnsj);
                     var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
                 }

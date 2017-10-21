@@ -34,6 +34,14 @@ namespace WebApi.AsambleasDos.Controllers
             string nombre = data.Nombre;
             string telefono = data.Telefono;
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
+
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             MailMessage mnsj = null;
@@ -46,7 +54,7 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
-                    mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeContacto(nombre, telefono, para, mensaje);
+                    mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeContacto(nombre, telefono, para, mensaje, esCpas);
                     //cr.Enviar(mnsj);
                     var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
                 }

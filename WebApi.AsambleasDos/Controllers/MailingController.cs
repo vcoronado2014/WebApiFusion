@@ -12,6 +12,7 @@ using System.Xml;
 using System.Net.Http.Formatting;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using System.Globalization;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -179,7 +180,16 @@ namespace WebApi.AsambleasDos.Controllers
                 permiso.ModificaRol = Convert.ToBoolean(modificaRol) ? 1 : 0;
                 permiso.ModificaTricel = Convert.ToBoolean(modificaTricel) ? 1 : 0;
                 permiso.ModificaUsuario = Convert.ToBoolean(modificaUsuario) ? 1 : 0;
-                permiso.FechaCreacion = DateTime.Now;
+
+                string fechaStr = VCFramework.NegocioMySQL.Utiles.ConstruyeFecha(DateTime.Now);
+                DateTime dt;
+                DateTime.TryParseExact("01-01-2017 08:00", "yyyy-MM-dd hh:mm",
+                                       CultureInfo.InvariantCulture,
+                                       DateTimeStyles.None,
+                                       out dt);
+
+
+                permiso.FechaCreacion = dt;
 
                 if (permiso.Id > 0)
                 {
@@ -187,6 +197,7 @@ namespace WebApi.AsambleasDos.Controllers
                 }
                 else
                 {
+                    
                     idNuevo = VCFramework.NegocioMySql.Mailing.Insertar(permiso);
                     permiso.Id = idNuevo;
                 }

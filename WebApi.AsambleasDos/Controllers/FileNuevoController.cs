@@ -35,6 +35,9 @@ namespace WebApi.AsambleasDos.Controllers
                 var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
                 string usuId = HttpContext.Current.Request.Form["UsuId"];
                 string instId = HttpContext.Current.Request.Form["InstId"];
+                bool esCpas = false;
+                if (HttpContext.Current.Request.Form["EsCpas"] != null)
+                    esCpas = Convert.ToBoolean(HttpContext.Current.Request.Form["EsCpas"]);
 
                 if (httpPostedFile != null)
                 {
@@ -107,7 +110,7 @@ namespace WebApi.AsambleasDos.Controllers
                         VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeDocumento(institucion.Id, institucion.Nombre, entidad.NombreArchivo, listaCorreos, true, false, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeDocumento(institucion.Id, institucion.Nombre, entidad.NombreArchivo, listaCorreos, true, false, false, esCpas);
 
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));

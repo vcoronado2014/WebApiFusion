@@ -52,6 +52,14 @@ namespace WebApi.AsambleasDos.Controllers
             if (usuId == null)
                 usuId = "0";
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
+
 
             //validaciones antes de ejecutar la llamada.
 
@@ -131,7 +139,7 @@ namespace WebApi.AsambleasDos.Controllers
                         VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeDocumento(institucion.Id, institucion.Nombre, entidad.NombreArchivo, listaCorreos, true, false, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeDocumento(institucion.Id, institucion.Nombre, entidad.NombreArchivo, listaCorreos, true, false, false, esCpas);
 
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));

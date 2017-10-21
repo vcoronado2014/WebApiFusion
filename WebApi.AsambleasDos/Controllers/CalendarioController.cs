@@ -269,6 +269,14 @@ namespace WebApi.AsambleasDos.Controllers
             if (data.Id != null)
                 id = data.Id;
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
+
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
@@ -321,7 +329,7 @@ namespace WebApi.AsambleasDos.Controllers
                         VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaInicio.ToShortDateString().Replace("-", "/") + " 10:00 PM") + " " + calendario.FechaInicio.ToShortTimeString() + " - " + VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaTermino.ToShortDateString().Replace("-", "/") + " 10 PM") + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, true, false, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaInicio.ToShortDateString().Replace("-", "/") + " 10:00 PM") + " " + calendario.FechaInicio.ToShortTimeString() + " - " + VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaTermino.ToShortDateString().Replace("-", "/") + " 10 PM") + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, true, false, false, esCpas);
 
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -362,7 +370,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                             //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
                             //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, calendario.FechaInicio.ToShortDateString() + " " + calendario.FechaInicio.ToShortTimeString() + " - " + calendario.FechaTermino.ToShortDateString() + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, true, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaInicio.ToShortDateString().Replace("-", "/") + " 10:00 PM") + " " + calendario.FechaInicio.ToShortTimeString() + " - " + VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaTermino.ToShortDateString().Replace("-", "/") + " 10 PM") + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, true, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaInicio.ToShortDateString().Replace("-", "/") + " 10:00 PM") + " " + calendario.FechaInicio.ToShortTimeString() + " - " + VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaTermino.ToShortDateString().Replace("-", "/") + " 10 PM") + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, true, false, esCpas);
 
                             //cr.Enviar(mnsj);
                             var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -407,6 +415,13 @@ namespace WebApi.AsambleasDos.Controllers
             if (data.Id != null)
                 id = data.Id;
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
@@ -448,7 +463,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, calendario.FechaInicio.ToShortDateString() + " " + calendario.FechaInicio.ToShortTimeString() + " - " + calendario.FechaTermino.ToShortDateString() + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, false, true);
-                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaInicio.ToShortDateString().Replace("-", "/") + " 10:00 PM") + " " + calendario.FechaInicio.ToShortTimeString() + " - " + VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaTermino.ToShortDateString().Replace("-", "/") + " 10 PM") + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, false, true);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, titulo, calendario.Ubicacion, VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaInicio.ToShortDateString().Replace("-", "/") + " 10:00 PM") + " " + calendario.FechaInicio.ToShortTimeString() + " - " + VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(calendario.FechaTermino.ToShortDateString().Replace("-", "/") + " 10 PM") + " " + calendario.FechaTermino.ToShortTimeString(), listaCorreos, false, false, true, esCpas);
 
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));

@@ -42,6 +42,14 @@ namespace WebApi.AsambleasDos.Controllers
                 id = "0";
             int idBuscar = int.Parse(id);
 
+            string esCpasStr = "false";
+            bool esCpas = false;
+            if (data.EsCpas != null)
+            {
+                esCpasStr = data.EsCpas;
+                esCpas = Convert.ToBoolean(esCpasStr);
+            }
+
             //validaciones antes de ejecutar la llamada.
             VCFramework.EntidadFuniconal.IngresoEgresoFuncional aus = VCFramework.NegocioMySQL.IngresoEgreso.ObtenerIngresoEgresoPorId(idBuscar);
             VCFramework.Entidad.IngresoEgreso entidad = new VCFramework.Entidad.IngresoEgreso();
@@ -115,7 +123,7 @@ namespace WebApi.AsambleasDos.Controllers
                                 VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                                 //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                                MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, tipoMov, entidad.Monto.ToString(), listaCorreos, true, false, false);
+                                MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, tipoMov, entidad.Monto.ToString(), listaCorreos, true, false, false, esCpas);
 
                                 //cr.Enviar(mnsj);
                                 var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -143,7 +151,7 @@ namespace WebApi.AsambleasDos.Controllers
                             VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                             //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, tipoMov, entidad.Monto.ToString(), listaCorreos, false, true, false);
+                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeRendicion(institucion.Id, institucion.Nombre, tipoMov, entidad.Monto.ToString(), listaCorreos, false, true, false, esCpas);
 
                             //cr.Enviar(mnsj);
                             var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));

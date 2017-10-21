@@ -248,4 +248,184 @@
     <Detalle>El buzón de correo no está disponible. La respuesta del servidor fue: From domain must match authenticated domain</Detalle>
     <Id>37</Id>
   </error>
+  <error>
+    <Fecha>2017-10-20 22:17</Fecha>
+    <Detalle>vgarcia@saydex.cl, abarcamiguel63@gmail.com, marcia_quiroga_m@hotmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;PRUEBA DE CITA&lt;/strong&gt;, para el Establecimiento Colegio Santa Elena:&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su establecimiento, este tendrá lugar en SALA QUINTO C entre 10-21-2017 13:00 - 10-21-2017 14:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>38</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-20 22:29</Fecha>
+    <Detalle>vgarcia@saydex.cl, abarcamiguel63@gmail.com, marcia_quiroga_m@hotmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Ha sido eliminado el evento  &lt;strong&gt;PRUEBA DE CITA&lt;/strong&gt;, para el Establecimiento Colegio Santa Elena:&lt;br /&gt;
+      Estimado Usuario, ha sido eliminado un evento para su establecimiento, este tendría lugar en SALA QUINTO C entre 10-21-2017 13:00 - 10-21-2017 14:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>39</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-20 22:07</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Ha sido modificado el Tricel &lt;strong&gt;Tricel 1&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Tricel para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>40</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-20 22:11</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Ha sido modificado el Proyecto &lt;strong&gt;Mejoramiento de Casilleros&lt;/strong&gt;, para el Establecimiento Asambleas:&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Proyecto para su establecimiento, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;
+      ***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>41</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 01:18</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Estimado Usuario, ha sido agregada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Egreso: &lt;strong&gt;$ 56.000&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.cpas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>42</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 01:28</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Estimado Usuario, ha sido modificada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Egreso: &lt;strong&gt;$ 56.500&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.cpas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>43</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 01:18</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;prueba de cita &lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en en la casa entre 10-22-2017 0:00 - 10-22-2017 1:00, ingrese a www.cpas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>44</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 01:33</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Ha sido modificado el Tricel &lt;strong&gt;Tricel 1&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Tricel para su institución, ingrese a www.cpas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>45</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 01:12</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, vcoronado@saydex.cl -- &lt;html&gt;
+      Ha sido modificado el Proyecto &lt;strong&gt;Mejoramiento de Casilleros&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Proyecto para su institución, ingrese a www.cpas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>46</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:05</Fecha>
+    <Detalle>contacto@cpas.cl -- &lt;html&gt;
+      victor, Teléfono Contacto 985006988, correo electónico vcoronado@prueba.cl:&lt;br /&gt;&lt;br /&gt;
+      Desea contactarse mediante el formulario de contacto, donde ha ingresado el siguiente motivo: paospaospaospaospaosposa&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>47</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:07</Fecha>
+    <Detalle>El buzón de correo no está disponible. La respuesta del servidor fue: From domain must match authenticated domain</Detalle>
+    <Id>48</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:14</Fecha>
+    <Detalle>contacto@cpas.cl -- &lt;html&gt;
+      asasas, Teléfono Contacto 985006988, correo electónico asasas@asasas.cl:&lt;br /&gt;&lt;br /&gt;
+      Desea contactarse mediante el formulario de contacto, donde ha ingresado el siguiente motivo: consulta&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>49</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:15</Fecha>
+    <Detalle>El buzón de correo no está disponible. La respuesta del servidor fue: From domain must match authenticated domain</Detalle>
+    <Id>50</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:56</Fecha>
+    <Detalle>contacto@cpas.cl -- &lt;html&gt;
+      otra, Teléfono Contacto 985006988, correo electónico vcoronado@saydex.cl:&lt;br /&gt;&lt;br /&gt;
+      Desea contactarse mediante el formulario de contacto, donde ha ingresado el siguiente motivo: paospaospaospo&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>51</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:57</Fecha>
+    <Detalle>El buzón de correo no está disponible. La respuesta del servidor fue: From domain must match authenticated domain</Detalle>
+    <Id>52</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:16</Fecha>
+    <Detalle>contacto@cpas.cl -- &lt;html&gt;
+      pàospaosàos, Teléfono Contacto 985006988, correo electónico paopsoaos@ppspsp.cl:&lt;br /&gt;&lt;br /&gt;
+      Desea contactarse mediante el formulario de contacto, donde ha ingresado el siguiente motivo: asasasas&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de cpas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>53</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:17</Fecha>
+    <Detalle>El buzón de correo no está disponible. La respuesta del servidor fue: From domain must match authenticated domain</Detalle>
+    <Id>54</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:41</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Estimado Usuario, ha sido modificada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Egreso: &lt;strong&gt;$ 65.500&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>55</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:03</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;prueba de evento&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en sala entre 10-23-2017 17:00 - 10-23-2017 18:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>56</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:31</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado el Tricel &lt;strong&gt;Prueba Tricel, valudacion controles&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Tricel para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>57</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 02:24</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgrcia1@uc.cl, vmgarcia1@uc.cl, vgarcia@uc.cl -- &lt;html&gt;
+      Ha sido modificado el Proyecto &lt;strong&gt;Accesos para personas con capacidades diferentes&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Proyecto para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>58</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 17:50</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com -- &lt;html&gt;
+      Estimado Usuario vcoronado:&lt;br /&gt;
+      Su password fué cambiada con exito: 123456&lt;br /&gt;
+      Ingrese a www.asambleas.cl/Ingreso.aspx &lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>59</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-21 17:00</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com -- &lt;html&gt;
+      Estimado Usuario vcoronado:&lt;br /&gt;
+      Su password fué recuperada con exito: 123456&lt;br /&gt;
+      Ingrese a www.asambleas.cl/Ingreso.aspx &lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>60</Id>
+  </error>
 </root>

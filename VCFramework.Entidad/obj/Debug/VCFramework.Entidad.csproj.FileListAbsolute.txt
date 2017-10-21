@@ -20,6 +20,5 @@ D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.En
 \\vmware-host\Shared Folders\Escritorio\proyectos\nuevo_asambleas\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
-\\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb

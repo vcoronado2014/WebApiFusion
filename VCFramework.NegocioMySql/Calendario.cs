@@ -79,7 +79,7 @@ namespace VCFramework.NegocioMySQL
                 lista2 = lista2.FindAll(p => p.Eliminado == 0);
             return lista2;
         }
-        public static void EliminarEvento(int AppointmentId, int Status, int Id, int Tipo)
+        public static void EliminarEvento(int AppointmentId, int Status, int Id, int Tipo, bool esCpas)
         {
             if (Tipo == 0)
             {
@@ -119,7 +119,7 @@ namespace VCFramework.NegocioMySQL
                         VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, cal.Asunto, "local", cal.FechaInicio.ToShortDateString() + " - " + cal.FechaTermino.ToShortDateString(), listaCorreos, false, false, true);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, cal.Asunto, "local", cal.FechaInicio.ToShortDateString() + " - " + cal.FechaTermino.ToShortDateString(), listaCorreos, false, false, true, esCpas);
 
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -131,7 +131,7 @@ namespace VCFramework.NegocioMySQL
                 throw new Exception("No puede Eliminar un Evento del Tipo Proyecto.");
         }
         public static void CrearEvento(int Id, string Descripcion, DateTime FechaInicio, DateTime FechaTermino,
-            int Status, string Asunto, string Ubicacion, int Etiqueta, int Tipo, int InstId, bool Borrado)
+            int Status, string Asunto, string Ubicacion, int Etiqueta, int Tipo, int InstId, bool Borrado, bool esCpas)
         {
             if (Tipo == 0)
             {
@@ -177,7 +177,7 @@ namespace VCFramework.NegocioMySQL
                         VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                         //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, calendario.Asunto, "local", calendario.FechaInicio.ToShortDateString() + " - " + calendario.FechaTermino.ToShortDateString(), listaCorreos, true, false, false);
+                        MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, calendario.Asunto, "local", calendario.FechaInicio.ToShortDateString() + " - " + calendario.FechaTermino.ToShortDateString(), listaCorreos, true, false, false, esCpas);
 
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
@@ -194,7 +194,7 @@ namespace VCFramework.NegocioMySQL
 
         }
         public static void UpdateEvento(int Id, string Descripcion, DateTime FechaInicio, DateTime FechaTermino,
-            int Status, string Asunto, string Ubicacion, int Etiqueta, int Tipo, int InstId, bool Borrado)
+            int Status, string Asunto, string Ubicacion, int Etiqueta, int Tipo, int InstId, bool Borrado, bool esCpas)
         {
             if (Tipo == 0)
             {
@@ -238,7 +238,7 @@ namespace VCFramework.NegocioMySQL
                     VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
                     //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, calendario.Asunto, "local", calendario.FechaInicio.ToShortDateString() + " - " + calendario.FechaTermino.ToShortDateString(), listaCorreos, true, false, false);
+                    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeEvento(institucion.Id, institucion.Nombre, calendario.Asunto, "local", calendario.FechaInicio.ToShortDateString() + " - " + calendario.FechaTermino.ToShortDateString(), listaCorreos, true, false, false, esCpas);
 
                     //cr.Enviar(mnsj);
                     var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
