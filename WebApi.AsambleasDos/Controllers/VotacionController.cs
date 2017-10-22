@@ -168,23 +168,36 @@ namespace WebApi.AsambleasDos.Controllers
                                 {
                                     us.OtroSiete = "0";
                                     sbTextoVoto.AppendFormat("Usted ya realizó su voto el día {0}.", votosTricel[0].FechaVotacion.ToShortDateString());
+                                    //nuevos campos
+                                    us.HaVotado = true;
+                                    string fechaVoto = VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(votosTricel[0].FechaVotacion);
+                                    us.FechaVotacion = fechaVoto;
                                 }
                                 else
                                 {
                                     sbTextoVoto.Append("Usted aún no ha votado");
                                     us.OtroSiete = "1";
+                                    //nuevos campos
+                                    us.HaVotado = false;
+                                    us.FechaVotacion = "";
                                 }
                             }
                             else
                             {
                                 sbTextoVoto.Append("Usted aún no ha votado");
                                 us.OtroSiete = "1";
+                                //nuevos campos
+                                us.HaVotado = false;
+                                us.FechaVotacion = "";
                             }
                         }
                         else
                         {
                             sbTextoVoto.Append("Usted aún no ha votado");
                             us.OtroSiete = "1";
+                            //nuevos campos
+                            us.HaVotado = false;
+                            us.FechaVotacion = "";
                         }
                         //us.UrlDocumento = insti.UrlDocumento;
                         us.OtroCinco = us.OtroUno + " - " + us.OtroDos;

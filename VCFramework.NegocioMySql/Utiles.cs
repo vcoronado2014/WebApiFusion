@@ -905,7 +905,10 @@ namespace VCFramework.NegocioMySQL
         {
 
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
-            sms.Subject = "Formulario Contacto CPAS";
+            if (esCpas)
+                sms.Subject = "Formulario Contacto";
+            else
+                sms.Subject = "Formulario Contacto";
             sms.To.Add(Utiles.NOMBRE_SERVIDOR_CORREO());
             string habilitaCopiaAdmin1 = Utiles.HABILITA_COPIA_ADMIN1();
             if (habilitaCopiaAdmin1 == "1")
@@ -1559,7 +1562,47 @@ namespace VCFramework.NegocioMySQL
             }
             return retorno;
         }
+        public static string ConstruyeFechaDos(DateTime fecha)
+        {
+            string retorno = "";
+            string dia = "";
+            string mes = "";
+            string anno = "";
+            string hora = "";
+            string minutos = "";
+            string segundos = "";
 
+
+            if (fecha.Day < 10)
+                dia = "0" + fecha.Day.ToString();
+            else
+                dia = fecha.Day.ToString();
+
+            if (fecha.Month < 10)
+                mes = "0" + fecha.Month.ToString();
+            else
+                mes = fecha.Month.ToString();
+
+            if (fecha.Hour < 10)
+                hora = "0" + fecha.Hour.ToString();
+            else
+                hora = fecha.Hour.ToString();
+
+            if (fecha.Minute < 10)
+                minutos = "0" + fecha.Minute.ToString();
+            else
+                minutos = fecha.Minute.ToString();
+
+            if (fecha.Second < 10)
+                segundos = "0" + fecha.Second.ToString();
+            else
+                segundos = fecha.Second.ToString();
+
+            anno = fecha.Year.ToString();
+
+            retorno = dia + "-" + mes + "-" + anno + " " + hora + ":" + minutos;
+            return retorno;
+        }
         public static string ConstruyeFecha(DateTime fecha)
         {
             string retorno = "";

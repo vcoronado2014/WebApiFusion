@@ -428,4 +428,17 @@
       *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
     <Id>60</Id>
   </error>
+  <error>
+    <Fecha>2017-10-22 11:27</Fecha>
+    <Detalle>contacto@asambleas.cl -- &lt;html&gt;
+      victor coronado, Teléfono Contacto 985006988, correo electónico vcoronado.alarcon@gmail.com:&lt;br /&gt;&lt;br /&gt;
+      Desea contactarse mediante el formulario de contacto, donde ha ingresado el siguiente motivo: &lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>61</Id>
+  </error>
+  <error>
+    <Fecha>2017-10-22 11:29</Fecha>
+    <Detalle>El buzón de correo no está disponible. La respuesta del servidor fue: From domain must match authenticated domain</Detalle>
+    <Id>62</Id>
+  </error>
 </root>

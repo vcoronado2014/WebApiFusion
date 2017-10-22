@@ -57,6 +57,8 @@ namespace VCFramework.EntidadFuncional
         public String OtroDoce { get; set; }
         public string TotalUsuarios { get; set; }
         public string QuorumMinimo { get; set; }
+        public string FechaVotacion { get; set; }
+        public bool HaVotado { get; set; }
     }
     public class NotificacionRetorno
     {

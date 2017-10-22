@@ -132,6 +132,11 @@ namespace WebApi.AsambleasDos.Controllers
                                 {
                                     sb.Append(", y manifestó NO estar de acuerdo con el Proyecto.");
                                 }
+                                //nuevos campos
+                                us.HaVotado = true;
+                                string fechaVoto = VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(voto.FechaVotacion);
+                                us.FechaVotacion = fechaVoto;
+
 
                             }
                         }
