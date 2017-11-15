@@ -189,7 +189,8 @@ namespace WebApi.AsambleasDos.Controllers
                                        out dt);
 
 
-                permiso.FechaCreacion = dt;
+                
+                permiso.FechaCreacion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
                 if (permiso.Id > 0)
                 {

@@ -70,3 +70,15 @@ C:\webapi\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMyS
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Negocio.Factory.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.xml
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb
