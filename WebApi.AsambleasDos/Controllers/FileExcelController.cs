@@ -36,6 +36,7 @@ namespace WebApi.AsambleasDos.Controllers
             int filasProcesadas = 0;
             int filasError = 0;
             int numeroFila = 1;
+            string nombreArchivoGeneral = "";
             //el archivo se debe guardar con un nombre único
 
             try
@@ -94,6 +95,7 @@ namespace WebApi.AsambleasDos.Controllers
                     string fechaStr = VCFramework.NegocioMySQL.Utiles.RetornaFechaEntera();
                     string horaStr = VCFramework.NegocioMySQL.Utiles.RetornaHoraEntera();
                     string nuevoArchivo = "c_m_" + usuId.ToString() + "_" + instId.ToString() + "_" + fechaStr + horaStr + resultExtension;
+                    nombreArchivoGeneral = nuevoArchivo;
 
 
 
@@ -101,6 +103,7 @@ namespace WebApi.AsambleasDos.Controllers
                     filesavepath = Path.Combine(HttpContext.Current.Server.MapPath("~/Excel"), nuevoArchivo);
 
                     httpPostedFile.SaveAs(filesavepath);
+                    
                 }
 
                 //ahora procesamos el archivo
@@ -108,7 +111,9 @@ namespace WebApi.AsambleasDos.Controllers
 
                 //filesavepath = Path.Combine(HttpContext.Current.Server.MapPath("~/Excel"), httpPostedFile.FileName);
                 //filesavepath = Path.Combine(HttpContext.Current.Server.MapPath("~/Excel"), nuevoArchivo);
-
+                //esta variable permitira guardar los elementos del log ***************************************
+                List<LogCarga> logCargaLista = new List<LogCarga>();
+                //*********************************************************************************************
                 StringBuilder sbErrores = new StringBuilder();
                 StringBuilder sbCorrecto = new StringBuilder();
                 List<string> listaCorreos = new List<string>();
@@ -137,6 +142,12 @@ namespace WebApi.AsambleasDos.Controllers
                        // string telefono = dReader.IsDBNull(5) ? "" : dReader.GetString(5);
                         string correo = dReader.GetString(5);
                         string nombreRol = dReader.IsDBNull(6) ? "" : dReader.GetString(6);
+                        //nuevos campos ***********************************************************
+                        //telefono optativo
+                        string telefono = dReader.IsDBNull(7) ? "" : dReader.GetString(7);
+                        //direccion
+                        string direccion = dReader.IsDBNull(8) ? "" : dReader.GetString(8);
+                        //**************************************************************************
                         //HAY QUE BUSCAR EL ROL POR NOMBRE
                         List<VCFramework.Entidad.RolInstitucion> roles = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolesPorInstId(int.Parse(HttpContext.Current.Request.Form["InstId"]));
                         if (roles != null && roles.Count > 0 )
@@ -150,6 +161,14 @@ namespace WebApi.AsambleasDos.Controllers
                                 sbErrores.AppendFormat("No existe el rol {0} es incorrecto en la fila {1}\r\n", nombreRol, numeroFila.ToString());
                                 esCorrecto = false;
                                 filasError++;
+                                //entidad log
+                                LogCarga ent = new LogCarga();
+                                ent.Detalle = String.Format("No existe el rol {0} es incorrecto en la fila {1}\r\n", nombreRol, numeroFila.ToString());
+                                ent.NombreUsuario = nombreUsuario;
+                                ent.NumeroFila = numeroFila;
+                                ent.TipoMensaje = 0;
+                                logCargaLista.Add(ent);
+
                             }
                         }
                         else
@@ -157,6 +176,13 @@ namespace WebApi.AsambleasDos.Controllers
                             sbErrores.AppendFormat("No existe el rol {0} es incorrecto en la fila {1}\r\n", nombreRol, numeroFila.ToString());
                             esCorrecto = false;
                             filasError++;
+                            //entidad log
+                            LogCarga ent = new LogCarga();
+                            ent.Detalle = String.Format("No existe el rol {0} es incorrecto en la fila {1}\r\n", nombreRol, numeroFila.ToString());
+                            ent.NombreUsuario = nombreUsuario;
+                            ent.NumeroFila = numeroFila;
+                            ent.TipoMensaje = 0;
+                            logCargaLista.Add(ent);
                         }
 
                         //ahora se deve validar
@@ -167,6 +193,13 @@ namespace WebApi.AsambleasDos.Controllers
                             esCorrecto = false;
                             filasError++;
                             //break;
+                            //entidad log
+                            LogCarga ent = new LogCarga();
+                            ent.Detalle = String.Format("El rut {0} es incorrecto en la fila {1}\r\n", rut, numeroFila.ToString());
+                            ent.NombreUsuario = nombreUsuario;
+                            ent.NumeroFila = numeroFila;
+                            ent.TipoMensaje = 0;
+                            logCargaLista.Add(ent);
                         }
                         //valida si username ya existe
                         VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(nombreUsuario);
@@ -175,7 +208,14 @@ namespace WebApi.AsambleasDos.Controllers
                             sbErrores.AppendFormat("El nombre de usuario {0} ya existe en la fila {1}\r\n", nombreUsuario, numeroFila.ToString());
                             esCorrecto = false;
                             filasError++;
-                           // break;
+                            // break;
+                            //entidad log
+                            LogCarga ent = new LogCarga();
+                            ent.Detalle = String.Format("El nombre de usuario {0} ya existe en la fila {1}\r\n", nombreUsuario, numeroFila.ToString());
+                            ent.NombreUsuario = nombreUsuario;
+                            ent.NumeroFila = numeroFila;
+                            ent.TipoMensaje = 0;
+                            logCargaLista.Add(ent);
                         }
                         //email
                         if (VCFramework.NegocioMySQL.Utiles.ValidaEmail(correo) == false)
@@ -184,6 +224,13 @@ namespace WebApi.AsambleasDos.Controllers
                             esCorrecto = false;
                             filasError++;
                             //break;
+                            //entidad log
+                            LogCarga ent = new LogCarga();
+                            ent.Detalle = String.Format("El correo electrónico {0} es incorrecto en la fila {1}\r\n", correo, numeroFila.ToString());
+                            ent.NombreUsuario = nombreUsuario;
+                            ent.NumeroFila = numeroFila;
+                            ent.TipoMensaje = 0;
+                            logCargaLista.Add(ent);
                         }
                         //si es correcto se agrega a la lista para guardar
                         if (esCorrecto)
@@ -207,30 +254,51 @@ namespace WebApi.AsambleasDos.Controllers
                                 persona.ApellidoMaterno = apMaterno;
                                 persona.ApellidoPaterno = apPterno;
                                 persona.ComId = inst.ComId;
-                                persona.DireccionCompleta = inst.Direccion;
+                                persona.DireccionCompleta = direccion;
                                 persona.InstId = inst.Id;
                                 persona.Nombres = nombres;
                                 persona.PaisId = 1;
                                 persona.RegId = inst.RegId;
                                 persona.Rut = rut;
-                                persona.Telefonos = "";
+                                persona.Telefonos = telefono;
                                 persona.UsuId = idAu;
                                 int perId = VCFramework.NegocioMySQL.Persona.ModificarUsuario(persona);
                                 if (perId > 0)
                                 {
                                     //todo correcto
                                     listaCorreos.Add(correo + "," + nombreUsuario + "," + rut);
+                                    //entidad log
+                                    LogCarga ent = new LogCarga();
+                                    ent.Detalle = String.Format("correcto {0} en la fila {1}\r\n", nombreUsuario, numeroFila.ToString());
+                                    ent.NombreUsuario = nombreUsuario;
+                                    ent.NumeroFila = numeroFila;
+                                    ent.TipoMensaje = 1;
+                                    logCargaLista.Add(ent);
                                 }
                                 else
                                 {
                                     sbErrores.AppendFormat("error  guardar persona en la fila {0}\r\n", numeroFila.ToString());
                                     filasError++;
+                                    //entidad log
+                                    LogCarga ent = new LogCarga();
+                                    ent.Detalle = String.Format("error  guardar persona en la fila {0}\r\n", numeroFila.ToString());
+                                    ent.NombreUsuario = nombreUsuario;
+                                    ent.NumeroFila = numeroFila;
+                                    ent.TipoMensaje = 0;
+                                    logCargaLista.Add(ent);
                                 }
                             }
                             else
                             {
                                 sbErrores.AppendFormat("error  guardar aus en la fila {0}\r\n", numeroFila.ToString());
                                 filasError++;
+                                //entidad log
+                                LogCarga ent = new LogCarga();
+                                ent.Detalle = String.Format("error  guardar aus en la fila {0}\r\n", numeroFila.ToString());
+                                ent.NombreUsuario = nombreUsuario;
+                                ent.NumeroFila = numeroFila;
+                                ent.TipoMensaje = 0;
+                                logCargaLista.Add(ent);
                             }
 
 
@@ -272,6 +340,25 @@ namespace WebApi.AsambleasDos.Controllers
 
 
                 #endregion
+                //ya ahora procesamos el encabezado de carga
+                EncabezadoCarga encCarga = new EncabezadoCarga();
+                encCarga.Fecha = DateTime.Now;
+                encCarga.FilasCorrectas = correctas;
+                encCarga.FilasError = filasError;
+                encCarga.InstId = int.Parse(HttpContext.Current.Request.Form["InstId"]);
+                encCarga.NombreArchivo = nombreArchivoGeneral;
+                encCarga.Resumen = retorno.Mensaje;
+                int idEncabezado = VCFramework.NegocioMySql.EncabezadoCarga.Insertar(encCarga);
+                if (logCargaLista != null && logCargaLista.Count > 0)
+                {
+                    foreach(LogCarga log in logCargaLista)
+                    {
+                        log.EccId = idEncabezado;
+                        VCFramework.NegocioMySql.LogCarga.Insertar(log);
+                    }
+                }
+
+
                 if (httpPostedFile != null)
                 {
                     if (filasError > 0)

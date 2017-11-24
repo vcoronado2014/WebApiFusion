@@ -54,6 +54,7 @@
     <Compile Include="DocumentosUsuario.cs" />
     <Compile Include="ElementosGrupo.cs" />
     <Compile Include="Encabezado.cs" />
+    <Compile Include="EncabezadoCarga.cs" />
     <Compile Include="EntidadBase.cs" />
     <Compile Include="Grafico.cs" />
     <Compile Include="GrupoItem.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Institucion.cs" />
     <Compile Include="Instituciones.cs" />
     <Compile Include="ListaTricel.cs" />
+    <Compile Include="LogCarga.cs" />
     <Compile Include="LoginUsuario.cs" />
     <Compile Include="LogsSistema.cs" />
     <Compile Include="Mailing.cs" />

@@ -198,3 +198,42 @@ D:\Nuevo-samableas\API\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.dll
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.pdb
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\csc.exe
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CodeAnalysis.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.CSharp.Core.targets
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\Microsoft.VisualBasic.Core.targets
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\System.Collections.Immutable.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\System.Reflection.Metadata.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\vbc.exe
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\VBCSCompiler.exe
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\roslyn\VBCSCompiler.exe.config
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\SignalR-Chat.dll.config
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\SignalR-Chat.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\SignalR-Chat.pdb
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.Core.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Cors.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Host.SystemWeb.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Security.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Newtonsoft.Json.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Owin.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Net.Http.Formatting.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Cors.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Http.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.Core.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Cors.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Host.SystemWeb.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Microsoft.Owin.Security.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\Newtonsoft.Json.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Net.Http.Formatting.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Http.xml
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.dll
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.pdb

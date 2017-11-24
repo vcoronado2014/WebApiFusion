@@ -22,3 +22,7 @@ D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.En
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
