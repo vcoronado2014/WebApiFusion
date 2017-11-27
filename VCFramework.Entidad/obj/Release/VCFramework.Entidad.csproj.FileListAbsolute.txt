@@ -12,3 +12,8 @@ D:\Nuevo-samableas\API\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
 \\vmware-host\Shared Folders\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb

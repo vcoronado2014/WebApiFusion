@@ -224,6 +224,8 @@
     <Compile Include="Controllers\CargaMasivaController.cs" />
     <Compile Include="Controllers\ConfiguracionNodoController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\DetalleCargaController.cs" />
+    <Compile Include="Controllers\EncabezadoCargaController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FileDocumentoController.cs" />
     <Compile Include="Controllers\FileExcelController.cs" />
@@ -312,14 +314,14 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Webasam.config">
+    <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Webasam.Debug.config">
-      <DependentUpon>Webasam.config</DependentUpon>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Webasam.Release.config">
-      <DependentUpon>Webasam.config</DependentUpon>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
@@ -329,14 +331,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Web.config">
+    <Content Include="Webcpas.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <Content Include="Webcpas.Debug.config">
+      <DependentUpon>Webcpas.config</DependentUpon>
     </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <Content Include="Webcpas.Release.config">
+      <DependentUpon>Webcpas.config</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

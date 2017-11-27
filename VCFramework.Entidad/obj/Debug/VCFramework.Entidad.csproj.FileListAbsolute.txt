@@ -26,3 +26,4 @@ Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.E
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache

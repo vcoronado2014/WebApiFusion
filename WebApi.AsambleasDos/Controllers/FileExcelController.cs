@@ -44,6 +44,7 @@ namespace WebApi.AsambleasDos.Controllers
                 var httpPostedFile = HttpContext.Current.Request.Files["UploadedExcel"];
                 string usuId = HttpContext.Current.Request.Form["UsuId"];
                 string instId = HttpContext.Current.Request.Form["InstId"];
+                string esCpas = HttpContext.Current.Request.Form["EsCpas"];
                 //variables de los archivos
                 string resultExtension = Path.GetExtension(httpPostedFile.FileName);
                 string resultFileName = Path.ChangeExtension(httpPostedFile.FileName, resultExtension);

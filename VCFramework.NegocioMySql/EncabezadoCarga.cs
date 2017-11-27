@@ -33,6 +33,25 @@ namespace VCFramework.NegocioMySql
 
             return lista2;
         }
+        public static VCFramework.Entidad.EncabezadoCarga Obtener(int id)
+        {
+            VCFramework.Entidad.EncabezadoCarga entidad = new Entidad.EncabezadoCarga();
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "ID";
+            filtro.TipoDato = TipoDatoGeneral.Entero;
+            filtro.Valor = id.ToString();
+
+            List<object> lista = fac.Leer<VCFramework.Entidad.EncabezadoCarga>(filtro, setCnsWebLun);
+            List<VCFramework.Entidad.EncabezadoCarga> lista2 = new List<VCFramework.Entidad.EncabezadoCarga>();
+            if (lista != null)
+            {
+                lista2 = lista.Cast<VCFramework.Entidad.EncabezadoCarga>().ToList();
+            }
+            if (lista2 != null && lista2.Count == 1)
+                entidad = lista2[0];
+            return entidad;
+        }
 
     }
 }

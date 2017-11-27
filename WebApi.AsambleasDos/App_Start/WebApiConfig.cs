@@ -454,6 +454,28 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  EncabezadoCarga
+            config.Routes.MapHttpRoute(
+                name: "EncabezadoCarga",
+                routeTemplate: "api/EncabezadoCarga",
+                defaults: new
+                {
+                    controller = "EncabezadoCarga"
+                }
+            );
+            #endregion
+
+            #region  DetalleCarga
+            config.Routes.MapHttpRoute(
+                name: "DetalleCarga",
+                routeTemplate: "api/DetalleCarga",
+                defaults: new
+                {
+                    controller = "DetalleCarga"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

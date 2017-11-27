@@ -87,7 +87,20 @@ namespace VCFramework.NegocioMySQL
 
             if (lista != null && lista.Count > 0)
             {
-                retorno = lista.Find(p => p.NombreUsuario == userName && p.Eliminado == 0 && p.EsVigente == 1);
+                retorno = lista.Find(p => p.NombreUsuario == userName);
+            }
+
+            return retorno;
+        }
+        public static VCFramework.Entidad.AutentificacionUsuario ObtenerUsuarioTodos(string userName)
+        {
+            VCFramework.Entidad.AutentificacionUsuario retorno = new Entidad.AutentificacionUsuario();
+
+            List<VCFramework.Entidad.AutentificacionUsuario> lista = ListarUsuarios();
+
+            if (lista != null && lista.Count > 0)
+            {
+                retorno = lista.Find(p => p.NombreUsuario == userName);
             }
 
             return retorno;
@@ -100,7 +113,7 @@ namespace VCFramework.NegocioMySQL
 
             if (lista != null && lista.Count > 0)
             {
-                retorno = lista.Find(p => p.Id == id && p.Eliminado == 0 && p.EsVigente == 1);
+                retorno = lista.Find(p => p.Id == id);
             }
 
             return retorno;
