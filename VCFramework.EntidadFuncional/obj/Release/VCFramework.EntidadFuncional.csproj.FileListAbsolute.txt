@@ -47,3 +47,10 @@ Z:\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VC
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.dll
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.pdb
+D:\asambleas\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.EntidadFuncional.dll
+D:\asambleas\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.EntidadFuncional.pdb
+D:\asambleas\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.Entidad.dll
+D:\asambleas\WebApiFusion\VCFramework.EntidadFuncional\bin\Release\VCFramework.Entidad.pdb
+D:\asambleas\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
+D:\asambleas\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.dll
+D:\asambleas\WebApiFusion\VCFramework.EntidadFuncional\obj\Release\VCFramework.EntidadFuncional.pdb

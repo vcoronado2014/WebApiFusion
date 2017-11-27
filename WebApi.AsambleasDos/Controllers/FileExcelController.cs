@@ -141,7 +141,7 @@ namespace WebApi.AsambleasDos.Controllers
                         string apMaterno = dReader.IsDBNull(3) ? "" : dReader.GetString(3);
                         string nombreUsuario = dReader.GetString(4);
                        // string telefono = dReader.IsDBNull(5) ? "" : dReader.GetString(5);
-                        string correo = dReader.GetString(5);
+                        string correo = dReader.IsDBNull(5) ? "" : dReader.GetString(5);
                         string nombreRol = dReader.IsDBNull(6) ? "" : dReader.GetString(6);
                         //nuevos campos ***********************************************************
                         //telefono optativo

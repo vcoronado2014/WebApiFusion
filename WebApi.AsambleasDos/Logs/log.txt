@@ -449,4 +449,9 @@
 *** mensaje enviado a través de la plataforma automática de asambleas.cl ***&lt;/html&gt;</Detalle>
     <Id>63</Id>
   </error>
+  <error>
+    <Fecha>2017-11-27 17:31</Fecha>
+    <Detalle>Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)</Detalle>
+    <Id>64</Id>
+  </error>
 </root>
