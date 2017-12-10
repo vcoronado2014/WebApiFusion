@@ -449,4 +449,57 @@
 *** mensaje enviado a través de la plataforma automática de asambleas.cl ***&lt;/html&gt;</Detalle>
     <Id>63</Id>
   </error>
+  <error>
+    <Fecha>2017-12-10 19:36</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Usuario&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>64</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-10 19:49</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Super Administrador&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>65</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-10 19:47</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Usuario&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>66</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-10 20:52</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Super Administrador&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>67</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-10 20:10</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Usuario&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>68</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-10 20:28</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Super Administrador&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>69</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-10 20:32</Fecha>
+    <Detalle>No se pueden enviar todos los destinatarios.</Detalle>
+    <Id>70</Id>
+  </error>
 </root>

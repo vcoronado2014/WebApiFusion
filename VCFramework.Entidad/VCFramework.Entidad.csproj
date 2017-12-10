@@ -76,7 +76,10 @@
     <Compile Include="ResponsableTricel.cs" />
     <Compile Include="ResponsableTricelEnvoltorio.cs" />
     <Compile Include="RespuestaMuro.cs" />
+    <Compile Include="ResSolmuro.cs" />
     <Compile Include="RlAccFunUsu.cs" />
+    <Compile Include="SolMuro.cs" />
+    <Compile Include="UsuRol.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="RolInstitucion.cs" />
     <Compile Include="Slide.cs" />

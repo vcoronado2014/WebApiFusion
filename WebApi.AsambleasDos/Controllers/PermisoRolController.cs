@@ -310,7 +310,13 @@ true
             string creaMailing = data.CreaMailing;
             string verReportes = data.VerReportes;
             string verReporteAsistencia = data.VerReporteAsistencia;
-
+            //nuevos
+            string creaSolicitud = data.CreaSolicitudes;
+            string creaMroSolicitud = data.CreaMroSolicitudes;
+            string modificaMroSolicitud = data.ModificaMroSolicitudes;
+            string eliminaMroSolicitud = data.EliminaMroSolicitudes;
+            string verMroSolicitud = data.VerMroSolicitudes;
+            //***************************************************
             int idNuevo = 0;
             int idNuevoRol = 0;
 
@@ -437,6 +443,12 @@ true
                 permiso.CreaMailing = Convert.ToBoolean(creaMailing) ? 1 : 0;
                 permiso.VerReportes = Convert.ToBoolean(verReportes) ? 1 : 0;
                 permiso.VerReporteAsistencia = Convert.ToBoolean(verReporteAsistencia) ? 1 : 0;
+                //nuevos campos
+                permiso.CreaSolicitud = Convert.ToBoolean(creaSolicitud) ? 1 : 0;
+                permiso.CreaMroSolicitud = Convert.ToBoolean(creaMroSolicitud) ? 1 : 0;
+                permiso.ModificaMroSolicitud = Convert.ToBoolean(modificaMroSolicitud) ? 1 : 0;
+                permiso.EliminaMroSolicitud = Convert.ToBoolean(eliminaMroSolicitud) ? 1 : 0;
+                permiso.VerMroSolicitud = Convert.ToBoolean(verMroSolicitud) ? 1 : 0;
 
                 if (int.Parse(permisoId) > 0)
                 {

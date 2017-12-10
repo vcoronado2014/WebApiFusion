@@ -50,6 +50,8 @@
     <Compile Include="ReporteActasRendiciones.cs" />
     <Compile Include="ReportesFuncional.cs" />
     <Compile Include="RespuestaMuroFuncional.cs" />
+    <Compile Include="ResSolmuroFuncional.cs" />
+    <Compile Include="SolMuroFuncional.cs" />
     <Compile Include="TricelFuncional.cs" />
     <Compile Include="UsuarioFuncional.cs" />
   </ItemGroup>

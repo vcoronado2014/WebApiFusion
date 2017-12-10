@@ -82,11 +82,14 @@
     <Compile Include="Reportes.cs" />
     <Compile Include="ResponsableTricel.cs" />
     <Compile Include="RespuestaMuro.cs" />
+    <Compile Include="ResSolmuro.cs" />
     <Compile Include="RlAccFunUsu.cs" />
+    <Compile Include="RlRolUsu.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="RolInstitucion.cs" />
     <Compile Include="ServidorCorreo.cs" />
     <Compile Include="Slide.cs" />
+    <Compile Include="SolMuro.cs" />
     <Compile Include="Tricel.cs" />
     <Compile Include="UsuarioLista.cs" />
     <Compile Include="Utiles.cs" />

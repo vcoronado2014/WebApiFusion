@@ -97,10 +97,27 @@ namespace VCFramework.NegocioMySQL
                 persona.Modificado = true;
                 return fac.Update<VCFramework.Entidad.Persona>(persona, setCnsWebLun);
             }
-            
-
-            
 
         }
+        public static List<VCFramework.Entidad.Persona> ObtenerPersonasPorInstIdRol(int instId, int rolId)
+        {
+            List<VCFramework.Entidad.Persona> personas = ObtenerPersonasPorInstId(instId);
+            List<VCFramework.Entidad.Persona> retornar = new List<Entidad.Persona>();
+            if (personas != null && personas.Count > 0)
+            {
+                foreach(VCFramework.Entidad.Persona per in personas)
+                {
+                    VCFramework.Entidad.AutentificacionUsuario au = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(per.UsuId);
+                    if (au != null && au.Id > 0 && au.RolId == rolId)
+                    {
+                        retornar.Add(per);
+                    }
+                }
+            }
+
+            return retornar;
+
+        }
+
     }
 }

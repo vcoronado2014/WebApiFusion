@@ -476,6 +476,50 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  Perona
+            config.Routes.MapHttpRoute(
+                name: "Persona",
+                routeTemplate: "api/Persona",
+                defaults: new
+                {
+                    controller = "Persona"
+                }
+            );
+            #endregion
+
+            #region  Solicitudes
+            config.Routes.MapHttpRoute(
+                name: "Solicitudes",
+                routeTemplate: "api/Solicitudes",
+                defaults: new
+                {
+                    controller = "Solicitudes"
+                }
+            );
+            #endregion
+
+            #region  SolMuro
+            config.Routes.MapHttpRoute(
+                name: "SolMuro",
+                routeTemplate: "api/SolMuro",
+                defaults: new
+                {
+                    controller = "SolMuro"
+                }
+            );
+            #endregion
+
+            #region  ResSolMuro
+            config.Routes.MapHttpRoute(
+                name: "ResSolMuro",
+                routeTemplate: "api/ResSolMuro",
+                defaults: new
+                {
+                    controller = "ResSolMuro"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
