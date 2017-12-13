@@ -502,4 +502,36 @@
     <Detalle>No se pueden enviar todos los destinatarios.</Detalle>
     <Id>70</Id>
   </error>
+  <error>
+    <Fecha>2017-12-12 22:22</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Super Administrador&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>71</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-12 22:24</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Ha sido modificado un Rol &lt;strong&gt;Super Administrador&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido Modificado un Rol en su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>72</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-12 22:35</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;Quiero comunicarme con un administrador&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>73</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-12 23:25</Fecha>
+    <Detalle>vcoronado.alarcon@gmail.com, turck182@gmail.com, danny_salazaro@hotmail.com, vmgarcia1@uc.cl, vgarcia@uc.cl, vickiablanco@gmail.com, lperezh97@hmail.com, ccavour@fen.udechile.cl, gabrieltapiatorres@gmail.com, ps.sandrarojas@gmail.com -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;otro mensaje para el o los administradores&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>74</Id>
+  </error>
 </root>

@@ -55,7 +55,11 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.Texto = muro.Texto;
                     entidad.UrlImagen = muro.UrlImagen;
                     entidad.UsuId = muro.UsuId;
-                    entidad.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(muro.UsuId).NombreUsuario;
+                    //entidad.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(muro.UsuId).NombreUsuario;
+                    int idUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(muro.UsuId).Id;
+                    VCFramework.Entidad.Persona persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(idUsuario);
+                    entidad.NombreUsuario = persona.Nombres + ' ' + persona.ApellidoPaterno;
+                    //*******************************************************************************************************************
                     entidad.NombreRol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(muro.RolId).Nombre;
                     entidad.VisibleEliminar = true;
                     string fechita = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, entidad.FechaCreacion);
@@ -77,7 +81,11 @@ namespace WebApi.AsambleasDos.Controllers
                             respF.Texto = resp.Texto;
                             respF.UrlImagen = resp.UrlImagen;
                             respF.UsuId = resp.UsuId;
-                            respF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(resp.UsuId).NombreUsuario;
+                            //respF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(resp.UsuId).NombreUsuario;
+                            int idUsuarioF = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(resp.UsuId).Id;
+                            VCFramework.Entidad.Persona personaF = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(idUsuarioF);
+                            respF.NombreUsuario = personaF.Nombres + ' ' + personaF.ApellidoPaterno;
+                            //*******************************************************************************************************************
                             respF.NombreRol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(resp.RolId).Nombre;
                             string fechita2 = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, resp.FechaCreacion);
                             respF.FechaString = fechita2;
@@ -123,11 +131,32 @@ namespace WebApi.AsambleasDos.Controllers
             List<VCFramework.EntidadFuncional.SolMuroFuncional> lista = new List<VCFramework.EntidadFuncional.SolMuroFuncional>();
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
+            //tendriamos que verificar si el usuario que esta consultando se encuentra dentro de los usuarios de la lista
+            //que se encuentran autorizados, para eso debería traerme los elementos de la institucionId y usuId
+            //si el usuario se encuentra dentro de la lista entonces debo listar todas las solicitudes del muro
+            //si el usuario no se encuentra dentro de la lista tendrìa que traerme todos los mensajes generados por dicho
+            //usuario (el control de acceso esta en el front)
+
+
             try
             {
                 int idBuscar = int.Parse(idInstitucion);
+                //validamos antes
+                List<VCFramework.Entidad.UsuRol> ususRol = VCFramework.NegocioMySql.RlRolUsu.ObtenerPorInstId(idBuscar);
+                //es la persona
+                VCFramework.Entidad.Persona persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(int.Parse(usuIdLogueado));
 
-                List<VCFramework.Entidad.SolMuro> muro = VCFramework.NegocioMySql.SolMuro.ObtenerMuroPorInstId(idBuscar);
+                bool esAdministrador = false;
+                if (persona != null && persona.Id > 0)
+                  esAdministrador = ususRol.Exists(p=>p.UsuId == persona.Id);
+
+                //aca procesamos todo!
+                List<VCFramework.Entidad.SolMuro> muro = new List<SolMuro>();
+
+                if (esAdministrador)
+                    muro = VCFramework.NegocioMySql.SolMuro.ObtenerMuroPorInstId(idBuscar);
+                else
+                    muro = VCFramework.NegocioMySql.SolMuro.ObtenerMuroPorInstId(idBuscar).FindAll(p => p.UsuId == int.Parse(usuIdLogueado));
 
 
                 if (muro != null && muro.Count > 0)
@@ -145,7 +174,9 @@ namespace WebApi.AsambleasDos.Controllers
                         muroF.Texto = entidad.Texto;
                         muroF.UrlImagen = entidad.UrlImagen;
                         muroF.UsuId = entidad.UsuId;
-                        muroF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(entidad.UsuId).NombreUsuario;
+                        //muroF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(entidad.UsuId).NombreUsuario;
+                        muroF.NombreUsuario = persona.Nombres + ' ' + persona.ApellidoPaterno;
+                        //*******************************************************************************************************************
                         muroF.NombreRol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(entidad.RolId).Nombre;
                         muroF.VisibleEliminar = true;
                         if (int.Parse(usuIdLogueado) != muroF.UsuId)
@@ -171,7 +202,11 @@ namespace WebApi.AsambleasDos.Controllers
                                 respF.Texto = resp.Texto;
                                 respF.UrlImagen = resp.UrlImagen;
                                 respF.UsuId = resp.UsuId;
-                                respF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(resp.UsuId).NombreUsuario;
+                                //respF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(resp.UsuId).NombreUsuario;
+                                int idUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(respF.UsuId).Id;
+                                VCFramework.Entidad.Persona personaF = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(idUsuario);
+                                respF.NombreUsuario = personaF.Nombres + ' ' + personaF.ApellidoPaterno;
+                                //*******************************************************************************************************************
                                 respF.NombreRol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(resp.RolId).Nombre;
                                 string fechita2 = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, resp.FechaCreacion);
                                 respF.FechaString = fechita2;
@@ -233,6 +268,8 @@ namespace WebApi.AsambleasDos.Controllers
 
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
+
+
 
             try
             {
