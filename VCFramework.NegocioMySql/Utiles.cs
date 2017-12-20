@@ -207,7 +207,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Proyecto", esNuevo, esModificado, esEliminado);
@@ -283,7 +284,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Tricel", esNuevo, esModificado, esEliminado);
@@ -358,7 +360,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Documento", esNuevo, esModificado, esEliminado);
@@ -426,7 +429,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Rendicion", esNuevo, esModificado, esEliminado);
@@ -501,7 +505,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Evento", esNuevo, esModificado, esEliminado);
@@ -576,7 +581,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Usuario", esNuevo, esModificado, esEliminado);
@@ -651,7 +657,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Muro", esNuevo, esModificado, esEliminado);
@@ -726,7 +733,8 @@ namespace VCFramework.NegocioMySQL
                 {
                     foreach (string s in correos)
                     {
-                        sms.To.Add(s);
+                        //sms.To.Add(s);
+                        sms.Bcc.Add(s);
                     }
                 }
                 string htmlMensaje = ObtenerMensajeXML("Rol", esNuevo, esModificado, esEliminado);
@@ -985,7 +993,8 @@ namespace VCFramework.NegocioMySQL
             {
                 foreach(string s in correos)
                 {
-                    sms.To.Add(s);
+                    //sms.To.Add(s);
+                    sms.Bcc.Add(s);
                 }
             }
 
@@ -1052,7 +1061,8 @@ namespace VCFramework.NegocioMySQL
             {
                 foreach (string s in correos)
                 {
-                    sms.To.Add(s);
+                    //sms.To.Add(s);
+                    sms.Bcc.Add(s);
                 }
             }
 
@@ -1119,7 +1129,8 @@ namespace VCFramework.NegocioMySQL
             {
                 foreach (string s in correos)
                 {
-                    sms.To.Add(s);
+                    //sms.To.Add(s);
+                    sms.Bcc.Add(s);
                 }
             }
 
@@ -1184,7 +1195,8 @@ namespace VCFramework.NegocioMySQL
             {
                 foreach (string s in correos)
                 {
-                    sms.To.Add(s);
+                    //sms.To.Add(s);
+                    sms.Bcc.Add(s);
                 }
             }
 
@@ -1663,7 +1675,8 @@ namespace VCFramework.NegocioMySQL
             {
                 foreach (string s in correos)
                 {
-                    sms.To.Add(s);
+                    //sms.To.Add(s);
+                    sms.Bcc.Add(s);
                 }
             }
 
