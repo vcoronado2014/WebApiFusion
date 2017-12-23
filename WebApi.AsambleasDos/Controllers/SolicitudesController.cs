@@ -97,7 +97,7 @@ namespace WebApi.AsambleasDos.Controllers
                     foreach (VCFramework.Entidad.UsuRol insti in encabezado)
                     {
                         VCFramework.Entidad.RolInstitucion rol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(insti.RolId);
-                        VCFramework.Entidad.Persona persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorId(insti.UsuId);
+                        VCFramework.Entidad.Persona persona = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(insti.UsuId);
 
                         VCFramework.EntidadFuncional.UsuarioEnvoltorio us = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
 
