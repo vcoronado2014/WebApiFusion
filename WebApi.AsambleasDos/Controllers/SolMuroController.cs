@@ -290,27 +290,27 @@ namespace WebApi.AsambleasDos.Controllers
                             resp.Eliminado = 1;
                             VCFramework.NegocioMySql.ResSolmuro.Eliminar(resp);
 
-                            List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(inst.InstId);
-                            List<string> listaCorreos = new List<string>();
-                            if (correos != null && correos.Count > 0)
-                            {
-                                foreach (UsuariosCorreos us in correos)
-                                {
-                                    if (!listaCorreos.Exists(p => p == us.Correo))
-                                        listaCorreos.Add(us.Correo);
-                                }
-                            }
-                            if (listaCorreos != null && listaCorreos.Count > 0)
-                            {
-                                VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(inst.InstId);
-                                VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+                            //List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(inst.InstId);
+                            //List<string> listaCorreos = new List<string>();
+                            //if (correos != null && correos.Count > 0)
+                            //{
+                            //    foreach (UsuariosCorreos us in correos)
+                            //    {
+                            //        if (!listaCorreos.Exists(p => p == us.Correo))
+                            //            listaCorreos.Add(us.Correo);
+                            //    }
+                            //}
+                            //if (listaCorreos != null && listaCorreos.Count > 0)
+                            //{
+                            //    VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(inst.InstId);
+                            //    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
-                                //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                                MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeMuro(institucion.Id, institucion.Nombre, inst.Texto, listaCorreos, false, false, true, esCpas);
+                            //    //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                            //    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeMuro(institucion.Id, institucion.Nombre, inst.Texto, listaCorreos, false, false, true, esCpas);
 
-                                //cr.Enviar(mnsj);
-                                var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
-                            }
+                            //    //cr.Enviar(mnsj);
+                            //    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                            //}
 
                         }
                     }
@@ -393,54 +393,54 @@ namespace WebApi.AsambleasDos.Controllers
                     if (aus.Id == 0)
                     {
                         nuevoId = VCFramework.NegocioMySql.SolMuro.Insertar(aus);
-                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
-                        List<string> listaCorreos = new List<string>();
-                        if (correos != null && correos.Count > 0)
-                        {
-                            foreach (UsuariosCorreos us in correos)
-                            {
-                                if (!listaCorreos.Exists(p => p == us.Correo))
-                                    listaCorreos.Add(us.Correo);
-                            }
-                        }
-                        if (listaCorreos != null && listaCorreos.Count > 0)
-                        {
-                            VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(aus.InstId);
-                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+                        //List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
+                        //List<string> listaCorreos = new List<string>();
+                        //if (correos != null && correos.Count > 0)
+                        //{
+                        //    foreach (UsuariosCorreos us in correos)
+                        //    {
+                        //        if (!listaCorreos.Exists(p => p == us.Correo))
+                        //            listaCorreos.Add(us.Correo);
+                        //    }
+                        //}
+                        //if (listaCorreos != null && listaCorreos.Count > 0)
+                        //{
+                        //    VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(aus.InstId);
+                        //    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
-                            //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeMuro(institucion.Id, institucion.Nombre, aus.Texto, listaCorreos, true, false, false, esCpas);
+                        //    //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        //    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeMuro(institucion.Id, institucion.Nombre, aus.Texto, listaCorreos, true, false, false, esCpas);
 
-                            //cr.Enviar(mnsj);
-                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
-                        }
+                        //    //cr.Enviar(mnsj);
+                        //    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                        //}
                     }
                     else
                     {
                         nuevoId = aus.Id;
                         VCFramework.NegocioMySql.SolMuro.Modificar(aus);
 
-                        List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
-                        List<string> listaCorreos = new List<string>();
-                        if (correos != null && correos.Count > 0)
-                        {
-                            foreach (UsuariosCorreos us in correos)
-                            {
-                                if (!listaCorreos.Exists(p => p == us.Correo))
-                                    listaCorreos.Add(us.Correo);
-                            }
-                        }
-                        if (listaCorreos != null && listaCorreos.Count > 0)
-                        {
-                            VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(aus.InstId);
-                            VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
+                        //List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
+                        //List<string> listaCorreos = new List<string>();
+                        //if (correos != null && correos.Count > 0)
+                        //{
+                        //    foreach (UsuariosCorreos us in correos)
+                        //    {
+                        //        if (!listaCorreos.Exists(p => p == us.Correo))
+                        //            listaCorreos.Add(us.Correo);
+                        //    }
+                        //}
+                        //if (listaCorreos != null && listaCorreos.Count > 0)
+                        //{
+                        //    VCFramework.Entidad.Institucion institucion = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorId(aus.InstId);
+                        //    VCFramework.NegocioMySQL.ServidorCorreo cr = new VCFramework.NegocioMySQL.ServidorCorreo();
 
-                            //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
-                            MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeMuro(institucion.Id, institucion.Nombre, aus.Texto, listaCorreos, false, true, false, esCpas);
+                        //    //MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeCrearProyecto(institucion.Nombre, tricel.Nombre, listaCorreos, false);
+                        //    MailMessage mnsj = VCFramework.NegocioMySQL.Utiles.ConstruyeMensajeMuro(institucion.Id, institucion.Nombre, aus.Texto, listaCorreos, false, true, false, esCpas);
 
-                            //cr.Enviar(mnsj);
-                            var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
-                        }
+                        //    //cr.Enviar(mnsj);
+                        //    var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
+                        //}
                     }
 
 
