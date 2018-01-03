@@ -269,7 +269,7 @@ namespace VCFramework.NegocioMySQL
                     //    direccion += " ," + us.Comuna.Nombre;
                     env.OtroCinco = direccion;
                     env.OtroCuatro = us.Persona.Rut;
-
+                    env.OtroSeis = us.RolInstitucion.Id.ToString();
                     env.OtroUno = us.Institucion.Nombre;
                     env.OtroDos = us.AutentificacionUsuario.Eliminado.ToString();
                     env.OtroTres = us.AutentificacionUsuario.CorreoElectronico;
@@ -359,6 +359,7 @@ namespace VCFramework.NegocioMySQL
                     //    direccion += " ," + us.Comuna.Nombre;
                     env.OtroCinco = direccion;
                     env.OtroCuatro = us.Persona.Rut;
+                    env.OtroSeis = us.RolInstitucion.Id.ToString();
 
                     env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
                     env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";

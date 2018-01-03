@@ -534,4 +534,17 @@
       *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
     <Id>74</Id>
   </error>
+  <error>
+    <Fecha>2017-12-23 13:32</Fecha>
+    <Detalle>Error en el nivel del transporte al recibir los resultados del servidor. (provider: TCP Provider, error: 0 - El nombre de red especificado ya no está disponible.)</Detalle>
+    <Id>75</Id>
+  </error>
+  <error>
+    <Fecha>2017-12-23 17:38</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;aaaaaaaaaaaaaaaaaaaaaaa&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>76</Id>
+  </error>
 </root>

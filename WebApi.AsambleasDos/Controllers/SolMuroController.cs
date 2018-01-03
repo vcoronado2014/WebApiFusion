@@ -148,7 +148,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                 bool esAdministrador = false;
                 if (persona != null && persona.Id > 0)
-                  esAdministrador = ususRol.Exists(p=>p.UsuId == persona.Id);
+                  esAdministrador = ususRol.Exists(p=>p.UsuId == persona.UsuId);
 
                 //aca procesamos todo!
                 List<VCFramework.Entidad.SolMuro> muro = new List<SolMuro>();
