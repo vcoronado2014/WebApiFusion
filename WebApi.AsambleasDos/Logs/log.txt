@@ -547,4 +547,9 @@
       *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
     <Id>76</Id>
   </error>
+  <error>
+    <Fecha>2018-01-08 16:51</Fecha>
+    <Detalle>Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)</Detalle>
+    <Id>77</Id>
+  </error>
 </root>

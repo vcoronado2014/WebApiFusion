@@ -98,21 +98,44 @@ namespace WebApi.AsambleasDos.Controllers
         [System.Web.Http.AcceptVerbs("DELETE")]
         public HttpResponseMessage Delete(dynamic DynamicClass)
         {
+            //Request.RequestUri.Query.Split(new Char[] {'?', '&'})
+            string idElementoEliminar = "0";
+            //ahora manejamos si bienen elementos en el request
+            if (Request.RequestUri != null)
+            {
+                if (Request.RequestUri.Query != null && Request.RequestUri.Query.Length > 0)
+                {
+                    string[] element = Request.RequestUri.Query.Split(new Char[] { '?', '&' });
+                    if (element != null && element.Length > 0)
+                    {
+                        //1 = id, 2= escpas
+                        string[] parts = element[1].Split('=');
+                        if (parts.Length == 2)
+                        {
+                            idElementoEliminar = parts[1];
+                        }
+                    }
+                }
+            }
+            if (DynamicClass != null)
+            {
 
-            string Input = JsonConvert.SerializeObject(DynamicClass);
+                string Input = JsonConvert.SerializeObject(DynamicClass);
 
-            dynamic data = JObject.Parse(Input);
+                dynamic data = JObject.Parse(Input);
 
-            //validaciones antes de ejecutar la llamada.
-            if (data.Id == 0)
-                throw new ArgumentNullException("Id");
+                //validaciones antes de ejecutar la llamada.
+                if (data.Id == 0)
+                    throw new ArgumentNullException("Id");
 
+                idElementoEliminar = data.Id;
+            }
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
             try
             {
-                string idInstitucion = data.Id;
+                string idInstitucion = idElementoEliminar;
                 int idInstitucionBuscar = int.Parse(idInstitucion);
                 VCFramework.Entidad.RespuestaMuro inst = VCFramework.NegocioMySql.RespuestaMuro.ObtenerRespuestaMuroPorId(idInstitucionBuscar);
 
@@ -193,13 +216,16 @@ namespace WebApi.AsambleasDos.Controllers
                     aus.UsuId = int.Parse(usuId);
 
                     if (aus.Id == 0)
+                    {
                         nuevoId = VCFramework.NegocioMySql.RespuestaMuro.Insertar(aus);
+                        aus.Id = nuevoId;
+                    }
                     else
                     {
                         nuevoId = aus.Id;
                         VCFramework.NegocioMySql.RespuestaMuro.Modificar(aus);
                     }
-
+                    
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(aus);

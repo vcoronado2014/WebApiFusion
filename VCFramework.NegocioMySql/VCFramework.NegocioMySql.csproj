@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArchivoAdjunto.cs" />
     <Compile Include="ArchivosProyecto.cs" />
     <Compile Include="ArchivosTricel.cs" />
     <Compile Include="Articulo.cs" />

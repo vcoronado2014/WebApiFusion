@@ -64,6 +64,10 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.VisibleEliminar = true;
                     string fechita = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, entidad.FechaCreacion);
                     entidad.FechaString = fechita;
+                    //archivos adjuntos
+                    entidad.ArchivosAdjuntos = new List<ArchivoAdjunto>();
+                    entidad.ArchivosAdjuntos = VCFramework.NegocioMySql.ArchivoAdjunto.Listar();
+                    //****************************************************************************
                     List<VCFramework.Entidad.RespuestaMuro> respuestaMuro = VCFramework.NegocioMySql.RespuestaMuro.ObtenerRespuestaMuroPorMuroId(entidad.Id);
                     entidad.RespuestaMuro = new List<VCFramework.EntidadFuncional.RespuestaMuroFuncional>();
                     if (respuestaMuro != null && respuestaMuro.Count > 0)
@@ -164,6 +168,10 @@ namespace WebApi.AsambleasDos.Controllers
                             muroF.VisibleEliminar = false;
                         string fechita = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, entidad.FechaCreacion);
                         muroF.FechaString = fechita;
+                        //archivos adjuntos
+                        muroF.ArchivosAdjuntos = new List<ArchivoAdjunto>();
+                        muroF.ArchivosAdjuntos = VCFramework.NegocioMySql.ArchivoAdjunto.Listar();
+                        //****************************************************************************
                         
                         List<VCFramework.Entidad.RespuestaMuro> respuestaMuro = VCFramework.NegocioMySql.RespuestaMuro.ObtenerRespuestaMuroPorMuroId(entidad.Id);
                         muroF.RespuestaMuro = new List<VCFramework.EntidadFuncional.RespuestaMuroFuncional>();
