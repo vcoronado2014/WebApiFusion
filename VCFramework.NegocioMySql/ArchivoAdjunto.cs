@@ -35,5 +35,39 @@ namespace VCFramework.NegocioMySql
 
             return retorno;
         }
+        public static List<VCFramework.Entidad.ArchivoAdjunto> Listar(int instId, int elementoId, int tipoPadre)
+        {
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            List<FiltroGenerico> filtros = new List<FiltroGenerico>();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "INST_ID";
+            filtro.Valor = instId.ToString();
+            filtro.TipoDato = TipoDatoGeneral.Entero;
+
+            FiltroGenerico filtro1 = new FiltroGenerico();
+            filtro1.Campo = "ELEMENTO_ID";
+            filtro1.Valor = elementoId.ToString();
+            filtro1.TipoDato = TipoDatoGeneral.Entero;
+
+            FiltroGenerico filtro2 = new FiltroGenerico();
+            filtro2.Campo = "TIPO_PADRE";
+            filtro2.Valor = tipoPadre.ToString();
+            filtro2.TipoDato = TipoDatoGeneral.Entero;
+
+            filtros.Add(filtro);
+            filtros.Add(filtro1);
+            filtros.Add(filtro2);
+
+
+            List<object> lista = fac.Leer<VCFramework.Entidad.ArchivoAdjunto>(filtros, setCnsWebLun);
+            List<VCFramework.Entidad.ArchivoAdjunto> lista2 = new List<VCFramework.Entidad.ArchivoAdjunto>();
+            if (lista != null)
+            {
+
+                lista2 = lista.Cast<VCFramework.Entidad.ArchivoAdjunto>().ToList();
+            }
+          
+            return lista2;
+        }
     }
 }

@@ -32,3 +32,8 @@ D:\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
 D:\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 D:\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 D:\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
