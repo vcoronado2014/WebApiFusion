@@ -274,8 +274,19 @@ namespace WebApi.AsambleasDos.Controllers
                     {
                         foreach(VCFramework.Entidad.RespuestaMuro resp in respuestas)
                         {
+                            //se modifica para eliminar tambien las imagenes adjuntas
+                            List<VCFramework.Entidad.ArchivoAdjunto> archivos = VCFramework.NegocioMySql.ArchivoAdjunto.Listar(resp.InstId, resp.Id, 1);
+                            if (archivos != null && archivos.Count > 0)
+                            {
+                                foreach(VCFramework.Entidad.ArchivoAdjunto arc in archivos)
+                                {
+                                    VCFramework.NegocioMySql.ArchivoAdjunto.Eliminar(arc);
+                                }
+                            }
+
                             resp.Eliminado = 1;
                             VCFramework.NegocioMySql.RespuestaMuro.Eliminar(resp);
+                            
 
                             List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(inst.InstId);
                             List<string> listaCorreos = new List<string>();
@@ -380,6 +391,7 @@ namespace WebApi.AsambleasDos.Controllers
                     if (aus.Id == 0)
                     {
                         nuevoId = VCFramework.NegocioMySql.Muro.Insertar(aus);
+                        aus.Id = nuevoId;
                         List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
                         List<string> listaCorreos = new List<string>();
                         if (correos != null && correos.Count > 0)

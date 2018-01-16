@@ -552,4 +552,68 @@
     <Detalle>Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)</Detalle>
     <Id>77</Id>
   </error>
+  <error>
+    <Fecha>2018-01-16 11:59</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;Esta es una nueva novedad&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>78</Id>
+  </error>
+  <error>
+    <Fecha>2018-01-16 12:58</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;novedad de prueba por procesamiento de archivos&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>79</Id>
+  </error>
+  <error>
+    <Fecha>2018-01-16 12:57</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;Es otra prueba de carga de archivos desde la apps&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>80</Id>
+  </error>
+  <error>
+    <Fecha>2018-01-16 17:48</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;esto es un comentario&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>81</Id>
+  </error>
+  <error>
+    <Fecha>2018-01-16 17:12</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;asasasasasasas&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>82</Id>
+  </error>
+  <error>
+    <Fecha>2018-01-16 17:18</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;prueba de novedad&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>83</Id>
+  </error>
+  <error>
+    <Fecha>2018-01-16 17:20</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;otra prueba&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>84</Id>
+  </error>
+  <error>
+    <Fecha>2018-01-16 18:17</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha creado una novedad &lt;strong&gt;Nueva novedad&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido creada una novedad para su institución, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>85</Id>
+  </error>
 </root>

@@ -94,3 +94,15 @@ D:\WebApiFusion\VCFramework.NegocioMySql\bin\Release\Newtonsoft.Json.xml
 D:\WebApiFusion\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
 D:\WebApiFusion\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.dll
 D:\WebApiFusion\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.pdb
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\VCFramework.NegocioMySql.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\VCFramework.NegocioMySql.pdb
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\Newtonsoft.Json.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\VCFramework.Entidad.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\VCFramework.EntidadFuncional.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\VCFramework.Negocio.Factory.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\VCFramework.EntidadFuncional.pdb
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\VCFramework.Entidad.pdb
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\bin\Release\Newtonsoft.Json.xml
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.dll
+Z:\Proyectos_compartidos\WebApiFusion\VCFramework.NegocioMySql\obj\Release\VCFramework.NegocioMySql.pdb
