@@ -6,6 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Drawing;
 
 namespace VCFramework.NegocioMySQL
 {
@@ -14,6 +15,40 @@ namespace VCFramework.NegocioMySQL
         public const string HTML_DOCTYPE = "text/html";
         public const string JSON_DOCTYPE = "application/json";
         public const string XML_DOCTYPE = "application/xml";
+
+
+        public static Image NonLockingOpen(string filename)
+        {
+            Image result;
+
+            #region Save file to byte array
+
+            long size = (new FileInfo(filename)).Length;
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            byte[] data = new byte[size];
+            try
+            {
+                fs.Read(data, 0, (int)size);
+            }
+            finally
+            {
+                fs.Close();
+                fs.Dispose();
+            }
+
+            #endregion
+
+            #region Convert bytes to image
+
+            MemoryStream ms = new MemoryStream();
+            ms.Write(data, 0, (int)size);
+            result = new Bitmap(ms);
+            ms.Close();
+
+            #endregion
+
+            return result;
+        }
 
         public static String DiferenciaFechas(DateTime newdt, DateTime olddt)
         {

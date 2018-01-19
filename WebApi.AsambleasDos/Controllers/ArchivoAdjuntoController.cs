@@ -15,6 +15,9 @@ using System.IO;
 using System.Text;
 using System.Web;
 using System.Net.Mail;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace WebApi.AsambleasDos.Controllers
 {
@@ -27,9 +30,7 @@ namespace WebApi.AsambleasDos.Controllers
         [HttpPost]
         public HttpResponseMessage UploadFile()
         {
-            //if (HttpContext.Current.Request.Files.AllKeys.Any())
-            //{
-            // Get the uploaded image from the Files collection
+
             var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
             string idElemento = HttpContext.Current.Request.Form["idElemento"];
             string instId = HttpContext.Current.Request.Form["instId"];
@@ -59,7 +60,6 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     archivoGuardar = httpPostedFile.FileName;
                 }
-
                 if (esNuevo == false)
                 {
                     entidad = VCFramework.NegocioMySql.ArchivoAdjunto.BuscarPorId(idBuscar);
@@ -86,12 +86,22 @@ namespace WebApi.AsambleasDos.Controllers
                 //ya ahora guardamos el archivo
                 if (httpPostedFile != null && guardarArchivo)
                 {
-
-                    // Validate the uploaded image(optional)
-
-                    // Get the complete file path
                     var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/" + nombreCarpeta), archivoGuardar);
+                    //guardamos 
                     httpPostedFile.SaveAs(fileSavePath);
+                    //antes de todo vamos a trabajar un rato con el archivo
+                    Image imagenOriginal = VCFramework.NegocioMySQL.Utiles.NonLockingOpen(fileSavePath);
+                    int ancho = imagenOriginal.Width;
+
+                    //aca debemos procesar si la imagen excede los 1024 px
+                    if (ancho > 1024)
+                    {
+                        //deberiamos redimensionar la imagen
+                        string nameResize = ResizeImage(fileSavePath, fileSavePath, 1024, 768);
+
+
+                    }
+
                 }
 
 
@@ -108,6 +118,110 @@ namespace WebApi.AsambleasDos.Controllers
             }
 
             return httpResponse;
+        }
+
+        public static string ResizeImage(string strImgPath, string strImgOutputPath, int iWidth, int iHeight)
+        {
+            try
+            {
+                bool mismaImagen = strImgPath.Equals(strImgOutputPath);
+                if (mismaImagen)
+                {
+                    strImgOutputPath = strImgPath + "___.jpg";
+                }
+
+                string[] extensiones = {
+                                   ".jpg",
+                                   ".png",
+                                   ".bmp",
+                                   ".gif"
+                               };
+
+                if (!extensiones.Contains(Path.GetExtension(strImgPath)))
+                    throw new Exception("Extensión no soportada");
+
+                //Lee el fichero en un stream
+                Stream mystream = null;
+
+                if (strImgPath.StartsWith("http"))
+                {
+                    HttpWebRequest wreq = (HttpWebRequest)WebRequest.Create(strImgPath);
+                    HttpWebResponse wresp = (HttpWebResponse)wreq.GetResponse();
+                    mystream = wresp.GetResponseStream();
+                }
+                else
+                    mystream = File.OpenRead(strImgPath);
+
+                // Cargo la imágen
+                Bitmap imgToResize = new Bitmap(mystream);
+
+                Size size = new Size(iWidth, iHeight);
+
+                int sourceWidth = imgToResize.Width;
+                int sourceHeight = imgToResize.Height;
+
+                float nPercent = 0;
+                float nPercentW = 0;
+                float nPercentH = 0;
+
+                nPercentW = ((float)size.Width / (float)sourceWidth);
+                nPercentH = ((float)size.Height / (float)sourceHeight);
+
+                if (nPercentH < nPercentW)
+                    nPercent = nPercentH;
+                else
+                    nPercent = nPercentW;
+
+                int destWidth = (int)(sourceWidth * nPercent);
+                int destHeight = (int)(sourceHeight * nPercent);
+
+                Bitmap b = new Bitmap(destWidth, destHeight);
+                Graphics g = Graphics.FromImage((Image)b);
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+                g.DrawImage(imgToResize, 0, 0, destWidth, destHeight);
+                g.Dispose();
+
+                // We will store the correct image codec in this object
+                ImageCodecInfo ici = GetEncoderInfo("image/jpeg"); ;
+                // This will specify the image quality to the encoder
+                EncoderParameter epQuality = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 99L);
+                // Store the quality parameter in the list of encoder parameters
+                EncoderParameters eps = new EncoderParameters(1);
+                eps.Param[0] = epQuality;
+                b.Save(strImgOutputPath, ici, eps);
+
+                imgToResize.Dispose();
+                mystream.Close();
+                mystream.Dispose();
+                b.Dispose();
+                g.Dispose();
+
+                if (mismaImagen)
+                {
+                    File.Delete(strImgPath);
+                    File.Move(strImgOutputPath, strImgPath);
+                }
+
+                return strImgPath;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        private static ImageCodecInfo GetEncoderInfo(String mimeType)
+        {
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j)
+            {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+            return null;
         }
     }
 }
