@@ -143,7 +143,7 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     inst.Eliminado = 1;
 
-                    VCFramework.NegocioMySql.RespuestaMuro.Modificar(inst);
+                    VCFramework.NegocioMySql.RespuestaMuro.Eliminar(inst);
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(inst);

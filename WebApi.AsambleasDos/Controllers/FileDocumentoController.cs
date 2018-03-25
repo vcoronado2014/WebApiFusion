@@ -168,6 +168,8 @@ namespace WebApi.AsambleasDos.Controllers
                         entidadS.NombreCompleto = doc.NombreArchivo;
                         entidadS.NombreUsuario = VCFramework.NegocioMySQL.Utiles.RetornaFechaDocumento(doc.FechaSubida);
                         entidadS.OtroUno = doc.Tamano.ToString()+ " Kb";
+                        //nuevo elemento
+                        entidadS.OtroCinco = doc.Descripcion;
 
                         string extension = Path.GetExtension(doc.NombreArchivo);
                         entidadS.OtroTres = extension;

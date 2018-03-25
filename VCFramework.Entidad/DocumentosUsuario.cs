@@ -15,5 +15,6 @@ namespace VCFramework.Entidad
         public string FechaSubida { get; set; }
         public string Extension { get; set; }
         public int Eliminado { get; set; }
+        public string Descripcion { get; set; }
     }
 }

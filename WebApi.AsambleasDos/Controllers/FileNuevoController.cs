@@ -35,6 +35,10 @@ namespace WebApi.AsambleasDos.Controllers
                 var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
                 string usuId = HttpContext.Current.Request.Form["UsuId"];
                 string instId = HttpContext.Current.Request.Form["InstId"];
+                //nuevo elemento
+                string descripcion = "";
+                if (HttpContext.Current.Request.Form["Descripcion"] != null)
+                    descripcion = HttpContext.Current.Request.Form["Descripcion"];
                 bool esCpas = false;
                 if (HttpContext.Current.Request.Form["EsCpas"] != null)
                     esCpas = Convert.ToBoolean(HttpContext.Current.Request.Form["EsCpas"]);
@@ -92,6 +96,7 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.Tamano = int.Parse(sizeInKilobytes.ToString());
                     entidad.UsuId = int.Parse(usuId);
                     entidad.Url = "";
+                    entidad.Descripcion = descripcion;
                     VCFramework.NegocioMySQL.DocumentosUsuario.Insertar(entidad);
 
                     List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(entidad.InstId);
@@ -137,6 +142,8 @@ namespace WebApi.AsambleasDos.Controllers
                         entidadS.NombreCompleto = doc.NombreArchivo;
                         entidadS.NombreUsuario = doc.FechaSubida;
                         entidadS.OtroUno = doc.Tamano.ToString();
+                        //nuevo elemento
+                        entidadS.OtroCinco = doc.Descripcion;
 
                         string extension = Path.GetExtension(doc.NombreArchivo);
                         entidadS.OtroTres = extension;
