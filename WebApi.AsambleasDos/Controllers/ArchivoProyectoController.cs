@@ -44,7 +44,7 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     foreach (VCFramework.Entidad.ArchivosProyecto tri in archivos)
                     {
-                        string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/RepositorioProyecto/";
+                        string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/apps/RepositorioProyecto/";
 
                         VCFramework.EntidadFuncional.UsuarioEnvoltorio us = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
                         us.Id = tri.Id;
@@ -79,8 +79,8 @@ namespace WebApi.AsambleasDos.Controllers
 
         }
 
-        const string UploadDirectory = "~/RepositorioProyecto/";
-        const string UploadDirectoryImg = "~/img/";
+        const string UploadDirectory = "~/apps/RepositorioProyecto/";
+        const string UploadDirectoryImg = "~/apps/img/";
         [System.Web.Http.AcceptVerbs("POST")]
         public HttpResponseMessage CreateContestEntry()
         {
@@ -145,7 +145,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                     #endregion
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/RepositorioProyecto"), httpPostedFile.FileName);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/RepositorioProyecto"), httpPostedFile.FileName);
 
                     httpPostedFile.SaveAs(fileSavePath);
                 }

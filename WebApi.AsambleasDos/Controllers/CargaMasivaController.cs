@@ -24,7 +24,7 @@ namespace WebApi.AsambleasDos.Controllers
     public class CargaMasivaController : ApiController
     {
         const string UploadDirectory = "~/Excel/";
-        const string UploadDirectoryImg = "~/img/";
+        const string UploadDirectoryImg = "~/apps/img/";
 
         [System.Web.Http.AcceptVerbs("POST")]
         public HttpResponseMessage Post(dynamic DynamicClass)

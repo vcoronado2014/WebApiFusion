@@ -24,7 +24,7 @@ namespace WebApi.AsambleasDos.Controllers
     public class FileExcelController : ApiController
     {
         const string UploadDirectory = "~/Excel/";
-        const string UploadDirectoryImg = "~/img/";
+        const string UploadDirectoryImg = "~/apps/img/";
 
         [HttpPost]
         public HttpResponseMessage CreateContestEntry()

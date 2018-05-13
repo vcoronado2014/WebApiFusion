@@ -45,7 +45,7 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     foreach (VCFramework.Entidad.ArchivosTricel tri in archivos)
                     {
-                        string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/RepositorioTricel/";
+                        string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/apps/RepositorioTricel/";
 
                         VCFramework.EntidadFuncional.UsuarioEnvoltorio us = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
                         us.Id = tri.Id;
@@ -80,8 +80,8 @@ namespace WebApi.AsambleasDos.Controllers
 
         }
 
-        const string UploadDirectory = "~/RepositorioTricel/";
-        const string UploadDirectoryImg = "~/img/";
+        const string UploadDirectory = "~/apps/RepositorioTricel/";
+        const string UploadDirectoryImg = "~/apps/img/";
         [System.Web.Http.AcceptVerbs("POST")]
         public HttpResponseMessage CreateContestEntry()
         {
@@ -145,7 +145,7 @@ namespace WebApi.AsambleasDos.Controllers
                     VCFramework.NegocioMySQL.ArchivosTricel.Insertar(entidad);
                     #endregion
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/RepositorioTricel"), httpPostedFile.FileName);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/RepositorioTricel"), httpPostedFile.FileName);
 
                     httpPostedFile.SaveAs(fileSavePath);
                 }

@@ -277,3 +277,4 @@ D:\WebApiFusion\SignalR-Chat\SignalR-Chat\bin\System.Web.Http.xml
 D:\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.csprojResolveAssemblyReference.cache
 D:\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.dll
 D:\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.pdb
+Z:\Escritorio\proyectos\WebApiFusion\SignalR-Chat\SignalR-Chat\obj\Debug\SignalR-Chat.csprojResolveAssemblyReference.cache

@@ -22,7 +22,7 @@ namespace WebApi.AsambleasDos.Controllers
     public class FileDocumentoController : ApiController
     {
         const string UploadDirectory = "~/Repositorio/";
-        const string UploadDirectoryImg = "~/img/";
+        const string UploadDirectoryImg = "~/apps/img/";
         [HttpPost]
         public HttpResponseMessage UploadFile(dynamic DynamicClass)
         {
@@ -147,7 +147,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                     #endregion
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), httpPostedFile.FileName);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/Repositorio"), httpPostedFile.FileName);
 
                     httpPostedFile.SaveAs(fileSavePath);
                 }
@@ -173,7 +173,7 @@ namespace WebApi.AsambleasDos.Controllers
                         entidadS.OtroTres = extension;
 
                         //HttpContext.Current.Server.MapPath("~/Repositorio")
-                        string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/Repositorio/";
+                        string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/apps/Repositorio/";
                         if (doc.NombreArchivo != null && doc.NombreArchivo != "")
                             entidadS.Url = urlll + doc.NombreArchivo;
                         else

@@ -24,7 +24,7 @@ namespace WebApi.AsambleasDos.Controllers
     public class FileNuevoController : ApiController
     {
         const string UploadDirectory = "~/Repositorio/";
-        const string UploadDirectoryImg = "~/img/";
+        const string UploadDirectoryImg = "~/apps/img/";
         [HttpPost]
         public HttpResponseMessage CreateContestEntry()
         {
@@ -118,7 +118,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                     #endregion
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), httpPostedFile.FileName);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/Repositorio"), httpPostedFile.FileName);
 
                     httpPostedFile.SaveAs(fileSavePath);
                 }
@@ -194,7 +194,7 @@ namespace WebApi.AsambleasDos.Controllers
                     documento.Eliminado = 1;
                     VCFramework.NegocioMySQL.DocumentosUsuario.Modificar(documento);
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), documento.NombreArchivo);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/Repositorio"), documento.NombreArchivo);
 
                     if (File.Exists(fileSavePath))
                         File.Delete(fileSavePath);

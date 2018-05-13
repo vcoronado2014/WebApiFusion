@@ -22,7 +22,7 @@ namespace WebApi.AsambleasDos.Controllers
     public class FileController : ApiController
     {
         const string UploadDirectory = "~/Repositorio/";
-        const string UploadDirectoryImg = "~/img/";
+        const string UploadDirectoryImg = "~/apps/img/";
         [HttpPost]
         public HttpResponseMessage UploadFile()
         {
@@ -180,7 +180,7 @@ namespace WebApi.AsambleasDos.Controllers
                 // Validate the uploaded image(optional)
 
                 // Get the complete file path
-                var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), httpPostedFile.FileName);
+                var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/Repositorio"), httpPostedFile.FileName);
 
                 // Save the uploaded file to "UploadedFiles" folder
                 httpPostedFile.SaveAs(fileSavePath);
