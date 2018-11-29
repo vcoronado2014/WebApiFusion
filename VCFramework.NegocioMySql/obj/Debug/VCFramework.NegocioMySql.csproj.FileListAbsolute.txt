@@ -94,3 +94,16 @@ D:\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.xml
 D:\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
 D:\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
 D:\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.pdb
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Negocio.Factory.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.pdb
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.pdb
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.xml
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csproj.CoreCompileInputs.cache
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb

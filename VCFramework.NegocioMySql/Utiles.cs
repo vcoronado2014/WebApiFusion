@@ -6,6 +6,8 @@ using System.IO;
 using System.Xml;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Drawing;
+
 
 namespace VCFramework.NegocioMySQL
 {
@@ -14,6 +16,40 @@ namespace VCFramework.NegocioMySQL
         public const string HTML_DOCTYPE = "text/html";
         public const string JSON_DOCTYPE = "application/json";
         public const string XML_DOCTYPE = "application/xml";
+
+
+        public static Image NonLockingOpen(string filename)
+        {
+            Image result;
+
+            #region Save file to byte array
+
+            long size = (new FileInfo(filename)).Length;
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            byte[] data = new byte[size];
+            try
+            {
+                fs.Read(data, 0, (int)size);
+            }
+            finally
+            {
+                fs.Close();
+                fs.Dispose();
+            }
+
+            #endregion
+
+            #region Convert bytes to image
+
+            MemoryStream ms = new MemoryStream();
+            ms.Write(data, 0, (int)size);
+            result = new Bitmap(ms);
+            ms.Close();
+
+            #endregion
+
+            return result;
+        }
 
         public static String DiferenciaFechas(DateTime newdt, DateTime olddt)
         {
@@ -260,9 +296,9 @@ namespace VCFramework.NegocioMySQL
             {
                 sms = null;
             }
-            
+
             return sms;
-            
+
         }
 
         public static System.Net.Mail.MailMessage ConstruyeMensajeTricel(int instId, string nombreInstitucion, string nombreTricel, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
@@ -794,7 +830,7 @@ namespace VCFramework.NegocioMySQL
         {
             string retorno = "'db_9dac90_cole'";
 
-            if (System.Configuration.ConfigurationManager.AppSettings["NOMBRE_BD"] != null )
+            if (System.Configuration.ConfigurationManager.AppSettings["NOMBRE_BD"] != null)
             {
                 retorno = "'" + System.Configuration.ConfigurationManager.AppSettings["NOMBRE_BD"].ToString() + "'";
             }
@@ -991,7 +1027,7 @@ namespace VCFramework.NegocioMySQL
             //recorremos la lista de usuarios de la institución
             if (correos != null && correos.Count > 0)
             {
-                foreach(string s in correos)
+                foreach (string s in correos)
                 {
                     //sms.To.Add(s);
                     sms.Bcc.Add(s);
@@ -1036,7 +1072,7 @@ namespace VCFramework.NegocioMySQL
                     sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** <br />");
                 }
             }
-            
+
             sb.Append("</html>");
             sms.Body = sb.ToString();
             return sms;
@@ -1145,7 +1181,7 @@ namespace VCFramework.NegocioMySQL
                 string htmlMensaje = ObtenerMensajeXML("Documento", true);
                 if (htmlMensaje != null)
                 {
-                    htmlMensaje =  htmlMensaje.Replace("{NombreItem}", EntregaNombreArchivo(nombreDocumento)).Replace("{NombreInstitucion}", nombreInstitucion).Replace("{Url}", ObtenerUrl());
+                    htmlMensaje = htmlMensaje.Replace("{NombreItem}", EntregaNombreArchivo(nombreDocumento)).Replace("{NombreInstitucion}", nombreInstitucion).Replace("{Url}", ObtenerUrl());
                     sb.Append(htmlMensaje);
                 }
                 else
@@ -1170,7 +1206,7 @@ namespace VCFramework.NegocioMySQL
                     sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de CPAS ****** <br />");
                 }
             }
-            
+
             sb.Append("</html>");
             sms.Body = sb.ToString();
             return sms;
@@ -1238,7 +1274,7 @@ namespace VCFramework.NegocioMySQL
                     sb.Append("***** Mensaje enviado desde el sistema automático de envio de correos de CPAS ****** <br />");
                 }
             }
-            
+
             sb.Append("</html>");
             sms.Body = sb.ToString();
             return sms;
@@ -1247,7 +1283,7 @@ namespace VCFramework.NegocioMySQL
         {
 
             System.Net.Mail.MailMessage sms = new System.Net.Mail.MailMessage();
-            if(esCpas)
+            if (esCpas)
                 sms.Subject = "Recuperación Clave cpas";
             else
                 sms.Subject = "Recuperación Clave asambleas";
@@ -1288,7 +1324,7 @@ namespace VCFramework.NegocioMySQL
                 sms.Subject = "Cambio Clave Asambleas";
 
             sms.To.Add(email);
-            if(esCpas)
+            if (esCpas)
                 sms.From = new System.Net.Mail.MailAddress("contacto@cpas.cl", "CPAS");
             else
                 sms.From = new System.Net.Mail.MailAddress("contacto@asambleas.cl", "Asambleas");
@@ -1471,7 +1507,7 @@ namespace VCFramework.NegocioMySQL
                 dia = fechaServidor.Day.ToString();
 
             retorno = anno + mes + dia;
-            
+
             return retorno;
         }
         public static string RetornaHoraEntera()
@@ -1490,7 +1526,7 @@ namespace VCFramework.NegocioMySQL
             else
                 minutos = fechaServidor.Minute.ToString();
 
-            retorno = hora+minutos;
+            retorno = hora + minutos;
 
             return retorno;
         }
@@ -1511,7 +1547,7 @@ namespace VCFramework.NegocioMySQL
             else
                 dia = fechaServidor.Day.ToString();
 
-            retorno =int.Parse(anno + mes + dia);
+            retorno = int.Parse(anno + mes + dia);
 
             return retorno;
         }
@@ -1542,7 +1578,7 @@ namespace VCFramework.NegocioMySQL
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 NegocioMySQL.Utiles.Log(ex);
             }
@@ -1568,7 +1604,7 @@ namespace VCFramework.NegocioMySQL
                     retorno = int.Parse(anio + fechitas[1] + fechitas[0]);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 VCFramework.NegocioMySQL.Utiles.Log(ex);
             }
@@ -1720,7 +1756,7 @@ namespace VCFramework.NegocioMySQL
                     sb.Append("</html>");
                 }
             }
-            
+
             sms.Body = sb.ToString();
             return sms;
         }
@@ -1760,7 +1796,7 @@ namespace VCFramework.NegocioMySQL
 
                     var el = (XmlElement)_doc.DocumentElement.AppendChild(_doc.CreateElement("error"));
                     //el.SetAttribute("Fecha", ConstruyeFecha(DateTime.Now));
-                    
+
                     el.AppendChild(_doc.CreateElement("Fecha")).InnerText = ConstruyeFecha(DateTime.Now);
                     el.AppendChild(_doc.CreateElement("Detalle")).InnerText = mensaje;
                     el.AppendChild(_doc.CreateElement("Id")).InnerText = indice.ToString();
@@ -1882,7 +1918,7 @@ namespace VCFramework.NegocioMySQL
 
                                     if (nodo.ChildNodes != null && nodo.ChildNodes.Count > 0)
                                     {
-                                        foreach(XmlElement nodito in nodo.ChildNodes)
+                                        foreach (XmlElement nodito in nodo.ChildNodes)
                                         {
                                             if (nodito.Name.ToUpper() == otraBusqueda.ToUpper())
                                             {
@@ -1900,7 +1936,7 @@ namespace VCFramework.NegocioMySQL
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 NegocioMySQL.Utiles.Log(ex);
             }
@@ -1911,10 +1947,11 @@ namespace VCFramework.NegocioMySQL
         public static string ObtenerUrl()
         {
             string retorno = "http://www.cpas.cl";
-            try {
+            try
+            {
                 retorno = System.Web.HttpContext.Current.Request.Url.Host;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log(ex);
             }
@@ -1983,7 +2020,7 @@ namespace VCFramework.NegocioMySQL
         /// <returns></returns>
         public static bool validarRut(string rut)
         {
-            
+
             bool validacion = false;
             try
             {

@@ -13,5 +13,6 @@ namespace VCFramework.EntidadFuncional
         public string FechaString { get; set; }
         public bool VisibleEliminar { get; set; }
         public List<EntidadFuncional.RespuestaMuroFuncional> RespuestaMuro { get; set; }
+        public List<Entidad.ArchivoAdjunto> ArchivosAdjuntos { get; set; }
     }
 }

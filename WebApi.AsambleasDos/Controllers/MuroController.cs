@@ -64,6 +64,10 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.VisibleEliminar = true;
                     string fechita = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, entidad.FechaCreacion);
                     entidad.FechaString = fechita;
+                    //archivos adjuntos **********************************************************
+                    entidad.ArchivosAdjuntos = new List<ArchivoAdjunto>();
+                    entidad.ArchivosAdjuntos = VCFramework.NegocioMySql.ArchivoAdjunto.Listar(entidad.InstId, muro.Id, 1);
+                    //****************************************************************************
                     List<VCFramework.Entidad.RespuestaMuro> respuestaMuro = VCFramework.NegocioMySql.RespuestaMuro.ObtenerRespuestaMuroPorMuroId(entidad.Id);
                     entidad.RespuestaMuro = new List<VCFramework.EntidadFuncional.RespuestaMuroFuncional>();
                     if (respuestaMuro != null && respuestaMuro.Count > 0)
@@ -164,13 +168,17 @@ namespace WebApi.AsambleasDos.Controllers
                             muroF.VisibleEliminar = false;
                         string fechita = VCFramework.NegocioMySQL.Utiles.DiferenciaFechas(DateTime.Now, entidad.FechaCreacion);
                         muroF.FechaString = fechita;
-                        
+                        //archivos adjuntos **********************************************************
+                        muroF.ArchivosAdjuntos = new List<ArchivoAdjunto>();
+                        muroF.ArchivosAdjuntos = VCFramework.NegocioMySql.ArchivoAdjunto.Listar(muroF.InstId, muroF.Id, 1);
+                        //****************************************************************************
+
                         List<VCFramework.Entidad.RespuestaMuro> respuestaMuro = VCFramework.NegocioMySql.RespuestaMuro.ObtenerRespuestaMuroPorMuroId(entidad.Id);
                         muroF.RespuestaMuro = new List<VCFramework.EntidadFuncional.RespuestaMuroFuncional>();
                         if (respuestaMuro != null && respuestaMuro.Count > 0)
                         {
                             respuestaMuro = respuestaMuro.FindAll(p => p.Eliminado == 0);
-                            foreach(VCFramework.Entidad.RespuestaMuro resp in respuestaMuro)
+                            foreach (VCFramework.Entidad.RespuestaMuro resp in respuestaMuro)
                             {
                                 VCFramework.EntidadFuncional.RespuestaMuroFuncional respF = new VCFramework.EntidadFuncional.RespuestaMuroFuncional();
                                 respF.Eliminado = resp.Eliminado;
@@ -230,29 +238,51 @@ namespace WebApi.AsambleasDos.Controllers
         [System.Web.Http.AcceptVerbs("DELETE")]
         public HttpResponseMessage Delete(dynamic DynamicClass)
         {
-
-            string Input = JsonConvert.SerializeObject(DynamicClass);
-
-            dynamic data = JObject.Parse(Input);
-
-            //validaciones antes de ejecutar la llamada.
-            if (data.Id == 0)
-                throw new ArgumentNullException("Id");
-
-            string esCpasStr = "false";
-            bool esCpas = false;
-            if (data.EsCpas != null)
+            //Request.RequestUri.Query.Split(new Char[] {'?', '&'})
+            string idElementoEliminar = "0";
+            //ahora manejamos si bienen elementos en el request
+            if (Request.RequestUri != null)
             {
-                esCpasStr = data.EsCpas;
-                esCpas = Convert.ToBoolean(esCpasStr);
+                if (Request.RequestUri.Query != null && Request.RequestUri.Query.Length > 0)
+                {
+                    string[] element = Request.RequestUri.Query.Split(new Char[] { '?', '&' });
+                    if (element != null && element.Length > 0)
+                    {
+                        //1 = id, 2= escpas
+                        string[] parts = element[1].Split('=');
+                        if (parts.Length == 2)
+                        {
+                            idElementoEliminar = parts[1];
+                        }
+                    }
+                }
             }
+            bool esCpas = false;
+            if (DynamicClass != null)
+            {
+                string Input = JsonConvert.SerializeObject(DynamicClass);
 
+                dynamic data = JObject.Parse(Input);
+
+                //validaciones antes de ejecutar la llamada.
+                if (data.Id == 0)
+                    throw new ArgumentNullException("Id");
+
+                string esCpasStr = "false";
+                idElementoEliminar = data.Id;
+
+                if (data.EsCpas != null)
+                {
+                    esCpasStr = data.EsCpas;
+                    esCpas = Convert.ToBoolean(esCpasStr);
+                }
+            }
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
             try
             {
-                string idInstitucion = data.Id;
+                string idInstitucion = idElementoEliminar;
                 int idInstitucionBuscar = int.Parse(idInstitucion);
                 VCFramework.Entidad.Muro inst = VCFramework.NegocioMySql.Muro.ObtenerMuroPorId(idInstitucionBuscar);
 
@@ -260,14 +290,27 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     inst.Eliminado = 1;
 
-                    VCFramework.NegocioMySql.Muro.Modificar(inst);
+                    VCFramework.NegocioMySql.Muro.Eliminar(inst);
+                    //se modifica para eliminar tambien las imagenes adjuntas
+                    List<VCFramework.Entidad.ArchivoAdjunto> archivos = VCFramework.NegocioMySql.ArchivoAdjunto.Listar(inst.InstId, inst.Id, 1);
+                    if (archivos != null && archivos.Count > 0)
+                    {
+                        foreach (VCFramework.Entidad.ArchivoAdjunto arc in archivos)
+                        {
+                            VCFramework.NegocioMySql.ArchivoAdjunto.Eliminar(arc);
+                        }
+                    }
+
                     List<VCFramework.Entidad.RespuestaMuro> respuestas = VCFramework.NegocioMySql.RespuestaMuro.ObtenerRespuestaMuroPorMuroId(inst.Id);
                     if (respuestas != null && respuestas.Count > 0)
                     {
-                        foreach(VCFramework.Entidad.RespuestaMuro resp in respuestas)
+                        foreach (VCFramework.Entidad.RespuestaMuro resp in respuestas)
                         {
+
+
                             resp.Eliminado = 1;
                             VCFramework.NegocioMySql.RespuestaMuro.Eliminar(resp);
+
 
                             List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(inst.InstId);
                             List<string> listaCorreos = new List<string>();
@@ -372,6 +415,7 @@ namespace WebApi.AsambleasDos.Controllers
                     if (aus.Id == 0)
                     {
                         nuevoId = VCFramework.NegocioMySql.Muro.Insertar(aus);
+                        aus.Id = nuevoId;
                         List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
                         List<string> listaCorreos = new List<string>();
                         if (correos != null && correos.Count > 0)

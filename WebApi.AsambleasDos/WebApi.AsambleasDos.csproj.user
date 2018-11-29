@@ -4,6 +4,11 @@
     <UseIISExpress>true</UseIISExpress>
     <NameOfLastUsedPublishProfile>localdos</NameOfLastUsedPublishProfile>
     <IISExpressSSLPort>44334</IISExpressSSLPort>
+    <Use64BitIISExpress />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

@@ -17,3 +17,9 @@ Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
 Z:\Escritorio\proyectos\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
+F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
+F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csproj.CoreCompileInputs.cache
+F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
+F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
