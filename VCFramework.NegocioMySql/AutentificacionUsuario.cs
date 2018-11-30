@@ -360,6 +360,8 @@ namespace VCFramework.NegocioMySQL
                     env.OtroCinco = direccion;
                     env.OtroCuatro = us.Persona.Rut;
                     env.OtroSeis = us.RolInstitucion.Id.ToString();
+                    //nuevos campos para app
+                    env.OtroSiete = us.Institucion.Id.ToString();
 
                     env.Url = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=0"; ;
                     env.UrlEliminar = "crearModificarUsuario.html?idUsuario=" + env.Id.ToString() + "&ELIMINADO=1";
