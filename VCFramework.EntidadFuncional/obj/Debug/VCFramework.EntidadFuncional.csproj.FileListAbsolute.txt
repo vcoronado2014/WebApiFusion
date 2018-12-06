@@ -62,3 +62,12 @@ F:\servidor_cpas\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework
 F:\servidor_cpas\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csproj.CoreCompileInputs.cache
 F:\servidor_cpas\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
 F:\servidor_cpas\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.dll
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.pdb
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.dll
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.pdb
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojAssemblyReference.cache
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csproj.CoreCompileInputs.cache
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csproj.CopyComplete
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
+D:\impacto2v\WebApiFusion\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb

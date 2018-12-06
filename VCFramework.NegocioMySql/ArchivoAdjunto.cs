@@ -69,6 +69,33 @@ namespace VCFramework.NegocioMySql
 
             return lista2;
         }
+        public static VCFramework.Entidad.ArchivoAdjunto BuscarPorIdElemento(int idElemento)
+        {
+            VCFramework.Entidad.ArchivoAdjunto entidad = new Entidad.ArchivoAdjunto();
+            List<VCFramework.Entidad.ArchivoAdjunto> archivos = new List<Entidad.ArchivoAdjunto>();
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            List<FiltroGenerico> filtros = new List<FiltroGenerico>();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "ELEMENTO_ID";
+            filtro.Valor = idElemento.ToString();
+            filtro.TipoDato = TipoDatoGeneral.Entero;
+
+            filtros.Add(filtro);
+
+            List<object> lista = fac.Leer<VCFramework.Entidad.ArchivoAdjunto>(filtros, setCnsWebLun);
+            List<VCFramework.Entidad.ArchivoAdjunto> lista2 = new List<VCFramework.Entidad.ArchivoAdjunto>();
+            if (lista != null)
+            {
+
+                archivos = lista.Cast<VCFramework.Entidad.ArchivoAdjunto>().ToList();
+            }
+            if (archivos != null && archivos.Count == 1)
+            {
+                entidad = archivos[0];
+            }
+
+            return entidad;
+        }
         public static VCFramework.Entidad.ArchivoAdjunto BuscarPorId(int id)
         {
             VCFramework.Entidad.ArchivoAdjunto entidad = new Entidad.ArchivoAdjunto();

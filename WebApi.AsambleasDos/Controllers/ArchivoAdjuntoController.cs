@@ -61,7 +61,7 @@ namespace WebApi.AsambleasDos.Controllers
                 }
                 if (esNuevo == false)
                 {
-                    entidad = VCFramework.NegocioMySql.ArchivoAdjunto.BuscarPorId(idBuscar);
+                    entidad = VCFramework.NegocioMySql.ArchivoAdjunto.BuscarPorIdElemento(int.Parse(idElemento));
                     if (entidad != null && entidad.Id > 0)
                     {
                         guardarArchivo = true;

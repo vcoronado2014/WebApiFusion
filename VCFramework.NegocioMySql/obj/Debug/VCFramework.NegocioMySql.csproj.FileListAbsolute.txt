@@ -107,3 +107,17 @@ F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.Neg
 F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csproj.CoreCompileInputs.cache
 F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
 F:\servidor_cpas\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.dll
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.NegocioMySql.pdb
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.dll
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.dll
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.dll
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Negocio.Factory.dll
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.pdb
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\VCFramework.Entidad.pdb
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\bin\Debug\Newtonsoft.Json.xml
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojAssemblyReference.cache
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csproj.CoreCompileInputs.cache
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csproj.CopyComplete
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
+D:\impacto2v\WebApiFusion\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb

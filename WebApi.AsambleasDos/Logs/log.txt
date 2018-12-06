@@ -557,4 +557,10 @@
     <Detalle>Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)</Detalle>
     <Id>78</Id>
   </error>
+  <error>
+    <Fecha>2018-12-04 22:15</Fecha>
+    <Detalle>Cannot open database "DB_9DAC90_cpas" requested by the login. The login failed.
+Login failed for user 'sa'.</Detalle>
+    <Id>79</Id>
+  </error>
 </root>
