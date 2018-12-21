@@ -23,3 +23,9 @@ F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entida
 F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csproj.CoreCompileInputs.cache
 F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
 F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
+D:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.dll
+D:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
+D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojAssemblyReference.cache
+D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csproj.CoreCompileInputs.cache
+D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
+D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
