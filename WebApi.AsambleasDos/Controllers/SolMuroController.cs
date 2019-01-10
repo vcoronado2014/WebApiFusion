@@ -175,7 +175,12 @@ namespace WebApi.AsambleasDos.Controllers
                         muroF.UrlImagen = entidad.UrlImagen;
                         muroF.UsuId = entidad.UsuId;
                         //muroF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(entidad.UsuId).NombreUsuario;
-                        muroF.NombreUsuario = persona.Nombres + ' ' + persona.ApellidoPaterno;
+                        int idUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(muroF.UsuId).Id;
+                        VCFramework.Entidad.Persona personaUsu = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(idUsuario);
+                        muroF.NombreUsuario = personaUsu.Nombres + ' ' + personaUsu.ApellidoPaterno;
+                        //*******************************************************************************************************************
+
+                        //muroF.NombreUsuario = persona.Nombres + ' ' + persona.ApellidoPaterno;
                         //*******************************************************************************************************************
                         muroF.NombreRol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(entidad.RolId).Nombre;
                         muroF.VisibleEliminar = true;
@@ -203,8 +208,8 @@ namespace WebApi.AsambleasDos.Controllers
                                 respF.UrlImagen = resp.UrlImagen;
                                 respF.UsuId = resp.UsuId;
                                 //respF.NombreUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(resp.UsuId).NombreUsuario;
-                                int idUsuario = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(respF.UsuId).Id;
-                                VCFramework.Entidad.Persona personaF = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(idUsuario);
+                                int idUsuarioUsu = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuario(respF.UsuId).Id;
+                                VCFramework.Entidad.Persona personaF = VCFramework.NegocioMySQL.Persona.ObtenerPersonaPorUsuId(idUsuarioUsu);
                                 respF.NombreUsuario = personaF.Nombres + ' ' + personaF.ApellidoPaterno;
                                 //*******************************************************************************************************************
                                 respF.NombreRol = VCFramework.NegocioMySql.RolInstitucion.ObtenerRolPorId(resp.RolId).Nombre;
