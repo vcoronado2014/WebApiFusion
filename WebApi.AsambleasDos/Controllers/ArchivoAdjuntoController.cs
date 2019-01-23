@@ -64,11 +64,37 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad = VCFramework.NegocioMySql.ArchivoAdjunto.BuscarPorIdElemento(int.Parse(idElemento));
                     if (entidad != null && entidad.Id > 0)
                     {
-                        guardarArchivo = true;
-                        entidad.NombreArchivo = archivoGuardar;
-                        nuevoId = entidad.Id;
-                        VCFramework.NegocioMySql.ArchivoAdjunto.Actualizar(entidad);
+                        //aca debemos determinar si el archivo se inserta o modifica
+                        if (entidad.NombreArchivo == httpPostedFile.FileName)
+                        {
+                            guardarArchivo = true;
+                            entidad.NombreArchivo = archivoGuardar;
+                            nuevoId = entidad.Id;
+                            VCFramework.NegocioMySql.ArchivoAdjunto.Actualizar(entidad);
+                        }
+                        else
+                        {
+                            guardarArchivo = true;
+                            entidad.ElementoId = int.Parse(idElemento);
+                            entidad.InstId = int.Parse(instId);
+                            entidad.NombreArchivo = archivoGuardar;
+                            entidad.NombreCarpeta = nombreCarpeta;
+                            entidad.TipoPadre = int.Parse(tipoPadre);
+                            nuevoId = VCFramework.NegocioMySql.ArchivoAdjunto.Insertar(entidad);
+                            entidad.Id = nuevoId;
+                        }
 
+                    }
+                    else
+                    {
+                        guardarArchivo = true;
+                        entidad.ElementoId = int.Parse(idElemento);
+                        entidad.InstId = int.Parse(instId);
+                        entidad.NombreArchivo = archivoGuardar;
+                        entidad.NombreCarpeta = nombreCarpeta;
+                        entidad.TipoPadre = int.Parse(tipoPadre);
+                        nuevoId = VCFramework.NegocioMySql.ArchivoAdjunto.Insertar(entidad);
+                        entidad.Id = nuevoId;
                     }
                 }
                 else
@@ -117,6 +143,50 @@ namespace WebApi.AsambleasDos.Controllers
             }
 
             return httpResponse;
+        }
+
+        [System.Web.Http.AcceptVerbs("DELETE")]
+        public HttpResponseMessage Delete([FromUri]string Id)
+        {
+
+            //string Input = JsonConvert.SerializeObject(DynamicClass);
+
+            //dynamic data = JObject.Parse(Input);
+
+            //validaciones antes de ejecutar la llamada.
+            if (Id == "")
+                throw new ArgumentNullException("Id");
+
+
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
+
+            try
+            {
+                string id = Id;
+                int idInt = int.Parse(id);
+                VCFramework.Entidad.ArchivoAdjunto archivo = VCFramework.NegocioMySql.ArchivoAdjunto.BuscarPorId(idInt);
+
+                if (archivo != null && archivo.Id > 0)
+                {
+
+                    VCFramework.NegocioMySql.ArchivoAdjunto.Eliminar(archivo);
+
+                    httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
+                    String JSON = JsonConvert.SerializeObject(archivo);
+                    httpResponse.Content = new StringContent(JSON);
+                    httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
+                throw ex;
+            }
+            return httpResponse;
+
         }
 
         public static string ResizeImage(string strImgPath, string strImgOutputPath, int iWidth, int iHeight)

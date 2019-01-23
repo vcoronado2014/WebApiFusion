@@ -44,6 +44,7 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     foreach (VCFramework.Entidad.ArchivosProyecto tri in archivos)
                     {
+                        //string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/apps/RepositorioProyecto/";
                         string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/apps/RepositorioProyecto/";
 
                         VCFramework.EntidadFuncional.UsuarioEnvoltorio us = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
@@ -145,7 +146,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                     #endregion
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/RepositorioProyecto"), httpPostedFile.FileName);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/RepositorioProyecto"), httpPostedFile.FileName);
 
                     httpPostedFile.SaveAs(fileSavePath);
                 }

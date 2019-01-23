@@ -39,7 +39,6 @@ F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.
 F:\servidor_cpas\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
-D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojAssemblyReference.cache
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csproj.CoreCompileInputs.cache
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb

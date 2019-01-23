@@ -35,6 +35,7 @@ namespace WebApi.AsambleasDos.Controllers
                 var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
                 string usuId = HttpContext.Current.Request.Form["UsuId"];
                 string instId = HttpContext.Current.Request.Form["InstId"];
+                string descripcion = HttpContext.Current.Request.Form["Descripcion"];
                 bool esCpas = false;
                 if (HttpContext.Current.Request.Form["EsCpas"] != null)
                     esCpas = Convert.ToBoolean(HttpContext.Current.Request.Form["EsCpas"]);
@@ -92,6 +93,8 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.Tamano = int.Parse(sizeInKilobytes.ToString());
                     entidad.UsuId = int.Parse(usuId);
                     entidad.Url = "";
+                    entidad.Descripcion = descripcion;
+                    
                     VCFramework.NegocioMySQL.DocumentosUsuario.Insertar(entidad);
 
                     List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(entidad.InstId);
@@ -118,7 +121,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                     #endregion
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/Repositorio"), httpPostedFile.FileName);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), httpPostedFile.FileName);
 
                     httpPostedFile.SaveAs(fileSavePath);
                 }
@@ -149,6 +152,8 @@ namespace WebApi.AsambleasDos.Controllers
                         //vista previa del archivo
                         string urlVista = "http://docs.google.com/viewer?url=" + entidadS.Url + " &embedded=true";
                         entidadS.OtroDos = urlVista;
+                        if (doc.Descripcion != null)
+                            entidadS.OtroCinco = doc.Descripcion;
 
                         documentosE.proposals.Add(entidadS);
                     }
@@ -194,7 +199,7 @@ namespace WebApi.AsambleasDos.Controllers
                     documento.Eliminado = 1;
                     VCFramework.NegocioMySQL.DocumentosUsuario.Modificar(documento);
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/Repositorio"), documento.NombreArchivo);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), documento.NombreArchivo);
 
                     if (File.Exists(fileSavePath))
                         File.Delete(fileSavePath);

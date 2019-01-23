@@ -147,7 +147,7 @@ namespace WebApi.AsambleasDos.Controllers
 
                     #endregion
 
-                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/apps/Repositorio"), httpPostedFile.FileName);
+                    var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Repositorio"), httpPostedFile.FileName);
 
                     httpPostedFile.SaveAs(fileSavePath);
                 }
@@ -182,7 +182,8 @@ namespace WebApi.AsambleasDos.Controllers
                         //vista previa del archivo
                         string urlVista = "http://docs.google.com/viewer?url=" + entidadS.Url + " &embedded=true";
                         entidadS.OtroDos = urlVista;
-
+                        if (doc.Descripcion != null)
+                            entidadS.OtroCinco = doc.Descripcion;
 
                         entidadS.UrlEliminar = "EliminarDocumento.html?id=" + entidadS.Id.ToString() + "&tipo=documentousuario";
 
