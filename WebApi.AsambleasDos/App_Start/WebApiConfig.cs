@@ -531,6 +531,17 @@ namespace WebApi.AsambleasDos
             );
             #endregion
 
+            #region  Archivo
+            config.Routes.MapHttpRoute(
+                name: "Archivo",
+                routeTemplate: "api/Archivo",
+                defaults: new
+                {
+                    controller = "Archivo"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

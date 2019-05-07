@@ -218,6 +218,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AgendaExceptionFilter.cs" />
     <Compile Include="Controllers\ArchivoAdjuntoController.cs" />
+    <Compile Include="Controllers\ArchivoController.cs" />
     <Compile Include="Controllers\ArchivoProyectoController.cs" />
     <Compile Include="Controllers\ArchivoTricelController.cs" />
     <Compile Include="Controllers\ArticuloController.cs" />

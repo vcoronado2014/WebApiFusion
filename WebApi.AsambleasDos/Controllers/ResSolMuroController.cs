@@ -193,7 +193,10 @@ namespace WebApi.AsambleasDos.Controllers
                     aus.UsuId = int.Parse(usuId);
 
                     if (aus.Id == 0)
+                    {
                         nuevoId = VCFramework.NegocioMySql.ResSolmuro.Insertar(aus);
+                        aus.Id = nuevoId;
+                    }
                     else
                     {
                         nuevoId = aus.Id;

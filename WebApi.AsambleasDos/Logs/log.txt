@@ -563,4 +563,17 @@
 Login failed for user 'sa'.</Detalle>
     <Id>79</Id>
   </error>
+  <error>
+    <Fecha>2019-04-17 15:36</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;titulo desde la app 444&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en ubicación desde la app 444 entre 04-18-2019 4:30 - 04-18-2019 5:30, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>80</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-17 15:41</Fecha>
+    <Detalle>No se pueden enviar todos los destinatarios.</Detalle>
+    <Id>81</Id>
+  </error>
 </root>

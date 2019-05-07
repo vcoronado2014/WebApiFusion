@@ -398,6 +398,7 @@ namespace WebApi.AsambleasDos.Controllers
                     if (aus.Id == 0)
                     {
                         nuevoId = VCFramework.NegocioMySql.SolMuro.Insertar(aus);
+                        aus.Id = nuevoId;
                         List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
                         List<string> listaCorreos = new List<string>();
                         if (correos != null && correos.Count > 0)
