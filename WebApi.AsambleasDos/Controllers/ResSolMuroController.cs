@@ -202,6 +202,13 @@ namespace WebApi.AsambleasDos.Controllers
                         nuevoId = aus.Id;
                         VCFramework.NegocioMySql.ResSolmuro.Modificar(aus);
                     }
+                    //ahora debemos actualizar la fecha de creacion de solmuro para que quede primero en la lista
+                    VCFramework.Entidad.SolMuro solMuro = VCFramework.NegocioMySql.SolMuro.ObtenerMuroPorId(aus.MroId);
+                    if (solMuro != null && solMuro.Id > 0)
+                    {
+                        solMuro.FechaCreacion = DateTime.Now;
+                        VCFramework.NegocioMySql.SolMuro.Modificar(solMuro);
+                    }
 
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
