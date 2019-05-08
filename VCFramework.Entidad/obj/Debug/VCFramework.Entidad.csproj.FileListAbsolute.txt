@@ -42,3 +42,15 @@ D:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csproj.CoreCompileInputs.cache
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 D:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+F:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+F:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+F:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojAssemblyReference.cache
+F:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csproj.CoreCompileInputs.cache
+F:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+F:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+W:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+W:\impacto2v\WebApiFusion\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+W:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojAssemblyReference.cache
+W:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csproj.CoreCompileInputs.cache
+W:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+W:\impacto2v\WebApiFusion\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb

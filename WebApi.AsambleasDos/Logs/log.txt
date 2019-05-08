@@ -563,4 +563,365 @@
 Login failed for user 'sa'.</Detalle>
     <Id>79</Id>
   </error>
+  <error>
+    <Fecha>2019-04-13 23:29</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Estimado Usuario, ha sido agregada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Ingreso: &lt;strong&gt;$10.000&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>80</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-13 23:35</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>81</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 00:55</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Estimado Usuario, ha sido agregada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Ingreso: &lt;strong&gt;$15.000&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>82</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 00:01</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>83</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 00:52</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Estimado Usuario, ha sido agregada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Ingreso: &lt;strong&gt;$12.000&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>84</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 00:53</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>85</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 00:24</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Estimado Usuario, ha sido agregada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Egreso: &lt;strong&gt;$15.000&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>86</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 00:30</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>87</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 21:52</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Estimado Usuario, ha sido modificada una rendición para &lt;strong&gt;Asambleas&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Ingreso: &lt;strong&gt;$124.859&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+      Te invitamos a ingresar a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      Saludos.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>88</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-14 21:59</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>89</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-17 22:00</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido eliminado el evento  &lt;strong&gt;&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido eliminado un evento para su institución, este tendría lugar en sala app entre 04-18-2019 6:54 - 04-18-2019 8:54, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>90</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-17 22:07</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>91</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:02</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;prueba titulo&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en ubicacion app entre 04-22-2019 1:00 - 04-22-2019 2:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>92</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:08</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>93</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:38</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;prueba titulo&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en ubicacion app entre 04-22-2019 12:00 - 04-22-2019 14:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>94</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:44</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>95</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:28</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;otra prueba de app&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en sala de reuniones 1 entre 04-22-2019 15:00 - 04-22-2019 16:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>96</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:34</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>97</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:44</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;seguimos probando&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en sala 2 entre 04-23-2019 11:00 - 04-23-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>98</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 20:46</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>99</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 22:35</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;Otra prueba de titulo&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en ubicacion app entre 04-24-2019 2:00 - 04-24-2019 4:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>100</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 22:41</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>101</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 22:49</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido eliminado el evento  &lt;strong&gt;&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido eliminado un evento para su institución, este tendría lugar en ubicacion app entre 04-24-2019 2:00 - 04-24-2019 4:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>102</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 22:50</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>103</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 22:08</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;seguimos probando otra&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en sala 2 entre 04-23-2019 11:00 - 04-23-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>104</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 22:09</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>105</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 23:42</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;Otra prueba&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en ubicacion app entre 04-24-2019 9:00 - 04-24-2019 10:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>106</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 23:44</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>107</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 23:49</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;Once conmemorativa&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sede del condocminio entre 04-19-2019 18:00 - 04-19-2019 21:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>108</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 23:55</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>109</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 23:00</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;Desayuno&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Comedor entre 04-19-2019 10:00 - 04-19-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>110</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-18 23:02</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>111</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:56</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;Prueba de nueva app&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sala 3 entre 04-26-2019 10:00 - 04-26-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>112</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:02</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>113</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:31</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Prueba de nueva app&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sala 2 entre 04-26-2019 10:00 - 04-26-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>114</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:33</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>115</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:07</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Prueba de nueva app 2&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sala 2 entre 04-26-2019 10:00 - 04-26-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>116</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:08</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>117</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:43</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Prueba de nueva app&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sala 3 entre 04-26-2019 10:00 - 04-26-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>118</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:48</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>119</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:34</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Prueba de nueva app&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sala 3 entre 04-26-2019 10:00 - 04-26-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>120</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:35</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>121</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:28</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Otra prueba&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en ubicacion app entre 04-24-2019 9:00 - 04-24-2019 10:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>122</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:29</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>123</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:59</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Otra prueba&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en ubicacion app entre 04-24-2019 9:00 - 04-24-2019 10:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>124</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 00:05</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>125</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 01:01</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Prueba de nueva app&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sala 3 entre 04-26-2019 10:00 - 04-26-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>126</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 01:07</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>127</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 01:43</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;Prueba de nueva app&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en Sala 3 entre 04-26-2019 10:00 - 04-26-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>128</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-20 01:44</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>129</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-21 18:14</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Se ha agregado el evento  &lt;strong&gt;prueba 5&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en sala 4 entre 04-30-2019 11:00 - 04-30-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>130</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-21 18:20</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>131</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-21 18:52</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;seguimos probando otra&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en sala 2 entre 04-23-2019 11:00 - 04-23-2019 12:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>132</Id>
+  </error>
+  <error>
+    <Fecha>2019-04-21 18:53</Fecha>
+    <Detalle>Error en la transacción. La respuesta del servidor fue: Sending address not accepted due to spam filter</Detalle>
+    <Id>133</Id>
+  </error>
 </root>
