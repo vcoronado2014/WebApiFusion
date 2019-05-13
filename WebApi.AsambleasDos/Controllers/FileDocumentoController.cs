@@ -161,6 +161,8 @@ namespace WebApi.AsambleasDos.Controllers
 
                 if (documentos != null && documentos.Count > 0)
                 {
+                    documentos = documentos.OrderByDescending(p => p.Id).ToList();
+                    //documentos = documentos.OrderByDescending(p => p.FechaSubida).ToList();
                     foreach (VCFramework.Entidad.DocumentosUsuario doc in documentos)
                     {
                         VCFramework.EntidadFuncional.UsuarioEnvoltorio entidadS = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
