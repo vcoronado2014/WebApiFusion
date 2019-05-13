@@ -22,6 +22,7 @@ namespace WebApi.AsambleasDos.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class RendicionController : ApiController
     {
+        //public const API_KEY = "AAAAEwx3cpU:APA91bHW9kPcdJPdSvmp44doTZEQNKAu9ANVvZEImaj5CWEF8yAIb-1VmP2llkQURCMFc9Fst8NHICpOdAOLOOWzAHnL2ARlC2x4i3-K4IrZLUHWK7YNVLriMKOQHTY2TwjNkEHX6Ktq";
         [AcceptVerbs("OPTIONS")]
         public void Options()
         { }
@@ -131,6 +132,24 @@ namespace WebApi.AsambleasDos.Controllers
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
                     }
+                    //ahora generamos la llamada a push
+                    #region llamada push
+
+                    FireBasePush push = new FireBasePush(VCFramework.NegocioMySQL.Utiles.GetApiFirebase());
+                    PushMessage mensaje = new PushMessage();
+                    //aca hay que traer los ids de los telefonos
+                    string ids = VCFramework.NegocioMySql.TokenUsuario.Listar().ToString();
+                    mensaje.to = ids;
+                    mensaje.notification = new PushMessageData();
+                    mensaje.notification.title = "Eliminación de Rendición";
+                    mensaje.notification.text = "Ha sido eliminada una Rendición del Sistema";
+                    mensaje.data = new
+                    {
+                        Datos = inst
+                    };
+                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => push.SendPush(mensaje));
+                    #endregion
+
 
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
                     String JSON = JsonConvert.SerializeObject(inst);

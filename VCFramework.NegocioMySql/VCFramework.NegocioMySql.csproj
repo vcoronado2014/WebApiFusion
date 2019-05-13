@@ -93,6 +93,7 @@
     <Compile Include="ServidorCorreo.cs" />
     <Compile Include="Slide.cs" />
     <Compile Include="SolMuro.cs" />
+    <Compile Include="TokenUsuario.cs" />
     <Compile Include="Tricel.cs" />
     <Compile Include="UsuarioLista.cs" />
     <Compile Include="Utiles.cs" />

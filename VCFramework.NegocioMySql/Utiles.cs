@@ -521,6 +521,10 @@ namespace VCFramework.NegocioMySQL
             return sms;
 
         }
+        public static string GetApiFirebase()
+        {
+            return "AAAAEwx3cpU:APA91bHW9kPcdJPdSvmp44doTZEQNKAu9ANVvZEImaj5CWEF8yAIb-1VmP2llkQURCMFc9Fst8NHICpOdAOLOOWzAHnL2ARlC2x4i3-K4IrZLUHWK7YNVLriMKOQHTY2TwjNkEHX6Ktq";
+        }
 
         public static System.Net.Mail.MailMessage ConstruyeMensajeEvento(int instId, string nombreInstitucion, string nombreTricel, string ubicacion, string fechaInicioTermino, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
         {

@@ -233,6 +233,7 @@
     <Compile Include="Controllers\FileDocumentoController.cs" />
     <Compile Include="Controllers\FileExcelController.cs" />
     <Compile Include="Controllers\FileNuevoController.cs" />
+    <Compile Include="Controllers\FirebaseController.cs" />
     <Compile Include="Controllers\GraficoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Controllers\PermisoRolController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\PushController.cs" />
     <Compile Include="Controllers\RecuperarClaveController.cs" />
     <Compile Include="Controllers\RendicionController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
@@ -269,6 +271,7 @@
     <Compile Include="Controllers\VotacionController.cs" />
     <Compile Include="Controllers\VotarProyectoController.cs" />
     <Compile Include="Controllers\VotarTricelController.cs" />
+    <Compile Include="FireBasePush.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

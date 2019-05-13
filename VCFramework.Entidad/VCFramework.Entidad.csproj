@@ -80,6 +80,7 @@
     <Compile Include="ResSolmuro.cs" />
     <Compile Include="RlAccFunUsu.cs" />
     <Compile Include="SolMuro.cs" />
+    <Compile Include="TokenUsuario.cs" />
     <Compile Include="UsuRol.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="RolInstitucion.cs" />
