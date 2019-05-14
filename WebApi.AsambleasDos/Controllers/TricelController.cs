@@ -150,6 +150,9 @@ namespace WebApi.AsambleasDos.Controllers
                         tricel.Nombre = nombre;
                         tricel.Objetivo = objetivo;
                         VCFramework.NegocioMySQL.Tricel.Modificar(tricel);
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(tricel), "Tricel", "Se ha modificado un Tricel", false, tricel.InstId, TipoOperacionPush.ModificaTricel));
+                        #endregion
                         //ahora actualizamos las listas
                         List<VCFramework.Entidad.ListaTricel> listas = VCFramework.NegocioMySQL.ListaTricel.ObtenerListaTricelPorTricelId(tricel.Id);
                         if (listas != null && listas.Count > 0)
@@ -235,6 +238,9 @@ namespace WebApi.AsambleasDos.Controllers
                     tricel.UsuIdCreador = int.Parse(usuId);
                     tricel.FechaCreacion = DateTime.Now;
                     tricel.Id = VCFramework.NegocioMySQL.Tricel.Insertar(tricel);
+                    #region llamada push
+                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(tricel), "Tricel", "Se ha creado un nuevo Tricel", false, tricel.InstId, TipoOperacionPush.CreaTricel));
+                    #endregion
                     #region manejo del evento
                     //ojo acá, hay que modificar el evento también
                     //para este caso vamos a utilizar el tipo 3 que será Tricel

@@ -129,12 +129,18 @@ namespace WebApi.AsambleasDos.Controllers
                                 var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
                             }
                         }
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(entidad), "Rendición", "Ha sido creada una rendición", false, entidad.InstId, TipoOperacionPush.CreaRendicion));
+                        #endregion
                     }
                     else
                     {
                         nuevoId = aus.Id;
                         entidad.Id = nuevoId;
                         VCFramework.NegocioMySQL.IngresoEgreso.Modificar(entidad);
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(entidad), "Rendición", "Ha sido modificada una rendición", false, entidad.InstId, TipoOperacionPush.ModificaRendicion));
+                        #endregion
                         List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(entidad.InstId);
                         List<string> listaCorreos = new List<string>();
                         if (correos != null && correos.Count > 0)

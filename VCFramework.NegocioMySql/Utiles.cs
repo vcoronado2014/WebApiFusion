@@ -7,7 +7,8 @@ using System.Xml;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Drawing;
-
+using VCFramework.NegocioMySql;
+using VCFramework.Entidad;
 
 namespace VCFramework.NegocioMySQL
 {
@@ -524,6 +525,231 @@ namespace VCFramework.NegocioMySQL
         public static string GetApiFirebase()
         {
             return "AAAAEwx3cpU:APA91bHW9kPcdJPdSvmp44doTZEQNKAu9ANVvZEImaj5CWEF8yAIb-1VmP2llkQURCMFc9Fst8NHICpOdAOLOOWzAHnL2ARlC2x4i3-K4IrZLUHWK7YNVLriMKOQHTY2TwjNkEHX6Ktq";
+        }
+        public static List<string> ObtenerListaTokens()
+        {
+            List<string> listaStr = new List<string>();
+            List<VCFramework.Entidad.TokenUsuario> tokens = VCFramework.NegocioMySql.TokenUsuario.Listar();
+
+            if (tokens != null && tokens.Count > 0)
+            {
+                foreach (VCFramework.Entidad.TokenUsuario tok in tokens)
+                {
+                    listaStr.Add(tok.Token);
+                }
+            }
+            return listaStr;
+        }
+        public static List<string> ObtenerListaTokens(int instId)
+        {
+            List<string> listaStr = new List<string>();
+            List<VCFramework.Entidad.TokenUsuario> tokens = VCFramework.NegocioMySql.TokenUsuario.Listar(instId);
+
+            if (tokens != null && tokens.Count > 0)
+            {
+                foreach (VCFramework.Entidad.TokenUsuario tok in tokens)
+                {
+                    listaStr.Add(tok.Token);
+                }
+            }
+            return listaStr;
+        }
+        public static dynamic EnviarMensajePush(string token, string jsonData, string titulo, string texto, bool esDirigido, int instId, TipoOperacionPush operacion)
+        {
+            bool envia = false;
+            //antes debemos validar si envía el mensaje o no
+            List<VCFramework.Entidad.Mailing> mailing = VCFramework.NegocioMySql.Mailing.ObtenerMailingPorInstId(instId);
+            if (mailing != null && mailing.Count == 1)
+            {
+                VCFramework.Entidad.Mailing permiso = mailing[0];
+                switch (operacion)
+                {
+                    case TipoOperacionPush.CreaCalendario:
+                        if (permiso.CreaCalendario == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaDocumento:
+                        if (permiso.CreaDocumento == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaInstitucion:
+                        if (permiso.CreaInstitucion == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaMuro:
+                        if (permiso.CreaMuro == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaProyecto:
+                        if (permiso.CreaProyecto == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaRendicion:
+                        if (permiso.CreaRendicion == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaRol:
+                        if (permiso.CreaRol == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaTricel:
+                        if (permiso.CreaTricel == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.CreaUsuario:
+                        if (permiso.CreaUsuario == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaCalendario:
+                        if (permiso.EliminaCalendario == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaDocumento:
+                        if (permiso.EliminaDocumento == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaInstitucion:
+                        if (permiso.EliminaInstitucion == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaMuro:
+                        if (permiso.EliminaMuro == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaProyecto:
+                        if (permiso.EliminaProyecto == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaRendicion:
+                        if (permiso.EliminaRendicion == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaRol:
+                        if (permiso.EliminaRol == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaTricel:
+                        if (permiso.EliminaTricel == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.EliminaUsuario:
+                        if (permiso.EliminaUsuario == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaCalendario:
+                        if (permiso.ModificaCalendario == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaInstitucion:
+                        if (permiso.ModificaInstitucion == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaMuro:
+                        if (permiso.ModificaMuro == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaProyecto:
+                        if (permiso.ModificaProyecto == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaRendicion:
+                        if (permiso.ModificaRendicion == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaRol:
+                        if (permiso.ModificaRol == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaTricel:
+                        if (permiso.ModificaTricel == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    case TipoOperacionPush.ModificaUsuario:
+                        if (permiso.ModificaUsuario == 1)
+                        {
+                            envia = true;
+                        }
+                        break;
+                    default:
+                        envia = false;
+                        break;
+                }
+            }
+
+            dynamic logs = null;
+            if (envia)
+            {
+                FireBasePush push = new FireBasePush(GetApiFirebase());
+                PushMessage mensaje = new PushMessage();
+                if (esDirigido)
+                {
+                    mensaje.to = token;
+                }
+                else
+                {
+                    mensaje.registration_ids = VCFramework.NegocioMySQL.Utiles.ObtenerListaTokens(instId);
+                }
+                mensaje.notification = new PushMessageData();
+                mensaje.notification.title = titulo;
+                mensaje.notification.text = texto;
+                mensaje.data = new
+                {
+                    Datos = jsonData
+                };
+                //enviamos
+                logs = push.SendPush(mensaje);
+            }
+            return logs;
         }
 
         public static System.Net.Mail.MailMessage ConstruyeMensajeEvento(int instId, string nombreInstitucion, string nombreTricel, string ubicacion, string fechaInicioTermino, List<string> correos, bool esNuevo, bool esModificado, bool esEliminado, bool esCpas)
@@ -2050,5 +2276,35 @@ namespace VCFramework.NegocioMySQL
             }
             return validacion;
         }
+    }
+    public enum TipoOperacionPush
+    {
+        CreaUsuario = 1,
+        ModificaUsuario = 2,
+        EliminaUsuario = 3,
+        CreaInstitucion = 4,
+        ModificaInstitucion = 5,
+        EliminaInstitucion = 6,
+        CreaDocumento = 7,
+        EliminaDocumento = 8,
+        CreaCalendario = 9,
+        ModificaCalendario = 10,
+        EliminaCalendario = 11,
+        CreaTricel = 12,
+        ModificaTricel = 13,
+        EliminaTricel = 14,
+        CreaProyecto = 15,
+        ModificaProyecto = 16,
+        EliminaProyecto = 17,
+        CreaRendicion = 18,
+        ModificaRendicion = 19,
+        EliminaRendicion = 20,
+        CreaRol = 21,
+        ModificaRol = 22,
+        EliminaRol = 23,
+        CreaMuro = 24,
+        ModificaMuro = 25,
+        EliminaMuro = 26
+
     }
 }

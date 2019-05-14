@@ -11,5 +11,7 @@ namespace VCFramework.Entidad
         public string Token { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaActualizacion { get; set; }
+        public int UsuId { get; set; }
+        public int InstId { get; set; }
     }
 }

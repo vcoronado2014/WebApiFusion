@@ -230,6 +230,9 @@ namespace WebApi.AsambleasDos.Controllers
                         tricel.Descripcion = descripcion;
                         tricel.QuorumMinimo = int.Parse(quorumMinimo);
                         VCFramework.NegocioMySQL.Proyectos.Modificar(tricel);
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(tricel), "Proyecto", "Se ha modificado un Proyecto", false, tricel.InstId, TipoOperacionPush.ModificaProyecto));
+                        #endregion
                         if (tricel.Id >= 0)
                         {
                             #region manejo del evento
@@ -339,6 +342,10 @@ namespace WebApi.AsambleasDos.Controllers
                     tricel.Descripcion = descripcion;
                     tricel.QuorumMinimo = int.Parse(quorumMinimo);
                     int respuesta = tricel.Id = VCFramework.NegocioMySQL.Proyectos.Insertar(tricel);
+
+                    #region llamada push
+                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(tricel), "Proyecto", "Se ha creado un nuevo Proyecto", false, tricel.InstId, TipoOperacionPush.CreaProyecto));
+                    #endregion
                     if (respuesta >= 0)
                     {
 

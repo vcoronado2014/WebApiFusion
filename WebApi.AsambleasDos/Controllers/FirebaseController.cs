@@ -30,10 +30,12 @@ namespace WebApi.AsambleasDos.Controllers
             dynamic data = JObject.Parse(Input);
 
             string token = data.Token;
+            string instId = data.InstId;
+            string usuId = data.UsuId;
             System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("es-CL");
             //validaciones antes de ejecutar la llamada.
             //VCFramework.Entidad.Institucion aus = VCFramework.NegocioMySQL.Institucion.ObtenerInstitucionPorIdSinCache(idInstitucionBuscar);
-            VCFramework.Entidad.TokenUsuario tok = VCFramework.NegocioMySql.TokenUsuario.ObtenerPorToken(token);
+            VCFramework.Entidad.TokenUsuario tok = VCFramework.NegocioMySql.TokenUsuario.ObtenerPorToken(token, int.Parse(instId));
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
@@ -45,6 +47,14 @@ namespace WebApi.AsambleasDos.Controllers
                     //ya existe, actualizar
                     //tok.FechaActualizacion = DateTime.Parse(DateTime.Now, culture);
                     tok.FechaActualizacion = DateTime.Now;
+                    if (tok.UsuId == 0)
+                    {
+                        tok.UsuId = int.Parse(usuId);
+                    }
+                    if (tok.InstId == 0)
+                    {
+                        tok.InstId = int.Parse(instId);
+                    }
                     VCFramework.NegocioMySql.TokenUsuario.Modificar(tok);
 
                 }
@@ -54,6 +64,8 @@ namespace WebApi.AsambleasDos.Controllers
                     tok.FechaActualizacion = DateTime.Now;
                     tok.FechaCreacion = DateTime.Now;
                     tok.Token = token;
+                    tok.InstId = int.Parse(instId);
+                    tok.UsuId = int.Parse(usuId);
                     VCFramework.NegocioMySql.TokenUsuario.Insertar(tok);
 
                 }

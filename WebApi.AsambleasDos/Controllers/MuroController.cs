@@ -310,6 +310,9 @@ namespace WebApi.AsambleasDos.Controllers
 
                             resp.Eliminado = 1;
                             VCFramework.NegocioMySql.RespuestaMuro.Eliminar(resp);
+                            #region llamada push
+                            var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(resp), "Muro", "Ha sido eliminado un mensaje del muro", false, resp.InstId, TipoOperacionPush.EliminaMuro));
+                            #endregion
 
 
                             List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(inst.InstId);
@@ -416,6 +419,9 @@ namespace WebApi.AsambleasDos.Controllers
                     {
                         nuevoId = VCFramework.NegocioMySql.Muro.Insertar(aus);
                         aus.Id = nuevoId;
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(aus), "Muro", "Hay una nueva novedad en el muro", false, aus.InstId, TipoOperacionPush.CreaMuro));
+                        #endregion
                         List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
                         List<string> listaCorreos = new List<string>();
                         if (correos != null && correos.Count > 0)
@@ -442,6 +448,9 @@ namespace WebApi.AsambleasDos.Controllers
                     {
                         nuevoId = aus.Id;
                         VCFramework.NegocioMySql.Muro.Modificar(aus);
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(aus), "Muro", "Se ha modificado una novedad en el muro", false, aus.InstId, TipoOperacionPush.ModificaMuro));
+                        #endregion
 
                         List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(aus.InstId);
                         List<string> listaCorreos = new List<string>();

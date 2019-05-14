@@ -39,7 +39,7 @@ namespace VCFramework.NegocioMySql
             if (lista != null)
             {
 
-                lista2 = lista.Cast<VCFramework.Entidad.TokenUsuario>().ToList());
+                lista2 = lista.Cast<VCFramework.Entidad.TokenUsuario>().ToList();
             }
 
 
@@ -67,5 +67,56 @@ namespace VCFramework.NegocioMySql
 
             return retorno;
         }
+        public static VCFramework.Entidad.TokenUsuario ObtenerPorToken(string token, int instId)
+        {
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "TOKEN";
+            filtro.TipoDato = TipoDatoGeneral.Varchar;
+            filtro.Valor = token;
+
+            FiltroGenerico filtro1 = new FiltroGenerico();
+            filtro1.Campo = "INST_ID";
+            filtro1.TipoDato = TipoDatoGeneral.Entero;
+            filtro1.Valor = instId.ToString();
+
+            List<FiltroGenerico> filtros = new List<FiltroGenerico>();
+            filtros.Add(filtro);
+            filtros.Add(filtro1);
+            VCFramework.Entidad.TokenUsuario retorno = new Entidad.TokenUsuario();
+
+            List<object> lista = fac.Leer<VCFramework.Entidad.TokenUsuario>(filtros, setCnsWebLun);
+            List<VCFramework.Entidad.TokenUsuario> lista2 = new List<VCFramework.Entidad.TokenUsuario>();
+            if (lista != null)
+            {
+                lista2 = lista.Cast<VCFramework.Entidad.TokenUsuario>().ToList();
+            }
+            if (lista2 != null && lista2.Count == 1)
+            {
+                retorno = lista2[0];
+            }
+
+            return retorno;
+        }
+        public static List<VCFramework.Entidad.TokenUsuario> Listar(int instId)
+        {
+            VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
+            FiltroGenerico filtro = new FiltroGenerico();
+            filtro.Campo = "INST_ID";
+            filtro.TipoDato = TipoDatoGeneral.Entero;
+            filtro.Valor = instId.ToString();
+
+            List<object> lista = fac.Leer<VCFramework.Entidad.TokenUsuario>(filtro, setCnsWebLun);
+            List<VCFramework.Entidad.TokenUsuario> lista2 = new List<VCFramework.Entidad.TokenUsuario>();
+            if (lista != null)
+            {
+
+                lista2 = lista.Cast<VCFramework.Entidad.TokenUsuario>().ToList();
+            }
+
+
+            return lista2;
+        }
+
     }
 }

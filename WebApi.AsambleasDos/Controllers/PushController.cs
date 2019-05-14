@@ -36,21 +36,10 @@ namespace WebApi.AsambleasDos.Controllers
             try
             {
                 
-                FireBasePush push = new FireBasePush(VCFramework.NegocioMySQL.Utiles.GetApiFirebase());
+                VCFramework.NegocioMySql.FireBasePush push = new VCFramework.NegocioMySql.FireBasePush(VCFramework.NegocioMySQL.Utiles.GetApiFirebase());
                 PushMessage mensaje = new PushMessage();
-                List<string> listaStr = new List<string>();
-                //string arr = VCFramework.NegocioMySql.TokenUsuario.Listar().ToString();
-                string arr = "";
-                List<VCFramework.Entidad.TokenUsuario> tokens = VCFramework.NegocioMySql.TokenUsuario.Listar();
-                if (tokens != null && tokens.Count > 0)
-                {
-                    foreach(VCFramework.Entidad.TokenUsuario tok in tokens)
-                    {
-                        listaStr.Add(tok.Token);
-                    }
-                }
-                arr = dataToken;
-                mensaje.to = arr;
+
+                mensaje.registration_ids = VCFramework.NegocioMySQL.Utiles.ObtenerListaTokens();
                 mensaje.notification = new PushMessageData();
                 mensaje.notification.title = "Mensaje desde la API";
                 mensaje.notification.text = "Este mensaje fue enviado desde la API, ES para pruebas de envío";
@@ -58,6 +47,7 @@ namespace WebApi.AsambleasDos.Controllers
                 {
                     Datos = "datos"
                 };
+                
                 dynamic logs = push.SendPush(mensaje);
                 
 

@@ -134,20 +134,7 @@ namespace WebApi.AsambleasDos.Controllers
                     }
                     //ahora generamos la llamada a push
                     #region llamada push
-
-                    FireBasePush push = new FireBasePush(VCFramework.NegocioMySQL.Utiles.GetApiFirebase());
-                    PushMessage mensaje = new PushMessage();
-                    //aca hay que traer los ids de los telefonos
-                    string ids = VCFramework.NegocioMySql.TokenUsuario.Listar().ToString();
-                    mensaje.to = ids;
-                    mensaje.notification = new PushMessageData();
-                    mensaje.notification.title = "Eliminación de Rendición";
-                    mensaje.notification.text = "Ha sido eliminada una Rendición del Sistema";
-                    mensaje.data = new
-                    {
-                        Datos = inst
-                    };
-                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => push.SendPush(mensaje));
+                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(inst), "Rendición", "Hay una rendición eliminada", false, inst.InstId, TipoOperacionPush.EliminaRendicion));
                     #endregion
 
 

@@ -68,6 +68,9 @@ namespace WebApi.AsambleasDos.Controllers
                         entidad.NombreArchivo = archivoGuardar;
                         nuevoId = entidad.Id;
                         VCFramework.NegocioMySql.ArchivoAdjunto.Actualizar(entidad);
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(entidad), "Documento", "Hay un documento actualizado", false, entidad.InstId, TipoOperacionPush.CreaDocumento));
+                        #endregion
 
                     }
                 }
@@ -81,6 +84,10 @@ namespace WebApi.AsambleasDos.Controllers
                     entidad.TipoPadre = int.Parse(tipoPadre);
                     nuevoId = VCFramework.NegocioMySql.ArchivoAdjunto.Insertar(entidad);
                     entidad.Id = nuevoId;
+
+                    #region llamada push
+                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(entidad), "Documento", "Hay un nuevo documento", false, entidad.InstId,  TipoOperacionPush.CreaDocumento));
+                    #endregion
                 }
                 //ya ahora guardamos el archivo
                 if (httpPostedFile != null && guardarArchivo)

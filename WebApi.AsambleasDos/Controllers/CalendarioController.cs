@@ -312,6 +312,9 @@ namespace WebApi.AsambleasDos.Controllers
                     //insertar
                     idNuevo = VCFramework.NegocioMySQL.Calendario.Insertar(calendario);
                     calendario.Id = idNuevo;
+                    #region llamada push
+                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(calendario), "Calendario", "Ha sido creado un nuevo evento", false, calendario.InstId, TipoOperacionPush.CreaCalendario));
+                    #endregion
 
                     List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
                     List<string> listaCorreos = new List<string>();
@@ -352,6 +355,9 @@ namespace WebApi.AsambleasDos.Controllers
                         calendario.FechaTermino = DateTime.Parse(fechaTermino, culture);
                         calendario.Etiqueta = int.Parse(etiqueta);
                         VCFramework.NegocioMySQL.Calendario.Modificar(calendario);
+                        #region llamada push
+                        var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(calendario), "Calendario", "Ha sido modificado un evento", false, calendario.InstId, TipoOperacionPush.ModificaCalendario));
+                        #endregion
 
                         List<UsuariosCorreos> correos = UsuariosCorreos.ListaUsuariosCorreosPorInstId(int.Parse(instId));
                         List<string> listaCorreos = new List<string>();
@@ -468,6 +474,10 @@ namespace WebApi.AsambleasDos.Controllers
                         //cr.Enviar(mnsj);
                         var task = System.Threading.Tasks.Task.Factory.StartNew(() => cr.Enviar(mnsj));
                     }
+
+                    #region llamada push
+                    var taskPush = System.Threading.Tasks.Task.Factory.StartNew(() => VCFramework.NegocioMySQL.Utiles.EnviarMensajePush("", JsonConvert.SerializeObject(calendario), "Calendario", "Se ha eliminado un evento", false, calendario.InstId, TipoOperacionPush.EliminaCalendario));
+                    #endregion
 
                 }
 
