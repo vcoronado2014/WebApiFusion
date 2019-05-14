@@ -36,9 +36,21 @@ namespace WebApi.AsambleasDos.Controllers
             try
             {
                 
-                FireBasePush push = new FireBasePush("AAAAEwx3cpU:APA91bHW9kPcdJPdSvmp44doTZEQNKAu9ANVvZEImaj5CWEF8yAIb-1VmP2llkQURCMFc9Fst8NHICpOdAOLOOWzAHnL2ARlC2x4i3-K4IrZLUHWK7YNVLriMKOQHTY2TwjNkEHX6Ktq");
+                FireBasePush push = new FireBasePush(VCFramework.NegocioMySQL.Utiles.GetApiFirebase());
                 PushMessage mensaje = new PushMessage();
-                mensaje.to = "topics/news";
+                List<string> listaStr = new List<string>();
+                //string arr = VCFramework.NegocioMySql.TokenUsuario.Listar().ToString();
+                string arr = "";
+                List<VCFramework.Entidad.TokenUsuario> tokens = VCFramework.NegocioMySql.TokenUsuario.Listar();
+                if (tokens != null && tokens.Count > 0)
+                {
+                    foreach(VCFramework.Entidad.TokenUsuario tok in tokens)
+                    {
+                        listaStr.Add(tok.Token);
+                    }
+                }
+                arr = dataToken;
+                mensaje.to = arr;
                 mensaje.notification = new PushMessageData();
                 mensaje.notification.title = "Mensaje desde la API";
                 mensaje.notification.text = "Este mensaje fue enviado desde la API, ES para pruebas de envío";
