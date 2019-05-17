@@ -29,26 +29,93 @@ namespace WebApi.AsambleasDos.Controllers
 
             dynamic data = JObject.Parse(Input);
 
-            string dataToken = data.Token;
-
+            string dataToken = "";
+            string titulo = data.Titulo;
+            string texto = data.Texto;
+            string instId = data.InstId;
+            string usuId = data.UsuId;
+            string esSolicitud = data.EsSolicitud;
+            bool solicitud = true;
+            bool enviar = false;
+            if (data.Token != null)
+            {
+                dataToken = data.Token;
+            }
+            else
+            {
+                VCFramework.Entidad.TokenUsuario tokin = VCFramework.NegocioMySql.TokenUsuario.ObtenerPorToken(int.Parse(usuId), int.Parse(instId));
+                if (tokin != null && tokin.Id > 0)
+                {
+                    dataToken = tokin.Token;
+                }
+                else
+                {
+                    enviar = false;
+                }
+            }
 
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             try
             {
+                if (esSolicitud == "0")
+                {
+                    solicitud = false;
+                }
                 
                 VCFramework.NegocioMySql.FireBasePush push = new VCFramework.NegocioMySql.FireBasePush(VCFramework.NegocioMySQL.Utiles.GetApiFirebase());
                 PushMessage mensaje = new PushMessage();
-
-                mensaje.registration_ids = VCFramework.NegocioMySQL.Utiles.ObtenerListaTokens();
+                if (solicitud)
+                {
+                    List<string> listaStr = new List<string>();
+                    //llamada para traer los tokens de la institucion
+                    List<VCFramework.Entidad.TokenUsuario> tokens = VCFramework.NegocioMySql.TokenUsuario.Listar(int.Parse(instId));
+                    //llamada para traer los usuarios adminsitradores
+                    List<VCFramework.Entidad.UsuRol> rls = VCFramework.NegocioMySql.RlRolUsu.ObtenerPorInstId(int.Parse(instId));
+                    //si existen elementos en la relacion se agregan al arreglo de string
+                    if (rls != null && rls.Count > 0)
+                    {
+                        foreach(VCFramework.Entidad.UsuRol usu in rls)
+                        {
+                            if (tokens.Exists(p=>p.UsuId == usu.UsuId))
+                            {
+                                List<VCFramework.Entidad.TokenUsuario> tok = tokens.FindAll(p => p.UsuId == usu.UsuId).ToList();
+                                if (tok != null && tok.Count > 0)
+                                {
+                                    foreach(VCFramework.Entidad.TokenUsuario tik in tok)
+                                    {
+                                        listaStr.Add(tik.Token);
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                    if (listaStr != null && listaStr.Count > 0)
+                    {
+                        enviar = true;
+                        mensaje.registration_ids = listaStr;
+                    }
+                }
+                else
+                {
+                    //es un mensaje a cualquiera
+                    mensaje.registration_ids = VCFramework.NegocioMySQL.Utiles.ObtenerListaTokens(int.Parse(instId));
+                    enviar = true;
+                }
+                
                 mensaje.notification = new PushMessageData();
-                mensaje.notification.title = "Mensaje desde la API";
-                mensaje.notification.text = "Este mensaje fue enviado desde la API, ES para pruebas de envío";
+                mensaje.notification.title = titulo;
+                mensaje.notification.text = texto;
                 mensaje.data = new
                 {
                     Datos = "datos"
                 };
-                
-                dynamic logs = push.SendPush(mensaje);
+
+                dynamic logs = null;
+                if (enviar)
+                {
+                    logs = push.SendPush(mensaje);
+                }
                 
 
                 /*

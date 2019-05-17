@@ -67,6 +67,7 @@
     <Compile Include="ElementosGrupo.cs" />
     <Compile Include="Encabezado.cs" />
     <Compile Include="EncabezadoCarga.cs" />
+    <Compile Include="FireBasePush.cs" />
     <Compile Include="GrupoItem.cs" />
     <Compile Include="IngresoEgreso.cs" />
     <Compile Include="Institucion.cs" />

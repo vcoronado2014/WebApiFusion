@@ -576,4 +576,17 @@ Login failed for user 'sa'.</Detalle>
     <Detalle>No se pueden enviar todos los destinatarios.</Detalle>
     <Id>81</Id>
   </error>
+  <error>
+    <Fecha>2019-05-16 14:02</Fecha>
+    <Detalle> -- &lt;html&gt;
+      Ha sido modificado el evento  &lt;strong&gt;prueba&lt;/strong&gt;, para la Institución Asambleas:&lt;br /&gt;&lt;br /&gt;
+      Estimado Usuario, ha sido agregado un evento para su institución, este tendrá lugar en sala 2 entre 05-18-2019 11:00 - 05-19-2019 11:00, ingrese a www.asambleas.cl para poder verlo.&lt;br /&gt;&lt;br /&gt;
+      *****  No responder este correo!!,  Mensaje enviado desde el sistema automático de envio de correos de asambleas ****** &lt;br /&gt;&lt;/html&gt;</Detalle>
+    <Id>82</Id>
+  </error>
+  <error>
+    <Fecha>2019-05-16 14:07</Fecha>
+    <Detalle>No se pueden enviar todos los destinatarios.</Detalle>
+    <Id>83</Id>
+  </error>
 </root>
