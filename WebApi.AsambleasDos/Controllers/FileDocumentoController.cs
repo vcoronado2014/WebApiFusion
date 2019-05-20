@@ -173,7 +173,18 @@ namespace WebApi.AsambleasDos.Controllers
 
                         string extension = Path.GetExtension(doc.NombreArchivo);
                         entidadS.OtroTres = extension;
-
+                        VCFramework.EntidadFuncional.UsuarioFuncional us = VCFramework.NegocioMySQL.AutentificacionUsuario.ObtenerUsuarioFuncional(doc.UsuId);
+                        if (us != null && us.AutentificacionUsuario.Id > 0)
+                        {
+                            entidadS.OtroOcho = us.Persona.Nombres + " " + us.Persona.ApellidoPaterno + " " + us.Persona.ApellidoMaterno;
+                            entidadS.OtroNueve = us.Rol.Nombre;
+                        }
+                        entidadS.OtroCinco = "";
+                        if (doc.Descripcion != "" || doc.Descripcion != "NULL")
+                        {
+                            entidadS.OtroCinco = doc.Descripcion;
+                        }
+                        //VCFramework.NegocioMySql.RlRolUsu.ObtenerPorInstId
                         //HttpContext.Current.Server.MapPath("~/Repositorio")
                         string urlll = Request.RequestUri.GetLeftPart(UriPartial.Authority) + "/apps/Repositorio/";
                         if (doc.NombreArchivo != null && doc.NombreArchivo != "")
