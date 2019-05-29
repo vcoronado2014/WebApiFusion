@@ -249,6 +249,8 @@
     <Compile Include="Controllers\ObtenerRolesController.cs" />
     <Compile Include="Controllers\ObtenerUsuarioController.cs" />
     <Compile Include="Controllers\ObtenerUsuariosController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\PerfilUsuarioController.cs" />
     <Compile Include="Controllers\PermisoRolController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
