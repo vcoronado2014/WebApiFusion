@@ -79,10 +79,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 08:36:55</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/16/2019 11:55:04</publishTime>
+      <publishTime>05/20/2019 10:53:40</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/16/2019 11:55:04</publishTime>
+      <publishTime>05/20/2019 10:53:40</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>11/28/2018 08:36:55</publishTime>
@@ -214,31 +214,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 08:36:55</publishTime>
     </File>
     <File Include="bin/VCFramework.Entidad.dll">
-      <publishTime>05/14/2019 12:27:08</publishTime>
+      <publishTime>05/20/2019 10:52:15</publishTime>
     </File>
     <File Include="bin/VCFramework.Entidad.pdb">
-      <publishTime>05/14/2019 12:27:08</publishTime>
+      <publishTime>05/20/2019 10:52:15</publishTime>
     </File>
     <File Include="bin/VCFramework.EntidadFuncional.dll">
-      <publishTime>05/14/2019 12:27:09</publishTime>
+      <publishTime>05/20/2019 10:52:16</publishTime>
     </File>
     <File Include="bin/VCFramework.EntidadFuncional.pdb">
-      <publishTime>05/14/2019 12:27:09</publishTime>
+      <publishTime>05/20/2019 10:52:16</publishTime>
     </File>
     <File Include="bin/VCFramework.Negocio.Factory.dll">
       <publishTime>11/28/2018 08:36:55</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.dll">
-      <publishTime>05/16/2019 11:54:42</publishTime>
+      <publishTime>05/20/2019 10:52:18</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.pdb">
-      <publishTime>05/16/2019 11:54:42</publishTime>
+      <publishTime>05/20/2019 10:52:18</publishTime>
     </File>
     <File Include="bin/WebApi.AsambleasDos.dll">
-      <publishTime>05/16/2019 11:54:49</publishTime>
+      <publishTime>05/20/2019 10:53:30</publishTime>
     </File>
     <File Include="bin/WebApi.AsambleasDos.pdb">
-      <publishTime>05/16/2019 11:54:49</publishTime>
+      <publishTime>05/20/2019 10:53:30</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>11/28/2018 08:36:56</publishTime>
@@ -274,7 +274,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 08:36:55</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/16/2019 11:54:52</publishTime>
+      <publishTime>05/20/2019 10:53:33</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/28/2018 08:36:52</publishTime>

@@ -79,6 +79,7 @@
     <Compile Include="Muro.cs" />
     <Compile Include="PermisoRol.cs" />
     <Compile Include="Persona.cs" />
+    <Compile Include="PrefilUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincia.cs" />
     <Compile Include="Proyectos.cs" />

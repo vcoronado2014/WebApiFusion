@@ -211,6 +211,7 @@ namespace VCFramework.NegocioMySQL
             {
                 //si no tiene rol institucion se asocia
                 retorno.RolInstitucion = NegocioMySql.RolInstitucion.ObtenerRolPorId(retorno.AutentificacionUsuario.RolId);
+
                 if (retorno.RolInstitucion.Id == 0)
                 {
                     retorno.RolInstitucion.Descripcion = retorno.Rol.Descripcion;
@@ -226,6 +227,8 @@ namespace VCFramework.NegocioMySQL
                     retorno.Rol.Descripcion = retorno.RolInstitucion.Descripcion;
                     retorno.Rol.Nombre = retorno.RolInstitucion.Nombre;
                 }
+                retorno.MiPerfil = new Entidad.MiPerfil();
+                retorno.MiPerfil = VCFramework.NegocioMySql.PrefilUsuario.BuscarPorAusId(retorno.AutentificacionUsuario.Id);
 
             }
                 

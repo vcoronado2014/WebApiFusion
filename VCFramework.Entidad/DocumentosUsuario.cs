@@ -14,6 +14,7 @@ namespace VCFramework.Entidad
         public int Tamano { get; set; }
         public string FechaSubida { get; set; }
         public string Extension { get; set; }
+        public string Descripcion { get; set; }
         public int Eliminado { get; set; }
     }
 }
